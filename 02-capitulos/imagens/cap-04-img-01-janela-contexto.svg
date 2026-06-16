@@ -1,0 +1,40 @@
+<svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <rect width="900" height="480" fill="#fefce8"/>
+
+  <text x="450" y="40" fill="#0d1b2a" font-size="22" font-weight="700" text-anchor="middle">A JANELA DE CONTEXTO É O ÚNICO MUNDO QUE O MODELO VÊ</text>
+  <text x="450" y="64" fill="#6b7280" font-size="13" text-anchor="middle">Tudo que está fora da janela, no momento da resposta, não existe para o modelo</text>
+
+  <!-- Window frame -->
+  <rect x="60" y="100" width="780" height="260" rx="14" fill="none" stroke="#E97451" stroke-width="3" stroke-dasharray="8 4"/>
+  <text x="80" y="128" fill="#E97451" font-size="13" font-weight="700">JANELA DE CONTEXTO ATUAL</text>
+
+  <!-- Items inside -->
+  <g>
+    <rect x="80" y="148" width="740" height="36" rx="6" fill="#fde68a" stroke="#fb923c"/>
+    <text x="92" y="170" fill="#0d1b2a" font-size="12" font-weight="700">System prompt</text>
+    <text x="780" y="170" fill="#6b7280" font-size="11" text-anchor="end">~2.000 tokens</text>
+
+    <rect x="80" y="194" width="740" height="36" rx="6" fill="#fde68a" stroke="#fb923c"/>
+    <text x="92" y="216" fill="#0d1b2a" font-size="12" font-weight="700">Histórico da conversa (turnos anteriores)</text>
+    <text x="780" y="216" fill="#6b7280" font-size="11" text-anchor="end">~8.000 tokens</text>
+
+    <rect x="80" y="240" width="740" height="36" rx="6" fill="#fde68a" stroke="#fb923c"/>
+    <text x="92" y="262" fill="#0d1b2a" font-size="12" font-weight="700">Documentos / RAG / contexto recuperado</text>
+    <text x="780" y="262" fill="#6b7280" font-size="11" text-anchor="end">~12.000 tokens</text>
+
+    <rect x="80" y="286" width="740" height="36" rx="6" fill="#E97451"/>
+    <text x="92" y="308" fill="#fef3c7" font-size="12" font-weight="700">Sua mensagem atual</text>
+    <text x="780" y="308" fill="#fef3c7" font-size="11" text-anchor="end">~400 tokens</text>
+
+    <text x="450" y="345" fill="#9ca3af" font-size="11" text-anchor="middle" font-style="italic">+ a resposta que o modelo vai gerar (ainda não escrita)</text>
+  </g>
+
+  <!-- Outside zone -->
+  <g>
+    <rect x="60" y="380" width="780" height="80" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-dasharray="4 4"/>
+    <text x="80" y="402" fill="#6b7280" font-size="12" font-weight="700">FORA DA JANELA — INVISÍVEL PARA O MODELO</text>
+    <text x="80" y="422" fill="#6b7280" font-size="11">• conversa de ontem (a menos que reinjetada)</text>
+    <text x="80" y="438" fill="#6b7280" font-size="11">• documentos não recuperados</text>
+    <text x="80" y="454" fill="#6b7280" font-size="11">• memória organizacional · base de conhecimento · contexto de outros usuários</text>
+  </g>
+</svg>

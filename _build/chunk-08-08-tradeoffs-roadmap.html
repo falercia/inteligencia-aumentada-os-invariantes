@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Inteligência Aumentada</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Inteligência Aumentada</h1>
+</header>
+<div class="page-break">
+
+</div>
+<h1 id="capítulo-43">CAPÍTULO 43</h1>
+<h2 id="trade-offs-canônicos-da-ia">TRADE-OFFS CANÔNICOS DA IA</h2>
+<hr />
+<blockquote>
+<p><em>“Não existe decisão de IA sem trade-off. Existe decisão sem consciência do trade-off. Quem se acomoda na segunda paga preço pela primeira.”</em></p>
+</blockquote>
+<hr />
+<blockquote>
+<p>🧭 <strong>Invariante-mãe:</strong> <strong>Invariante 4 — Encaixe</strong> — <em>“Escolha pelo padrão da tarefa, nunca pela versão da moda.”</em> Invariante secundário: <strong>Inv. 9 — Operador</strong> (consciência do trade-off é função do operador). Capítulo-âncora dos frameworks F2, F5, F7. Conecta a Caps 06, 08, 12, 16, 36, 40.</p>
+</blockquote>
+<hr />
+<h2 id="o-conceito-intuitivo">43.1 — O CONCEITO INTUITIVO</h2>
+<p>Toda decisão de IA em ambiente corporativo se reduz, no fim, a uma família pequena de <strong>trade-offs canônicos</strong>. Não são novos, não são exóticos, e não vão mudar nos próximos dez anos. RAG ou fine-tuning, ou nenhum dos dois? Agente autônomo ou workflow determinístico? Modelo fechado ou open source self-hosted? Onde sacrificar latência, qualidade ou custo? Automação plena ou human-in-the-loop? Generalismo ou especialização? Cada trade-off tem três a quatro eixos que decidem o lado certo para uma situação específica. Quem domina os eixos decide rápido e correto; quem decide por intuição refaz a decisão a cada trimestre, com custo crescente.</p>
+<p>Este capítulo é o <strong>cardápio executivo</strong> de IA. É a referência consultada antes de qualquer decisão de arquitetura, antes de qualquer aprovação de iniciativa, antes de qualquer migração técnica. Não substitui os capítulos que aprofundam cada trade-off — RAG está no Cap 06, fine-tuning no Cap 08, agentes no Cap 12, open source no Cap 16, custo no Cap 36, autonomia no Cap 40 —, e sim sintetiza, num lugar único, a decisão por eixos que cada capítulo desenvolve.</p>
+<p>A regra de ouro é não tratar nenhum dos seis trade-offs como <strong>decisão binária</strong>. Cada um é triângulo, raramente dicotomia. RAG e fine-tuning podem coexistir. Agente e workflow podem alternar. Aberto e fechado podem coabitar no mesmo stack. Generalista e especialista podem ser roteados. Quem encara o trade-off como decisão de A ou B perde a flexibilidade arquitetural que torna a operação sustentável.</p>
+<hr />
+<h2 id="analogia-a-carta-do-restaurante">43.2 — ANALOGIA: A CARTA DO RESTAURANTE</h2>
+<p>Pense num restaurante sério. Você não chega pedindo “o melhor prato”. Você lê a carta, identifica o que combina com sua fome, seu paladar do dia, seu orçamento, o tempo que tem, o vinho que vai pedir. Há ali, sob cada item, um trade-off explícito — proteína vegetal ou animal, técnica longa ou rápida, sazonalidade, fusão ou tradicional. O chef do bom restaurante não decide pelo cliente; oferece o cardápio honesto e deixa a escolha consciente. O cliente bem informado decide rápido, e a refeição faz sentido.</p>
+<p>Trade-offs canônicos de IA são o cardápio do CTO. Você lê os seis itens, identifica o que combina com o caso de uso, o orçamento, a regulação, a maturidade do time. Sob cada item, há eixos honestos. Nenhum item é universalmente melhor; cada um tem situações onde brilha e outras onde é desperdício. O CTO maduro consulta o cardápio antes de cada decisão; o imaturo escolhe pelo que está na moda.</p>
+<p>A analogia ilumina três pontos. Primeiro, o trade-off é <strong>decisão de adequação</strong>, não de superioridade. Segundo, o trade-off é <strong>consciente</strong>: ser surpreendido pelo eixo que você não considerou é falha de método. Terceiro, o trade-off é <strong>repetível</strong>: a mesma decisão pode ser revisada quando o contexto mudar, sem culpa.</p>
+<hr />
+<h2 id="os-seis-trade-offs-canônicos">43.3 — OS SEIS TRADE-OFFS CANÔNICOS</h2>
+<h3 id="trade-off-t1-rag-fine-tuning-prompt-enriquecido">Trade-off T1 — RAG × Fine-tuning × Prompt enriquecido</h3>
+<p><strong>Pergunta executiva:</strong> <em>“Quero conhecimento atualizado, comportamento personalizado, ou os dois?”</em></p>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 40%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Opção</th>
+<th>Quando faz sentido</th>
+<th>Quando é desperdício</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>RAG</strong></td>
+<td>Conhecimento muda toda semana; corpus grande; rastreabilidade exigida; equipe operando sem time de ML</td>
+<td>Conhecimento é estável por anos; corpus pequeno</td>
+</tr>
+<tr class="even">
+<td><strong>Fine-tuning</strong></td>
+<td>Comportamento específico (tom, formato, terminologia interna); domínio estável; volume alto que paga o custo de treino</td>
+<td>Decisão de prestígio sem caso de uso claro; expectativa de “tirar a censura”</td>
+</tr>
+<tr class="odd">
+<td><strong>Prompt enriquecido</strong></td>
+<td>Caso simples; contexto curto; operação ainda em prototipagem</td>
+<td>Conhecimento volumoso; necessidade de rastreabilidade; volume crescente</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Eixo decisor:</strong> frequência de mudança do conhecimento × tamanho do corpus × custo aceitável de atualização.</p>
+<p>🔗 Aprofundamento: <a href="L1-C06-rag.md">Cap 06 RAG</a>, <a href="L1-C08-fine-tuning.md">Cap 08 Fine-tuning</a>, <a href="L1-C11-context-engineering.md">Cap 11 Context Engineering</a>.</p>
+<hr />
+<h3 id="trade-off-t2-agente-autônomo-workflow-determinístico">Trade-off T2 — Agente autônomo × Workflow determinístico</h3>
+<p><strong>Pergunta executiva:</strong> <em>“O caminho até a resposta é conhecido, ou descoberto?”</em></p>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 40%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Opção</th>
+<th>Quando faz sentido</th>
+<th>Quando é desperdício</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Agente autônomo</strong></td>
+<td>Variabilidade alta no caminho da resposta; explorar fontes diversas; tarefa de pesquisa ou síntese aberta</td>
+<td>Caminho conhecido e padronizado; auditabilidade exigida em cada passo</td>
+</tr>
+<tr class="even">
+<td><strong>Workflow determinístico</strong></td>
+<td>Caminho mapeado em 80%+ dos casos; auditoria por passo necessária; reversibilidade exigida; custo composto sob controle</td>
+<td>Tarefa exige descoberta; cobertura impossível de exaustivo</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Eixo decisor:</strong> variabilidade do caminho × auditabilidade exigida × custo composto (F7).</p>
+<p>⚠️ <strong>Anti-padrão clássico:</strong> escolher agente autônomo porque “tem N cenários”, quando workflow determinístico cobriria os N-1 mais comuns com auditabilidade total a 1/10 do custo composto.</p>
+<p>🔗 Aprofundamento: <a href="L1-C12-agentes.md">Cap 12 Agentes</a>, <a href="L1-C40-llmops.md">Cap 40 LLMOps</a>, <a href="../03-frameworks/L1-F3-agente-prop.md">F3 AGENTE-PROP</a>.</p>
+<hr />
+<h3 id="trade-off-t3-modelo-fechado-open-source-self-hosted">Trade-off T3 — Modelo fechado × Open source self-hosted</h3>
+<p><strong>Pergunta executiva:</strong> <em>“Preciso de soberania de dados, controle de custo ou ponta de qualidade?”</em></p>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 40%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Opção</th>
+<th>Quando faz sentido</th>
+<th>Quando é desperdício</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Modelo fechado (vendor)</strong></td>
+<td>Ponta de qualidade em capacidade crítica; sem time dedicado de infra/ML; cadência de release importa</td>
+<td>Restrição regulatória sobre saída de dado; volume altíssimo com margem apertada</td>
+</tr>
+<tr class="even">
+<td><strong>Open source self-hosted</strong></td>
+<td>Soberania de dado obrigatória; volume permite TCO menor que API; time maduro de ML/ops</td>
+<td>Sem time dedicado; sem golden set para sustentar a escolha; cadência de release alta</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Eixo decisor:</strong> soberania de dado × TCO real × ponta de qualidade × maturidade de ops.</p>
+<p>🔗 Aprofundamento: <a href="L1-C16-open-source.md">Cap 16 Open Source</a>, <a href="L1-C15-comparacao-modelos.md">Cap 15 Comparação de modelos</a>.</p>
+<hr />
+<h3 id="trade-off-t4-latência-qualidade-custo-o-triângulo">Trade-off T4 — Latência × Qualidade × Custo (o triângulo)</h3>
+<p><strong>Pergunta executiva:</strong> <em>“Onde está minha restrição dominante?”</em></p>
+<p>O triângulo é regra clássica de engenharia. Otimizar um canto sempre custa em algum dos outros dois. Não existe “rápido, bom e barato” como combinação livre; existe combinação restrita ao envelope possível em um modelo dado.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Otimizar</th>
+<th>Custa em</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Latência</strong></td>
+<td>Qualidade (modelo menor, menos passos) ou Custo (caching agressivo, pré-computação)</td>
+</tr>
+<tr class="even">
+<td><strong>Qualidade</strong></td>
+<td>Latência (modelo maior, mais passos) ou Custo (modelo premium)</td>
+</tr>
+<tr class="odd">
+<td><strong>Custo</strong></td>
+<td>Latência (cache + batch) ou Qualidade (modelo pequeno)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Eixo decisor:</strong> identificação clara da restrição dominante no caso de uso real. Tarefa de conversação síncrona prioriza latência; tarefa de relatório regulatório prioriza qualidade; tarefa de classificação em volume prioriza custo.</p>
+<p>🔗 Aprofundamento: <a href="L1-C36-economia-tokens.md">Cap 36 Economia de Tokens</a>, <a href="../03-frameworks/L1-F7-composto-3t.md">F7 COMPOSTO-3T</a>.</p>
+<hr />
+<h3 id="trade-off-t5-automação-plena-human-in-the-loop">Trade-off T5 — Automação plena × Human-in-the-loop</h3>
+<p><strong>Pergunta executiva:</strong> <em>“Qual o custo de um erro silencioso?”</em></p>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 40%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Opção</th>
+<th>Quando faz sentido</th>
+<th>Quando é desperdício</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Automação plena</strong></td>
+<td>Erro reversível com custo baixo; volume alto; revisão humana inviável em escala</td>
+<td>Erro irreversível ou de altíssimo custo; regulação exige revisão humana; domínio sensível</td>
+</tr>
+<tr class="even">
+<td><strong>Human-in-the-loop</strong></td>
+<td>Erro irreversível ou caro; regulação exige (LGPD art. 20, AI Act); domínio sensível; operação ainda em maturação</td>
+<td>Volume torna revisão humana inviável; erro reversível e barato</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Eixo decisor:</strong> reversibilidade × frequência × consequência do erro.</p>
+<p>A regra prática: começar com human-in-the-loop e migrar para automação plena conforme o golden set, o adversarial e a operação madurem. Não inverter a ordem.</p>
+<p>🔗 Aprofundamento: <a href="L1-C39-evals.md">Cap 39 Evals</a>, <a href="L1-C41-alignment.md">Cap 41 Alignment</a>, <a href="L1-C42-governanca.md">Cap 42 Governança</a>, <a href="../03-frameworks/L1-F3-agente-prop.md">F3 AGENTE-PROP</a>.</p>
+<hr />
+<h3 id="trade-off-t6-generalismo-especialização">Trade-off T6 — Generalismo × Especialização</h3>
+<p><strong>Pergunta executiva:</strong> <em>“Modelo geral com prompt forte, ou modelo especializado?”</em></p>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 40%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Opção</th>
+<th>Quando faz sentido</th>
+<th>Quando é desperdício</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Modelo geral + prompt forte</strong></td>
+<td>Domínio estável; volume moderado; sem tempo para construir golden set robusto; necessidade de mover rápido</td>
+<td>Domínio nicho com vocabulário próprio; volume altíssimo com margem apertada</td>
+</tr>
+<tr class="even">
+<td><strong>Modelo especializado</strong></td>
+<td>Domínio nicho (jurídico, clínico, código); volume justifica custo de treinamento; golden set robusto disponível</td>
+<td>Domínio geral; volume pequeno; cadência alta de mudança no domínio</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Eixo decisor:</strong> volume × estabilidade do domínio × disponibilidade de golden set × custo de treino vs operação.</p>
+<p>🔗 Aprofundamento: <a href="L1-C08-fine-tuning.md">Cap 08 Fine-tuning</a>, <a href="L1-C16-open-source.md">Cap 16 Open Source</a>, <a href="../03-frameworks/L1-F2-encaixe-5.md">F2 ENCAIXE-5</a>.</p>
+<hr />
+<h2 id="diagramas">43.4 — DIAGRAMAS</h2>
+<blockquote>
+<p>📊 <strong>Diagrama 43.1 — Matriz dos 6 trade-offs canônicos</strong></p>
+<p><em>(SVG planejado: <code>imagens/L1-C43-img-01-matriz-trade-offs.svg</code>)</em></p>
+<p>Matriz 6×4 com cada trade-off em uma linha, eixos de decisão nas colunas (pergunta executiva, opção A, opção B, eixo decisor).</p>
+</blockquote>
+<blockquote>
+<p>📊 <strong>Diagrama 43.2 — Árvore de decisão integrada</strong></p>
+<p><em>(SVG planejado: <code>imagens/L1-C43-img-02-arvore-decisao.svg</code>)</em></p>
+<p>Fluxograma único que percorre os 6 trade-offs em sequência sugerida (T4 triângulo → T1 → T5 → T2 → T6 → T3), com cada nó conectando ao próximo conforme decisão tomada.</p>
+</blockquote>
+<blockquote>
+<p>📊 <strong>Diagrama 43.3 — Triângulo Latência × Qualidade × Custo</strong></p>
+<p><em>(SVG planejado: <code>imagens/L1-C43-img-03-triangulo.svg</code>)</em></p>
+<p>Visualização clássica do triângulo de engenharia aplicada a IA.</p>
+</blockquote>
+<hr />
+<h2 id="exemplo-memorável-o-e-commerce-que-escolheu-agente-quando-workflow-bastava">43.5 — EXEMPLO MEMORÁVEL: O E-COMMERCE QUE ESCOLHEU AGENTE QUANDO WORKFLOW BASTAVA</h2>
+<blockquote>
+<p>⚠️ <strong>Cenário ilustrativo</strong> — composto a partir de padrões observados em e-commerces brasileiros de médio porte durante adoção de IA em atendimento e operação entre 2024 e 2026; números são realistas mas não identificam empresa específica.</p>
+</blockquote>
+<p>E-commerce brasileiro de moda, ~280 colaboradores, ~1,4 milhão de pedidos/ano, operando em 2025. Decisão: automatizar classificação e roteamento de pedidos de reembolso. O time técnico levantou 27 cenários distintos (defeito, tamanho errado, atraso, arrependimento, fraude, troca, devolução parcial, e variações por categoria). A proposta foi um <strong>agente autônomo</strong> que pudesse navegar todos os 27 com flexibilidade e descobrir variantes não previstas.</p>
+<p>A diretoria aprovou. Implementação em 8 semanas. Resultado em produção: tempo médio de classificação caiu de 14 minutos (humano) para 3 minutos (agente). Diretoria satisfeita. CFO assinou o investimento.</p>
+<p>Três meses depois, três problemas convergiram. Primeiro, <strong>fatura mensal de IA passou de R$ 12 mil para R$ 78 mil</strong>. O agente, em cada classificação, fazia em média 6 chamadas ao modelo, com loops imprevisíveis em casos ambíguos. Segundo, <strong>auditoria do CS revelou inconsistência</strong>: o mesmo cenário, com input ligeiramente diferente, era classificado de formas distintas em 11% dos casos. Terceiro, em uma auditoria regulatória (Procon), o e-commerce não conseguiu reconstruir o caminho exato da decisão em 3 de 5 amostras pedidas, porque o agente não tinha tracing por passo nem rationale explícito.</p>
+<p>Uma consultoria foi contratada. A análise revelou o erro estrutural: a empresa tinha caído na armadilha clássica do trade-off T2, escolhendo agente autônomo quando workflow determinístico cobriria a maioria com auditabilidade total. Dos 27 cenários, <strong>24 eram cobertos por regras conhecidas e estáveis</strong> — categoria de produto + motivo declarado + janela de pedido + status atual. Os 3 restantes (ambiguidade, suspeita de fraude, caso multi-categoria) é que justificavam intervenção do agente, sob supervisão humana.</p>
+<p>A migração para <strong>workflow determinístico para os 24 cenários estáveis + agente sob supervisão para os 3 ambíguos</strong> levou 6 semanas. Resultado: fatura caiu para R$ 9 mil/mês (abaixo do baseline pré-IA), consistência subiu para 99,2%, tempo médio caiu mais 18% (workflow é mais rápido que agente), auditabilidade ficou total nos 24 cenários e parcial nos 3 restantes (com rationale registrado).</p>
+<p>A lição é estrutural. <em>Em 80%+ dos casos, workflow determinístico bem desenhado é melhor que agente autônomo — mais barato, mais rápido, mais auditável, mais consistente. Agente é a ferramenta certa para descoberta, não para padrão. Quem confunde paga em três frentes ao mesmo tempo: fatura, consistência e auditabilidade.</em></p>
+<blockquote>
+<p>🎯 <strong>PARA EXECUTIVOS</strong> Toda vez que o time técnico propor “agente autônomo” para um caso com N cenários, faça a pergunta: “destes N cenários, quantos são conhecidos e estáveis hoje?”. Se a resposta for “80% ou mais”, a proposta correta é workflow determinístico para os conhecidos e agente sob supervisão para o restante. Inverter essa ordem custa caro nos três eixos do trade-off T2.</p>
+</blockquote>
+<hr />
+<h2 id="quando-usar-quando-evitar">43.6 — QUANDO USAR / QUANDO EVITAR</h2>
+<p><strong>Consultar o cardápio dos 6 trade-offs sempre que:</strong> - Iniciativa nova de IA está sendo aprovada - Migração técnica está sendo considerada - Fornecedor está sendo avaliado - Arquitetura corrente está sendo revisada - Decisão de cliente Enterprise depende de defender a arquitetura - Auditoria interna ou externa está sendo preparada</p>
+<p><strong>Evitar usar como receita rígida</strong> quando o contexto exigir nuance específica. Os trade-offs são bússola, não mapa exato; a decisão final ainda demanda julgamento do operador (Inv. 9).</p>
+<hr />
+<h2 id="vantagens-e-limitações">43.7 — VANTAGENS E LIMITAÇÕES</h2>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Vantagem</th>
+<th>Limitação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Acelera decisão de arquitetura com cardápio explícito</td>
+<td>Não substitui análise específica do caso de uso</td>
+</tr>
+<tr class="even">
+<td>Evita decisões por moda e por hype</td>
+<td>Requer disciplina de consultar antes de propor</td>
+</tr>
+<tr class="odd">
+<td>Cria vocabulário comum entre tech e diretoria</td>
+<td>Em casos limítrofes, eixos não decidem por si só</td>
+</tr>
+<tr class="even">
+<td>Habilita revisão consciente quando contexto muda</td>
+<td>Trade-off lido como dicotomia binária empobrece a decisão</td>
+</tr>
+<tr class="odd">
+<td>Conecta os capítulos anteriores em sistema</td>
+<td>Aplicado mecanicamente vira checklist sem força</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="conexões-com-outros-capítulos">43.8 — CONEXÕES COM OUTROS CAPÍTULOS</h2>
+<ul>
+<li>🔗 Cap 06 RAG (T1), Cap 08 Fine-tuning (T1, T6)</li>
+<li>🔗 Cap 12 Agentes (T2), Cap 15 Comparação (T3, T6), Cap 16 Open source (T3)</li>
+<li>🔗 Cap 36 Custo (T4), Cap 40 LLMOps (T2, T5)</li>
+<li>🔗 Cap 39 Evals (sustenta T5), Cap 41 Alignment (sustenta T5), Cap 42 Governança (regulação no T5)</li>
+<li>🔗 F2 ENCAIXE-5, F3 AGENTE-PROP, F5 MCP-COBERTURA, F7 COMPOSTO-3T, F8 EVAL-PIRÂMIDE</li>
+</ul>
+<hr />
+<h2 id="resumo-executivo">43.9 — RESUMO EXECUTIVO</h2>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 28%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Trade-off</th>
+<th>Pergunta</th>
+<th>Eixo decisor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>T1 RAG × Fine-tuning × Prompt</td>
+<td>Conhecimento atualizado ou comportamento personalizado?</td>
+<td>Frequência × corpus × custo</td>
+</tr>
+<tr class="even">
+<td>T2 Agente × Workflow</td>
+<td>Caminho é conhecido?</td>
+<td>Variabilidade × auditabilidade × custo composto</td>
+</tr>
+<tr class="odd">
+<td>T3 Fechado × Open source</td>
+<td>Soberania, custo ou ponta?</td>
+<td>Soberania × TCO × ponta × ops</td>
+</tr>
+<tr class="even">
+<td>T4 Latência × Qualidade × Custo</td>
+<td>Onde está minha restrição?</td>
+<td>Triângulo: dois às custas do terceiro</td>
+</tr>
+<tr class="odd">
+<td>T5 Automação × HITL</td>
+<td>Custo de erro silencioso?</td>
+<td>Reversibilidade × frequência × consequência</td>
+</tr>
+<tr class="even">
+<td>T6 Generalismo × Especialização</td>
+<td>Geral + prompt forte ou especializado?</td>
+<td>Volume × estabilidade × eval × custo</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="checklist-do-capítulo">43.10 — CHECKLIST DO CAPÍTULO</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+Recitar os 6 trade-offs em ordem</li>
+<li><input type="checkbox" disabled="" />
+Citar a pergunta executiva de cada</li>
+<li><input type="checkbox" disabled="" />
+Identificar o eixo decisor dominante de cada trade-off</li>
+<li><input type="checkbox" disabled="" />
+Classificar 3 decisões recentes na minha operação pelos trade-offs</li>
+<li><input type="checkbox" disabled="" />
+Defender por que workflow determinístico vence agente autônomo em 80% dos casos típicos</li>
+<li><input type="checkbox" disabled="" />
+Defender por que automação plena sem HITL é desperdício em domínio sensível</li>
+<li><input type="checkbox" disabled="" />
+Mapear quais trade-offs sua arquitetura corrente “ignorou” sem perceber</li>
+<li><input type="checkbox" disabled="" />
+Apresentar o cardápio à diretoria em 10 minutos</li>
+<li><input type="checkbox" disabled="" />
+Reconhecer, em três frases recentes do time, qual trade-off está sendo violado por intuição</li>
+</ul>
+<hr />
+<h2 id="perguntas-de-revisão">43.11 — PERGUNTAS DE REVISÃO</h2>
+<ol type="1">
+<li>Por que o trade-off não é dicotomia binária?</li>
+<li>Em que situação RAG e fine-tuning coexistem com proveito?</li>
+<li>Qual a armadilha clássica do T2 (agente × workflow)?</li>
+<li>Por que o T4 (triângulo) é regra clássica de engenharia, não específica de IA?</li>
+<li>Por que começar com HITL e migrar para automação é melhor que o inverso?</li>
+<li>Em que situação modelo especializado vence o geral, mesmo com custo maior?</li>
+<li>Como os trade-offs T1, T3 e T6 se entrelaçam?</li>
+<li>Por que “ignorou o trade-off T5” é violação direta do Invariante 8?</li>
+</ol>
+<hr />
+<h2 id="exercícios-práticos">43.12 — EXERCÍCIOS PRÁTICOS</h2>
+<p><strong>Exercício 1 — Auditoria de decisões.</strong> Liste 6 decisões de arquitetura de IA tomadas na sua organização nos últimos 12 meses. Para cada uma, identifique qual dos 6 trade-offs estava em jogo, qual lado foi escolhido, e qual o eixo decisor. Avalie em retrospecto se a decisão sustentaria o cardápio.</p>
+<p><strong>Exercício 2 — Roteamento por trade-off.</strong> Para uma feature do seu produto, percorra os 6 trade-offs em ordem. Documente a decisão de cada um com justificativa em ≤1 parágrafo. Compare com a arquitetura atual; identifique divergências.</p>
+<p><strong>Exercício 3 — Defesa executiva.</strong> Prepare apresentação de 10 minutos para diretoria explicando os 6 trade-offs e como eles se aplicam à arquitetura atual. Defenda a arquitetura ou proponha mudança fundamentada.</p>
+<p><strong>Exercício 4 — Cardápio adaptado.</strong> Reescreva os 6 trade-offs adaptados à linguagem do seu setor (com vocabulário do seu domínio). Submeta a um par sênior.</p>
+<hr />
+<h2 id="projeto-do-capítulo">43.13 — PROJETO DO CAPÍTULO</h2>
+<p><strong>Construir o Cardápio de Trade-offs do seu produto.</strong> Entregável em 4-6 páginas:</p>
+<ol type="1">
+<li>Os 6 trade-offs canônicos com a decisão tomada em cada um para a feature principal</li>
+<li>Justificativa em ≤1 parágrafo por trade-off, conectando ao eixo decisor</li>
+<li>Plano de revisão (trimestral)</li>
+<li>Critério de gatilho para revisão antecipada (custo cruza X, volume cresce Y, regulação muda)</li>
+<li>Apresentação em 10 minutos para a diretoria</li>
+</ol>
+<p><strong>Critério de qualidade.</strong> Outro executivo, lendo o cardápio, consegue defender a arquitetura em reunião externa (cliente Enterprise, conselho, auditor) sem perguntar.</p>
+<hr />
+<h2 id="referências-principais">43.14 — REFERÊNCIAS PRINCIPAIS</h2>
+<p>📚 <strong>Trade-offs canônicos de engenharia</strong> - Brooks, F. <em>The Mythical Man-Month</em> (1975/1995) — fundamentos do triângulo - Beck, K. <em>Extreme Programming Explained</em> (2000) — trade-offs em produto</p>
+<p>📚 <strong>Aplicação em IA</strong> - a16z. <em>The Emerging Architectures for LLM Applications</em> (Bornstein &amp; Radovanovic, 2023) - Karpathy, A. <em>Software 3.0</em> (palestras 2024) - Anthropic. <em>Build Effective Agents</em> (2024)</p>
+<p>📚 <strong>Sobre RAG vs Fine-tuning</strong> - <em>RAG vs Fine-Tuning: Pipelines, Tradeoffs, and a Case Study on Agriculture</em> (Balaguer et al., 2024)</p>
+<p>📚 <strong>Sobre agentes vs workflows</strong> - Anthropic. <em>Building Effective Agents</em> (Dezembro 2024) — distinção canônica</p>
+<hr />
+<h2 id="validação-uau">43.15 — VALIDAÇÃO UAU</h2>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 34%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Critério</th>
+<th>Você consegue?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><strong>Clareza</strong> — Recitar os 6 trade-offs em ordem, com pergunta executiva de cada, em até 3 minutos</td>
+<td>☐</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><strong>Profundidade</strong> — Defender em mesa técnica por que agente autônomo vence workflow determinístico só em casos específicos, e quais</td>
+<td>☐</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><strong>Aplicação</strong> — Classificar, agora, três decisões recentes da sua operação pelos trade-offs e identificar uma onde houve erro</td>
+<td>☐</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><strong>Conexão</strong> — Articular como o Cap 43 amarra os Caps 06, 08, 12, 15, 16, 36, 39, 40, 41 e 42 em sistema de decisão integrado</td>
+<td>☐</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><strong>Curiosidade UAU</strong> — Está com vontade de produzir o Cardápio de Trade-offs do próprio produto na próxima semana</td>
+<td>☐</td>
+</tr>
+</tbody>
+</table>
+<p><strong>5 de 5?</strong> Avance. Você tem o cardápio. Use-o. <strong>3 ou 4?</strong> Releia §43.3 (os 6 trade-offs em profundidade) e §43.5 (o exemplo). É onde a tese se prova. <strong>Menos de 3?</strong> Releitura completa. Os trade-offs são a costura entre todos os capítulos anteriores.</p>
+<hr />
+<p>🔗 <strong>Próximo:</strong> <a href="L1-C44-roadmap-pessoal.md">Capítulo 44 — Roadmap pessoal e organizacional de IA</a></p>
+<hr />
+<blockquote>
+<p><em>“Não existe decisão de IA sem trade-off. Existe decisão sem consciência. Quem se acomoda paga preço pela primeira.”</em></p>
+</blockquote>
+<div class="page-break">
+
+</div>
+<h1 id="capítulo-44">CAPÍTULO 44</h1>
+<h2 id="roadmap-pessoal-e-organizacional-de-ia">ROADMAP PESSOAL E ORGANIZACIONAL DE IA</h2>
+<hr />
+<blockquote>
+<p><em>“Saber o que fazer amanhã é o que separa o leitor do estudante. Este capítulo é o capítulo de saída — sai da leitura, entra na prática.”</em></p>
+</blockquote>
+<hr />
+<blockquote>
+<p>🧭 <strong>Invariante-mãe:</strong> <strong>Invariante 9 — Operador</strong> — <em>“A IA multiplica competência e incompetência pelo mesmo fator.”</em> Invariante secundário: <strong>Inv. 3 — Camada Dupla</strong> (roadmap separa o que se decora do que se consulta). Framework derivado: <strong>F1 — DECID-IA</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="o-conceito-intuitivo-1">44.1 — O CONCEITO INTUITIVO</h2>
+<p>Todo livro técnico bom corre o risco de virar leitura inerte. O leitor termina, fecha, marca a estante. Em três meses, lembra de duas ou três ideias, e na próxima decisão volta a operar pela intuição que o livro queria substituir. A diferença entre o leitor que sai do livro com método novo e o leitor que sai com sensação de leitura concluída está num único movimento: ter <strong>o próximo passo claro</strong> ao virar a última página. Este capítulo existe para garantir esse movimento.</p>
+<p>O capítulo 44 é o <strong>capítulo de saída</strong>. Não é resumo nem revisão; é roadmap. Mapeia o que cada persona específica deve fazer nos próximos 30, 90, 180 e 365 dias para que os Invariantes, os frameworks e os capítulos virem prática institucional. Não é genérico — seis personas distintas têm trilhas próprias, cada uma com gates de progresso e Invariantes dominantes em cada marco.</p>
+<p>A regra inegociável: roadmap sem <strong>dono nominal</strong> e sem <strong>marco mensurável</strong> é wishlist. O capítulo entrega a estrutura; o leitor preenche o nome e os números. Em três meses, o leitor revisita o roadmap e marca o que cumpriu, o que adiou, o que abandonou — com método.</p>
+<hr />
+<h2 id="analogia-o-programa-de-treinamento-atlético">44.2 — ANALOGIA: O PROGRAMA DE TREINAMENTO ATLÉTICO</h2>
+<p>Pense em como um atleta sério sai do estado atual ao estado-meta. Não é “vou treinar mais”. É plano com fases — base aeróbica (estabelecer fundamento), força (construir capacidade), especialização (focar no que diferencia em competição), manutenção (sustentar o ganho). Cada fase tem duração, métrica de avanço e gate explícito de passagem para a fase seguinte. Sem o programa, o atleta treina por intuição e estagna em platô; com o programa, evolui com método e revisita o plano periodicamente conforme o corpo responde.</p>
+<p>Roadmap de IA opera igual. Quatro marcos (30, 90, 180, 365 dias) por persona. Cada marco com <strong>ações específicas</strong>, <strong>métricas de avanço</strong>, <strong>gate explícito</strong> para próximo. Sem o roadmap, leitor termina o livro e treina IA por intuição até estagnar; com o roadmap, opera com método.</p>
+<hr />
+<h2 id="as-seis-personas-e-seus-eixos">44.3 — AS SEIS PERSONAS E SEUS EIXOS</h2>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 40%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Persona</th>
+<th>Eixo principal</th>
+<th>Métrica-chave</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Executivo (C-Level)</strong></td>
+<td>Decisão e governança</td>
+<td>OKRs de adoção; orçamento de IA; SEV-1 e 2 por trimestre</td>
+</tr>
+<tr class="even">
+<td><strong>Gestor / Head</strong></td>
+<td>Time, processo, produto</td>
+<td>Cobertura de eval; MTTR; entregas usando IA</td>
+</tr>
+<tr class="odd">
+<td><strong>Desenvolvedor / Arquiteto</strong></td>
+<td>Construção e integração</td>
+<td>Cobertura de tracing; PRs com eval; features instrumentadas</td>
+</tr>
+<tr class="even">
+<td><strong>Consultor</strong></td>
+<td>Diagnóstico e implantação para terceiros</td>
+<td>Clientes atendidos com cardápio dos 6 trade-offs; cases publicados</td>
+</tr>
+<tr class="odd">
+<td><strong>Empreendedor / Founder</strong></td>
+<td>Diferenciação e produto</td>
+<td>TCO de IA / receita; NPS de feature de IA</td>
+</tr>
+<tr class="even">
+<td><strong>Criador de Conteúdo / Educador</strong></td>
+<td>Autoridade e tradução</td>
+<td>Material produzido aplicando os Invariantes; alcance</td>
+</tr>
+</tbody>
+</table>
+<p>Cada persona percorre os mesmos quatro marcos (30, 90, 180, 365 dias) com ações específicas ao próprio eixo.</p>
+<hr />
+<h2 id="roadmap-por-persona-detalhado">44.4 — ROADMAP POR PERSONA — DETALHADO</h2>
+<h3 id="persona-executivo-c-level">44.4.1 — Persona EXECUTIVO (C-Level)</h3>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 18%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Marco</th>
+<th>Ação</th>
+<th>Gate de promoção</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>30 dias</strong></td>
+<td>Recitar os 9 Invariantes; produzir o Cartaz dos Invariantes da empresa; nomear Accountable por 5 decisões críticas de IA; definir OKRs de adoção</td>
+<td>Cartaz publicado; RACI mínimo assinado</td>
+</tr>
+<tr class="even">
+<td><strong>90 dias</strong></td>
+<td>Aprovar Caderno de Governança v1; AI Council com mandato; cardápio dos 6 trade-offs aplicado a 3 iniciativas</td>
+<td>Caderno aprovado; AI Council com 1ª reunião</td>
+</tr>
+<tr class="odd">
+<td><strong>180 dias</strong></td>
+<td>Caderno de Evals em produção; LLMOps Pilar 1 (tracing) implementado em 100% das features; orçamento de IA atribuído por feature</td>
+<td>Atribuição de custo viva; tracing operante</td>
+</tr>
+<tr class="even">
+<td><strong>365 dias</strong></td>
+<td>Maturidade média de 10 controles ≥3; auditoria externa positiva; aplicação dos Invariantes virou cultura</td>
+<td>Auditoria externa concluída; 2 simulados de incidente realizados</td>
+</tr>
+</tbody>
+</table>
+<h3 id="persona-gestor-head">44.4.2 — Persona GESTOR / HEAD</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 31%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Marco</th>
+<th>Ação</th>
+<th>Gate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>30 dias</strong></td>
+<td>Selecionar 1 feature de IA do meu escopo; mapear violações dos Invariantes nessa feature; iniciar golden set de 30 casos</td>
+<td>Feature mapeada; golden set v0</td>
+</tr>
+<tr class="even">
+<td><strong>90 dias</strong></td>
+<td>F8 EVAL-PIRÂMIDE base + meio implementados; LLMOps pilares 1, 4 e 7 operantes; cardápio dos 6 trade-offs documentado</td>
+<td>Eval em CI; runbook de incidente</td>
+</tr>
+<tr class="odd">
+<td><strong>180 dias</strong></td>
+<td>Cobertura de tracing 100%; rollback testado mensalmente; orçamento por feature visível</td>
+<td>Maturidade técnica média 3+</td>
+</tr>
+<tr class="even">
+<td><strong>365 dias</strong></td>
+<td>Time aplicando Invariantes como norma de revisão de PR; 0 SEV-1 no último trimestre</td>
+<td>Cultura aplicada; resultado mensurado</td>
+</tr>
+</tbody>
+</table>
+<h3 id="persona-desenvolvedor-arquiteto">44.4.3 — Persona DESENVOLVEDOR / ARQUITETO</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 31%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Marco</th>
+<th>Ação</th>
+<th>Gate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>30 dias</strong></td>
+<td>Aplicar F4 PROMPT-EXT em 1 feature; instrumentar tracing em 1 feature; estudar Caps 39 e 40</td>
+<td>Feature instrumentada</td>
+</tr>
+<tr class="even">
+<td><strong>90 dias</strong></td>
+<td>PR com eval em CI virou padrão; tool registry implementado; F3 AGENTE-PROP aplicado em 1 agente</td>
+<td>Padrão de PR adotado pelo time</td>
+</tr>
+<tr class="odd">
+<td><strong>180 dias</strong></td>
+<td>Cobertura de tracing 100% nas features sob minha responsabilidade; participação no Caderno de LLMOps v1</td>
+<td>Caderno de LLMOps publicado</td>
+</tr>
+<tr class="even">
+<td><strong>365 dias</strong></td>
+<td>Mentor de outros devs no método dos Invariantes; contribuição a repositório de prompts da empresa; participação em decisão de arquitetura citando frameworks</td>
+<td>Reputação interna de quem opera, não usa, IA</td>
+</tr>
+</tbody>
+</table>
+<h3 id="persona-consultor">44.4.4 — Persona CONSULTOR</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 31%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Marco</th>
+<th>Ação</th>
+<th>Gate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>30 dias</strong></td>
+<td>Aplicar cardápio dos 6 trade-offs em 1 cliente; produzir entrega usando os Invariantes como vocabulário</td>
+<td>1 cliente impactado</td>
+</tr>
+<tr class="even">
+<td><strong>90 dias</strong></td>
+<td>3 clientes com cardápio aplicado; 1 case publicado em mídia setorial</td>
+<td>3 cases internos</td>
+</tr>
+<tr class="odd">
+<td><strong>180 dias</strong></td>
+<td>Workshop dos 9 Invariantes para clientes; framework próprio adaptado ao meu nicho</td>
+<td>Workshop em pé</td>
+</tr>
+<tr class="even">
+<td><strong>365 dias</strong></td>
+<td>Reputação como referência em método (não em vendor); 10+ clientes operando pelo método</td>
+<td>Marca pessoal consolidada</td>
+</tr>
+</tbody>
+</table>
+<h3 id="persona-empreendedor-founder">44.4.5 — Persona EMPREENDEDOR / FOUNDER</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 31%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Marco</th>
+<th>Ação</th>
+<th>Gate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>30 dias</strong></td>
+<td>Aplicar F1 DECID-IA em cada feature de IA do produto; F7 COMPOSTO-3T para auditar custo atual</td>
+<td>Decisão de adoção documentada por feature; baseline de custo</td>
+</tr>
+<tr class="even">
+<td><strong>90 dias</strong></td>
+<td>Golden set inicial para feature-chave; canário em produção; eval em CI; circuit breaker de custo</td>
+<td>Pirâmide de Evals operante; custo sob controle</td>
+</tr>
+<tr class="odd">
+<td><strong>180 dias</strong></td>
+<td>F2 ENCAIXE-5 aplicado para escolher modelo certo por feature; LLMOps maduro; AUP publicada</td>
+<td>TCO de IA / receita dentro do envelope</td>
+</tr>
+<tr class="even">
+<td><strong>365 dias</strong></td>
+<td>Crescimento sustentado com margem; cliente Enterprise compra pela arquitetura defendida</td>
+<td>Arquitetura virou diferencial competitivo</td>
+</tr>
+</tbody>
+</table>
+<h3 id="persona-criador-de-conteúdo-educador">44.4.6 — Persona CRIADOR DE CONTEÚDO / EDUCADOR</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 31%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Marco</th>
+<th>Ação</th>
+<th>Gate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>30 dias</strong></td>
+<td>4 posts/vídeos aplicando 1 Invariante por semana; aplicar Cartaz dos Invariantes em audiência</td>
+<td>4 peças publicadas</td>
+</tr>
+<tr class="even">
+<td><strong>90 dias</strong></td>
+<td>Workshop ou minicurso usando os Invariantes; biblioteca pessoal de prompts publicada</td>
+<td>1 workshop entregue</td>
+</tr>
+<tr class="odd">
+<td><strong>180 dias</strong></td>
+<td>Comunidade de Operadores Inteligência Aumentada com 100+ membros engajados</td>
+<td>Comunidade ativa</td>
+</tr>
+<tr class="even">
+<td><strong>365 dias</strong></td>
+<td>Reconhecimento como referência em IA aplicada em pt-BR; convite a falar em eventos setoriais</td>
+<td>Marca consolidada</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="diagramas-1">44.5 — DIAGRAMAS</h2>
+<blockquote>
+<p>📊 <strong>Diagrama 44.1 — Curva de adoção por persona</strong></p>
+<p><em>(SVG planejado: <code>imagens/L1-C44-img-01-curva-adocao.svg</code>)</em></p>
+<p>Curva em S mostrando como cada persona avança em maturidade ao longo de 365 dias.</p>
+</blockquote>
+<blockquote>
+<p>📊 <strong>Diagrama 44.2 — Matriz roadmap × persona × marco</strong></p>
+<p><em>(SVG planejado: <code>imagens/L1-C44-img-02-matriz-roadmap.svg</code>)</em></p>
+<p>Tabela visual sintética dos 6 personas × 4 marcos com gates explícitos.</p>
+</blockquote>
+<hr />
+<h2 id="exemplo-memorável-o-cto-de-varejo-que-cumpriu-o-roadmap">44.6 — EXEMPLO MEMORÁVEL: O CTO DE VAREJO QUE CUMPRIU O ROADMAP</h2>
+<blockquote>
+<p>⚠️ <strong>Cenário ilustrativo</strong> — composto a partir de padrões observados em CTOs de redes brasileiras de varejo de médio porte que adotaram IA com método estruturado entre 2024 e 2026; números são realistas mas não identificam empresa específica.</p>
+</blockquote>
+<p>CTO de rede brasileira de varejo (~3.500 colaboradores, ~120 lojas, vendas online crescendo a 35% a/a), em 2025. Leu o livro, marcou o Cartaz dos Invariantes na parede do escritório, decidiu cumprir o roadmap de 365 dias da persona Executivo C-Level (sem ser CEO, mas com mandato sobre IA).</p>
+<p><strong>Mês 1.</strong> Recitou os 9 Invariantes em apresentação ao Conselho. Publicou cartaz nas salas de reunião da diretoria. Nomeou Accountable por 5 decisões críticas de IA (modelo de recomendação, prompt do assistente do app, política de uso interno, agente de marketing, fine-tuning). OKRs: cobertura de tracing 100%, MTTR ≤30min, 0 SEV-1.</p>
+<p><strong>Mês 3.</strong> Caderno de Governança v1 aprovado pela diretoria. AI Council instalado com 6 papéis e cadência mensal. Cardápio dos 6 trade-offs aplicado às 3 iniciativas em desenvolvimento (agente de atendimento, classificação de SKU, copiloto de gestor de loja). Decisão de não escalar o agente de marketing para autônomo (T2 + T5 negaram); escolha por modelo Sonnet em vez de Opus para classificação de SKU (T4, F2).</p>
+<p><strong>Mês 6.</strong> Pirâmide de Evals em produção com golden set de 800 casos cobrindo as 3 features. LLMOps Pilar 1 instrumentado em 100%; Pilar 4 (rollback) testado mensalmente; Pilar 7 (governança operacional) com primeiro simulado de incidente SEV-1 executado. Orçamento de IA atribuído por feature, viva em dashboard.</p>
+<p><strong>Mês 12.</strong> Maturidade média dos 10 controles atingiu 3,4 (meta era 3+). Auditoria externa contratada por iniciativa do CTO, recomendada pelo AI Council; saiu positiva. 2 simulados de incidente realizados no ano, ambos com ações corretivas implementadas. Aplicação dos Invariantes virou vocabulário interno — em revisões de PR, em reuniões de diretoria, em apresentações a fornecedores.</p>
+<p>Resultado mensurável em ano 2: redução de 41% no custo de atendimento (substituição parcial de Nível 1 + roteamento melhor por F2 e F7), NPS subiu 8 pontos (qualidade percebida), 0 SEV-1 no ano (sem incidente crítico). O CTO foi promovido a Diretor Executivo de Tecnologia em janeiro do ano 3. Apresenta hoje o caso em fóruns setoriais como exemplo de adoção estruturada de IA em varejo brasileiro.</p>
+<p>A lição não é sobre o resultado — bom, sim, mas variável caso a caso. A lição é sobre <strong>o método</strong>. <em>Cumprir o roadmap em 365 dias não é fácil, é estruturado. A diferença entre o CTO que aplica o método e o que opera por intuição vira diferencial competitivo institucional. O livro entrega o método; o leitor entrega o nome e os números.</em></p>
+<hr />
+<h2 id="quando-usar-quando-evitar-1">44.7 — QUANDO USAR / QUANDO EVITAR</h2>
+<p><strong>Aplicar o roadmap quando:</strong> - Você reconhece a persona em si mesmo (ou em alguém da sua organização) - Há mandato para implementar (mesmo informal) - Há capacidade de revisitar trimestralmente</p>
+<p><strong>Evitar usar como receita rígida</strong> quando: - Contexto exige customização significativa (sempre exige; o roadmap é estrutura, não script) - Ambiente não suporta mudança de cultura (nesse caso, primeiro item é mudar o ambiente)</p>
+<hr />
+<h2 id="vantagens-e-limitações-1">44.8 — VANTAGENS E LIMITAÇÕES</h2>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Vantagem</th>
+<th>Limitação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Próximo passo claro ao fechar o livro</td>
+<td>Roadmap genérico exige customização para realidade local</td>
+</tr>
+<tr class="even">
+<td>Gates explícitos facilitam revisão trimestral</td>
+<td>Adoção depende de mandato, não só de roadmap</td>
+</tr>
+<tr class="odd">
+<td>Por persona — relevante a quem está lendo</td>
+<td>Pode parecer rígido em organizações de cultura experimental</td>
+</tr>
+<tr class="even">
+<td>Conecta leitura à prática</td>
+<td>Sem revisão trimestral, vira documento esquecido</td>
+</tr>
+<tr class="odd">
+<td>Roadmap por persona vira ativo organizacional</td>
+<td>Demanda disciplina de revisitar</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="conexões-com-outros-capítulos-1">44.9 — CONEXÕES COM OUTROS CAPÍTULOS</h2>
+<ul>
+<li>🔗 <strong>Manifesto e Invariantes</strong> → <a href="../01-manifesto/L1-C00M-manifesto-invariantes.md">Cap 00M</a></li>
+<li>🔗 <strong>F1 DECID-IA</strong> alimenta cada iniciativa do roadmap → <a href="../03-frameworks/L1-F1-decid-ia.md">F1</a></li>
+<li>🔗 <strong>Caps 39, 40, 41, 42</strong> sustentam os marcos técnico-operacionais</li>
+<li>🔗 <strong>Apêndice C — Roadmaps detalhados</strong> → (Parte 2 desta onda)</li>
+<li>🔗 <strong>Apêndice K — Gabaritos</strong> → (Parte 2)</li>
+<li>🔗 <strong>Volume Vivo (L2)</strong> — capítulos de Claude aplicáveis a cada marco</li>
+</ul>
+<hr />
+<h2 id="resumo-executivo-1">44.10 — RESUMO EXECUTIVO</h2>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Persona</th>
+<th>30 dias</th>
+<th>90 dias</th>
+<th>180 dias</th>
+<th>365 dias</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Executivo</td>
+<td>Cartaz + RACI mínimo</td>
+<td>Caderno Governança</td>
+<td>Evals + LLMOps</td>
+<td>Maturidade 3+</td>
+</tr>
+<tr class="even">
+<td>Gestor</td>
+<td>Golden v0</td>
+<td>Eval em CI</td>
+<td>Tracing 100%</td>
+<td>Cultura aplicada</td>
+</tr>
+<tr class="odd">
+<td>Dev/Arquiteto</td>
+<td>F4 + tracing</td>
+<td>Eval no PR</td>
+<td>Caderno LLMOps</td>
+<td>Mentor</td>
+</tr>
+<tr class="even">
+<td>Consultor</td>
+<td>1 cliente</td>
+<td>3 cases</td>
+<td>Workshop</td>
+<td>Marca</td>
+</tr>
+<tr class="odd">
+<td>Founder</td>
+<td>F1 + F7 audit</td>
+<td>Eval + canário</td>
+<td>F2 + AUP</td>
+<td>TCO/receita ok</td>
+</tr>
+<tr class="even">
+<td>Criador</td>
+<td>4 peças</td>
+<td>Workshop</td>
+<td>Comunidade 100+</td>
+<td>Referência</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="checklist-do-capítulo-1">44.11 — CHECKLIST DO CAPÍTULO</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+Identificar a persona principal entre as 6</li>
+<li><input type="checkbox" disabled="" />
+Marcar no calendário os 4 marcos (30, 90, 180, 365 dias)</li>
+<li><input type="checkbox" disabled="" />
+Preencher Accountable de cada ação por marco</li>
+<li><input type="checkbox" disabled="" />
+Definir métrica numérica de cada gate</li>
+<li><input type="checkbox" disabled="" />
+Marcar a revisão trimestral em agenda recorrente</li>
+<li><input type="checkbox" disabled="" />
+Compartilhar o roadmap com par sênior ou mentor</li>
+<li><input type="checkbox" disabled="" />
+Estabelecer rotina de revisitar este capítulo a cada 90 dias</li>
+</ul>
+<hr />
+<h2 id="perguntas-de-revisão-1">44.12 — PERGUNTAS DE REVISÃO</h2>
+<ol type="1">
+<li>Qual a sua persona principal, e por quê?</li>
+<li>Em qual marco você está hoje, e qual é a sua próxima ação?</li>
+<li>Que gate de progresso você usaria para validar que está cumprindo?</li>
+<li>Quem é o Accountable nominal por cada ação?</li>
+<li>Como o roadmap se conecta com o F1 DECID-IA?</li>
+</ol>
+<hr />
+<h2 id="exercícios-práticos-1">44.13 — EXERCÍCIOS PRÁTICOS</h2>
+<p><strong>Exercício 1 — Roadmap personalizado.</strong> Preencha o roadmap completo da sua persona com nomes, números e datas específicos.</p>
+<p><strong>Exercício 2 — Gargalo dominante.</strong> Identifique o gargalo dominante no marco 30 dias. Defina plano de remediação em 7 dias.</p>
+<p><strong>Exercício 3 — Invariante mais frágil.</strong> Para cada marco, identifique qual Invariante é o mais frágil hoje na sua operação. Documente.</p>
+<p><strong>Exercício 4 — Apresentação à diretoria/sócios.</strong> Construa apresentação de 10 minutos do roadmap para sua diretoria, sócios ou conselho.</p>
+<hr />
+<h2 id="projeto-do-capítulo-1">44.14 — PROJETO DO CAPÍTULO</h2>
+<p><strong>Apresentar o seu Roadmap dos 365 dias à diretoria/sócios em até 10 minutos.</strong> Entregável:</p>
+<ol type="1">
+<li>Slide 1 — Persona e tese</li>
+<li>Slide 2 — Estado atual (Invariante mais frágil)</li>
+<li>Slide 3 — Marcos 30/90/180/365 com ações</li>
+<li>Slide 4 — Gates de promoção entre marcos</li>
+<li>Slide 5 — Métricas de sucesso</li>
+<li>Slide 6 — Recursos necessários</li>
+<li>Slide 7 — Pedido específico de mandato</li>
+</ol>
+<p><strong>Critério de qualidade.</strong> Diretoria aprova o roadmap em uma reunião, com mandato formal sobre IA.</p>
+<hr />
+<h2 id="referências-principais-1">44.15 — REFERÊNCIAS PRINCIPAIS</h2>
+<p>📚 <strong>Sobre roadmap, OKRs e adoção</strong> - Doerr, J. <em>Measure What Matters</em> (2018) — OKRs como instrumento de adoção - Kotter, J. <em>Leading Change</em> (1996) — fundamentos de mudança organizacional</p>
+<p>📚 <strong>Sobre adoção corporativa de IA</strong> - Davenport, T. <em>The AI Advantage</em> (2018) - MIT Sloan / BCG. <em>Building the AI-Powered Organization</em> (relatórios anuais 2019-)</p>
+<p>📚 <strong>Inteligência Aumentada — sistema da obra</strong> - Cap 00M — Manifesto dos Invariantes - Apêndice C — Roadmaps detalhados (Parte 2) - Frameworks F1-F9</p>
+<hr />
+<h2 id="validação-uau-1">44.16 — VALIDAÇÃO UAU</h2>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 34%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Critério</th>
+<th>Você consegue?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><strong>Clareza</strong> — Apresentar seu roadmap em 10 minutos a um par sênior sem consulta</td>
+<td>☐</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><strong>Profundidade</strong> — Defender em mesa por que cada marco tem gate explícito de promoção</td>
+<td>☐</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><strong>Aplicação</strong> — Marcar, agora, a primeira ação dos próximos 7 dias do seu roadmap</td>
+<td>☐</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><strong>Conexão</strong> — Articular como o roadmap sustenta os 9 Invariantes e os 9 frameworks da obra</td>
+<td>☐</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><strong>Curiosidade UAU</strong> — Está com vontade de virar a página, abrir os apêndices, e começar</td>
+<td>☐</td>
+</tr>
+</tbody>
+</table>
+<p><strong>5 de 5?</strong> Avance. Você passou de leitor a operador. O capítulo seguinte é a sua vida profissional. <strong>3 ou 4?</strong> Releia §44.4 do seu persona específico. É onde a estrutura vira ação. <strong>Menos de 3?</strong> Releia o Cap 00M (Manifesto) antes de revisitar este capítulo.</p>
+<hr />
+<p>🔗 <strong>Apêndices:</strong> <a href="../04-apendices/L1-APX-A-glossario.md">A Glossário</a> · <a href="../04-apendices/L1-APX-B-mapa-mental.md">B Mapa Mental</a> · <a href="../04-apendices/L1-APX-C-roadmaps.md">C Roadmaps por persona</a> · <a href="../04-apendices/L1-APX-M-manifesto-bolso.md">M Manifesto de Bolso</a></p>
+<p>🔗 <strong>Volume Vivo (L2):</strong> <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C17-entendendo-claude.md">Cap 17 Entendendo Claude</a> · <a href="../../Livro-2-Dominando-Claude/04-apendices/L2-APX-J-apendice-vivo.md">Apêndice Vivo (J)</a></p>
+<hr />
+<blockquote>
+<p><em>“A leitura termina aqui. O método começa agora. Quem aplicar muda; quem fechar o livro continua igual.”</em></p>
+</blockquote>
+</body>
+</html>

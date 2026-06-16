@@ -1,0 +1,63 @@
+<svg viewBox="0 0 900 540" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <marker id="ag-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+  <rect width="900" height="540" fill="#0d1b2a"/>
+
+  <text x="450" y="40" fill="#fef3c7" font-size="22" font-weight="700" text-anchor="middle">ANATOMIA DE UM AGENTE MODERNO</text>
+  <text x="450" y="64" fill="#9ca3af" font-size="13" text-anchor="middle">O LLM é o cérebro, mas o agente é o sistema inteiro em volta dele</text>
+
+  <!-- Center: LLM Core -->
+  <rect x="350" y="220" width="200" height="100" rx="12" fill="#E97451" stroke="#fef3c7" stroke-width="3"/>
+  <text x="450" y="252" fill="#fef3c7" font-size="14" font-weight="700" text-anchor="middle">LLM</text>
+  <text x="450" y="272" fill="#fef3c7" font-size="11" text-anchor="middle">cérebro do agente</text>
+  <text x="450" y="290" fill="#fef3c7" font-size="11" text-anchor="middle">raciocina, decide,</text>
+  <text x="450" y="306" fill="#fef3c7" font-size="11" text-anchor="middle">gera ações</text>
+
+  <!-- Top: Planner -->
+  <rect x="370" y="100" width="160" height="60" rx="10" fill="#1b263b" stroke="#86efac" stroke-width="2"/>
+  <text x="450" y="124" fill="#86efac" font-size="12" font-weight="700" text-anchor="middle">PLANNER</text>
+  <text x="450" y="142" fill="#9ca3af" font-size="10" text-anchor="middle">decompõe objetivo</text>
+  <text x="450" y="156" fill="#9ca3af" font-size="10" text-anchor="middle">em passos</text>
+  <line x1="450" y1="160" x2="450" y2="218" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#ag-arrow)"/>
+
+  <!-- Right: Tools -->
+  <rect x="640" y="180" width="200" height="180" rx="10" fill="#1b263b" stroke="#fbbf24" stroke-width="2"/>
+  <text x="740" y="206" fill="#fbbf24" font-size="13" font-weight="700" text-anchor="middle">TOOLS / FUNCTIONS</text>
+  <text x="660" y="232" fill="#e5e7eb" font-size="10">• Busca web</text>
+  <text x="660" y="250" fill="#e5e7eb" font-size="10">• Executar código</text>
+  <text x="660" y="268" fill="#e5e7eb" font-size="10">• Consultar banco</text>
+  <text x="660" y="286" fill="#e5e7eb" font-size="10">• Chamar API</text>
+  <text x="660" y="304" fill="#e5e7eb" font-size="10">• Ler/escrever arquivo</text>
+  <text x="660" y="322" fill="#e5e7eb" font-size="10">• Enviar e-mail</text>
+  <text x="660" y="340" fill="#e5e7eb" font-size="10">• Controlar browser</text>
+  <line x1="555" y1="270" x2="635" y2="270" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="635" y1="270" x2="555" y2="270" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#ag-arrow)"/>
+
+  <!-- Left: Memory -->
+  <rect x="60" y="180" width="200" height="180" rx="10" fill="#1b263b" stroke="#bfdbfe" stroke-width="2"/>
+  <text x="160" y="206" fill="#bfdbfe" font-size="13" font-weight="700" text-anchor="middle">MEMÓRIA</text>
+  <text x="80" y="232" fill="#e5e7eb" font-size="10">• Curto prazo (sessão)</text>
+  <text x="80" y="250" fill="#e5e7eb" font-size="10">• Episódica (histórico)</text>
+  <text x="80" y="268" fill="#e5e7eb" font-size="10">• Semântica (fatos)</text>
+  <text x="80" y="286" fill="#e5e7eb" font-size="10">• Procedural (skills)</text>
+  <text x="80" y="304" fill="#e5e7eb" font-size="10">• Working memory</text>
+  <text x="80" y="322" fill="#e5e7eb" font-size="10">• Resultados parciais</text>
+  <line x1="265" y1="270" x2="345" y2="270" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#ag-arrow)"/>
+
+  <!-- Bottom: Critic -->
+  <rect x="370" y="390" width="160" height="60" rx="10" fill="#1b263b" stroke="#fca5a5" stroke-width="2"/>
+  <text x="450" y="414" fill="#fca5a5" font-size="12" font-weight="700" text-anchor="middle">CRITIC / GUARDS</text>
+  <text x="450" y="432" fill="#9ca3af" font-size="10" text-anchor="middle">valida saída, aplica</text>
+  <text x="450" y="446" fill="#9ca3af" font-size="10" text-anchor="middle">políticas e limites</text>
+  <line x1="450" y1="320" x2="450" y2="386" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#ag-arrow)"/>
+
+  <!-- Bottom labels -->
+  <text x="160" y="380" fill="#9ca3af" font-size="11" text-anchor="middle" font-style="italic">"o que o agente sabe"</text>
+  <text x="740" y="380" fill="#9ca3af" font-size="11" text-anchor="middle" font-style="italic">"o que o agente pode fazer"</text>
+  <text x="450" y="476" fill="#9ca3af" font-size="11" text-anchor="middle" font-style="italic">"o que o agente não pode violar"</text>
+
+  <text x="450" y="510" fill="#fbbf24" font-size="11" text-anchor="middle" font-weight="600">Sem essas quatro peças coordenadas, é apenas chatbot com tools. Com elas, é agente.</text>
+</svg>

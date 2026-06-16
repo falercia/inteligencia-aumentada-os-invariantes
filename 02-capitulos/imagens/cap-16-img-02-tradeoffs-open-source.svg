@@ -1,0 +1,62 @@
+<svg viewBox="0 0 900 540" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <rect width="900" height="540" fill="#0d1b2a"/>
+
+  <text x="450" y="40" fill="#fef3c7" font-size="22" font-weight="700" text-anchor="middle">OPEN SOURCE vs PROPRIETARY — A DECISÃO HONESTA</text>
+  <text x="450" y="64" fill="#9ca3af" font-size="13" text-anchor="middle">A escolha não é técnica, é estratégica. Cada lado vence em dimensões diferentes.</text>
+
+  <!-- Header -->
+  <rect x="60" y="100" width="780" height="40" rx="6" fill="#1b263b"/>
+  <text x="80" y="125" fill="#fef3c7" font-size="12" font-weight="700">DIMENSÃO</text>
+  <text x="380" y="125" fill="#86efac" font-size="12" font-weight="700">PROPRIETARY (Claude, GPT, Gemini)</text>
+  <text x="680" y="125" fill="#fbbf24" font-size="12" font-weight="700">OPEN SOURCE</text>
+
+  <!-- Row 1: Quality -->
+  <rect x="60" y="145" width="780" height="40" fill="#1b263b" opacity="0.6"/>
+  <text x="80" y="170" fill="#e5e7eb" font-size="11" font-weight="600">Capacidade frontier</text>
+  <text x="380" y="170" fill="#86efac" font-size="11">★★★★★ líder absoluto</text>
+  <text x="680" y="170" fill="#fbbf24" font-size="11">★★★★ fechando gap</text>
+
+  <!-- Row 2: Cost -->
+  <rect x="60" y="190" width="780" height="40" fill="#1b263b" opacity="0.4"/>
+  <text x="80" y="215" fill="#e5e7eb" font-size="11" font-weight="600">Custo por chamada</text>
+  <text x="380" y="215" fill="#fbbf24" font-size="11">★★★ varia muito por modelo</text>
+  <text x="680" y="215" fill="#86efac" font-size="11">★★★★★ economia em escala</text>
+
+  <!-- Row 3: Setup cost -->
+  <rect x="60" y="235" width="780" height="40" fill="#1b263b" opacity="0.6"/>
+  <text x="80" y="260" fill="#e5e7eb" font-size="11" font-weight="600">Custo de setup</text>
+  <text x="380" y="260" fill="#86efac" font-size="11">★★★★★ chave API e pronto</text>
+  <text x="680" y="260" fill="#fbbf24" font-size="11">★★ exige infraestrutura</text>
+
+  <!-- Row 4: Privacy -->
+  <rect x="60" y="280" width="780" height="40" fill="#1b263b" opacity="0.4"/>
+  <text x="80" y="305" fill="#e5e7eb" font-size="11" font-weight="600">Privacidade e soberania</text>
+  <text x="380" y="305" fill="#fbbf24" font-size="11">★★★ depende de termos</text>
+  <text x="680" y="305" fill="#86efac" font-size="11">★★★★★ controle total</text>
+
+  <!-- Row 5: Customization -->
+  <rect x="60" y="325" width="780" height="40" fill="#1b263b" opacity="0.6"/>
+  <text x="80" y="350" fill="#e5e7eb" font-size="11" font-weight="600">Customização e fine-tuning</text>
+  <text x="380" y="350" fill="#fbbf24" font-size="11">★★★ limitado e caro</text>
+  <text x="680" y="350" fill="#86efac" font-size="11">★★★★★ flexibilidade total</text>
+
+  <!-- Row 6: Latency -->
+  <rect x="60" y="370" width="780" height="40" fill="#1b263b" opacity="0.4"/>
+  <text x="80" y="395" fill="#e5e7eb" font-size="11" font-weight="600">Latência</text>
+  <text x="380" y="395" fill="#fbbf24" font-size="11">★★★★ depende da rede</text>
+  <text x="680" y="395" fill="#86efac" font-size="11">★★★★★ pode rodar próximo</text>
+
+  <!-- Row 7: Maintenance -->
+  <rect x="60" y="415" width="780" height="40" fill="#1b263b" opacity="0.6"/>
+  <text x="80" y="440" fill="#e5e7eb" font-size="11" font-weight="600">Manutenção operacional</text>
+  <text x="380" y="440" fill="#86efac" font-size="11">★★★★★ provider faz</text>
+  <text x="680" y="440" fill="#fbbf24" font-size="11">★★ você opera tudo</text>
+
+  <!-- Row 8: Total -->
+  <rect x="60" y="460" width="780" height="40" rx="6" fill="#E97451"/>
+  <text x="80" y="485" fill="#fef3c7" font-size="12" font-weight="700">VEREDICTO PRÁTICO</text>
+  <text x="380" y="485" fill="#fef3c7" font-size="11">use para 90% dos casos</text>
+  <text x="680" y="485" fill="#fef3c7" font-size="11">use quando os 4 critérios pedirem</text>
+
+  <text x="450" y="525" fill="#9ca3af" font-size="11" text-anchor="middle" font-style="italic">Os quatro critérios: privacidade crítica, volume gigantesco, customização profunda, ou soberania regulatória.</text>
+</svg>

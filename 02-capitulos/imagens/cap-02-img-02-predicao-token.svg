@@ -1,0 +1,64 @@
+<svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <rect width="900" height="500" fill="#fefce8"/>
+
+  <text x="450" y="42" fill="#0d1b2a" font-size="22" font-weight="700" text-anchor="middle">O QUE UM LLM REALMENTE FAZ</text>
+  <text x="450" y="66" fill="#6b7280" font-size="13" text-anchor="middle">A inferência é, no fundo, uma única operação: prever o próximo token</text>
+
+  <!-- Context box -->
+  <rect x="60" y="110" width="500" height="80" rx="8" fill="#1f2937"/>
+  <text x="80" y="135" fill="#9ca3af" font-size="10" font-weight="600">CONTEXTO DE ENTRADA</text>
+  <text x="80" y="162" fill="#fef3c7" font-size="14" font-style="italic">"A capital do Brasil é"</text>
+  <text x="80" y="180" fill="#6b7280" font-size="10">5 tokens já processados</text>
+
+  <!-- Arrow -->
+  <path d="M 570 150 L 610 150" stroke="#E97451" stroke-width="3"/>
+  <polygon points="605,143 620,150 605,157" fill="#E97451"/>
+
+  <!-- Model -->
+  <rect x="625" y="110" width="200" height="80" rx="8" fill="#E97451"/>
+  <text x="725" y="142" fill="#fef3c7" font-size="14" font-weight="700" text-anchor="middle">LLM</text>
+  <text x="725" y="160" fill="#fef3c7" font-size="11" text-anchor="middle">~200B parâmetros</text>
+  <text x="725" y="176" fill="#fef3c7" font-size="10" text-anchor="middle" font-style="italic">computação massiva</text>
+
+  <!-- Output distribution title -->
+  <text x="80" y="240" fill="#0d1b2a" font-size="13" font-weight="700">DISTRIBUIÇÃO DE PROBABILIDADE SOBRE O VOCABULÁRIO</text>
+  <text x="80" y="258" fill="#6b7280" font-size="11">(o modelo não escolhe — calcula probabilidade para cada token possível)</text>
+
+  <!-- Bars -->
+  <g>
+    <!-- Brasília -->
+    <rect x="80" y="290" width="500" height="22" fill="#fde68a" rx="3"/>
+    <rect x="80" y="290" width="465" height="22" fill="#E97451" rx="3"/>
+    <text x="90" y="306" fill="#0d1b2a" font-size="12" font-weight="700">Brasília</text>
+    <text x="555" y="306" fill="#0d1b2a" font-size="12" font-weight="700" text-anchor="end">93%</text>
+
+    <rect x="80" y="320" width="500" height="22" fill="#fde68a" rx="3"/>
+    <rect x="80" y="320" width="22" height="22" fill="#fb923c" rx="3"/>
+    <text x="90" y="336" fill="#0d1b2a" font-size="12">Rio</text>
+    <text x="555" y="336" fill="#0d1b2a" font-size="12" font-weight="700" text-anchor="end">4,3%</text>
+
+    <rect x="80" y="350" width="500" height="22" fill="#fde68a" rx="3"/>
+    <rect x="80" y="350" width="10" height="22" fill="#fb923c" rx="3"/>
+    <text x="90" y="366" fill="#0d1b2a" font-size="12">São Paulo</text>
+    <text x="555" y="366" fill="#0d1b2a" font-size="12" font-weight="700" text-anchor="end">1,9%</text>
+
+    <rect x="80" y="380" width="500" height="22" fill="#fde68a" rx="3"/>
+    <rect x="80" y="380" width="3" height="22" fill="#fb923c" rx="3"/>
+    <text x="90" y="396" fill="#0d1b2a" font-size="12">localizada</text>
+    <text x="555" y="396" fill="#0d1b2a" font-size="12" font-weight="700" text-anchor="end">0,5%</text>
+
+    <text x="90" y="426" fill="#9ca3af" font-size="11" font-style="italic">... + 50.000 outros tokens com probabilidade ínfima</text>
+  </g>
+
+  <!-- Decision box -->
+  <rect x="610" y="280" width="220" height="160" rx="10" fill="#0d1b2a"/>
+  <text x="720" y="306" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">AMOSTRAGEM</text>
+  <text x="720" y="332" fill="#9ca3af" font-size="11" text-anchor="middle">temperatura · top-k</text>
+  <text x="720" y="348" fill="#9ca3af" font-size="11" text-anchor="middle">top-p · etc.</text>
+  <text x="720" y="384" fill="#E97451" font-size="20" font-weight="800" text-anchor="middle">"Brasília"</text>
+  <text x="720" y="408" fill="#9ca3af" font-size="10" text-anchor="middle">token escolhido</text>
+  <text x="720" y="424" fill="#9ca3af" font-size="10" text-anchor="middle" font-style="italic">vira parte do contexto</text>
+
+  <!-- Footer insight -->
+  <text x="450" y="475" fill="#6b7280" font-size="11" text-anchor="middle" font-style="italic">Isso acontece para CADA token gerado. Repetido. Token a token. Sempre.</text>
+</svg>

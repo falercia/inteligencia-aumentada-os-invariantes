@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Inteligência Aumentada</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Inteligência Aumentada</h1>
+</header>
+<div class="page-break">
+
+</div>
+<h1 id="capítulo-15">CAPÍTULO 15</h1>
+<h2 id="comparação-dos-principais-modelos">COMPARAÇÃO DOS PRINCIPAIS MODELOS</h2>
+<hr />
+<blockquote>
+<p><em>“No platô da fronteira, a pergunta não é mais qual modelo é o melhor. É qual modelo é o certo para esta tarefa específica, com este orçamento, com estas restrições.”</em></p>
+</blockquote>
+<hr />
+<blockquote>
+<p>🧭 <strong>Invariante-mãe:</strong> <strong>Invariante 4 — Encaixe</strong> — <em>“Escolha pelo padrão da tarefa, nunca pela versão da moda.”</em> Este é o capítulo-âncora do Invariante 4: a comparação de modelos vira escolha por <strong>eixo de tarefa</strong>, não por liderança em benchmark agregado. Framework derivado: <strong>F2 — ENCAIXE-5</strong>. Os números correntes que sustentam a comparação ficam no <a href="../../Livro-2-Dominando-Claude/04-apendices/L2-APX-J-apendice-vivo.md">Apêndice Vivo (J)</a>.</p>
+</blockquote>
+<hr />
+<h2 id="o-conceito-intuitivo">15.1 — O CONCEITO INTUITIVO</h2>
+<p>Existe uma pergunta que aparece em quase toda reunião executiva sobre IA, e que tem variações sutis mas todas erradas pelo mesmo motivo. Alguém pergunta “qual o melhor modelo?”, esperando uma resposta direta e definitiva, como se houvesse um vencedor universal que dispensa análise específica. Em 2022, essa pergunta ainda tinha sentido, porque havia clara hierarquia de capacidade entre os modelos disponíveis. No regime atual, descrito no Capítulo 1 como “platô da fronteira”, a pergunta deixou de ser produtiva, e quem ainda a faz nessa forma está olhando para o problema com lente desatualizada.</p>
+<p>A realidade técnica que precisa ser internalizada é que os melhores modelos do mundo convergem em capacidade bruta para uma faixa relativamente próxima, com diferenças entre as famílias premium dos três grandes laboratórios proprietários sendo marginais em benchmarks gerais e significativas apenas em especializações específicas. Isso muda a natureza da decisão. Em vez de buscar o “campeão”, o trabalho passou a ser mapear forças e fraquezas relativas de cada família, conhecer as características de cada tarefa, e escolher com critério em vez de fanatismo.</p>
+<p>A boa notícia para quem está começando agora é que essa escolha bem feita rende muito. Mesmo organizações com volume modesto, ao adotar roteamento inteligente entre modelos em vez de usar um único modelo para tudo, costumam reduzir custo de forma expressiva mantendo ou melhorando qualidade. A má notícia é que a maioria das organizações ainda opera com escolha intuitiva, frequentemente herdada do primeiro modelo que alguém testou, e paga preço alto por essa inércia.</p>
+<hr />
+<h2 id="analogia-a-frota-de-veículos-da-empresa">15.2 — ANALOGIA: A FROTA DE VEÍCULOS DA EMPRESA</h2>
+<p>Pense em como uma empresa logística pensa sobre sua frota de veículos. Ela não compra apenas um tipo de caminhão e usa para tudo. Para entregas urbanas pequenas, usa vans leves. Para cargas pesadas em longas distâncias, usa carretas. Para entregas em última milha em vielas estreitas, usa motos ou triciclos. Para cargas refrigeradas, usa frota especializada. Cada veículo é otimizado para um tipo de tarefa, e a operação madura sabe roteirizar a carga certa para o veículo certo, em tempo real.</p>
+<p>Modelos de IA seguem lógica similar. Existe um modelo grande e premium ideal para tarefas que exigem raciocínio profundo, análise crítica ou escrita executiva, em que o custo por chamada é justificado pela qualidade da saída. Existe um modelo balanceado ideal para o grosso da operação, em que custo e qualidade precisam se equilibrar. Existe um modelo pequeno e barato ideal para tarefas simples em altíssimo volume, em que economia escala dramaticamente. Existe um modelo multimodal nativo ideal para vídeo e imagem. Existe um modelo open source ideal para dados sensíveis que não podem sair da infraestrutura. Cada um tem seu lugar, e a maturidade está em saber rotear, não em escolher um único.</p>
+<p>A mentalidade que produz desperdício é tratar o modelo como commodity, comprando um único e usando indiscriminadamente. A mentalidade que produz vantagem é tratar o modelo como ferramenta especializada, com frota gerenciada em volta de critérios técnicos e econômicos claros.</p>
+<hr />
+<h2 id="explicação-técnica">15.3 — EXPLICAÇÃO TÉCNICA</h2>
+<h3 id="o-panorama-por-padrão-de-especialização">15.3.1 — O panorama por padrão de especialização</h3>
+<blockquote>
+<p>🧭 <strong>Camada Dupla aplicada (Invariante 3)</strong></p>
+<p>Esta seção descreve <strong>padrões de especialização</strong> por família e laboratório, que mudam pouco ano a ano. Os números concretos da rodada atual — versão corrente de cada família, líder de cada benchmark, preço por milhão de tokens, tamanho de contexto — vivem no <strong><a href="../../Livro-2-Dominando-Claude/04-apendices/L2-APX-J-apendice-vivo.md">Apêndice Vivo (J)</a></strong>, datado e com fonte. Consulte lá quando precisar do número da semana; aqui ficam as forças relativas que tendem a se manter por gerações.</p>
+</blockquote>
+<p>A <strong>Anthropic</strong> opera a família Claude em três níveis canônicos: Opus (raciocínio premium, código de longa duração, escrita executiva), Sonnet (equilíbrio entre qualidade e custo para o grosso da produção corporativa) e Haiku (classificação e extração em volume, latência baixa). A força histórica relativa da família está em código em ambiente real, escrita avaliada por humanos em estudos cegos, e filosofia pública de alignment (Constitutional AI). É também a origem do padrão MCP, que se consolidou como referência aberta da indústria.</p>
+<p>A <strong>OpenAI</strong> opera a família GPT em camadas premium e variantes reduzidas (mini, nano). A força relativa tende a aparecer em raciocínio matemático competitivo e em <em>computer use</em> (capacidade do modelo de operar interfaces gráficas como um humano faria, clicando, digitando, navegando), o que faz dela escolha frequente para agentes autônomos que manipulam software de terceiros.</p>
+<p>A <strong>Google DeepMind</strong> opera o Gemini com modelo premium e variante de produção em volume (Flash). A força relativa é decisiva em multimodal — vídeo, imagem, áudio nativos — e em raciocínio abstrato sobre padrões visuais. Costuma também oferecer a maior janela de contexto entre os frontier proprietários e tende a posicionar-se em custo-benefício agressivo no nível premium.</p>
+<p>A <strong>xAI</strong> opera o Grok, com acesso nativo em tempo real ao X e tolerância maior a temas sensíveis em comparação às três grandes. Tem nicho específico em monitoramento de redes sociais, jornalismo e análise de tendências em tempo real.</p>
+<p>A <strong>DeepSeek</strong>, laboratório chinês, opera modelos para uso geral e variantes com thinking visível para raciocínio. Sua marca relativa é a relação custo-benefício extrema combinada à oferta open weights, que pode ser baixada e executada em infraestrutura própria. Essa combinação de custo e abertura tem reorganizado a discussão de viabilidade econômica em muitos casos de uso.</p>
+<p>A <strong>Z.AI</strong> (modelos GLM) posiciona-se como alternativa chinesa open weights séria em benchmarks. A <strong>Mistral</strong> francesa segue relevante em modelos abertos com foco em eficiência. A <strong>Meta</strong> mantém a família Llama como referência principal em open source ocidental.</p>
+<blockquote>
+<p>📊 <strong>Diagrama 15.1 — Pontos Fortes dos Principais Modelos em 2026</strong></p>
+<figure>
+<img src="file:///sessions/festive-eloquent-fermat/mnt/Ebook%20IA/Livro-1-Os-Invariantes/02-capitulos/imagens/cap-15-img-01-pontos-fortes-modelos.svg" alt="" /><figcaption>Pontos fortes dos modelos</figcaption>
+</figure>
+<p><em>No platô da fronteira, capacidade bruta é parecida. As diferenças aparecem em especialização.</em></p>
+</blockquote>
+<h3 id="as-três-grandes-dimensões-de-comparação">15.3.2 — As três grandes dimensões de comparação</h3>
+<p>Para comparar modelos com critério, vale separar três dimensões que costumam ser confundidas em discussões superficiais.</p>
+<p>A primeira é <strong>capacidade</strong>, que é o quanto o modelo consegue executar tarefas complexas com qualidade. No regime de platô, os três frontier proprietários (Claude Opus, GPT premium, Gemini Pro) operam em faixa próxima, com cada um exibindo força relativa em um eixo: código e escrita executiva tendem a favorecer Claude, raciocínio matemático e computer use tendem a favorecer GPT, multimodalidade pesada tende a favorecer Gemini. Modelos open source costumam ficar à distância de uma ou duas gerações em benchmarks gerais, com variação por domínio. Para casos que exigem raciocínio na fronteira, os frontier proprietários ainda valem o preço; para casos mais comuns, a diferença começa a não justificar custo. Os números específicos da rodada atual ficam no <a href="../../Livro-2-Dominando-Claude/04-apendices/L2-APX-J-apendice-vivo.md">Apêndice Vivo (J)</a>.</p>
+<p>A segunda é <strong>economia</strong>, que envolve custo por token, latência média, e escalabilidade de quota. O frontier premium costuma operar em faixa significativamente mais cara que os modelos balanceados, e estes, por sua vez, em faixa significativamente mais cara que os modelos pequenos e os open source rodando em infraestrutura própria. A regra de bolso, em vez de decorar preço por milhão (que muda em meses), é desenhar o stack assumindo três tiers e rotear cada chamada ao mais barato suficiente, conforme o <strong>Framework F7 — COMPOSTO-3T</strong> (Cap 36).</p>
+<p>A terceira é <strong>alinhamento e segurança</strong>, que cobre como o modelo responde a pedidos problemáticos, o quanto ele é manipulável via prompt injection, e o cuidado do laboratório com riscos sistêmicos. Anthropic se posiciona explicitamente como líder em alinhamento via Constitutional AI, com filosofia pública e investimento massivo em interpretabilidade. OpenAI tem práticas de segurança maduras com posicionamento público menos centrado em segurança. Google segue padrões corporativos sólidos. Modelos open source variam enormemente, com alguns tendo menos restrição que os frontier proprietários, o que pode ser vantagem ou desvantagem dependendo do caso. Para domínio sensível (saúde, jurídico, financeiro, educação), a filosofia de alignment do vendor pesa mais do que o benchmark do mês, conforme se aprofunda no <a href="L1-C41-alignment.md">Capítulo 41 — Alignment</a>.</p>
+<h3 id="os-benchmarks-que-ainda-importam-lidos-como-padrão">15.3.3 — Os benchmarks que ainda importam, lidos como padrão</h3>
+<p>A era em que um único número resumia capacidade do modelo já passou. MMLU, que era a referência em 2023, saturou perto de 90% e perdeu poder discriminatório. O benchmark sucessor seguirá o mesmo destino. O exercício útil aqui é entender <strong>o que cada benchmark mede</strong>, e usar esse mapa para julgar o que importa para o seu caso. A liderança de cada um, em cada rodada, fica no <a href="../../Livro-2-Dominando-Claude/04-apendices/L2-APX-J-apendice-vivo.md">Apêndice Vivo (J)</a>.</p>
+<p><strong>GPQA Diamond</strong> — raciocínio em ciências (física, química, biologia) com perguntas de nível doutorado. Mede a fronteira de raciocínio científico.</p>
+<p><strong>SWE-bench Verified e SWE-bench Pro</strong> — capacidade de resolver issues reais de GitHub. Verified usa problemas mais curados; Pro adiciona complexidade. O benchmark mais próximo do trabalho real de engenharia de software.</p>
+<p><strong>AIME</strong> — matemática competitiva avançada. Mede raciocínio formal sob restrição de tempo.</p>
+<p><strong>ARC-AGI-2</strong> — raciocínio abstrato sobre padrões visuais. É um dos benchmarks que se mantém difícil por escapar de memorização.</p>
+<p><strong>OSWorld</strong> — <em>computer use</em>: capacidade do modelo de operar um sistema operacional como humano faria, clicando, digitando, navegando. Mede agência aplicada a software de terceiros.</p>
+<p><strong>Video-MME</strong> — compreensão de vídeo. Mede multimodalidade temporal.</p>
+<p><strong>Humanity’s Last Exam</strong> — atualmente o benchmark mais difícil disponível, com perguntas que exigem expertise de fronteira em campos específicos. Nenhum modelo atinge metade da pontuação no momento desta edição.</p>
+<p>A lição prática é que olhar para um único número é miopia. Olhar para a combinação de benchmarks relevantes ao seu caso de uso é o caminho. Modelos diferentes brilham em benchmarks diferentes, e essa heterogeneidade é o que justifica roteamento — princípio operacional do <strong>Framework F2 — ENCAIXE-5</strong> (Inv. 4).</p>
+<hr />
+<h2 id="framework-de-decisão-encaixe-5">15.4 — FRAMEWORK DE DECISÃO — ENCAIXE-5</h2>
+<blockquote>
+<p>🧭 <strong>Framework F2 — ENCAIXE-5</strong> (Invariante 4)</p>
+<p><strong>Objetivo:</strong> decidir qual modelo usar para uma tarefa específica sem cair em “modelo do mês”. <strong>Mecânica:</strong> pontuar (0-5) a tarefa nos 5 eixos abaixo e aplicar a matriz de perfis de família — modelo escolhido é o de melhor <em>encaixe ponderado</em>, não o de melhor benchmark agregado.</p>
+</blockquote>
+<p>O framework opera em árvore de perguntas, descendo conforme critérios concretos. Em cada nó, a resposta é sobre <strong>padrão de tarefa</strong>, não sobre o lançamento da semana.</p>
+<p><strong>Pergunta 1 — Dados sensíveis exigem rodar em sua infraestrutura?</strong> Se sim, modelos open source são o caminho, com Llama, Mistral, Qwen, DeepSeek e GLM como candidatos principais. Discussão de qual entre eles vai para o Capítulo 16. A liderança comparativa do momento entre eles vive no Apêndice Vivo.</p>
+<p><strong>Pergunta 2 — Custo é restrição dura, com volume alto e margem apertada?</strong> Se sim, vale considerar os modelos de menor custo dos frontier proprietários, sendo as variantes Flash, Haiku e Mini os candidatos óbvios. A escolha entre eles depende do eixo dominante (latência, qualidade em volume, custo-benefício multimodal); o ranking corrente fica no Apêndice Vivo.</p>
+<p><strong>Pergunta 3 — A tarefa envolve vídeo, imagem ou áudio em volume significativo?</strong> Se sim, o frontier multimodal do momento é a escolha mais clara — historicamente, a família Gemini lidera essa categoria com folga.</p>
+<p><strong>Pergunta 4 — O sistema vai operar como agente autônomo, com computer use ou workflows complexos de várias etapas?</strong> Se sim, há dois caminhos canônicos: o frontier com força em computer use (historicamente GPT premium), e a combinação Claude + Claude Code para tarefas centradas em software. A decisão entre eles passa pelo tipo de ferramenta que o agente vai operar.</p>
+<p><strong>Pergunta 5 — Nenhuma das anteriores cravou?</strong> O Sonnet (família balanceada do Claude) costuma ser o cavalo de batalha padrão para aplicações corporativas em produção, pela combinação de capacidade, custo, latência e ecossistema. Em outras famílias, a variante “balanceada” (não premium, não pequena) joga o mesmo papel.</p>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 30%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Eixo</th>
+<th>O que pontuar</th>
+<th>Família que tende a vencer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Razão complexa</strong></td>
+<td>Tarefas que exigem raciocínio em várias etapas, com auditoria do percurso</td>
+<td>Premium dos três frontier; thinking-models open</td>
+</tr>
+<tr class="even">
+<td><strong>Código</strong></td>
+<td>Edição de código real, com testes e contexto longo</td>
+<td>Claude Opus em SWE-bench Verified, historicamente</td>
+</tr>
+<tr class="odd">
+<td><strong>Contexto longo</strong></td>
+<td>Análise de documentos extensos ou bases de conhecimento volumosas</td>
+<td>Gemini Pro pelo tamanho de janela típico</td>
+</tr>
+<tr class="even">
+<td><strong>Multimodal</strong></td>
+<td>Vídeo, imagem, áudio nativos</td>
+<td>Gemini Pro</td>
+</tr>
+<tr class="odd">
+<td><strong>Custo crítico</strong></td>
+<td>Volume altíssimo, margem apertada</td>
+<td>Variantes Flash/Haiku/Mini; open source self-hosted</td>
+</tr>
+</tbody>
+</table>
+<p>Esses padrões mudam pouco entre gerações. Os números concretos mudam toda rodada e ficam no <a href="../../Livro-2-Dominando-Claude/04-apendices/L2-APX-J-apendice-vivo.md">Apêndice Vivo (J)</a>.</p>
+<blockquote>
+<p>📊 <strong>Diagrama 15.2 — Framework de Decisão</strong></p>
+<figure>
+<img src="file:///sessions/festive-eloquent-fermat/mnt/Ebook%20IA/Livro-1-Os-Invariantes/02-capitulos/imagens/cap-15-img-02-framework-decisao-modelo.svg" alt="" /><figcaption>Framework de decisão</figcaption>
+</figure>
+<p><em>Desça a árvore com critério. Não existe “melhor modelo”, existe melhor modelo para o caso.</em></p>
+</blockquote>
+<p>Esse framework tem uma virtude que vale destacar. Ele torna a decisão articulável e auditável, em vez de ser intuição mascarada de análise técnica. Quando alguém propõe migrar para o lançamento da semana, você consegue perguntar “passamos pelas perguntas anteriores?” e exigir justificativa de cada decisão. Isso muda a qualidade da conversa em organizações em que escolhas de modelo costumavam ser orientadas por preferência pessoal de quem propôs.</p>
+<hr />
+<h2 id="exemplo-memorável-a-empresa-que-economizou-us-380-mil-com-roteamento">15.5 — EXEMPLO MEMORÁVEL: A EMPRESA QUE ECONOMIZOU US$ 380 MIL COM ROTEAMENTO</h2>
+<blockquote>
+<p>⚠️ <strong>Cenário ilustrativo</strong> — composto a partir de padrões observados em operações reais de fintech brasileira; números e nomes são realistas mas não identificam empresa específica.</p>
+</blockquote>
+<p>Uma fintech brasileira de cartão de crédito operava toda sua infraestrutura de IA com o modelo premium do frontier proprietário disponível na época, escolhido inicialmente por entregar a melhor qualidade em testes iniciais. O sistema tinha cerca de meio milhão de chamadas mensais, cobrindo desde análise de risco de crédito até suporte ao cliente, passando por classificação automática de transações suspeitas e redação de comunicados regulatórios. A conta mensal estava em torno de US$ 47 mil dólares, com tendência de crescimento conforme o produto escalava.</p>
+<p>Uma consultoria foi contratada para auditar a operação de IA e identificar oportunidades de economia. A descoberta principal não foi sobre prompts ou caching, foi sobre roteamento. A empresa estava usando o modelo mais caro do mercado para tarefas que poderiam rodar em modelos significativamente mais baratos sem perda de qualidade.</p>
+<p>A análise classificou as chamadas em quatro categorias de complexidade.</p>
+<p>A <strong>categoria 1</strong>, com cerca de 60% do volume, era composta de tarefas simples estruturadas como classificação de transações (“essa compra é categoria alimentação ou transporte?”), extração de dados de mensagens curtas, validação de campos em formulários. Para essas, testes mostraram que o modelo pequeno da mesma família (Haiku) entregava qualidade praticamente idêntica ao premium, ao custo de fração baixa do preço.</p>
+<p>A <strong>categoria 2</strong>, com cerca de 25% do volume, era composta de tarefas moderadas como redação de respostas padrão a clientes, sumarização de tickets, análise inicial de fraude. Para essas, o modelo balanceado da mesma família (Sonnet) entregava qualidade equivalente ao premium em testes cegos com avaliadores humanos, ao custo de cerca de um quinto.</p>
+<p>A <strong>categoria 3</strong>, com cerca de 12% do volume, era composta de tarefas complexas como análise de risco crítico, redação de comunicados regulatórios para o Banco Central, e investigação aprofundada de fraude. Para essas, o premium continuava sendo a melhor escolha, e o custo se justificava pela qualidade.</p>
+<p>A <strong>categoria 4</strong>, com cerca de 3% do volume, era composta de tarefas com vídeo ou imagem (verificação de documentos com foto). Para essas, migrar para o frontier multimodal (família Gemini Pro) entregou qualidade superior em multimodal a custo menor.</p>
+<p>A implementação do roteamento levou cerca de três semanas. Construíram um classificador leve no início do pipeline, usando Claude Haiku, que olhava cada chamada e decidia para qual modelo encaminhar. O classificador em si rodava por uma fração de centavo, e o roteamento decidia onde gastar.</p>
+<p>O resultado, três meses após estabilização, foi reducão de US$ 47 mil para cerca de US$ 15,5 mil mensais, ou seja, economia de US$ 380 mil anualizada, mantendo a qualidade percebida pelos usuários em todas as categorias. Mais importante, a empresa ganhou flexibilidade arquitetural, podendo trocar modelos em cada categoria conforme novas versões aparecem, sem refazer a aplicação inteira.</p>
+<p>A lição estrutural não foi sobre escolher o modelo certo no momento zero, foi sobre arquitetura. <strong>Sistemas maduros de IA tratam modelo como configuração, não como decisão de fundação. Quando você consegue trocar modelos por categoria sem reescrever a aplicação, ganha capacidade de otimizar continuamente conforme o mercado evolui.</strong> Em uma indústria que lança modelos novos a cada três meses, essa flexibilidade vira vantagem competitiva real.</p>
+<blockquote>
+<p>🎯 <strong>PARA EXECUTIVOS</strong> Se sua organização usa um único modelo para tudo, é altamente provável que esteja pagando entre 3x e 8x mais do que precisaria para a qualidade que entrega. Implementar roteamento entre modelos por categoria de tarefa é um dos investimentos com maior ROI imediato em qualquer operação de IA em escala.</p>
+</blockquote>
+<hr />
+<h2 id="tendências-que-valem-acompanhar">15.6 — TENDÊNCIAS QUE VALEM ACOMPANHAR</h2>
+<p>Vale terminar com três tendências em curso que vão afetar decisões de modelo nos próximos dois ou três anos.</p>
+<p>A primeira é a <strong>comoditização gradual da capacidade frontier</strong>. Modelos open source estão fechando o gap com frontier proprietários em ritmo acelerado, e em 2026 já há paridade em muitas tarefas comuns. Em três anos, é provável que o que hoje é frontier seja commodity acessível em hardware modesto, e o frontier do momento seja qualitativamente diferente. Decisões arquiteturais que assumem dependência permanente de um provedor específico provavelmente vão envelhecer mal.</p>
+<p>A segunda é a <strong>proliferação de modelos especializados</strong>. Em vez de um modelo gigante que faz tudo, está crescendo o número de modelos menores otimizados para domínios específicos como código, medicina, direito, biologia. Em muitos casos, esses modelos especializados superam frontier generalistas em seus domínios, ao custo de fração do preço. Organizações que operam em domínios específicos vão se beneficiar de avaliar essas alternativas verticais.</p>
+<p>A terceira é a <strong>integração com hardware específico</strong>. NPUs em laptops, GPUs especializadas em data centers, e chips dedicados como Trainium da AWS, Tensor Processing Units do Google, e silicon proprietário da Apple, estão mudando a economia de inferência. Modelos que rodam bem em hardware específico podem ter custo radicalmente diferente em produção, e essa dimensão entrou definitivamente no critério de decisão.</p>
+<hr />
+<h2 id="conexões-com-outros-capítulos">15.7 — CONEXÕES COM OUTROS CAPÍTULOS</h2>
+<ul>
+<li>🔗 <strong>Como modelos funcionam por dentro</strong> → <a href="L1-C02-como-modelos-funcionam.md">Capítulo 2</a></li>
+<li>🔗 <strong>Tokens e custo de operação</strong> → <a href="L1-C03-tokens.md">Capítulo 3</a></li>
+<li>🔗 <strong>Fine-tuning como alternativa a trocar de modelo</strong> → <a href="L1-C08-fine-tuning.md">Capítulo 8</a></li>
+<li>🔗 <strong>AI Engineering e roteamento entre modelos</strong> → <a href="L1-C14-ai-engineering.md">Capítulo 14</a></li>
+<li>🔗 <strong>Modelos open source em profundidade</strong> → <a href="cap-16-open-source.md">Capítulo 16</a></li>
+<li>🔗 <strong>Todos os modelos Claude e como escolher</strong> → <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C18-modelos-claude.md">Capítulo 18</a></li>
+<li>🔗 <strong>Economia de tokens em produção</strong> → <a href="L1-C36-economia-tokens.md">Capítulo 36</a></li>
+</ul>
+<hr />
+<h2 id="resumo-executivo">15.8 — RESUMO EXECUTIVO</h2>
+<table>
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 47%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Conceito</th>
+<th>Síntese</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Platô da fronteira</strong></td>
+<td>Capacidade bruta dos frontier converge; diferenças aparecem em especialização por eixo</td>
+</tr>
+<tr class="even">
+<td><strong>Frontier proprietários</strong></td>
+<td>Família Claude, família GPT, família Gemini — líderes correntes no Apêndice Vivo</td>
+</tr>
+<tr class="odd">
+<td><strong>Frontier open source</strong></td>
+<td>Família Llama, DeepSeek, Qwen, GLM, Mistral — comparativo no Apêndice Vivo</td>
+</tr>
+<tr class="even">
+<td><strong>Força relativa típica em código e escrita</strong></td>
+<td>Família Claude</td>
+</tr>
+<tr class="odd">
+<td><strong>Força relativa típica em matemática e computer use</strong></td>
+<td>Família GPT</td>
+</tr>
+<tr class="even">
+<td><strong>Força relativa típica em multimodal e contexto longo</strong></td>
+<td>Família Gemini</td>
+</tr>
+<tr class="odd">
+<td><strong>Custo-benefício no frontier</strong></td>
+<td>Tipicamente capturado pelo Gemini premium, com flutuação por rodada — Apêndice Vivo</td>
+</tr>
+<tr class="even">
+<td><strong>Framework de decisão</strong></td>
+<td>F2 ENCAIXE-5: sensibilidade → custo → multimodal → agência → default balanceado</td>
+</tr>
+<tr class="odd">
+<td><strong>Roteamento inteligente</strong></td>
+<td>Reduz custo de forma expressiva sem perda de qualidade; arquitetural, não de prompt</td>
+</tr>
+<tr class="even">
+<td><strong>Onde estão os números</strong></td>
+<td>Versões, preços, benchmarks: <a href="../../Livro-2-Dominando-Claude/04-apendices/L2-APX-J-apendice-vivo.md">Apêndice Vivo (J)</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="checklist-do-capítulo">15.9 — CHECKLIST DO CAPÍTULO</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+Citar os três frontier proprietários de 2026 e o que cada um lidera</li>
+<li><input type="checkbox" disabled="" />
+Distinguir as três dimensões de comparação (capacidade, economia, alinhamento)</li>
+<li><input type="checkbox" disabled="" />
+Reconhecer os seis benchmarks que ainda diferenciam frontier em 2026</li>
+<li><input type="checkbox" disabled="" />
+Aplicar o framework de decisão para um caso real</li>
+<li><input type="checkbox" disabled="" />
+Defender, em uma reunião, por que usar um único modelo para tudo é desperdício</li>
+<li><input type="checkbox" disabled="" />
+Identificar três tendências em curso que vão afetar escolhas nos próximos anos</li>
+</ul>
+<hr />
+<h2 id="perguntas-de-revisão">15.10 — PERGUNTAS DE REVISÃO</h2>
+<ol type="1">
+<li>Por que MMLU perdeu poder discriminatório como benchmark, e que padrão se repete com benchmarks sucessores?</li>
+<li>Em que situação um modelo Gemini Pro é a escolha mais clara, e por quê o eixo “multimodal” tende a manter essa força entre gerações?</li>
+<li>Como você decidiria entre Claude Opus e o frontier GPT para um sistema de agentes autônomos? Quais perguntas do F2 ENCAIXE-5 você usaria?</li>
+<li>Por que roteamento entre modelos costuma render mais que negociar desconto com um único provedor?</li>
+<li>Que tendência você acompanha mais de perto, e como ela afeta decisões de longo prazo da sua organização?</li>
+</ol>
+<hr />
+<h2 id="exercícios-práticos">15.11 — EXERCÍCIOS PRÁTICOS</h2>
+<h3 id="exercício-1-inventário-e-classificação">Exercício 1 — Inventário e classificação</h3>
+<p>Liste as chamadas de IA da sua organização nos últimos 30 dias, agregadas por funcionalidade. Classifique cada uma em uma de quatro categorias de complexidade. Estime potencial de economia se aplicar roteamento.</p>
+<h3 id="exercício-2-comparação-de-saída">Exercício 2 — Comparação de saída</h3>
+<p>Pegue cinco prompts representativos da sua operação. Rode cada um em três modelos diferentes (Claude Sonnet, GPT-5 mini, Gemini Flash, por exemplo). Compare qualidade às cegas, sem saber qual produziu qual. Documente o resultado.</p>
+<h3 id="exercício-3-análise-de-benchmark-relevante">Exercício 3 — Análise de benchmark relevante</h3>
+<p>Identifique qual benchmark de 2026 melhor representa o tipo de tarefa que sua organização executa em IA. Pesquise como cada frontier se sai nesse benchmark. Use isso como input para decisões de roteamento.</p>
+<h3 id="exercício-4-esboço-de-roteador">Exercício 4 — Esboço de roteador</h3>
+<p>Para uma aplicação real, esboce a lógica de um roteador. Que sinais usar para classificar a chamada? Que mapeamento de categoria para modelo aplicar? Estime ganho potencial.</p>
+<hr />
+<h2 id="projeto-do-capítulo">15.12 — PROJETO DO CAPÍTULO</h2>
+<p><strong>Implemente roteamento entre modelos em uma aplicação real.</strong></p>
+<p>Escolha a aplicação de IA com maior volume da sua organização. Implemente um roteador simples no início do pipeline, classificando cada chamada em três a quatro categorias de complexidade. Mapeie cada categoria para um modelo apropriado. Execute em paralelo com a configuração antiga por duas semanas, comparando custo, latência e qualidade. Documente o resultado. Esse projeto, mesmo em escala modesta, costuma render entre 30% e 70% de economia mantendo qualidade, e prepara terreno conceitual para todas as decisões de modelo futuras.</p>
+<hr />
+<h2 id="referências-principais">15.13 — REFERÊNCIAS PRINCIPAIS</h2>
+<p>📚 <strong>Leaderboards e benchmarks</strong></p>
+<ul>
+<li><a href="https://www.vellum.ai/llm-leaderboard">Vellum LLM Leaderboard</a></li>
+<li><a href="https://artificialanalysis.ai/leaderboards/models">Artificial Analysis</a></li>
+<li><a href="https://lmcouncil.ai/benchmarks">LM Council Benchmarks</a></li>
+<li><a href="https://lmarena.ai/">LMSYS Chatbot Arena</a></li>
+</ul>
+<p>📚 <strong>Papers sobre benchmarks atuais</strong></p>
+<ul>
+<li><em>“GPQA: A Graduate-Level Google-Proof Q&amp;A Benchmark”</em>. 2023.</li>
+<li><em>“SWE-bench: Can Language Models Resolve Real-World GitHub Issues?”</em>. 2023.</li>
+<li><em>“ARC-AGI-2: Abstract Reasoning Corpus, second generation”</em>. 2024.</li>
+<li><em>“OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments”</em>. 2024.</li>
+</ul>
+<p>📚 <strong>Documentação dos provedores</strong></p>
+<ul>
+<li><a href="https://docs.claude.com/en/docs/about-claude/models">Anthropic Models</a></li>
+<li><a href="https://platform.openai.com/docs/models">OpenAI Models</a></li>
+<li><a href="https://ai.google.dev/gemini-api/docs/models/gemini">Google Gemini</a></li>
+<li><a href="https://api-docs.deepseek.com/">DeepSeek API</a></li>
+</ul>
+<hr />
+<h2 id="validação-uau">15.14 — VALIDAÇÃO UAU</h2>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 34%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Critério</th>
+<th>Você consegue?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><strong>Clareza</strong> — Explicar por que não existe “melhor modelo” para um executivo em 90 segundos, usando a analogia da frota</td>
+<td>☐</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><strong>Profundidade</strong> — Defender, em discussão técnica, escolha de modelo para um caso real, citando benchmarks relevantes</td>
+<td>☐</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><strong>Aplicação</strong> — Aplicar o framework de decisão a três casos reais da sua organização</td>
+<td>☐</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><strong>Conexão</strong> — Articular como escolha de modelo se conecta com tokens (Cap 3), fine-tuning (Cap 8), AI Engineering (Cap 14), open source (Cap 16)</td>
+<td>☐</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><strong>Curiosidade UAU</strong> — Está com vontade de entender em profundidade o ecossistema open source, suas vantagens reais e suas armadilhas</td>
+<td>☐</td>
+</tr>
+</tbody>
+</table>
+<p><strong>5 de 5?</strong> Avance. Você acabou de ganhar fluência em uma decisão que costuma ser tratada com superficialidade nas organizações. <strong>3 ou 4?</strong> Releia 15.5 (caso da fintech) e 15.4 (framework). É onde teoria vira economia mensurável. <strong>Menos de 3?</strong> O capítulo merece releitura, sobretudo se você participa de decisões de adoção ou contratação de modelos de IA.</p>
+<hr />
+<p>🔗 <strong>Próximo capítulo:</strong> <a href="cap-16-open-source.md">Capítulo 16 — Modelos Open Source</a></p>
+<hr />
+<blockquote>
+<p><em>“Em 2026, escolher modelo não é decisão de fundação, é decisão de roteamento. Quem entende isso opera com flexibilidade. Quem ignora, paga conta de quem opera.”</em></p>
+</blockquote>
+<div class="page-break">
+
+</div>
+<h1 id="capítulo-16">CAPÍTULO 16</h1>
+<h2 id="modelos-open-source">MODELOS OPEN SOURCE</h2>
+<hr />
+<blockquote>
+<p><em>“Open source em IA não é decisão técnica, é decisão estratégica. Quem trata como técnica acaba pagando o custo de propriedade sem colher o benefício.”</em></p>
+</blockquote>
+<hr />
+<blockquote>
+<p>🧭 <strong>Invariante-mãe:</strong> <strong>Invariante 4 — Encaixe</strong> — <em>“Escolha pelo padrão da tarefa, nunca pela versão da moda.”</em> Open source é encaixe estratégico, não decisão técnica binária. Quando faz sentido, é decisivo; quando não faz, custa caro. Invariante secundário: <strong>Inv. 5 — Custo Composto</strong> (TCO real de open source self-hosted nem sempre é menor).</p>
+</blockquote>
+<hr />
+<h2 id="o-conceito-intuitivo-1">16.1 — O CONCEITO INTUITIVO</h2>
+<p>Existe um padrão narrativo recorrente em organizações brasileiras quando o tema modelos open source aparece em conversas sobre IA. Geralmente começa com alguém entusiasmado descobrindo que existem modelos como Llama, Mistral e DeepSeek disponíveis gratuitamente, e propondo que a empresa migre toda a infraestrutura de IA para reduzir custos a zero. A reunião seguinte costuma trazer um técnico mais experiente que aponta os custos reais de operação, em GPUs, time especializado, manutenção, e o entusiasmo arrefece. Em algumas semanas o assunto morre, e a empresa continua pagando API de provedores frontier, frequentemente sem ter feito a análise correta para essa decisão.</p>
+<p>O problema dessa dinâmica é que ela polariza demais a discussão, em vez de tratá-la com a sofisticação que ela merece. Open source em IA não é uma questão de “grátis versus pago”, e tratar dessa forma simplista produz decisões piores em ambos os extremos. Quem migra tudo para open source achando que vai economizar costuma se assustar com o custo total de operação. Quem rejeita open source achando que sempre é mais complicado costuma pagar caro por casos em que ele seria claramente a melhor opção.</p>
+<p>A realidade técnica e econômica em 2026 é mais nuançada. Open source virou opção legítima e em muitos casos superior a proprietary, em situações específicas que valem ser identificadas com precisão. Ao mesmo tempo, continua sendo a escolha errada para a maioria das aplicações corporativas, em que provedores frontier entregam mais valor pelo dinheiro. Este capítulo é o que te dá o critério para essa decisão.</p>
+<hr />
+<h2 id="analogia-a-frota-própria-versus-aplicativo-de-transporte">16.2 — ANALOGIA: A FROTA PRÓPRIA VERSUS APLICATIVO DE TRANSPORTE</h2>
+<p>Pense numa empresa decidindo como transportar funcionários entre escritórios. Uma alternativa é ter frota própria com motoristas contratados, carros próprios, manutenção própria, seguro próprio. Outra alternativa é usar aplicativos como Uber ou 99, pagando por corrida sem manter nenhuma infraestrutura. A discussão de qual escolher não é técnica, é estratégica, e depende de variáveis que vão além de custo unitário.</p>
+<p>Frota própria faz sentido quando o volume é altíssimo e previsível, quando o controle sobre operação importa muito, quando há restrições de quem pode dirigir os funcionários, quando dados de localização ou roteirização são sensíveis. Faz menos sentido quando o volume é baixo ou variável, quando o tempo da equipe focada em transporte sai caro, quando manutenção e seguro têm custos escondidos que não aparecem na proposta inicial.</p>
+<p>Aplicativo de transporte faz sentido quando o volume é moderado ou variável, quando a empresa não tem expertise em gestão de frota, quando a flexibilidade de escalar para mais ou menos importa, quando o custo total de propriedade da frota seria superior à soma das corridas. Faz menos sentido em volumes massivos previsíveis, ou quando há restrições regulatórias específicas.</p>
+<p>Open source versus proprietary em IA segue lógica análoga. Open source é “frota própria”, com controle total mas exigindo toda a infraestrutura, operação e manutenção que vêm com isso. Proprietary é “aplicativo de transporte”, com setup trivial e operação terceirizada, mas com restrições sobre o que você pode fazer e dependência de terceiro. Cada um tem seu lugar, e a decisão errada custa caro em ambos os sentidos.</p>
+<hr />
+<h2 id="explicação-técnica-1">16.3 — EXPLICAÇÃO TÉCNICA</h2>
+<h3 id="o-ecossistema-em-2026">16.3.1 — O ecossistema em 2026</h3>
+<p>Vou descrever os principais atores do ecossistema open source em 2026, porque conhecer os jogadores é prerrequisito para qualquer decisão consciente.</p>
+<p>A <strong>Meta</strong>, com a família Llama, continua sendo a referência principal do ecossistema. Llama 4, lançado em 2025 e refinado em 2026, vem em variantes de 8B, 70B e 405B parâmetros, com qualidade que rivaliza frontier proprietários em muitas tarefas. A licença permite uso comercial com poucas restrições, e o tamanho do ecossistema em volta de Llama, com derivados especializados, ferramentas otimizadas e comunidade ativa, é incomparável.</p>
+<p>A <strong>Mistral</strong>, empresa francesa, opera Mistral Large como modelo principal e Mixtral 8x22B como variante Mixture of Experts (MoE) eficiente. Mistral tem Codestral para código, modelos menores como Mistral 7B e Mistral Nemo para uso geral, e posicionamento europeu que importa para empresas com restrições GDPR específicas.</p>
+<p>A <strong>DeepSeek</strong>, laboratório chinês, mudou o jogo em 2024 e 2025 com modelos que combinam qualidade frontier com custo radicalmente menor. DeepSeek V3 entrega capacidade próxima de GPT-4 a fração do custo, e DeepSeek R1, com raciocínio visível ao usuário, foi inovação técnica importante. Os modelos são open weights com licença MIT, permitindo uso comercial irrestrito, e a escolha técnica chinesa de otimizar para eficiência em hardware modesto contrasta com a abordagem americana de maximizar capacidade absoluta.</p>
+<p>A <strong>Alibaba</strong>, com a família Qwen, oferece variantes desde 0,5B até 235B parâmetros, com força particular em multilíngue (incluindo português) e versões especializadas como Qwen-Coder para programação. Qwen 3 atingiu performance competitiva em 2026, e como DeepSeek, oferece open weights com licença permissiva.</p>
+<p>A <strong>Google</strong>, com Gemma, oferece variantes de 2B, 9B e 27B parâmetros, com Gemma 3 incluindo capacidade multimodal nativa. Otimizados para rodar em hardware modesto (laptops com GPU integrada conseguem rodar Gemma 9B), são escolha frequente para experimentação e protótipos.</p>
+<p>A <strong>Microsoft</strong>, com a família Phi, segue filosofia distinta de treinar modelos pequenos em dados extremamente curados. Phi-4, com 14B parâmetros, atinge performance acima do esperado para seu tamanho, e essa linha tem ganhado tração para casos em que o modelo precisa caber em hardware específico.</p>
+<p>A <strong>Z.AI</strong> chinesa opera GLM-5 e GLM-5.1 como frontier open source competitivos, e há dezenas de outros laboratórios menores liberando modelos especializados regularmente.</p>
+<blockquote>
+<p>📊 <strong>Diagrama 16.1 — O Ecossistema Open Source</strong></p>
+<figure>
+<img src="file:///sessions/festive-eloquent-fermat/mnt/Ebook%20IA/Livro-1-Os-Invariantes/02-capitulos/imagens/cap-16-img-01-ecossistema-open-source.svg" alt="" /><figcaption>Ecossistema open source</figcaption>
+</figure>
+<p><em>Hugging Face como hub. Modelos liderados por Meta, Mistral, DeepSeek, Alibaba, Google e Microsoft.</em></p>
+</blockquote>
+<h3 id="hugging-face-e-a-infraestrutura-compartilhada">16.3.2 — Hugging Face e a infraestrutura compartilhada</h3>
+<p>O ator central que merece menção própria é a <strong>Hugging Face</strong>, plataforma que se consolidou como o GitHub dos modelos de IA. Em 2026 a Hugging Face hospeda mais de um milhão de modelos, milhares de datasets, e centenas de milhares de “spaces” que são aplicações de demonstração rodando esses modelos. Toda discussão séria de open source em IA passa pela Hugging Face, e ignorar a plataforma é como tentar trabalhar com software open source ignorando o GitHub.</p>
+<p>A plataforma oferece três tipos de utilidade. A primeira é o <strong>hub de modelos</strong>, com cada modelo tendo página própria, descrição técnica, cartão de modelo com riscos e limitações, exemplos de uso, e comunidade de comentários. A segunda é a <strong>biblioteca Transformers</strong>, framework Python que padronizou a forma como modelos open source são carregados e utilizados, com suporte unificado a praticamente todos os modelos relevantes. A terceira é a <strong>infraestrutura de hospedagem</strong>, com Inference Endpoints que permitem rodar modelos open source via API, e Spaces que permitem deploy de aplicações.</p>
+<p>Para qualquer organização que queira explorar open source seriamente, fluência em Hugging Face é prerrequisito. Quem opera sem isso está reinventando rodas que já existem como padrão.</p>
+<h3 id="ferramentas-de-execução">16.3.3 — Ferramentas de execução</h3>
+<p>Conhecer os modelos é apenas parte da história. Saber como executá-los é a outra metade, e existem ferramentas distintas para situações diferentes.</p>
+<p>Para <strong>execução local em laptops ou desktops</strong>, ferramentas como Ollama, LM Studio e llama.cpp se tornaram o padrão. Ollama é a opção mais simples, com instalação trivial e CLI clean, capaz de baixar e rodar dezenas de modelos open source com um comando. LM Studio oferece interface gráfica amigável e é frequente escolha para quem prefere clicar a digitar. llama.cpp é o motor por trás de muitas dessas ferramentas, com versões otimizadas para CPU que rodam até em hardware modesto.</p>
+<p>Para <strong>execução em servidor próprio em produção</strong>, vLLM e TGI (Text Generation Inference da Hugging Face) são as referências. vLLM tem otimizações de inferência que entregam throughput significativamente maior que opções genéricas, sendo a escolha óbvia para workloads de alta escala. TGI tem integração nativa com o ecossistema Hugging Face e bom suporte de produção.</p>
+<p>Para <strong>execução hospedada via API sem manter infraestrutura</strong>, providers como Together AI, Replicate, Modal, Anyscale e Groq oferecem modelos open source via API com cobrança por uso. Groq em particular se destaca por velocidade extrema graças a chips especializados, com latência uma ordem de grandeza menor que provedores tradicionais. Essa terceira opção é frequentemente o caminho mais sensato para começar a usar open source sem investir em infraestrutura própria.</p>
+<p>A barreira de entrada para usar open source caiu drasticamente entre 2023 e 2026. O que antes exigia time dedicado e meses de trabalho hoje pode ser começado em uma tarde de configuração com ferramentas modernas. A decisão se vale a pena, no entanto, continua sendo estratégica.</p>
+<hr />
+<h2 id="quando-open-source-faz-sentido">16.4 — QUANDO OPEN SOURCE FAZ SENTIDO</h2>
+<p>Vou listar com precisão os quatro critérios em que open source é claramente a escolha certa em 2026.</p>
+<p>O primeiro critério é <strong>privacidade crítica e soberania de dados</strong>. Quando dados que serão processados pelo modelo são tão sensíveis que não podem sair da sua infraestrutura, por motivo regulatório, contratual ou estratégico, open source vira a única opção viável. Saúde com dados de pacientes, defesa, alguns setores financeiros, dados de pesquisa proprietária em farmacêuticas, são exemplos típicos. Mesmo com provedores oferecendo VPC isolada e termos rigorosos, há contextos em que apenas hardware sob seu controle direto é aceitável.</p>
+<p>O segundo critério é <strong>volume gigantesco em tarefa específica</strong>, em que o custo de API multiplica em escala que justifica investimento em infraestrutura própria. Acima de algum patamar, que varia mas tipicamente fica em torno de US$ 100 mil mensais em API, vale considerar deploy próprio com hardware dedicado, especialmente se o workload for previsível e a tarefa for específica o suficiente para um modelo pequeno bem otimizado entregar resultado adequado.</p>
+<p>O terceiro critério é <strong>customização profunda via fine-tuning</strong>, em que você precisa modificar o modelo de forma que provedores não permitem, ou que ficaria muito mais cara via APIs deles. Lembrando do Capítulo 8 que fine-tuning costuma ser desperdício em 80% dos casos, mas nos 20% em que faz sentido, ter open weights é frequentemente prerrequisito para conseguir o que você precisa.</p>
+<p>O quarto critério é <strong>soberania regulatória</strong>, em que questões geopolíticas, regulatórias setoriais ou políticas internas impõem que sua organização não dependa de provedor estrangeiro específico. Empresas europeias podem preferir Mistral por razões de soberania europeia. Empresas com clientes públicos podem ter restrições sobre provedores americanos. Setores estratégicos podem ter exigências explícitas de operação local. Nesses casos, open source vira o caminho não pela técnica, pela política.</p>
+<blockquote>
+<p>📊 <strong>Diagrama 16.2 — Open Source versus Proprietary</strong></p>
+<figure>
+<img src="file:///sessions/festive-eloquent-fermat/mnt/Ebook%20IA/Livro-1-Os-Invariantes/02-capitulos/imagens/cap-16-img-02-tradeoffs-open-source.svg" alt="" /><figcaption>Trade-offs open source</figcaption>
+</figure>
+<p><em>Cada lado vence em dimensões diferentes. A decisão certa depende dos pesos relativos.</em></p>
+</blockquote>
+<p>Se nenhum desses quatro critérios se aplica ao seu caso, provavelmente proprietary é a escolha mais sensata, com Claude Sonnet ou Gemini 3.1 Flash entregando mais valor por dólar do que open source entregaria considerando custo total de propriedade.</p>
+<hr />
+<h2 id="exemplo-memorável-a-empresa-que-trocou-duas-vezes">16.5 — EXEMPLO MEMORÁVEL: A EMPRESA QUE TROCOU DUAS VEZES</h2>
+<p>Uma empresa brasileira de saúde digital, operando com cerca de 200 funcionários e processando informações sensíveis de pacientes, viveu uma jornada instrutiva entre 2024 e 2026 que vale conhecer porque condensa lições contraditórias.</p>
+<p>Em 2024, ao começar a usar IA, escolheram Claude via API por simplicidade e qualidade. Em três meses tinham vários workflows funcionando, com volume modesto e custos baixos. A área jurídica, no entanto, começou a fazer perguntas difíceis sobre tráfego de dados de pacientes para servidores nos Estados Unidos, e mesmo com Claude oferecendo opções como Amazon Bedrock com VPC, a equipe ficou desconfortável. Em janeiro de 2025, decidiram migrar tudo para Llama 3, rodando em GPUs próprias em data center brasileiro.</p>
+<p>A migração levou cerca de quatro meses e custou em torno de R$ 600 mil em infraestrutura inicial, time dedicado e refatoração. O resultado foi uma operação totalmente em servidores próprios, com Llama 3 70B atendendo as demandas. A qualidade caiu visivelmente em algumas tarefas, mas a equipe e a diretoria aceitaram esse trade-off em troca de soberania completa sobre os dados.</p>
+<p>Operaram assim por cerca de oito meses, e em outubro de 2025 começaram a aparecer problemas. O custo operacional dos servidores próprios era maior que o esperado, somando hardware, energia, time de SRE dedicado, atualizações de modelo. A qualidade limitada em algumas tarefas críticas começou a gerar reclamações de usuários. E a velocidade de inovação diminuiu, porque qualquer novo recurso exigia gerenciar a complexidade da infraestrutura própria.</p>
+<p>Em fevereiro de 2026, a empresa fez uma segunda mudança, dessa vez mais sofisticada. Adotaram arquitetura híbrida com dois critérios claros. Para tarefas que envolvem dados de pacientes diretamente, mantiveram Llama 4 em infraestrutura própria, agora atualizado e mais capaz que Llama 3 era. Para tarefas que não envolvem dados de pacientes, como redação de comunicados, análise de tendências de mercado, automação administrativa, voltaram a usar Claude via API, com classificador automático no início do pipeline decidindo qual caminho seguir.</p>
+<p>O resultado final, depois de estabilização, foi notavelmente melhor que qualquer dos extremos. Custo total caiu cerca de 35% comparado à operação 100% Claude original, com 100% de conformidade regulatória sobre dados sensíveis, e qualidade total comparável ou superior. A equipe parou de operar como provedor de IA e voltou a operar como equipe de produto, com a infraestrutura própria focada apenas onde fazia diferença real.</p>
+<p>A lição estrutural não foi sobre escolher entre open source e proprietary. Foi sobre <strong>abandonar o falso dilema e construir arquitetura híbrida com critérios técnicos claros</strong>. Open source onde os critérios pedem, proprietary onde os critérios não pedem, classificador automático mediando a rota. <strong>Maturidade em IA é deixar de pensar em escolha única e começar a pensar em portfolio coordenado.</strong></p>
+<blockquote>
+<p>🎯 <strong>PARA EXECUTIVOS</strong> Organizações que tratam open source como sim ou não desperdiçam recursos. Organizações que tratam como peça de portfolio gerenciado, com critérios técnicos claros sobre quando usar cada caminho, operam com flexibilidade que vira diferenciação competitiva. A pergunta certa não é “vamos para open source?”, é “para quais tarefas open source faz sentido?”.</p>
+</blockquote>
+<hr />
+<h2 id="os-custos-reais-que-quase-todo-mundo-ignora">16.6 — OS CUSTOS REAIS QUE QUASE TODO MUNDO IGNORA</h2>
+<p>Vale enumerar com honestidade os custos que aparecem quando você opera open source em produção, porque ignorá-los é a fonte principal de decisões equivocadas.</p>
+<p>O primeiro custo é o <strong>hardware</strong>. Rodar Llama 4 70B em produção exige tipicamente uma GPU H100 ou equivalente, custando entre US$ 25 mil e US$ 40 mil por unidade, ou aluguel em torno de US$ 2 a US$ 4 por hora dependendo do provedor de nuvem. Para alta disponibilidade, você precisa de pelo menos duas, idealmente quatro, e o cálculo se acumula.</p>
+<p>O segundo é o <strong>time especializado</strong>. Operar inferência de LLMs em produção exige expertise específica, com engenheiros que entendem otimização de modelo, cuotização, batching dinâmico, otimização de KV cache. Um engenheiro sênior dessa especialidade custa entre R$ 25 mil e R$ 50 mil mensais no Brasil em 2026, e você precisa de pelo menos um dedicado, idealmente dois para garantir continuidade.</p>
+<p>O terceiro é <strong>energia e infraestrutura</strong>. GPUs em produção consomem energia significativa, e mesmo em data centers próprios o custo elétrico aparece. Considerando refrigeração, a TCO de uma GPU dedicada pode adicionar 30 a 50% ao custo aparente do hardware.</p>
+<p>O quarto é <strong>atualização contínua</strong>. Modelos open source são atualizados frequentemente, com Llama 4 já tendo várias revisões em 2026, e cada atualização exige trabalho de adaptação. Se você ficar parado em uma versão por muito tempo, sua aplicação fica obsoleta em comparação com competidores que usam APIs sempre atualizadas.</p>
+<p>O quinto é <strong>risco operacional</strong>. Quando algo dá errado, você é o responsável. Não há suporte 24x7 da Anthropic ou OpenAI para te ajudar a debugar. Sua equipe precisa estar preparada para responder a incidentes próprios, e isso significa playbooks, runbooks, monitoramento dedicado.</p>
+<p>Quando você soma tudo isso, o custo de operar open source em produção raramente é menor que usar APIs para volumes médios. O ponto de virada, em que open source se justifica economicamente, tipicamente fica acima de US$ 50 mil mensais em API, e mesmo aí depende dos outros critérios estarem alinhados.</p>
+<hr />
+<h2 id="conexões-com-outros-capítulos-1">16.7 — CONEXÕES COM OUTROS CAPÍTULOS</h2>
+<ul>
+<li>🔗 <strong>Como modelos funcionam (relevante para hosting próprio)</strong> → <a href="L1-C02-como-modelos-funcionam.md">Capítulo 2</a></li>
+<li>🔗 <strong>Fine-tuning, frequentemente sobre modelos open</strong> → <a href="L1-C08-fine-tuning.md">Capítulo 8</a></li>
+<li>🔗 <strong>AI Engineering para operar modelos próprios</strong> → <a href="L1-C14-ai-engineering.md">Capítulo 14</a></li>
+<li>🔗 <strong>Comparação dos modelos frontier</strong> → <a href="cap-15-comparacao-modelos.md">Capítulo 15</a></li>
+<li>🔗 <strong>Repositórios GitHub para open source</strong> → <a href="L1-C35-github-repos.md">Capítulo 35</a></li>
+<li>🔗 <strong>Segurança em modelos próprios</strong> → <a href="L1-C37-seguranca.md">Capítulo 37</a></li>
+</ul>
+<hr />
+<h2 id="resumo-executivo-1">16.8 — RESUMO EXECUTIVO</h2>
+<table>
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 47%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Conceito</th>
+<th>Síntese</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Open source em 2026</strong></td>
+<td>Opção legítima e em casos superior, mas exige decisão estratégica</td>
+</tr>
+<tr class="even">
+<td><strong>Principais famílias</strong></td>
+<td>Llama (Meta), Mistral, DeepSeek, Qwen (Alibaba), Gemma (Google), Phi (Microsoft)</td>
+</tr>
+<tr class="odd">
+<td><strong>Hugging Face</strong></td>
+<td>Hub central com mais de 1 milhão de modelos disponíveis</td>
+</tr>
+<tr class="even">
+<td><strong>Execução local</strong></td>
+<td>Ollama, LM Studio, llama.cpp</td>
+</tr>
+<tr class="odd">
+<td><strong>Execução em produção</strong></td>
+<td>vLLM, TGI, providers como Together AI, Groq</td>
+</tr>
+<tr class="even">
+<td><strong>Quando faz sentido</strong></td>
+<td>Privacidade crítica, volume gigantesco, customização profunda, soberania regulatória</td>
+</tr>
+<tr class="odd">
+<td><strong>Custos escondidos</strong></td>
+<td>Hardware, time especializado, energia, atualização, risco operacional</td>
+</tr>
+<tr class="even">
+<td><strong>Ponto de virada típico</strong></td>
+<td>Acima de US$ 50 mil mensais em API, com critérios alinhados</td>
+</tr>
+<tr class="odd">
+<td><strong>Arquitetura ideal</strong></td>
+<td>Híbrida, com classificador roteando entre open source e proprietary</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="checklist-do-capítulo-1">16.9 — CHECKLIST DO CAPÍTULO</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+Listar os seis principais provedores de modelos open source de 2026</li>
+<li><input type="checkbox" disabled="" />
+Distinguir as três classes de ferramentas de execução</li>
+<li><input type="checkbox" disabled="" />
+Aplicar os quatro critérios de quando open source faz sentido</li>
+<li><input type="checkbox" disabled="" />
+Estimar os cinco custos reais de operar modelos próprios</li>
+<li><input type="checkbox" disabled="" />
+Defender, em uma reunião, arquitetura híbrida em vez de escolha única</li>
+<li><input type="checkbox" disabled="" />
+Identificar o ponto de virada econômico em que open source compensa</li>
+</ul>
+<hr />
+<h2 id="perguntas-de-revisão-1">16.10 — PERGUNTAS DE REVISÃO</h2>
+<ol type="1">
+<li>Por que open source não é decisão técnica, é decisão estratégica?</li>
+<li>Em que situação rodar localmente com Ollama faz sentido versus usar via Together AI?</li>
+<li>Por que a Hugging Face se tornou peça central do ecossistema?</li>
+<li>Que custo escondido pega mais organizações desprevenidas, e por quê?</li>
+<li>Como você estruturaria um piloto de open source na sua empresa sem comprometer recursos demais?</li>
+</ol>
+<hr />
+<h2 id="exercícios-práticos-1">16.11 — EXERCÍCIOS PRÁTICOS</h2>
+<h3 id="exercício-1-inventário-de-critérios">Exercício 1 — Inventário de critérios</h3>
+<p>Para sua organização, avalie quais dos quatro critérios de open source se aplicam, e em qual intensidade. Documente as conclusões.</p>
+<h3 id="exercício-2-estimativa-de-tco">Exercício 2 — Estimativa de TCO</h3>
+<p>Para uma aplicação real, calcule o custo total de propriedade de migrar para Llama 4 70B em servidor próprio, considerando hardware, time, energia, manutenção. Compare com o custo atual via API.</p>
+<h3 id="exercício-3-teste-local">Exercício 3 — Teste local</h3>
+<p>Instale Ollama na sua máquina, baixe Llama 4 ou Gemma 3, e execute alguns prompts. Compare a qualidade com Claude ou GPT na mesma tarefa. Documente a experiência.</p>
+<h3 id="exercício-4-esboço-híbrido">Exercício 4 — Esboço híbrido</h3>
+<p>Para uma aplicação real, esboce uma arquitetura híbrida com classificador roteando entre open source e proprietary. Que sinais usar? Que mapeamento aplicar? Que ganho esperar?</p>
+<hr />
+<h2 id="projeto-do-capítulo-1">16.12 — PROJETO DO CAPÍTULO</h2>
+<p><strong>Construa um piloto controlado de modelo open source.</strong></p>
+<p>Escolha um caso de uso pequeno mas representativo da sua organização. Configure infraestrutura mínima viável para rodar um modelo open source apropriado, podendo ser via API hospedada como Together AI ou via servidor próprio se já tiver hardware. Compare em 100 chamadas reais a qualidade da resposta com o modelo proprietary que você usa hoje. Calcule o custo total de cada caminho considerando tudo, não apenas tokens. Apresente os resultados com recomendação clara. Esse piloto, mesmo modesto, é o que vai te dar autoridade interna para defender ou rejeitar open source com argumentos concretos.</p>
+<hr />
+<h2 id="referências-principais-1">16.13 — REFERÊNCIAS PRINCIPAIS</h2>
+<p>📚 <strong>Plataforma central</strong></p>
+<ul>
+<li><a href="https://huggingface.co/">Hugging Face</a></li>
+<li><a href="https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard">Open LLM Leaderboard</a></li>
+</ul>
+<p>📚 <strong>Modelos principais</strong></p>
+<ul>
+<li><a href="https://www.llama.com/">Meta Llama</a></li>
+<li><a href="https://mistral.ai/">Mistral AI</a></li>
+<li><a href="https://www.deepseek.com/">DeepSeek</a></li>
+<li><a href="https://qwen.ai/">Qwen (Alibaba)</a></li>
+<li><a href="https://blog.google/technology/developers/gemma-3/">Google Gemma</a></li>
+<li><a href="https://azure.microsoft.com/en-us/products/phi-3">Microsoft Phi</a></li>
+</ul>
+<p>📚 <strong>Ferramentas de execução</strong></p>
+<ul>
+<li><a href="https://ollama.com/">Ollama</a></li>
+<li><a href="https://lmstudio.ai/">LM Studio</a></li>
+<li><a href="https://github.com/ggml-org/llama.cpp">llama.cpp</a></li>
+<li><a href="https://github.com/vllm-project/vllm">vLLM</a></li>
+<li><a href="https://www.together.ai/">Together AI</a></li>
+<li><a href="https://groq.com/">Groq</a></li>
+<li><a href="https://replicate.com/">Replicate</a></li>
+</ul>
+<hr />
+<h2 id="validação-uau-1">16.14 — VALIDAÇÃO UAU</h2>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 34%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Critério</th>
+<th>Você consegue?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><strong>Clareza</strong> — Explicar para um diretor de TI por que open source não é decisão técnica, em 90 segundos, com analogia</td>
+<td>☐</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><strong>Profundidade</strong> — Defender, em discussão técnica, escolha entre open source e proprietary citando os quatro critérios e o ponto de virada econômico</td>
+<td>☐</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><strong>Aplicação</strong> — Identificar, na sua organização, em quais tarefas open source faria sentido genuíno, e em quais seria desperdício</td>
+<td>☐</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><strong>Conexão</strong> — Articular como open source se conecta com fine-tuning (Cap 8), AI Engineering (Cap 14), escolha de modelos (Cap 15)</td>
+<td>☐</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><strong>Curiosidade UAU</strong> — Está com vontade real de entrar na Parte 5 e dominar o ecossistema Claude inteiro, o laboratório vivo que vai materializar todos os conceitos vistos até aqui</td>
+<td>☐</td>
+</tr>
+</tbody>
+</table>
+<p><strong>5 de 5?</strong> Avance. Você acabou de fechar a Parte 4, e tem agora visão completa de modelos, do frontier ao open source, com critério de decisão. <strong>3 ou 4?</strong> Releia 16.5 (caso da saúde) e 16.4 (critérios). É onde a decisão vira arquitetura. <strong>Menos de 3?</strong> O capítulo merece releitura, sobretudo se você está prestes a tomar decisão sobre adoção de open source nos próximos meses.</p>
+<hr />
+<p>🔗 <strong>Próximo capítulo:</strong> <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C17-entendendo-claude.md">Capítulo 17 — Entendendo o Claude</a></p>
+<p>🎉 <strong>Você acabou de fechar a Parte 4 — Modelos.</strong></p>
+<blockquote>
+<p><em>“Open source virou opção legítima. Mas legítima não significa universal. Maturidade é saber em quais tarefas faz sentido, em quais é desperdício, e ter arquitetura híbrida que aproveita o melhor dos dois.”</em></p>
+</blockquote>
+</body>
+</html>

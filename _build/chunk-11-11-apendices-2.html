@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Inteligência Aumentada</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Inteligência Aumentada</h1>
+</header>
+<div class="page-break">
+
+</div>
+<h1 id="apêndice-g-papers-obrigatórios">APÊNDICE G — PAPERS OBRIGATÓRIOS</h1>
+<h2 id="papers-que-sustentam-o-estado-da-arte-conceitual-em-ia-generativa"><em>35 papers que sustentam o estado da arte conceitual em IA generativa</em></h2>
+<blockquote>
+<p>Curadoria por categoria. Cada paper com 1-2 linhas explicando por que ler. Versões e papers correntes ficam no <a href="../../Livro-2-Dominando-Claude/04-apendices/L2-APX-J-apendice-vivo.md">Apêndice Vivo (J)</a>.</p>
+</blockquote>
+<hr />
+<h2 id="i.-transformer-e-arquitetura">I. TRANSFORMER E ARQUITETURA</h2>
+<ol type="1">
+<li><strong>Vaswani et al. — <em>Attention Is All You Need</em> (2017).</strong> O paper que mudou a IA moderna. Leitura inegociável.</li>
+<li><strong>Devlin et al. — <em>BERT</em> (2018).</strong> Pré-treinamento bidirecional. Fundamento de embeddings modernos.</li>
+<li><strong>Radford et al. — <em>GPT</em> (2018) e <em>GPT-2</em> (2019).</strong> Pré-treinamento generativo, escala.</li>
+<li><strong>Brown et al. — <em>Language Models are Few-Shot Learners</em> (GPT-3, 2020).</strong> Emergência de capacidade por escala.</li>
+<li><strong>Touvron et al. — <em>Llama 2</em> / <em>Llama 3</em> (2023, 2024).</strong> Família open weights de referência.</li>
+</ol>
+<hr />
+<h2 id="ii.-contexto-e-atenção">II. CONTEXTO E ATENÇÃO</h2>
+<ol start="6" type="1">
+<li><strong>Liu et al. — <em>Lost in the Middle</em> (2023).</strong> Base empírica do Invariante 2.</li>
+<li><strong>Press et al. — <em>ALiBi: Train Short, Test Long</em> (2022).</strong> Encoding posicional alternativo.</li>
+<li><strong>Su et al. — <em>RoPE</em> (2023).</strong> Rotary position embeddings.</li>
+</ol>
+<hr />
+<h2 id="iii.-alinhamento-e-rlhf">III. ALINHAMENTO E RLHF</h2>
+<ol start="9" type="1">
+<li><strong>Christiano et al. — <em>Deep RL from Human Preferences</em> (2017).</strong> Primeira formalização moderna do RLHF.</li>
+<li><strong>Ouyang et al. — <em>InstructGPT</em> (2022).</strong> RLHF aplicado em produção.</li>
+<li><strong>Bai et al. — <em>Constitutional AI</em> (Anthropic, 2022).</strong> RLAIF e CAI.</li>
+<li><strong>Rafailov et al. — <em>DPO</em> (2023).</strong> Substituição do PPO no mercado.</li>
+<li><strong>Hong et al. — <em>ORPO</em> (2024).</strong> Variante recente.</li>
+<li><strong>Anthropic — <em>Collective Constitutional AI</em> (2023).</strong> CAI com input público.</li>
+</ol>
+<hr />
+<h2 id="iv.-evals-e-avaliação">IV. EVALS E AVALIAÇÃO</h2>
+<ol start="15" type="1">
+<li><strong>Liang et al. — <em>HELM</em> (Stanford CRFM, 2022).</strong> Avaliação holística.</li>
+<li><strong>Srivastava et al. — <em>BIG-bench</em> (2022).</strong> Benchmark colaborativo.</li>
+<li><strong>Zheng et al. — <em>Judging LLM-as-a-Judge</em> (2023).</strong> Base de LLM-as-judge.</li>
+<li><strong>Liu et al. — <em>G-Eval</em> (2023).</strong> Eval por LLM alinhada com humano.</li>
+<li><strong>Es et al. — <em>RAGAS</em> (2023).</strong> Eval específica para RAG.</li>
+<li><strong>Mazeika et al. — <em>HarmBench</em> (2024).</strong> Adversarial e red-teaming padronizados.</li>
+</ol>
+<hr />
+<h2 id="v.-agentes-e-tool-use">V. AGENTES E TOOL USE</h2>
+<ol start="21" type="1">
+<li><strong>Yao et al. — <em>ReAct</em> (2022).</strong> Padrão “raciocinar + agir” canônico.</li>
+<li><strong>Schick et al. — <em>Toolformer</em> (2023).</strong> Modelos que aprendem a usar tools.</li>
+<li><strong>Wang et al. — <em>Voyager</em> (2023).</strong> Agente em Minecraft, modelo de descoberta.</li>
+<li><strong>Anthropic — <em>Building Effective Agents</em> (2024).</strong> Distinção workflow × agente.</li>
+</ol>
+<hr />
+<h2 id="vi.-interpretabilidade-mecanicista">VI. INTERPRETABILIDADE MECANICISTA</h2>
+<ol start="25" type="1">
+<li><strong>Olah et al. — <em>In-context Learning and Induction Heads</em> (2022).</strong> Circuitos identificados.</li>
+<li><strong>Anthropic — <em>Towards Monosemanticity</em> (2023).</strong> Sparse autoencoders.</li>
+<li><strong>Anthropic — <em>Scaling Monosemanticity</em> (2024).</strong> Aplicação em Claude 3 Sonnet.</li>
+</ol>
+<hr />
+<h2 id="vii.-segurança-e-comportamento">VII. SEGURANÇA E COMPORTAMENTO</h2>
+<ol start="28" type="1">
+<li><strong>Perez et al. — <em>Discovering Language Model Behaviors with Model-Written Evals</em> (2022).</strong> Auto-descoberta de comportamentos problemáticos.</li>
+<li><strong>Ganguli et al. — <em>Red Teaming Language Models</em> (Anthropic, 2022).</strong> Metodologia de red-teaming.</li>
+<li><strong>Sharma et al. — <em>Towards Understanding Sycophancy</em> (2023).</strong> Mecânica da bajulação.</li>
+<li><strong>Greshake et al. — <em>Prompt Injection in LLM-Integrated Applications</em> (2023).</strong> Vetor de ataque dominante.</li>
+<li><strong>Bender et al. — <em>On the Dangers of Stochastic Parrots</em> (2021).</strong> Crítica fundamentada.</li>
+</ol>
+<hr />
+<h2 id="viii.-rag-e-retrieval">VIII. RAG E RETRIEVAL</h2>
+<ol start="33" type="1">
+<li><strong>Lewis et al. — <em>RAG: Retrieval-Augmented Generation</em> (2020).</strong> Paper seminal.</li>
+<li><strong>Karpukhin et al. — <em>Dense Passage Retrieval (DPR)</em> (2020).</strong> Retrieval moderno.</li>
+<li><strong>Reimers, Gurevych — <em>Sentence-BERT</em> (2019).</strong> Embeddings para busca semântica.</li>
+</ol>
+<hr />
+<h2 id="como-ler-papers-de-ia">COMO LER PAPERS DE IA</h2>
+<ol type="1">
+<li><strong>Abstract + conclusão primeiro.</strong> 60% dos papers basta isso.</li>
+<li><strong>Para os 40% que valem mais, leia diagramas e tabelas.</strong></li>
+<li><strong>Equações só onde a matemática realmente sustenta a tese.</strong></li>
+<li><strong>Discussions e limitações</strong> dizem mais que método em muitos casos.</li>
+<li><strong>Para citação séria, ler integralmente.</strong></li>
+</ol>
+<hr />
+<p>🔗 <a href="L1-APX-E-leituras.md">Apêndice E Leituras</a> · <a href="L1-APX-F-newsletters.md">Apêndice F Newsletters</a> · <a href="L1-APX-H-bibliografia.md">Apêndice H Bibliografia</a></p>
+<div class="page-break">
+
+</div>
+<h1 id="apêndice-h-bibliografia-completa">APÊNDICE H — BIBLIOGRAFIA COMPLETA</h1>
+<h2 id="fontes-primárias-e-secundárias-citadas-na-obra"><em>Fontes primárias e secundárias citadas na obra</em></h2>
+<blockquote>
+<p>Bibliografia consolidada da obra. Para curadoria comentada, ver <a href="L1-APX-E-leituras.md">Apêndice E (Leituras)</a>, <a href="L1-APX-F-newsletters.md">Apêndice F (Newsletters)</a> e <a href="L1-APX-G-papers.md">Apêndice G (Papers)</a>. Versões correntes de documentação técnica e regulação no <a href="../../Livro-2-Dominando-Claude/04-apendices/L2-APX-J-apendice-vivo.md">Apêndice Vivo (J)</a>.</p>
+</blockquote>
+<hr />
+<h2 id="i.-papers-seminais">I. PAPERS SEMINAIS</h2>
+<h3 id="transformer-e-llms">Transformer e LLMs</h3>
+<ul>
+<li>Vaswani, A. et al. <em>Attention Is All You Need</em> (2017)</li>
+<li>Devlin, J. et al. <em>BERT: Pre-training of Deep Bidirectional Transformers</em> (2018)</li>
+<li>Brown, T. et al. <em>Language Models are Few-Shot Learners</em> (GPT-3) (2020)</li>
+<li>Touvron, H. et al. <em>LLaMA 2: Open Foundation and Fine-Tuned Chat Models</em> (2023)</li>
+<li>Anthropic. <em>The Claude 3 Model Family</em> (2024)</li>
+</ul>
+<h3 id="atenção-e-contexto">Atenção e contexto</h3>
+<ul>
+<li>Liu, N. F. et al. <em>Lost in the Middle: How Language Models Use Long Contexts</em> (2023)</li>
+<li>Press, O. et al. <em>Train Short, Test Long: Attention with Linear Biases (ALiBi)</em> (2022)</li>
+<li>Su, J. et al. <em>RoFormer: Enhanced Transformer with Rotary Position Embedding (RoPE)</em> (2023)</li>
+</ul>
+<h3 id="alinhamento">Alinhamento</h3>
+<ul>
+<li>Christiano, P. et al. <em>Deep Reinforcement Learning from Human Preferences</em> (2017)</li>
+<li>Ouyang, L. et al. <em>Training language models to follow instructions with human feedback (InstructGPT)</em> (OpenAI, 2022)</li>
+<li>Bai, Y. et al. <em>Constitutional AI: Harmlessness from AI Feedback</em> (Anthropic, 2022)</li>
+<li>Anthropic. <em>Collective Constitutional AI</em> (2023)</li>
+<li>Rafailov, R. et al. <em>Direct Preference Optimization</em> (2023)</li>
+<li>Hong, J. et al. <em>ORPO: Monolithic Preference Optimization without Reference Model</em> (2024)</li>
+<li>Ethayarajh, K. et al. <em>KTO: Model Alignment as Prospect Theoretic Optimization</em> (2024)</li>
+</ul>
+<h3 id="interpretabilidade">Interpretabilidade</h3>
+<ul>
+<li>Olah, C. et al. <em>In-context Learning and Induction Heads</em> (Anthropic, 2022)</li>
+<li>Anthropic. <em>Towards Monosemanticity</em> (2023)</li>
+<li>Anthropic. <em>Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet</em> (2024)</li>
+</ul>
+<h3 id="evals">Evals</h3>
+<ul>
+<li>Liang, P. et al. <em>HELM: Holistic Evaluation of Language Models</em> (Stanford CRFM, 2022-)</li>
+<li>Srivastava, A. et al. <em>BIG-bench: Beyond the Imitation Game Benchmark</em> (2022)</li>
+<li>Zheng, L. et al. <em>Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena</em> (2023)</li>
+<li>Liu, Y. et al. <em>G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment</em> (2023)</li>
+<li>Es, S. et al. <em>RAGAS: Automated Evaluation of Retrieval Augmented Generation</em> (2023)</li>
+<li>Mazeika, M. et al. <em>HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal</em> (2024)</li>
+<li>Bowman, S. <em>Evaluating LLMs is a minefield</em> (palestra, 2023)</li>
+</ul>
+<h3 id="agentes">Agentes</h3>
+<ul>
+<li>Yao, S. et al. <em>ReAct: Synergizing Reasoning and Acting in Language Models</em> (2022)</li>
+<li>Schick, T. et al. <em>Toolformer: Language Models Can Teach Themselves to Use Tools</em> (2023)</li>
+<li>Wang, G. et al. <em>Voyager: An Open-Ended Embodied Agent with Large Language Models</em> (2023)</li>
+<li>Anthropic. <em>Building Effective Agents</em> (2024)</li>
+</ul>
+<h3 id="rag-e-retrieval">RAG e retrieval</h3>
+<ul>
+<li>Lewis, P. et al. <em>Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</em> (2020)</li>
+<li>Karpukhin, V. et al. <em>Dense Passage Retrieval for Open-Domain Question Answering</em> (2020)</li>
+<li>Reimers, N., Gurevych, I. <em>Sentence-BERT</em> (2019)</li>
+</ul>
+<h3 id="segurança-e-comportamento">Segurança e comportamento</h3>
+<ul>
+<li>Perez, E. et al. <em>Discovering Language Model Behaviors with Model-Written Evaluations</em> (Anthropic, 2022)</li>
+<li>Ganguli, D. et al. <em>Red Teaming Language Models to Reduce Harms</em> (Anthropic, 2022)</li>
+<li>Sharma, M. et al. <em>Towards Understanding Sycophancy in Language Models</em> (Anthropic, 2023)</li>
+<li>Greshake, K. et al. <em>Not what you’ve signed up for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection</em> (2023)</li>
+<li>Liu, Y. et al. <em>Prompt Injection attack against LLM-integrated Applications</em> (2023)</li>
+<li>Bender, E. et al. <em>On the Dangers of Stochastic Parrots</em> (2021)</li>
+</ul>
+<h3 id="filosofia-e-fundamento">Filosofia e fundamento</h3>
+<ul>
+<li>Russell, S. <em>Human Compatible</em> (2019)</li>
+<li>Christian, B. <em>The Alignment Problem</em> (2020)</li>
+<li>Bommasani, R. et al. <em>On the Opportunities and Risks of Foundation Models</em> (Stanford CRFM, 2021)</li>
+</ul>
+<hr />
+<h2 id="ii.-livros-e-referências-de-fundo">II. LIVROS E REFERÊNCIAS DE FUNDO</h2>
+<ul>
+<li>Russell, S. &amp; Norvig, P. <em>Artificial Intelligence: A Modern Approach</em> (4ª ed., 2020)</li>
+<li>Bishop, C. &amp; Bishop, H. <em>Deep Learning: Foundations and Concepts</em> (2024)</li>
+<li>Goodfellow, I., Bengio, Y., Courville, A. <em>Deep Learning</em> (2016)</li>
+<li>Murphy, K. <em>Probabilistic Machine Learning</em> (2 vols., 2022 e 2023)</li>
+<li>Engelbart, D. <em>Augmenting Human Intellect</em> (1962)</li>
+<li>Drucker, P. <em>The Effective Executive</em> (1966)</li>
+<li>Brooks, F. <em>The Mythical Man-Month</em> (1975/1995)</li>
+<li>Beyer, B. et al. <em>Site Reliability Engineering</em> (Google, 2016) e <em>The Site Reliability Workbook</em> (2018)</li>
+<li>Allspaw, J. &amp; Robbins, J. <em>Web Operations</em> (2010)</li>
+<li>Doerr, J. <em>Measure What Matters</em> (2018)</li>
+<li>Kotter, J. <em>Leading Change</em> (1996)</li>
+<li>Davenport, T. <em>The AI Advantage</em> (2018)</li>
+<li>Schmidhuber, J. <em>Annotated History of Modern AI</em> (recente)</li>
+</ul>
+<hr />
+<h2 id="iii.-normas-regulação-frameworks-públicos">III. NORMAS, REGULAÇÃO, FRAMEWORKS PÚBLICOS</h2>
+<ul>
+<li>NIST. <em>AI Risk Management Framework (AI RMF 1.0)</em> (2023)</li>
+<li>ISO/IEC 42001 — <em>Information technology — Artificial intelligence — Management system</em> (2023)</li>
+<li>OECD AI Principles (2019, revisão 2024)</li>
+<li>EU AI Act (Regulation 2024/1689)</li>
+<li>Brasil — PL 2338/2023 (em tramitação no Senado Federal)</li>
+<li>LGPD — Lei 13.709/2018 (Brasil)</li>
+<li>ANPD — Guias e enunciados sobre IA (2023-2026, ver Apêndice Vivo)</li>
+<li>Anthropic. <em>Responsible Scaling Policy</em> (2023, 2024)</li>
+</ul>
+<hr />
+<h2 id="iv.-documentação-técnica-oficial">IV. DOCUMENTAÇÃO TÉCNICA OFICIAL</h2>
+<ul>
+<li><a href="https://docs.claude.com">Anthropic Claude documentation</a></li>
+<li><a href="https://platform.openai.com/docs">OpenAI documentation</a></li>
+<li><a href="https://ai.google.dev">Google AI Studio</a></li>
+<li><a href="https://modelcontextprotocol.io">Model Context Protocol specification</a></li>
+<li><a href="https://opentelemetry.io/docs/specs/semconv/gen-ai/">OpenTelemetry GenAI semantic conventions</a></li>
+<li><a href="https://huggingface.co">Hugging Face Hub</a></li>
+</ul>
+<hr />
+<h2 id="v.-recursos-pedagógicos-comentados">V. RECURSOS PEDAGÓGICOS COMENTADOS</h2>
+<p>Curadoria comentada de cursos, newsletters e canais — ver <a href="L1-APX-E-leituras.md">Apêndice E</a> e <a href="L1-APX-F-newsletters.md">Apêndice F</a>.</p>
+<hr />
+<h2 id="vi.-sobre-esta-obra">VI. SOBRE ESTA OBRA</h2>
+<p><strong>Inteligência Aumentada — Os Invariantes da IA</strong> (Livro 1) e <strong>Inteligência Aumentada — Volume Vivo: Dominando Claude</strong> (Livro 2). Autor: Fabio Garcia. Edição: 1ª. Ano: 2026. Plano editorial inclui Edição Aniversário em 5 anos.</p>
+<p><strong>Os 9 Invariantes da IA</strong> são sistema proprietário desta obra, sintetizando padrões observáveis em literatura técnica, em práticas operacionais e em incidentes documentados. As referências secundárias que mais influenciaram a formulação estão listadas no Cap 00M §00M.14.</p>
+<hr />
+<p>🔗 <a href="L1-APX-E-leituras.md">Apêndice E Leituras</a> · <a href="L1-APX-F-newsletters.md">Apêndice F Newsletters</a> · <a href="L1-APX-G-papers.md">Apêndice G Papers obrigatórios</a> · <a href="../../Livro-2-Dominando-Claude/04-apendices/L2-APX-J-apendice-vivo.md">Apêndice Vivo (J)</a></p>
+<div class="page-break">
+
+</div>
+<h1 id="apêndice-i-índice-remissivo">APÊNDICE I — ÍNDICE REMISSIVO</h1>
+<h2 id="termos-frameworks-invariantes-casos-onde-encontrar-na-obra"><em>Termos, frameworks, Invariantes, casos — onde encontrar na obra</em></h2>
+<blockquote>
+<p>Índice em ordem alfabética. Cada termo aponta para capítulo(s) ou framework(s) onde é aprofundado. Para vocabulário definido, ver <a href="L1-APX-A-glossario.md">Apêndice A — Glossário</a>. Marcadores: ★ termo proprietário da obra; ◆ termo técnico canônico.</p>
+</blockquote>
+<hr />
+<h2 id="a">A</h2>
+<ul>
+<li><strong>Accountable</strong> (RACI) — Cap 42 §42.3.3, F6 GOV-INDELEGÁVEL</li>
+<li><strong>Adversarial set ◆</strong> — Cap 39 §39.3.2, F8 EVAL-PIRÂMIDE</li>
+<li><strong>Agente ◆</strong> — Cap 12 (conceitual), Cap 40 (operacional), F3 AGENTE-PROP</li>
+<li><strong>AI Council</strong> — Cap 42 §42.3.4</li>
+<li><strong>Alignment ★</strong> — Cap 41</li>
+<li><strong>Apêndice Vivo</strong> — Apêndice J (L2)</li>
+<li><strong>Artifacts (Claude)</strong> — Cap 21 (L2)</li>
+<li><strong>Atenção (Q/K/V) ◆</strong> — Cap 02 §2.3.5 (boxe técnico)</li>
+<li><strong>AUP — Política de Uso Aceitável</strong> — Cap 42 §42.3.5</li>
+<li><strong>Autonomia Proporcional ★</strong> — Invariante 6, Cap 12, Cap 40, F3</li>
+</ul>
+<h2 id="b">B</h2>
+<ul>
+<li><strong>Banco Solar (caso)</strong> — EC1, Cap 00M §00M.5</li>
+<li><strong>Benchmark ◆</strong> — Cap 15 §15.3.3, Apêndice Vivo</li>
+<li><strong>BPE</strong> — Cap 03</li>
+</ul>
+<h2 id="c">C</h2>
+<ul>
+<li><strong>Camada Dupla ★</strong> — Invariante 3, Cap 01, F9 ROTA-DUPLA</li>
+<li><strong>Canário</strong> — Cap 40 §40.3.3</li>
+<li><strong>Chain of Thought (CoT)</strong> — Cap 10</li>
+<li><strong>Circuit breaker</strong> — Cap 40 §40.3.5</li>
+<li><strong>Claude Code</strong> — Cap 24 (L2)</li>
+<li><strong>Claude Web</strong> — Cap 19 (L2)</li>
+<li><strong>Constitutional AI</strong> — Cap 41 §41.3.2</li>
+<li><strong>Context Engineering</strong> — Cap 11</li>
+<li><strong>Custo Composto ★</strong> — Invariante 5, Cap 36, F7 COMPOSTO-3T</li>
+</ul>
+<h2 id="d">D</h2>
+<ul>
+<li><strong>Datasets de prática</strong> — Apêndice K, Repositório acompanhante</li>
+<li><strong>DECID-IA (F1)</strong> — Frameworks/L1-F1</li>
+<li><strong>DPO (Direct Preference Optimization)</strong> — Cap 41 §41.3.2</li>
+</ul>
+<h2 id="e">E</h2>
+<ul>
+<li><strong>Embeddings ◆</strong> — Cap 05</li>
+<li><strong>Encaixe ★</strong> — Invariante 4, Cap 15, F2 ENCAIXE-5</li>
+<li><strong>Enterprise (Claude)</strong> — Cap 30 (L2)</li>
+<li><strong>Evals</strong> — Cap 39, F8 EVAL-PIRÂMIDE</li>
+<li><strong>EVAL-PIRÂMIDE (F8)</strong> — Frameworks/L1-F8</li>
+<li><strong>Executivos (Claude para)</strong> — Cap 34 (L2)</li>
+<li><strong>Extremidades ★</strong> — Invariante 2, Cap 04, F4 PROMPT-EXT</li>
+</ul>
+<h2 id="f">F</h2>
+<ul>
+<li><strong>Faithfulness</strong> — Cap 39, Apêndice A</li>
+<li><strong>Fine-tuning ◆</strong> — Cap 08, Trade-off T1, T6</li>
+<li><strong>Frameworks F1-F9</strong> — Frameworks/</li>
+</ul>
+<h2 id="g">G</h2>
+<ul>
+<li><strong>Gabaritos</strong> — Apêndice K</li>
+<li><strong>Glossário</strong> — Apêndice A</li>
+<li><strong>Golden set ★ ◆</strong> — Cap 39 §39.3.4, F8 EVAL-PIRÂMIDE</li>
+<li><strong>GOV-INDELEGÁVEL (F6)</strong> — Frameworks/L1-F6</li>
+<li><strong>Governança de IA</strong> — Cap 42, F6</li>
+</ul>
+<h2 id="h">H</h2>
+<ul>
+<li><strong>Haiku, Sonnet, Opus ◆</strong> — Cap 18 (L2)</li>
+<li><strong>Helpful, Harmless, Honest</strong> — Cap 41 §41.1</li>
+</ul>
+<h2 id="i">I</h2>
+<ul>
+<li><strong>Interpretabilidade mecanicista</strong> — Cap 41 §41.3.3</li>
+<li><strong>Invariantes da IA ★</strong> — Cap 00M (Manifesto), Apêndice M (bolso)</li>
+</ul>
+<h2 id="j">J</h2>
+<ul>
+<li><strong>Janela de contexto ◆</strong> — Cap 04</li>
+</ul>
+<h2 id="k">K</h2>
+<ul>
+<li><strong>Kill switch</strong> — Cap 40 §40.3.6</li>
+</ul>
+<h2 id="l">L</h2>
+<ul>
+<li><strong>LGPD art. 20</strong> — Cap 42 §42.3.6, EC2</li>
+<li><strong>LLM-as-judge ★ ◆</strong> — Cap 39 §39.3.5, F8</li>
+<li><strong>LLMOps</strong> — Cap 40</li>
+<li><strong>Lost in the Middle ◆</strong> — Cap 04, Inv. 2</li>
+</ul>
+<h2 id="m">M</h2>
+<ul>
+<li><strong>Manifesto dos Invariantes</strong> — Cap 00M, Apêndice M</li>
+<li><strong>Mapa Mental</strong> — Apêndice B</li>
+<li><strong>MCP</strong> — Cap 13 (conceitual), Cap 33 (L2), F5 MCP-COBERTURA</li>
+<li><strong>MCP-COBERTURA (F5)</strong> — Frameworks/L1-F5</li>
+<li><strong>Memória ◆</strong> — Cap 07</li>
+<li><strong>Métrica.io (caso)</strong> — EC4</li>
+<li><strong>MTTR</strong> — Cap 40 §40.3.4</li>
+</ul>
+<h2 id="o">O</h2>
+<ul>
+<li><strong>Open source (modelos)</strong> — Cap 16, Trade-off T3</li>
+<li><strong>OpenTelemetry GenAI</strong> — Cap 40 §40.3.1</li>
+<li><strong>Operador ★</strong> — Invariante 9, Cap 34 (L2), F1</li>
+<li><strong>Over-refusal</strong> — Cap 41 §41.3.4</li>
+</ul>
+<h2 id="p">P</h2>
+<ul>
+<li><strong>Plausibilidade ★</strong> — Invariante 1, Cap 41</li>
+<li><strong>Pólice.io (caso)</strong> — Cap 40 §40.6</li>
+<li><strong>Postmortem sem culpa</strong> — Cap 42 §42.3.7</li>
+<li><strong>Projects (Claude)</strong> — Cap 20 (L2)</li>
+<li><strong>Prompt</strong> — Cap 09, Apêndice L, F4 PROMPT-EXT</li>
+<li><strong>PROMPT-EXT (F4)</strong> — Frameworks/L1-F4</li>
+<li><strong>Prompt injection</strong> — Cap 40 §40.3.6</li>
+</ul>
+<h2 id="q">Q</h2>
+<ul>
+<li><strong>Q/K/V (Query Key Value)</strong> — Cap 02 §2.3.5</li>
+</ul>
+<h2 id="r">R</h2>
+<ul>
+<li><strong>RACI</strong> — Cap 42 §42.3.3, F6</li>
+<li><strong>RAG ◆</strong> — Cap 06, Trade-off T1</li>
+<li><strong>RedeCasa (caso)</strong> — EC2</li>
+<li><strong>Refusal training</strong> — Cap 41 §41.3.4</li>
+<li><strong>Repositório acompanhante</strong> — <code>/_repositorio-acompanhante/</code></li>
+<li><strong>Research (Claude)</strong> — Cap 22 (L2)</li>
+<li><strong>Responsabilidade Indelegável ★</strong> — Invariante 8, Cap 42, F6</li>
+<li><strong>Reward hacking</strong> — Cap 41 §41.3.2</li>
+<li><strong>RLAIF</strong> — Cap 41 §41.3.2</li>
+<li><strong>RLHF</strong> — Cap 41 §41.3.2</li>
+<li><strong>Roadmap pessoal</strong> — Cap 44, Apêndice C</li>
+<li><strong>Rollback</strong> — Cap 40 §40.3.4</li>
+<li><strong>ROTA-DUPLA (F9)</strong> — Frameworks/L1-F9</li>
+</ul>
+<h2 id="s">S</h2>
+<ul>
+<li><strong>Sandbagging</strong> — Cap 41 §41.3.4</li>
+<li><strong>SEV-1 a SEV-4</strong> — Cap 40 §40.3.7, Cap 42 §42.3.7</li>
+<li><strong>SFT (Supervised Fine-Tuning)</strong> — Cap 41 §41.3.2</li>
+<li><strong>Shadow mode</strong> — Cap 40 §40.3.3</li>
+<li><strong>Skills (Claude)</strong> — Cap 31 (L2)</li>
+<li><strong>Span × Trace × Session</strong> — Cap 40 §40.3.1</li>
+<li><strong>Sparse Autoencoders</strong> — Cap 41 §41.3.3</li>
+<li><strong>Subagents</strong> — Cap 32 (L2)</li>
+<li><strong>Sycophancy</strong> — Cap 41 §41.3.2, Cap 39</li>
+</ul>
+<h2 id="t">T</h2>
+<ul>
+<li><strong>Team (Claude)</strong> — Cap 29 (L2)</li>
+<li><strong>Termômetro ★</strong> — Invariante 7, Cap 39, F8</li>
+<li><strong>Tokens ◆</strong> — Cap 03</li>
+<li><strong>Tokenizer ◆</strong> — Cap 03 §3.3.1</li>
+<li><strong>Trade-offs canônicos</strong> — Cap 43</li>
+<li><strong>Tracing</strong> — Cap 40 §40.3.1</li>
+<li><strong>Transformer ◆</strong> — Cap 02</li>
+</ul>
+<h2 id="v">V</h2>
+<ul>
+<li><strong>Validação UAU ★</strong> — Cada capítulo + Apêndice A</li>
+<li><strong>Versionamento</strong> — Cap 40 §40.3.2</li>
+<li><strong>Vianna Castro Almeida (caso)</strong> — EC3</li>
+<li><strong>Vibe-eval</strong> — Cap 39 §39.3.9 (anti-padrão)</li>
+</ul>
+<h2 id="y-w">Y, W</h2>
+<ul>
+<li><strong>Workflow determinístico</strong> — Cap 43 §43.3 (T2)</li>
+</ul>
+<hr />
+<p>🔗 <a href="L1-APX-A-glossario.md">Apêndice A Glossário</a> · <a href="L1-APX-B-mapa-mental.md">Apêndice B Mapa mental</a> · <a href="L1-APX-M-manifesto-bolso.md">Apêndice M Manifesto de bolso</a></p>
+<div class="page-break">
+
+</div>
+<h1 id="apêndice-k-gabaritos-comentados">APÊNDICE K — GABARITOS COMENTADOS</h1>
+<h2 id="soluções-estruturadas-para-exercícios-e-projetos-da-obra"><em>Soluções estruturadas para exercícios e projetos da obra</em></h2>
+<blockquote>
+<p>Este apêndice oferece <strong>estruturas de resposta</strong> para os exercícios práticos e projetos dos capítulos. Não são respostas únicas; são gabaritos que mostram <strong>o método de pensar</strong> que cada exercício pretende ativar. Use como referência para autoavaliação, nunca como atalho para pular o esforço.</p>
+</blockquote>
+<hr />
+<h2 id="como-usar-este-apêndice">COMO USAR ESTE APÊNDICE</h2>
+<ol type="1">
+<li><strong>Faça o exercício primeiro.</strong> Sem isso, o gabarito vira leitura passiva.</li>
+<li><strong>Compare estrutura, não conteúdo.</strong> O gabarito mostra “como pensar”, não “o que pensar”.</li>
+<li><strong>Customize ao seu domínio.</strong> Cada gabarito é genérico; sua resposta deve ser específica.</li>
+<li><strong>Reverifique após 90 dias.</strong> Gabaritos evoluem com o leitor.</li>
+</ol>
+<hr />
+<h2 id="cap-00m-manifesto-dos-invariantes">CAP 00M — MANIFESTO DOS INVARIANTES</h2>
+<h3 id="exercício-1-diagnóstico-do-time">Exercício 1 — Diagnóstico do time</h3>
+<p><strong>Estrutura esperada:</strong> lista de 9 violações típicas (uma por Invariante) com exemplo específico do time. Identificar os 3 mais críticos com sinal (ex: “regressão silenciosa não detectada nos últimos 6 meses” para Inv. 7).</p>
+<h3 id="exercício-2-auditoria-de-decisões">Exercício 2 — Auditoria de decisões</h3>
+<p><strong>Estrutura esperada:</strong> tabela com 3 decisões × 9 Invariantes; marcar respeitado/violado; descrever o que mudaria.</p>
+<h3 id="projeto-cartaz-dos-invariantes-da-empresa">Projeto — Cartaz dos Invariantes da empresa</h3>
+<p><strong>Critério de qualidade:</strong> uma página A3, com violação típica adaptada à linguagem do seu setor. Outro executivo lê e reconhece os 9 Invariantes pela sua versão sem ambiguidade.</p>
+<hr />
+<h2 id="cap-02-como-modelos-funcionam">CAP 02 — COMO MODELOS FUNCIONAM</h2>
+<h3 id="projeto-plano-para-apresentar-o-transformer-à-diretoria">Projeto — Plano para apresentar o transformer à diretoria</h3>
+<p><strong>Estrutura:</strong> Slide 1 (analogia do estagiário que leu tudo); Slide 2 (predição de próximo token); Slide 3 (Q/K/V em alto nível, sem fórmula); Slide 4 (consequência prática — Plausibilidade); Slide 5 (Camada Dupla aplicada à diretoria).</p>
+<hr />
+<h2 id="cap-03-tokens">CAP 03 — TOKENS</h2>
+<h3 id="exercício-1-auditoria-de-tokens-da-operação">Exercício 1 — Auditoria de tokens da operação</h3>
+<p><strong>Estrutura:</strong> levantamento de input/output médio por feature; cálculo da fração que é prompt vs resposta; identificação do maior consumidor de tokens.</p>
+<h3 id="projeto-plano-de-economia">Projeto — Plano de economia</h3>
+<p><strong>Estrutura:</strong> aplicar F7 COMPOSTO-3T; identificar tier dominante; identificar redundância; plano em 30 dias.</p>
+<hr />
+<h2 id="cap-06-rag">CAP 06 — RAG</h2>
+<h3 id="projeto-caderno-de-rag-do-produto">Projeto — Caderno de RAG do produto</h3>
+<p><strong>Estrutura:</strong> definição de “resposta certa” → estratégia de chunking → modelo de embedding → reranking → política de top-k → eval de faithfulness.</p>
+<hr />
+<h2 id="cap-09-engenharia-de-prompt">CAP 09 — ENGENHARIA DE PROMPT</h2>
+<h3 id="projeto-aplicar-f4-prompt-ext-em-5-prompts">Projeto — Aplicar F4 PROMPT-EXT em 5 prompts</h3>
+<p><strong>Estrutura:</strong> para cada prompt, reescrever nos 5 blocos canônicos. Antes/depois com justificativa por bloco.</p>
+<hr />
+<h2 id="cap-39-evals">CAP 39 — EVALS</h2>
+<h3 id="exercício-1-classificação-de-falhas">Exercício 1 — Classificação de falhas</h3>
+<p><strong>Estrutura:</strong> para cada falha listada, marcar qual camada da pirâmide a teria capturado; identificar a camada mais frágil hoje.</p>
+<h3 id="projeto-caderno-de-evals-v1">Projeto — Caderno de Evals v1</h3>
+<p><strong>Critério de qualidade:</strong> outro engenheiro lê e roda eval contra mudança nova sem perguntar mais que 3 coisas. Inclui golden set 30-50 itens, LLM-as-judge calibrado com correlação ≥0,7 contra humano, adversarial 20+ casos, política de bloqueio em CI.</p>
+<hr />
+<h2 id="cap-40-llmops">CAP 40 — LLMOPS</h2>
+<h3 id="exercício-1-diagnóstico-dos-7-pilares">Exercício 1 — Diagnóstico dos 7 pilares</h3>
+<p><strong>Estrutura:</strong> matriz 7×5 (pilar × maturidade 0-4); identificar 2 mais frágeis; plano de 60 dias.</p>
+<h3 id="projeto-caderno-de-llmops-v1">Projeto — Caderno de LLMOps v1</h3>
+<p><strong>Critério de qualidade:</strong> outro engenheiro responde sem perguntar qualquer das 7 perguntas executivas (§40.10).</p>
+<hr />
+<h2 id="cap-41-alignment">CAP 41 — ALIGNMENT</h2>
+<h3 id="exercício-3-mini-constituição-corporativa">Exercício 3 — Mini-constituição corporativa</h3>
+<p><strong>Estrutura:</strong> 7 princípios em pt-BR, cada um em uma frase, sem jargão. Submetido a par sênior para revisão.</p>
+<h3 id="projeto-caderno-de-alignment-operacional">Projeto — Caderno de Alignment Operacional</h3>
+<p><strong>Critério de qualidade:</strong> outro engenheiro sênior responde “como nosso sistema lida com pedido de conselho médico não-supervisionado?” sem perguntar.</p>
+<hr />
+<h2 id="cap-42-governança">CAP 42 — GOVERNANÇA</h2>
+<h3 id="projeto-caderno-de-governança-v1">Projeto — Caderno de Governança v1</h3>
+<p><strong>Critério de qualidade:</strong> outro executivo responde sem ambiguidade: “quem é o Accountable por X?”, “qual a maturidade do controle Y?”, “quando é o próximo simulado?”.</p>
+<hr />
+<h2 id="cap-43-trade-offs">CAP 43 — TRADE-OFFS</h2>
+<h3 id="projeto-cardápio-de-trade-offs-do-produto">Projeto — Cardápio de Trade-offs do produto</h3>
+<p><strong>Critério de qualidade:</strong> outro executivo defende a arquitetura em reunião externa (cliente, conselho, auditor) sem perguntar.</p>
+<hr />
+<h2 id="cap-44-roadmap-pessoal">CAP 44 — ROADMAP PESSOAL</h2>
+<h3 id="projeto-apresentação-à-diretoria">Projeto — Apresentação à diretoria</h3>
+<p><strong>Critério de qualidade:</strong> diretoria aprova o roadmap em uma reunião, com mandato formal sobre IA.</p>
+<hr />
+<p>🔗 <a href="../01-manifesto/L1-C00M-manifesto-invariantes.md">Cap 00M</a> · <a href="L1-APX-C-roadmaps.md">Apêndice C Roadmaps</a> · <a href="L1-APX-L-biblioteca-prompts.md">Apêndice L Biblioteca de prompts</a></p>
+<div class="page-break">
+
+</div>
+<h1 id="apêndice-l-biblioteca-de-prompts-testados">APÊNDICE L — BIBLIOTECA DE PROMPTS TESTADOS</h1>
+<h2 id="espelho-conceitual-do-prompts-no-repositório-acompanhante"><em>Espelho conceitual do <code>/prompts</code> no repositório acompanhante</em></h2>
+<blockquote>
+<p>Cada prompt aqui segue a estrutura <strong>F4 PROMPT-EXT</strong> (5 blocos posicionais) e é categorizado por caso de uso. A versão rodável vive no <a href="../../_repositorio-acompanhante/prompts/">repositório acompanhante</a>. Esta lista é a referência conceitual; a implementação rodável e atualizada vive fora do livro.</p>
+</blockquote>
+<hr />
+<h2 id="estrutura-canônica-de-todo-prompt-na-biblioteca">ESTRUTURA CANÔNICA DE TODO PROMPT NA BIBLIOTECA</h2>
+<pre><code>[BLOCO 1 — PERSONA E MISSÃO]
+[BLOCO 2 — CONSTITUIÇÃO (regras invioláveis)]
+[BLOCO 3 — CONTEXTO]
+[BLOCO 4 — INSTRUÇÃO OPERACIONAL + FORMATO]
+[BLOCO 5 — PERGUNTA VIVA]</code></pre>
+<hr />
+<h2 id="categorias">CATEGORIAS</h2>
+<h3 id="análise-jurídica-e-dd-em-ma-ec3-vianna-castro">1. Análise jurídica e DD em M&amp;A (EC3 Vianna Castro)</h3>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Prompt</th>
+<th>Função</th>
+<th>Eval mínimo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>extrair-change-of-control</code></td>
+<td>Identifica cláusula com citação literal</td>
+<td>Golden set 40 contratos + honestidade de citação</td>
+</tr>
+<tr class="even">
+<td><code>red-flag-mac</code></td>
+<td>Marca Material Adverse Change</td>
+<td>Golden set + adversarial de redação ambígua</td>
+</tr>
+<tr class="odd">
+<td><code>sumario-categoria-clausula</code></td>
+<td>Sumário executivo por categoria</td>
+<td>LLM-as-judge calibrado</td>
+</tr>
+<tr class="even">
+<td><code>comparar-clausula-padrao</code></td>
+<td>Compara cláusula contra padrão da banca</td>
+<td>Golden set por tipo de operação</td>
+</tr>
+</tbody>
+</table>
+<h3 id="escrita-executiva">2. Escrita executiva</h3>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Prompt</th>
+<th>Função</th>
+<th>Eval mínimo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>memo-para-board</code></td>
+<td>Memo de 1 página com decisão pedida</td>
+<td>Golden set 30 memos + voz padrão</td>
+</tr>
+<tr class="even">
+<td><code>sumario-executivo-relatorio</code></td>
+<td>Sumário de 5 bullets de relatório técnico</td>
+<td>LLM-as-judge calibrado</td>
+</tr>
+<tr class="odd">
+<td><code>q-a-para-diretoria</code></td>
+<td>Roteiro de antecipação de objeções</td>
+<td>Adversarial de pergunta hostil</td>
+</tr>
+</tbody>
+</table>
+<h3 id="classificação-estruturada-ec1-banco-solar">3. Classificação estruturada (EC1 Banco Solar)</h3>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Prompt</th>
+<th>Função</th>
+<th>Eval mínimo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>classificar-tier-ticket</code></td>
+<td>Classifica ticket em tier 1-4</td>
+<td>Golden set 600 tickets</td>
+</tr>
+<tr class="even">
+<td><code>roteamento-por-intent</code></td>
+<td>Decide agente apropriado por intent</td>
+<td>F1 ponderada por classe</td>
+</tr>
+<tr class="odd">
+<td><code>escalonamento-para-humano</code></td>
+<td>Decide se escalar</td>
+<td>Adversarial sycophancy bancário</td>
+</tr>
+</tbody>
+</table>
+<h3 id="extração-de-campos">4. Extração de campos</h3>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Prompt</th>
+<th>Função</th>
+<th>Eval mínimo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>extrair-campos-curriculo</code></td>
+<td>Extrai sem inferir atributo protegido</td>
+<td>Golden + adversarial pareado (EC2)</td>
+</tr>
+<tr class="even">
+<td><code>extrair-numeros-relatorio</code></td>
+<td>Extrai com faithfulness numérica</td>
+<td>LLM-as-judge calibrado (EC6 Atlas)</td>
+</tr>
+<tr class="odd">
+<td><code>extrair-stakeholders</code></td>
+<td>Mapa de stakeholders B2B (EC5 EnterTech)</td>
+<td>Golden set 50 briefs</td>
+</tr>
+</tbody>
+</table>
+<h3 id="agentes-supervisionados">5. Agentes supervisionados</h3>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Prompt</th>
+<th>Função</th>
+<th>Eval mínimo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>agente-cotacao-seguro</code></td>
+<td>Cotação assistida 7 seguradoras (Pólice.io)</td>
+<td>Tracing + circuit breaker + eval de loop</td>
+</tr>
+<tr class="even">
+<td><code>agente-suporte-tier-1</code></td>
+<td>Atendimento tier 1 (EC1)</td>
+<td>Golden + adversarial sycophancy</td>
+</tr>
+<tr class="odd">
+<td><code>agente-prospect-research</code></td>
+<td>Pesquisa de prospect (EC5)</td>
+<td>Honestidade de fonte</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rag-e-síntese-ec4-métrica.io">6. RAG e síntese (EC4 Métrica.io)</h3>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Prompt</th>
+<th>Função</th>
+<th>Eval mínimo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>rag-documentacao-saas</code></td>
+<td>Resposta de docs com citação</td>
+<td>Faithfulness + context precision</td>
+</tr>
+<tr class="even">
+<td><code>explicar-resultado-query</code></td>
+<td>Explicação de gráfico/tabela</td>
+<td>LLM-as-judge calibrado para precisão numérica</td>
+</tr>
+<tr class="odd">
+<td><code>sugerir-insight-dados</code></td>
+<td>Sugestão de insight baseado em dados</td>
+<td>Adversarial: ausência de dados → “não tenho como afirmar”</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="regras-de-uso-da-biblioteca">REGRAS DE USO DA BIBLIOTECA</h2>
+<ol type="1">
+<li><strong>Não copie cegamente.</strong> Cada prompt é instância de F4; entenda o porquê antes de adaptar.</li>
+<li><strong>Customize ao seu domínio.</strong> Os prompts são genéricos; sua aplicação demanda específico.</li>
+<li><strong>Inicie com golden set próprio.</strong> Não use o golden set de exemplo em produção; é referência.</li>
+<li><strong>Reverifique após mudança de modelo.</strong> Prompt calibrado para X pode regredir em Y.</li>
+<li><strong>Mantenha versionado.</strong> Trate prompts como código (LLMOps Pilar 2).</li>
+</ol>
+<hr />
+<h2 id="anti-padrões-na-construção-de-prompt">ANTI-PADRÕES NA CONSTRUÇÃO DE PROMPT</h2>
+<table>
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 37%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Anti-padrão</th>
+<th>Por que mata</th>
+<th>Antídoto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Regra crítica no meio do prompt</td>
+<td>Inv. 2 — atenção decai no centro</td>
+<td>F4: regra na Constituição (logo após persona)</td>
+</tr>
+<tr class="even">
+<td>Pergunta antes do contexto</td>
+<td>Modelo responde sem ver o contexto</td>
+<td>F4: Pergunta viva é última</td>
+</tr>
+<tr class="odd">
+<td>Constituição ambígua</td>
+<td>Modelo interpreta livremente</td>
+<td>Bullets curtos, instruções imperativas</td>
+</tr>
+<tr class="even">
+<td>Sem reiteração no bloco 4</td>
+<td>Em prompts longos, regra do topo enfraquece</td>
+<td>Reiterar o crítico antes da pergunta</td>
+</tr>
+<tr class="odd">
+<td>Sem sanitização do input</td>
+<td>Prompt injection sobrescreve a constituição</td>
+<td>Sanitizar antes do bloco 5</td>
+</tr>
+<tr class="even">
+<td>Prompt como string no código</td>
+<td>Sem rastreabilidade</td>
+<td>Tratar como artefato versionado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>🔗 <a href="../02-capitulos/L1-C09-engenharia-prompt.md">Cap 09 Engenharia de Prompt</a> · <a href="../02-capitulos/L1-C11-context-engineering.md">Cap 11 Context Engineering</a> · <a href="../03-frameworks/L1-F4-prompt-ext.md">F4 PROMPT-EXT</a> · <a href="../../_repositorio-acompanhante/prompts/">Repositório acompanhante</a></p>
+<div class="page-break">
+
+</div>
+<h1 id="apêndice-m-manifesto-dos-invariantes-da-ia">APÊNDICE M — MANIFESTO DOS INVARIANTES DA IA</h1>
+<h2 id="versão-de-bolso-página-única-destacável">Versão de bolso · página única destacável</h2>
+<blockquote>
+<p><em>Imprima. Cole na parede. Distribua ao time. Leve para a próxima decisão de IA.</em></p>
+</blockquote>
+<hr />
+<h2 id="os-9-invariantes">OS 9 INVARIANTES</h2>
+<h3 id="plausibilidade">1 — PLAUSIBILIDADE</h3>
+<p><strong>“O modelo entrega o plausível, não o verdadeiro — e os dois coincidem, até a hora em que não.”</strong> <em>Mecânica:</em> LLM é motor de plausibilidade; calibração de confiança é trabalho do operador, proporcional ao custo do erro. <em>Violação típica:</em> aceitar número jurídico ou financeiro porque “soou certo”. 🧭 Cap 02 · Cap 41 · <em>válido enquanto a arquitetura generativa atual dominar</em></p>
+<h3 id="extremidades">2 — EXTREMIDADES</h3>
+<p><strong>“O meio do contexto é onde a informação vai morrer.”</strong> <em>Mecânica:</em> atenção alta nas pontas, diluída no centro; densidade de relevância vence volume. <em>Violação típica:</em> enterrar a regra crítica no parágrafo 40 do prompt. 🧭 Cap 04 · F4 PROMPT-EXT · <em>válido enquanto a arquitetura transformer atual dominar</em></p>
+<h3 id="camada-dupla">3 — CAMADA DUPLA</h3>
+<p><strong>“Decore o padrão, consulte o número.”</strong> <em>Mecânica:</em> o que muda em semanas vive em apêndice datado; o que dura por anos vive na cabeça. <em>Violação típica:</em> memorizar “modelo X lidera benchmark Y” e ficar obsoleto no próximo release. 🧭 Cap 01 · Apêndice Vivo · F9 ROTA-DUPLA</p>
+<h3 id="encaixe">4 — ENCAIXE</h3>
+<p><strong>“Escolha pelo padrão da tarefa, nunca pela versão da moda.”</strong> <em>Mecânica:</em> decide-se modelo por eixo (código, mate, multimodal, contexto longo, custo), não pelo lançamento da semana. <em>Violação típica:</em> migrar o stack para o release recente sem teste cego na carga real. 🧭 Cap 15 · F2 ENCAIXE-5</p>
+<h3 id="custo-composto">5 — CUSTO COMPOSTO</h3>
+<p><strong>“Trivial é o preço do token; o que quebra o orçamento é quantas vezes você o paga.”</strong> <em>Mecânica:</em> custo = tokens × chamadas × tier × redundância; alavancas são arquiteturais. <em>Violação típica:</em> otimizar prompt enquanto um loop de agente dispara 40 chamadas redundantes. 🧭 Cap 36 · F7 COMPOSTO-3T</p>
+<h3 id="autonomia-proporcional">6 — AUTONOMIA PROPORCIONAL</h3>
+<p><strong>“Só dê ao agente a autonomia que você consegue medir e desfazer.”</strong> <em>Mecânica:</em> nível de agência = função da capacidade de rastrear e reverter. <em>Violação típica:</em> agente com escrita em produção sem tracing nem kill switch. 🧭 Cap 12 · Cap 40 · F3 AGENTE-PROP</p>
+<h3 id="termômetro">7 — TERMÔMETRO</h3>
+<p><strong>“IA sem eval é fé, não engenharia.”</strong> <em>Mecânica:</em> nenhum sistema entra em produção sem detecção de regressão; prompt sem golden set é opinião. <em>Violação típica:</em> trocar prompt “porque ficou melhor” sem dataset que prove que não piorou. 🧭 Cap 39 · F8 EVAL-PIRÂMIDE</p>
+<h3 id="responsabilidade-indelegável">8 — RESPONSABILIDADE INDELEGÁVEL</h3>
+<p><strong>“A IA executa; a responsabilidade tem sempre um nome humano.”</strong> <em>Mecânica:</em> toda saída em produção tem dono, controle de acesso, trilha de auditoria, caminho de reversão. <em>Violação típica:</em> “foi a IA que decidiu” como desculpa para decisão que ninguém assume. 🧭 Cap 42 · F6 GOV-INDELEGÁVEL</p>
+<h3 id="operador">9 — OPERADOR</h3>
+<p><strong>“A IA multiplica competência e incompetência pelo mesmo fator.”</strong> <em>Mecânica:</em> ganho vem do operador que sabe pedir, rejeitar e validar. <em>Violação típica:</em> esperar que a IA cubra a falta de critério de quem a opera. 🧭 Cap 34 (L2) · Cap 44 · F1 DECID-IA</p>
+<hr />
+<h2 id="a-frase-âncora">A FRASE-ÂNCORA</h2>
+<blockquote>
+<h2 id="modelos-passam.-método-fica."><em>Modelos passam. Método fica.</em></h2>
+</blockquote>
+<hr />
+<h2 id="como-usar">COMO USAR</h2>
+<table>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Situação</th>
+<th>Pergunte-se</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Vou escolher um modelo</td>
+<td>F2 (Inv. 4): qual o <strong>encaixe</strong> por eixo de tarefa?</td>
+</tr>
+<tr class="even">
+<td>Vou subir um agente</td>
+<td>F3 (Inv. 6): tenho tracing e rollback proporcionais?</td>
+</tr>
+<tr class="odd">
+<td>Vou trocar um prompt em produção</td>
+<td>F8 (Inv. 7): rodou contra o <strong>golden set</strong>?</td>
+</tr>
+<tr class="even">
+<td>Vou apresentar a iniciativa à diretoria</td>
+<td>F1 (Inv. 9) e F6 (Inv. 8): há <strong>dono</strong> e há <strong>decisão</strong> estruturada?</td>
+</tr>
+<tr class="odd">
+<td>Vou cortar custo de IA</td>
+<td>F7 (Inv. 5): mexi nas <strong>3 alavancas arquiteturais</strong>?</td>
+</tr>
+<tr class="even">
+<td>Vou citar um benchmark</td>
+<td>(Inv. 3): conferi o <strong>Apêndice Vivo</strong> com data e fonte?</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="nota-de-honestidade">NOTA DE HONESTIDADE</h2>
+<p>Os Invariantes <strong>1</strong> (Plausibilidade) e <strong>2</strong> (Extremidades) dependem da arquitetura generativa atual. Arquiteturas futuras podem mudar a mecânica; os outros sete são princípios de prática e julgamento, independentes de arquitetura.</p>
+<hr />
+<h2 id="atribuição">ATRIBUIÇÃO</h2>
+<p><strong>Os 9 Invariantes da IA</strong> — sistema proprietário de <em>Inteligência Aumentada</em> (Fabio Garcia, 2026). Distribuição livre com atribuição. Versão original em <a href="https://github.com/fabiogarcia/inteligencia-aumentada">github.com/fabiogarcia/inteligencia-aumentada</a> <em>(URL ilustrativa — confirmar)</em>.</p>
+<p>🔗 <strong>Aprofundamento:</strong> <a href="../01-manifesto/L1-C00M-manifesto-invariantes.md">Cap 00M — Manifesto dos Invariantes</a></p>
+</body>
+</html>

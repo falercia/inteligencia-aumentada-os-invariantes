@@ -1,0 +1,89 @@
+<svg viewBox="0 0 1000 540" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <rect width="1000" height="540" fill="#fefce8"/>
+  <text x="500" y="40" fill="#0d1b2a" font-size="22" font-weight="700" text-anchor="middle">OS CINCO RISCOS PRINCIPAIS EM IA CORPORATIVA</text>
+  <text x="500" y="64" fill="#6b7280" font-size="13" text-anchor="middle">Identificar com clareza é prerrequisito para mitigar com efetividade</text>
+
+  <g>
+    <rect x="60" y="100" width="280" height="200" rx="10" fill="#fecaca" stroke="#dc2626" stroke-width="2"/>
+    <text x="200" y="128" fill="#dc2626" font-size="13" font-weight="700" text-anchor="middle">1. ALUCINAÇÃO</text>
+    <text x="80" y="152" fill="#374151" font-size="10">Modelo afirma com confiança</text>
+    <text x="80" y="166" fill="#374151" font-size="10">algo factualmente errado</text>
+    <text x="80" y="190" fill="#0d1b2a" font-size="11" font-weight="700">Mitigação:</text>
+    <text x="80" y="208" fill="#374151" font-size="10">• RAG com fontes citadas</text>
+    <text x="80" y="222" fill="#374151" font-size="10">• Web Search ativado</text>
+    <text x="80" y="236" fill="#374151" font-size="10">• Validação humana de</text>
+    <text x="80" y="250" fill="#374151" font-size="10">  afirmações críticas</text>
+    <text x="80" y="270" fill="#dc2626" font-size="10" font-weight="700">Em domínios sensíveis,</text>
+    <text x="80" y="284" fill="#dc2626" font-size="10" font-weight="700">nunca confie sem validar</text>
+  </g>
+
+  <g>
+    <rect x="360" y="100" width="280" height="200" rx="10" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
+    <text x="500" y="128" fill="#ea580c" font-size="13" font-weight="700" text-anchor="middle">2. PROMPT INJECTION</text>
+    <text x="380" y="152" fill="#374151" font-size="10">Atacante inclui instruções</text>
+    <text x="380" y="166" fill="#374151" font-size="10">em conteúdo para sequestrar</text>
+    <text x="380" y="180" fill="#374151" font-size="10">o comportamento do modelo</text>
+    <text x="380" y="204" fill="#0d1b2a" font-size="11" font-weight="700">Mitigação:</text>
+    <text x="380" y="222" fill="#374151" font-size="10">• Sanitizar inputs externos</text>
+    <text x="380" y="236" fill="#374151" font-size="10">• Separar instruções de dados</text>
+    <text x="380" y="250" fill="#374151" font-size="10">• Não dar acesso destrutivo</text>
+    <text x="380" y="270" fill="#ea580c" font-size="10" font-weight="700">Especialmente crítico em</text>
+    <text x="380" y="284" fill="#ea580c" font-size="10" font-weight="700">agentes com tools poderosas</text>
+  </g>
+
+  <g>
+    <rect x="660" y="100" width="280" height="200" rx="10" fill="#fef3c7" stroke="#ca8a04" stroke-width="2"/>
+    <text x="800" y="128" fill="#ca8a04" font-size="13" font-weight="700" text-anchor="middle">3. DATA LEAKAGE</text>
+    <text x="680" y="152" fill="#374151" font-size="10">Dados sensíveis vazam</text>
+    <text x="680" y="166" fill="#374151" font-size="10">para o modelo, para logs,</text>
+    <text x="680" y="180" fill="#374151" font-size="10">ou para usuários sem permissão</text>
+    <text x="680" y="204" fill="#0d1b2a" font-size="11" font-weight="700">Mitigação:</text>
+    <text x="680" y="222" fill="#374151" font-size="10">• Plano com DPA formal</text>
+    <text x="680" y="236" fill="#374151" font-size="10">• PII redaction antes do envio</text>
+    <text x="680" y="250" fill="#374151" font-size="10">• Permissões granulares</text>
+    <text x="680" y="270" fill="#ca8a04" font-size="10" font-weight="700">LGPD não perdoa: tratar</text>
+    <text x="680" y="284" fill="#ca8a04" font-size="10" font-weight="700">desde o desenho do sistema</text>
+  </g>
+
+  <g>
+    <rect x="60" y="320" width="280" height="200" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="200" y="348" fill="#2563eb" font-size="13" font-weight="700" text-anchor="middle">4. VIESES</text>
+    <text x="80" y="372" fill="#374151" font-size="10">Modelo reproduz vieses</text>
+    <text x="80" y="386" fill="#374151" font-size="10">presentes nos dados de treino</text>
+    <text x="80" y="400" fill="#374151" font-size="10">de formas que prejudicam</text>
+    <text x="80" y="424" fill="#0d1b2a" font-size="11" font-weight="700">Mitigação:</text>
+    <text x="80" y="442" fill="#374151" font-size="10">• Constitutional AI ajuda</text>
+    <text x="80" y="456" fill="#374151" font-size="10">• Não usar para decisões</text>
+    <text x="80" y="470" fill="#374151" font-size="10">  protegidas legalmente</text>
+    <text x="80" y="490" fill="#2563eb" font-size="10" font-weight="700">RH, crédito, criminal:</text>
+    <text x="80" y="504" fill="#2563eb" font-size="10" font-weight="700">supervisão humana sempre</text>
+  </g>
+
+  <g>
+    <rect x="360" y="320" width="280" height="200" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+    <text x="500" y="348" fill="#16a34a" font-size="13" font-weight="700" text-anchor="middle">5. DEPENDÊNCIA E EROSÃO</text>
+    <text x="380" y="372" fill="#374151" font-size="10">Time perde capacidade</text>
+    <text x="380" y="386" fill="#374151" font-size="10">própria por usar IA demais,</text>
+    <text x="380" y="400" fill="#374151" font-size="10">vira refém da ferramenta</text>
+    <text x="380" y="424" fill="#0d1b2a" font-size="11" font-weight="700">Mitigação:</text>
+    <text x="380" y="442" fill="#374151" font-size="10">• Treinar antes e durante</text>
+    <text x="380" y="456" fill="#374151" font-size="10">• Reviews humanas sérias</text>
+    <text x="380" y="470" fill="#374151" font-size="10">• Manter exercício próprio</text>
+    <text x="380" y="490" fill="#16a34a" font-size="10" font-weight="700">IA amplifica, não substitui</text>
+    <text x="380" y="504" fill="#16a34a" font-size="10" font-weight="700">capacidade crítica</text>
+  </g>
+
+  <g>
+    <rect x="660" y="320" width="280" height="200" rx="10" fill="#f3e8ff" stroke="#9333ea" stroke-width="2"/>
+    <text x="800" y="348" fill="#9333ea" font-size="13" font-weight="700" text-anchor="middle">6. CONFORMIDADE</text>
+    <text x="680" y="372" fill="#374151" font-size="10">Uso viola regulações</text>
+    <text x="680" y="386" fill="#374151" font-size="10">setoriais (BCB, ANS, ANEEL,</text>
+    <text x="680" y="400" fill="#374151" font-size="10">LGPD, regras específicas)</text>
+    <text x="680" y="424" fill="#0d1b2a" font-size="11" font-weight="700">Mitigação:</text>
+    <text x="680" y="442" fill="#374151" font-size="10">• Compliance no desenho</text>
+    <text x="680" y="456" fill="#374151" font-size="10">• Auditoria de logs</text>
+    <text x="680" y="470" fill="#374151" font-size="10">• Suporte jurídico</text>
+    <text x="680" y="490" fill="#9333ea" font-size="10" font-weight="700">Em setores regulados:</text>
+    <text x="680" y="504" fill="#9333ea" font-size="10" font-weight="700">Enterprise é mínimo</text>
+  </g>
+</svg>

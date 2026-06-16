@@ -1,0 +1,78 @@
+<svg viewBox="0 0 900 540" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <rect width="900" height="540" fill="#fefce8"/>
+
+  <text x="450" y="40" fill="#0d1b2a" font-size="22" font-weight="700" text-anchor="middle">SIGNIFICADO TRANSFORMADO EM GEOMETRIA</text>
+  <text x="450" y="64" fill="#6b7280" font-size="13" text-anchor="middle">Cada palavra vira um ponto. Palavras de sentido próximo ficam vizinhas no espaço.</text>
+
+  <!-- Axes -->
+  <line x1="100" y1="460" x2="800" y2="460" stroke="#9ca3af" stroke-width="1.5"/>
+  <line x1="100" y1="120" x2="100" y2="460" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="450" y="490" fill="#6b7280" font-size="11" text-anchor="middle" font-style="italic">(projeção 2D de um espaço com 1.000+ dimensões)</text>
+
+  <!-- Cluster 1: animais -->
+  <g>
+    <circle cx="220" cy="200" r="48" fill="#fde68a" opacity="0.4"/>
+    <text x="220" y="155" fill="#0d1b2a" font-size="11" font-weight="700" text-anchor="middle">animais</text>
+
+    <circle cx="200" cy="195" r="6" fill="#E97451"/>
+    <text x="190" y="180" fill="#0d1b2a" font-size="11" text-anchor="end">gato</text>
+
+    <circle cx="225" cy="220" r="6" fill="#E97451"/>
+    <text x="235" y="232" fill="#0d1b2a" font-size="11">cachorro</text>
+
+    <circle cx="245" cy="195" r="6" fill="#E97451"/>
+    <text x="258" y="195" fill="#0d1b2a" font-size="11">cavalo</text>
+  </g>
+
+  <!-- Cluster 2: tecnologia -->
+  <g>
+    <circle cx="650" cy="220" r="55" fill="#bbf7d0" opacity="0.4"/>
+    <text x="650" y="170" fill="#0d1b2a" font-size="11" font-weight="700" text-anchor="middle">tecnologia</text>
+
+    <circle cx="625" cy="215" r="6" fill="#16a34a"/>
+    <text x="615" y="205" fill="#0d1b2a" font-size="11" text-anchor="end">software</text>
+
+    <circle cx="660" cy="240" r="6" fill="#16a34a"/>
+    <text x="670" y="252" fill="#0d1b2a" font-size="11">programar</text>
+
+    <circle cx="675" cy="210" r="6" fill="#16a34a"/>
+    <text x="687" y="210" fill="#0d1b2a" font-size="11">código</text>
+  </g>
+
+  <!-- Cluster 3: emoções -->
+  <g>
+    <circle cx="400" cy="370" r="55" fill="#fecaca" opacity="0.5"/>
+    <text x="400" y="320" fill="#0d1b2a" font-size="11" font-weight="700" text-anchor="middle">emoções</text>
+
+    <circle cx="380" cy="365" r="6" fill="#dc2626"/>
+    <text x="370" y="355" fill="#0d1b2a" font-size="11" text-anchor="end">alegria</text>
+
+    <circle cx="410" cy="390" r="6" fill="#dc2626"/>
+    <text x="420" y="402" fill="#0d1b2a" font-size="11">tristeza</text>
+
+    <circle cx="425" cy="358" r="6" fill="#dc2626"/>
+    <text x="438" y="358" fill="#0d1b2a" font-size="11">medo</text>
+  </g>
+
+  <!-- Cluster 4: cidades -->
+  <g>
+    <circle cx="500" cy="180" r="50" fill="#bfdbfe" opacity="0.5"/>
+    <text x="500" y="130" fill="#0d1b2a" font-size="11" font-weight="700" text-anchor="middle">cidades brasileiras</text>
+
+    <circle cx="480" cy="175" r="6" fill="#2563eb"/>
+    <text x="470" y="165" fill="#0d1b2a" font-size="11" text-anchor="end">Brasília</text>
+
+    <circle cx="510" cy="200" r="6" fill="#2563eb"/>
+    <text x="520" y="212" fill="#0d1b2a" font-size="11">São Paulo</text>
+
+    <circle cx="525" cy="170" r="6" fill="#2563eb"/>
+    <text x="540" y="172" fill="#0d1b2a" font-size="11">Rio</text>
+  </g>
+
+  <!-- Vector arithmetic example -->
+  <g>
+    <text x="100" y="525" fill="#0d1b2a" font-size="11" font-weight="700">EXEMPLO DE ARITMÉTICA SEMÂNTICA:</text>
+    <text x="350" y="525" fill="#E97451" font-size="11" font-weight="600">"rei" − "homem" + "mulher" ≈ "rainha"</text>
+    <text x="660" y="525" fill="#6b7280" font-size="11" font-style="italic">(o espaço captura relações reais)</text>
+  </g>
+</svg>

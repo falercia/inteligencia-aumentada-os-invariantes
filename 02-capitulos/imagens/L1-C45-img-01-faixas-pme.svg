@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" font-family="Inter, system-ui, sans-serif">
+  <title>C45 — Três faixas de PME brasileira para adoção de IA</title>
+  <desc>Faixa A microempresa, Faixa B pequena empresa, Faixa C média empresa: banda do dono, orçamento, TCO e exposição regulatória.</desc>
+
+  <defs>
+    <linearGradient id="faixaA" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="faixaB" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E97451"/>
+      <stop offset="100%" stop-color="#c2410c"/>
+    </linearGradient>
+    <linearGradient id="faixaC" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1b263b"/>
+      <stop offset="100%" stop-color="#0d1b2a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="600" fill="#0d1b2a"/>
+
+  <text x="500" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#fef3c7">PME BRASILEIRA — TRÊS FAIXAS, ARITMÉTICAS DISTINTAS</text>
+  <text x="500" y="64" text-anchor="middle" font-size="12" fill="#9ca3af" font-style="italic">Importar roadmap Enterprise para Faixa A é a fonte mais comum de frustração do dono</text>
+
+  <!-- Faixa A -->
+  <rect x="40" y="100" width="290" height="440" rx="8" fill="url(#faixaA)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="185" y="138" text-anchor="middle" font-size="18" font-weight="700" fill="#0d1b2a">FAIXA A</text>
+  <text x="185" y="160" text-anchor="middle" font-size="12" font-weight="700" fill="#0d1b2a">MICROEMPRESA</text>
+  <text x="185" y="180" text-anchor="middle" font-size="11" fill="#0d1b2a">5-15 colaboradores</text>
+
+  <line x1="60" y1="200" x2="310" y2="200" stroke="#0d1b2a" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <text x="60" y="225" font-size="11" font-weight="700" fill="#0d1b2a">Faturamento típico</text>
+  <text x="60" y="242" font-size="11" fill="#0d1b2a">R$ 600 mil — R$ 3 mi/ano</text>
+
+  <text x="60" y="272" font-size="11" font-weight="700" fill="#0d1b2a">Banda do dono</text>
+  <text x="60" y="289" font-size="11" fill="#0d1b2a">3-8h/semana para IA</text>
+
+  <text x="60" y="319" font-size="11" font-weight="700" fill="#0d1b2a">TCO ano 1 (tier 1)</text>
+  <text x="60" y="336" font-size="11" fill="#0d1b2a">R$ 9 mil — R$ 23 mil</text>
+
+  <text x="60" y="366" font-size="11" font-weight="700" fill="#0d1b2a">Teto regra 3%</text>
+  <text x="60" y="383" font-size="11" fill="#0d1b2a">R$ 18 mil — R$ 90 mil</text>
+
+  <text x="60" y="413" font-size="11" font-weight="700" fill="#0d1b2a">Time interno</text>
+  <text x="60" y="430" font-size="11" fill="#0d1b2a">Dono + contador terceirizado</text>
+
+  <text x="60" y="460" font-size="11" font-weight="700" fill="#0d1b2a">Risco regulatório</text>
+  <text x="60" y="477" font-size="11" fill="#0d1b2a">Baixo · LGPD residual</text>
+
+  <text x="60" y="510" font-size="10" font-style="italic" font-weight="700" fill="#0d1b2a">Foco: começar com tier 1 SaaS</text>
+
+  <!-- Faixa B -->
+  <rect x="355" y="100" width="290" height="440" rx="8" fill="url(#faixaB)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="500" y="138" text-anchor="middle" font-size="18" font-weight="700" fill="#fef3c7">FAIXA B</text>
+  <text x="500" y="160" text-anchor="middle" font-size="12" font-weight="700" fill="#fef3c7">PEQUENA EMPRESA</text>
+  <text x="500" y="180" text-anchor="middle" font-size="11" fill="#fef3c7">16-99 colaboradores</text>
+
+  <line x1="375" y1="200" x2="625" y2="200" stroke="#fef3c7" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <text x="375" y="225" font-size="11" font-weight="700" fill="#fef3c7">Faturamento típico</text>
+  <text x="375" y="242" font-size="11" fill="#fef3c7">R$ 3 mi — R$ 50 mi/ano</text>
+
+  <text x="375" y="272" font-size="11" font-weight="700" fill="#fef3c7">Banda do dono</text>
+  <text x="375" y="289" font-size="11" fill="#fef3c7">5-15h/semana + gerente delegado</text>
+
+  <text x="375" y="319" font-size="11" font-weight="700" fill="#fef3c7">TCO ano 1 (tier 1)</text>
+  <text x="375" y="336" font-size="11" fill="#fef3c7">R$ 33 mil — R$ 100 mil</text>
+
+  <text x="375" y="366" font-size="11" font-weight="700" fill="#fef3c7">Teto regra 3%</text>
+  <text x="375" y="383" font-size="11" fill="#fef3c7">R$ 90 mil — R$ 1,5 mi</text>
+
+  <text x="375" y="413" font-size="11" font-weight="700" fill="#fef3c7">Time interno</text>
+  <text x="375" y="430" font-size="11" fill="#fef3c7">Gerentes funcionais · 1 TI</text>
+
+  <text x="375" y="460" font-size="11" font-weight="700" fill="#fef3c7">Risco regulatório</text>
+  <text x="375" y="477" font-size="11" fill="#fef3c7">Médio · LGPD ativa em reclamação</text>
+
+  <text x="375" y="510" font-size="10" font-style="italic" font-weight="700" fill="#fef3c7">Foco: tier 1 + tier 2 selecionado</text>
+
+  <!-- Faixa C -->
+  <rect x="670" y="100" width="290" height="440" rx="8" fill="url(#faixaC)" stroke="#E97451" stroke-width="2.5"/>
+  <text x="815" y="138" text-anchor="middle" font-size="18" font-weight="700" fill="#fef3c7">FAIXA C</text>
+  <text x="815" y="160" text-anchor="middle" font-size="12" font-weight="700" fill="#fef3c7">MÉDIA EMPRESA</text>
+  <text x="815" y="180" text-anchor="middle" font-size="11" fill="#fef3c7">100-499 colaboradores</text>
+
+  <line x1="690" y1="200" x2="940" y2="200" stroke="#fef3c7" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <text x="690" y="225" font-size="11" font-weight="700" fill="#fef3c7">Faturamento típico</text>
+  <text x="690" y="242" font-size="11" fill="#fef3c7">R$ 50 mi — R$ 300 mi/ano</text>
+
+  <text x="690" y="272" font-size="11" font-weight="700" fill="#fef3c7">Banda do dono</text>
+  <text x="690" y="289" font-size="11" fill="#fef3c7">5-20h/semana + diretoria interm.</text>
+
+  <text x="690" y="319" font-size="11" font-weight="700" fill="#fef3c7">TCO ano 1 (tier 1)</text>
+  <text x="690" y="336" font-size="11" fill="#fef3c7">R$ 95 mil — R$ 275 mil</text>
+
+  <text x="690" y="366" font-size="11" font-weight="700" fill="#fef3c7">Teto regra 3%</text>
+  <text x="690" y="383" font-size="11" fill="#fef3c7">R$ 1,5 mi — R$ 9 mi</text>
+
+  <text x="690" y="413" font-size="11" font-weight="700" fill="#fef3c7">Time interno</text>
+  <text x="690" y="430" font-size="11" fill="#fef3c7">Gerente TI · equipe IA mínima</text>
+
+  <text x="690" y="460" font-size="11" font-weight="700" fill="#fef3c7">Risco regulatório</text>
+  <text x="690" y="477" font-size="11" fill="#fca5a5">Alto · RFP Enterprise + ANPD</text>
+
+  <text x="690" y="510" font-size="10" font-style="italic" font-weight="700" fill="#E97451">Foco: tier 2 maduro · tier 3 com cautela</text>
+
+  <text x="500" y="575" text-anchor="middle" font-size="11" fill="#9ca3af" font-style="italic">Regra dos 3% do faturamento como teto · Regra dos 90 dias como prazo de paciência</text>
+</svg>

@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Inteligência Aumentada</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Inteligência Aumentada</h1>
+</header>
+<div class="page-break">
+
+</div>
+<h1 id="apêndice-a-glossário-completo">APÊNDICE A — GLOSSÁRIO COMPLETO</h1>
+<h2 id="vocabulário-canônico-de-inteligência-aumentada"><em>Vocabulário canônico de Inteligência Aumentada</em></h2>
+<blockquote>
+<p>Glossário organizado por categoria. Termos próprios da obra marcados com <strong>★</strong> (sistema proprietário) ou <strong>◆</strong> (uso técnico canônico). Termos de mercado em uso recorrente sem marcação.</p>
+</blockquote>
+<hr />
+<h2 id="i.-invariantes-e-sistema-da-obra">I. INVARIANTES E SISTEMA DA OBRA (★)</h2>
+<p><strong>Camada-mãe.</strong> ★ Os 9 Invariantes da IA, princípios duráveis que sustentam toda a obra.</p>
+<p><strong>Camada Dupla.</strong> ★ Invariante 3: separação entre padrão durável (na cabeça) e número volátil (em apêndice datado).</p>
+<p><strong>Custo Composto.</strong> ★ Invariante 5: a multiplicação tokens × chamadas × tier × redundância que escala em produção, não o preço por token isolado.</p>
+<p><strong>Encaixe.</strong> ★ Invariante 4: escolha de modelo por padrão de tarefa (5 eixos), não por liderança de benchmark da rodada.</p>
+<p><strong>Extremidades.</strong> ★ Invariante 2: regra de que atenção decai no meio do contexto e densidade de relevância vence volume bruto.</p>
+<p><strong>Frame derivado.</strong> ★ Framework prático (F1-F9) que opera um Invariante específico.</p>
+<p><strong>Operador.</strong> ★ Invariante 9: a IA multiplica competência e incompetência pelo mesmo fator.</p>
+<p><strong>Plausibilidade.</strong> ★ Invariante 1: o modelo entrega o plausível, não o verdadeiro.</p>
+<p><strong>Responsabilidade Indelegável.</strong> ★ Invariante 8: toda decisão de IA em produção tem único nome humano accountable.</p>
+<p><strong>Autonomia Proporcional.</strong> ★ Invariante 6: nível de agência é função da capacidade de medir e desfazer.</p>
+<p><strong>Termômetro.</strong> ★ Invariante 7: IA sem eval é fé, não engenharia.</p>
+<p><strong>Validação UAU.</strong> ★ Critério objetivo de fechamento de cada capítulo da obra; 5 dimensões.</p>
+<p><strong>Frameworks F1-F9.</strong> ★ Sistema proprietário de 9 frameworks derivados dos Invariantes: - F1 DECID-IA (Inv. 9), F2 ENCAIXE-5 (Inv. 4), F3 AGENTE-PROP (Inv. 6), F4 PROMPT-EXT (Inv. 2+3), F5 MCP-COBERTURA (Inv. 6+4), F6 GOV-INDELEGÁVEL (Inv. 8), F7 COMPOSTO-3T (Inv. 5+9), F8 EVAL-PIRÂMIDE (Inv. 7), F9 ROTA-DUPLA (Inv. 3).</p>
+<hr />
+<h2 id="ii.-fundamentos-de-ia">II. FUNDAMENTOS DE IA</h2>
+<p><strong>Agente.</strong> ◆ Sistema de IA que recebe objetivo, decompõe em subtarefas, executa com ciclos de percepção-ação-reflexão, usa tools externas, até cumprir o objetivo. Diferente de chatbot: unidade de operação é a tarefa completa, não a resposta.</p>
+<p><strong>AGI (Artificial General Intelligence).</strong> Sistema de IA com capacidade equivalente a humana em qualquer tarefa cognitiva. Hoje, conceito disputado entre laboratórios.</p>
+<p><strong>ASI (Artificial Superintelligence).</strong> Sistema que excede capacidade humana em todos os domínios cognitivos.</p>
+<p><strong>Atenção (mechanism).</strong> ◆ Operação no transformer que decide quais tokens importam e quanto. Implementada via projeções Query/Key/Value e softmax.</p>
+<p><strong>Benchmark.</strong> Conjunto padronizado para medir capacidade. Exemplos: MMLU, GPQA, SWE-bench, HumanEval, ARC-AGI, OSWorld, Video-MME, HLE. Status corrente no Apêndice Vivo.</p>
+<p><strong>Chain of Thought (CoT).</strong> Técnica de prompt que induz o modelo a externalizar raciocínio passo a passo antes da resposta. Sobe acurácia em tarefas multipasso.</p>
+<p><strong>Constitutional AI (CAI).</strong> Técnica de alinhamento da Anthropic em que princípios em linguagem natural (“constituição”) são aplicados por outro modelo IA para gerar feedback de treinamento.</p>
+<p><strong>Context Engineering.</strong> Disciplina que orquestra hierarquicamente o que entra no contexto do modelo (system prompt, memória, RAG, histórico) com caching e medição.</p>
+<p><strong>Deep Learning.</strong> Subcategoria de Machine Learning com redes neurais profundas.</p>
+<p><strong>DPO (Direct Preference Optimization).</strong> Substituto do PPO em RLHF; otimização direta sobre pares de preferência sem RM dedicado. Padrão de mercado em 2025-2026.</p>
+<p><strong>Embedding.</strong> ◆ Vetor numérico que representa significado em espaço contínuo. Permite busca semântica e RAG.</p>
+<p><strong>Few-shot.</strong> Técnica de prompt com poucos exemplos de input/output esperado.</p>
+<p><strong>Fine-tuning.</strong> Continuar treinando modelo pré-existente com dados específicos.</p>
+<p><strong>Fundação (modelo).</strong> Modelo base de larga escala usado como ponto de partida para aplicações.</p>
+<p><strong>Hallucination.</strong> Saída plausível mas factualmente incorreta. Decorre da arquitetura geradora.</p>
+<p><strong>Instruction Tuning (SFT).</strong> Fine-tuning supervisionado com pares (instrução, resposta) para ensinar o modelo a seguir instruções.</p>
+<p><strong>Janela de contexto.</strong> ◆ Limite de tokens que o modelo processa simultaneamente em uma chamada.</p>
+<p><strong>LLM (Large Language Model).</strong> Grande modelo de linguagem baseado em transformer e treinado em corpus massivo.</p>
+<p><strong>Lost in the Middle.</strong> ◆ Fenômeno documentado: atenção decai no meio de contextos longos. Base do Invariante 2.</p>
+<p><strong>Multimodal.</strong> Modelo que processa texto + imagem + áudio + vídeo nativamente.</p>
+<p><strong>One-shot.</strong> Prompt com um único exemplo.</p>
+<p><strong>Open weights.</strong> Modelo com pesos disponíveis para download (não confundir com open source completo, que inclui código e dados).</p>
+<p><strong>Pré-treinamento.</strong> Treinamento inicial do modelo em corpus não-rotulado.</p>
+<p><strong>PPO (Proximal Policy Optimization).</strong> Algoritmo clássico de RL usado no RLHF original; em substituição por DPO.</p>
+<p><strong>Prompt.</strong> Entrada de texto enviada ao modelo.</p>
+<p><strong>Prompt engineering.</strong> Disciplina de construir prompts profissionalmente.</p>
+<p><strong>Prompt injection.</strong> Ataque que insere instruções maliciosas via input ou dado de tool.</p>
+<p><strong>RAG (Retrieval-Augmented Generation).</strong> ◆ Arquitetura que combina recuperação externa de conhecimento com geração. Reduz alucinação, atualiza conhecimento sem retreinar.</p>
+<p><strong>Reward Hacking.</strong> Modelo aprende a soar bom para o RM, não a ser bom.</p>
+<p><strong>RLHF (Reinforcement Learning from Human Feedback).</strong> ◆ Alinhamento via comparação humana → modelo de recompensa → RL contra o RM.</p>
+<p><strong>RLAIF.</strong> Variante em que comparação é feita por outro modelo IA seguindo princípios.</p>
+<p><strong>Sycophancy.</strong> Modelo concorda com usuário porque foi premiado por isso em treinamento.</p>
+<p><strong>System prompt.</strong> Bloco persistente que precede inputs do usuário; define persona, regras, formato.</p>
+<p><strong>Token.</strong> ◆ Unidade fundamental que o modelo processa. Pode ser palavra, sub-palavra ou caractere.</p>
+<p><strong>Tokenizer.</strong> Sistema que converte texto em tokens.</p>
+<p><strong>Transformer.</strong> ◆ Arquitetura introduzida em 2017 (<em>Attention Is All You Need</em>) que mudou a IA moderna.</p>
+<p><strong>Zero-shot.</strong> Prompt sem exemplos; só instrução.</p>
+<hr />
+<h2 id="iii.-evals-do-cap-39">III. EVALS (do Cap 39)</h2>
+<p><strong>Adversarial set.</strong> ◆ Conjunto de casos que sabidamente quebram o sistema (jailbreak, injection, sycophancy, viés).</p>
+<p><strong>Calibração de juiz.</strong> Validação de LLM-as-judge contra humano em ≥30 itens; correlação alvo ≥0,7.</p>
+<p><strong>Faithfulness.</strong> Métrica de quão fiel a saída é a uma fonte (especialmente em RAG).</p>
+<p><strong>Golden set.</strong> ◆ Conjunto fixo de casos com gabarito que serve de referência estável para detectar regressão.</p>
+<p><strong>LLM-as-judge.</strong> ◆ Uso de LLM para avaliar saída de outro LLM segundo rubrica.</p>
+<p><strong>Pirâmide de Evals.</strong> ★ Framework F8: Base determinística + Meio com golden set e LLM-as-judge + Topo humano + Adversarial transversal.</p>
+<p><strong>Regressão silenciosa.</strong> Queda de qualidade que não aparece em métrica agregada mas existe em subgrupo.</p>
+<p><strong>Rubrica.</strong> Critério estruturado para julgamento (humano ou LLM-as-judge).</p>
+<p><strong>Scorecard.</strong> Comparação automatizada baseline × candidato em cada release.</p>
+<p><strong>Vibe-eval.</strong> Anti-padrão: rodar 5 casos manuais e decidir.</p>
+<hr />
+<h2 id="iv.-llmops-do-cap-40">IV. LLMOPS (do Cap 40)</h2>
+<p><strong>Canário.</strong> ◆ Liberação progressiva de versão nova (1% → 10% → 50% → 100%) com gates.</p>
+<p><strong>Circuit breaker.</strong> Limite duro que para chamadas em condições anômalas (loop, custo, latência).</p>
+<p><strong>Kill switch.</strong> ◆ Capacidade de desligar tool/agente/modelo/feature em segundos.</p>
+<p><strong>LLMOps.</strong> ◆ Disciplina de operar IA em produção; difere de MLOps clássico.</p>
+<p><strong>MTTR (Mean Time To Recovery).</strong> Tempo médio entre detecção e retorno ao estado bom.</p>
+<p><strong>OpenTelemetry GenAI.</strong> Convenção semântica de OpenTelemetry para LLMs.</p>
+<p><strong>Promptware como código.</strong> Tratamento de prompt com PR, revisão, eval em CI.</p>
+<p><strong>Rollback.</strong> Reversão a estado conhecido seguro.</p>
+<p><strong>SEV-1 a SEV-4.</strong> Severidades de incidente, adaptadas a IA.</p>
+<p><strong>Shadow mode.</strong> Versão nova roda em paralelo, sem servir, para comparar com atual.</p>
+<p><strong>Span × Trace × Session.</strong> ◆ Modelo mental de observabilidade: span = chamada individual; trace = sequência relacionada; session = uso temporal.</p>
+<p><strong>Tracing.</strong> Instrumentação que registra cada chamada com input, output, latência, tokens, custo, tools.</p>
+<p><strong>Versionamento de prompt.</strong> Cada mudança de prompt vira release versionado com changelog.</p>
+<hr />
+<h2 id="v.-alignment-do-cap-41">V. ALIGNMENT (do Cap 41)</h2>
+<p><strong>Helpful, Harmless, Honest.</strong> ◆ Trilogia que sintetiza alinhamento (Anthropic).</p>
+<p><strong>Interpretabilidade mecanicista.</strong> ◆ Mapeamento dos circuitos internos do modelo que produzem comportamentos específicos.</p>
+<p><strong>Mech Interp.</strong> Abreviação de Interpretabilidade Mecanicista.</p>
+<p><strong>Over-refusal.</strong> Modelo recusa pedidos legítimos por excesso de cautela.</p>
+<p><strong>Red-teaming.</strong> Teste adversarial sistemático de comportamento problemático.</p>
+<p><strong>Sandbagging.</strong> Modelo finge ser menos capaz para escapar de avaliação.</p>
+<p><strong>Sparse Autoencoders.</strong> Técnica para identificar <em>features</em> legíveis em ativações.</p>
+<hr />
+<h2 id="vi.-governança-do-cap-42">VI. GOVERNANÇA (do Cap 42)</h2>
+<p><strong>Accountable.</strong> No RACI, quem responde pela decisão. Único nominal.</p>
+<p><strong>AI Council.</strong> Órgão executivo de governança de IA.</p>
+<p><strong>AUP (Acceptable Use Policy).</strong> Política de uso aceitável interna.</p>
+<p><strong>Camadas de governança.</strong> Técnica, Operacional, Executiva.</p>
+<p><strong>Maturidade dos controles.</strong> Escala 0-4 (inexistente, declarado, implementado, auditado, melhoria contínua).</p>
+<p><strong>Política × Processo × Prática.</strong> Três camadas que precisam fechar para governança não ser teatro.</p>
+<p><strong>Postmortem sem culpa.</strong> Investigação de incidente focada em processo, não em pessoa.</p>
+<p><strong>RACI.</strong> Matriz Responsible / Accountable / Consulted / Informed.</p>
+<p><strong>Simulado.</strong> Exercício programado de resposta a incidente, em staging.</p>
+<hr />
+<h2 id="vii.-ecossistema-claude-do-volume-vivo">VII. ECOSSISTEMA CLAUDE (do Volume Vivo)</h2>
+<p><strong>Artifacts.</strong> Painel lateral do Claude Web para conteúdo renderizado (código, documentos, diagramas).</p>
+<p><strong>Claude Code.</strong> Agente de programação CLI da Anthropic.</p>
+<p><strong>Connectors.</strong> Integrações nativas pré-instaladas no Claude.</p>
+<p><strong>Constitutional AI.</strong> Ver seção II.</p>
+<p><strong>Cowork Mode.</strong> Modo do Claude Desktop para colaboração assistida (research preview).</p>
+<p><strong>Dispatch.</strong> Mecanismo de invocação de workflows a partir de triggers externos.</p>
+<p><strong>Haiku, Sonnet, Opus.</strong> ◆ Três tiers canônicos da família Claude por encaixe.</p>
+<p><strong>MCP (Model Context Protocol).</strong> Padrão aberto para conectar modelos a tools e dados externos.</p>
+<p><strong>Mythos Preview.</strong> Linha experimental da Anthropic.</p>
+<p><strong>Projects.</strong> Workspace persistente do Claude com instruções, arquivos e histórico.</p>
+<p><strong>Research.</strong> Capacidade de pesquisa profunda multi-fonte do Claude.</p>
+<p><strong>Routines.</strong> Fluxos repetitivos nomeados no Claude Code.</p>
+<p><strong>Scheduled Tasks.</strong> Tarefas agendadas no Claude.</p>
+<p><strong>Skills.</strong> Comportamentos reutilizáveis e versionados encapsulados.</p>
+<p><strong>Subagents.</strong> Agentes especializados delegados por agente coordenador.</p>
+<hr />
+<h2 id="viii.-casos-brasileiros-da-obra-cenários-ilustrativos">VIII. CASOS BRASILEIROS DA OBRA (cenários ilustrativos)</h2>
+<p><strong>Atlas Strategy.</strong> ★ Consultoria estratégica BR; caso de eval por incidente de relatórios (Cap 39, EC6).</p>
+<p><strong>Banco Solar.</strong> ★ Fintech BR; caso de atendimento híbrido por tier (EC1).</p>
+<p><strong>EnterTech BR.</strong> ★ Vendor B2B; caso de pré-vendas com Research (EC5).</p>
+<p><strong>Instituto Norte.</strong> ★ Educação executiva BR; caso de programa formativo (EC7).</p>
+<p><strong>Métrica.io.</strong> ★ SaaS BR de BI; caso de copiloto in-product (EC4).</p>
+<p><strong>Pólice.io.</strong> ★ Marketplace BR de seguros; caso de loop com cartão de crédito (Cap 40).</p>
+<p><strong>RedeCasa.</strong> ★ Varejo BR; caso de triagem de currículos com mitigação de viés (EC2).</p>
+<p><strong>Triagem.Br.</strong> ★ Healthtech BR; caso de alignment fraco em saúde (Cap 41).</p>
+<p><strong>Vianna, Castro e Almeida.</strong> ★ Banca de M&amp;A BR; caso de DD assistida (EC3).</p>
+<hr />
+<h2 id="ix.-regulação-e-normas">IX. REGULAÇÃO E NORMAS</h2>
+<p><strong>AI Act.</strong> Regulamentação europeia (UE 2024/1689).</p>
+<p><strong>ANPD.</strong> Autoridade Nacional de Proteção de Dados (Brasil).</p>
+<p><strong>ISO/IEC 42001.</strong> Sistema de gestão de IA (2023).</p>
+<p><strong>LGPD.</strong> Lei Geral de Proteção de Dados (Lei 13.709/2018), especialmente art. 20 (decisão automatizada).</p>
+<p><strong>NIST AI RMF.</strong> AI Risk Management Framework (NIST, 2023).</p>
+<p><strong>PL de IA brasileiro.</strong> Projeto de Lei sobre uso de IA, em tramitação. Status corrente no Apêndice Vivo.</p>
+<hr />
+<p>🔗 <a href="L1-APX-B-mapa-mental.md">Apêndice B Mapa Mental</a> · <a href="L1-APX-M-manifesto-bolso.md">Apêndice M Manifesto de bolso</a> · <a href="../../Livro-2-Dominando-Claude/04-apendices/L2-APX-J-apendice-vivo.md">Apêndice Vivo (J)</a></p>
+<div class="page-break">
+
+</div>
+<h1 id="apêndice-b-mapa-mental-geral">APÊNDICE B — MAPA MENTAL GERAL</h1>
+<h2 id="os-9-invariantes-da-ia-como-esqueleto-cognitivo-da-obra"><em>Os 9 Invariantes da IA como esqueleto cognitivo da obra</em></h2>
+<hr />
+<blockquote>
+<p>Este mapa mental tem propósito específico. Não é índice (que é o sumário), nem é resumo (que é por capítulo). É a representação visual de como a obra se organiza <strong>a partir dos Invariantes</strong>, mostrando que cada capítulo, cada framework e cada estudo de caso é instância de um ou mais princípios da camada-mãe.</p>
+</blockquote>
+<hr />
+<h2 id="estrutura-em-camadas">ESTRUTURA EM CAMADAS</h2>
+<pre><code>                    ┌────────────────────────────────┐
+                    │   MODELOS PASSAM. MÉTODO FICA. │
+                    └────────────────┬───────────────┘
+                                     │
+              ┌──────────────────────┴──────────────────────┐
+              │      CAMADA-MÃE: OS 9 INVARIANTES           │
+              │  (princípios duráveis, sistema citável)     │
+              └──────────────────────┬──────────────────────┘
+                                     │
+              ┌──────────────────────┴──────────────────────┐
+              │  CAMADA OPERACIONAL: 9 FRAMEWORKS (F1-F9)   │
+              │  (decisão prática derivada de cada princípio) │
+              └──────────────────────┬──────────────────────┘
+                                     │
+              ┌──────────────────────┴──────────────────────┐
+              │  CAMADA APLICADA: CAPÍTULOS E ESTUDOS       │
+              │  (instâncias técnicas e casos brasileiros)  │
+              └─────────────────────────────────────────────┘</code></pre>
+<hr />
+<h2 id="a-roda-dos-9-invariantes">A RODA DOS 9 INVARIANTES</h2>
+<pre><code>                              ┌─────────────────────┐
+                              │ 1. PLAUSIBILIDADE   │
+                              │ &quot;Plausível ≠ verdade&quot;│
+                              └──────────┬──────────┘
+                                         │
+       ┌─────────────────────┐           │           ┌─────────────────────┐
+       │ 9. OPERADOR         │◀──────────┼──────────▶│ 2. EXTREMIDADES     │
+       │ &quot;Multiplica os dois&quot;│           │           │ &quot;Meio morre&quot;        │
+       └──────────┬──────────┘           │           └──────────┬──────────┘
+                  │                      │                      │
+                  │              ┌───────┴────────┐             │
+                  │              │   FRASE-ÂNCORA │             │
+                  │              │ &quot;Modelos passam│             │
+                  │              │  Método fica&quot;  │             │
+                  │              └───────┬────────┘             │
+                  │                      │                      │
+       ┌──────────┴──────────┐           │           ┌──────────┴──────────┐
+       │ 8. RESPONSABILIDADE │◀──────────┼──────────▶│ 3. CAMADA DUPLA     │
+       │ &quot;Nome humano&quot;        │           │           │ &quot;Padrão × número&quot;   │
+       └──────────┬──────────┘           │           └──────────┬──────────┘
+                  │                      │                      │
+                  │                      │                      │
+       ┌──────────┴──────────┐           │           ┌──────────┴──────────┐
+       │ 7. TERMÔMETRO       │◀──────────┼──────────▶│ 4. ENCAIXE          │
+       │ &quot;Eval ou fé&quot;        │           │           │ &quot;Padrão da tarefa&quot;  │
+       └──────────┬──────────┘           │           └──────────┬──────────┘
+                  │                      │                      │
+                  └──────────────────────┼──────────────────────┘
+                              ┌──────────┴──────────┐
+                              │ 6. AUTONOMIA PROP.  │
+                              └──────────┬──────────┘
+                                         │
+                              ┌──────────┴──────────┐
+                              │ 5. CUSTO COMPOSTO   │
+                              │ &quot;Vezes que paga&quot;    │
+                              └─────────────────────┘</code></pre>
+<blockquote>
+<p>📊 <strong>Diagrama B.1 — A Roda dos 9 Invariantes (versão SVG canônica)</strong></p>
+<p><em>(SVG a produzir: <code>imagens/L1-APX-B-img-01-roda-invariantes-grande.svg</code>)</em></p>
+<p>Versão de referência em alta arte, distribuível, com licença explícita.</p>
+</blockquote>
+<hr />
+<h2 id="invariante-framework-capítulo-âncora">INVARIANTE × FRAMEWORK × CAPÍTULO-ÂNCORA</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 25%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Invariante</th>
+<th>Framework derivado</th>
+<th>Capítulo-âncora L1</th>
+<th>Aplicação L2 (Claude)</th>
+<th>Estudo de caso L2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 — Plausibilidade</td>
+<td>Auditoria de honestidade no F8</td>
+<td>Cap 02, Cap 41</td>
+<td>Cap 22 Research, Cap 23 Web Search</td>
+<td>EC2, EC3</td>
+</tr>
+<tr class="even">
+<td>2 — Extremidades</td>
+<td>F4 PROMPT-EXT</td>
+<td>Cap 04</td>
+<td>Cap 20 Projects, Cap 31 Skills</td>
+<td>EC4, EC6</td>
+</tr>
+<tr class="odd">
+<td>3 — Camada Dupla</td>
+<td>F9 ROTA-DUPLA</td>
+<td>Cap 01 + Apêndice Vivo (J)</td>
+<td>Cap 31 Skills, Cap 17 Entendendo Claude</td>
+<td>EC6</td>
+</tr>
+<tr class="even">
+<td>4 — Encaixe</td>
+<td>F2 ENCAIXE-5</td>
+<td>Cap 15</td>
+<td>Cap 18 Modelos Claude</td>
+<td>EC5</td>
+</tr>
+<tr class="odd">
+<td>5 — Custo Composto</td>
+<td>F7 COMPOSTO-3T</td>
+<td>Cap 36</td>
+<td>Cap 18 Modelos, Cap 32 Subagents, Cap 34b Connectors</td>
+<td>EC1</td>
+</tr>
+<tr class="even">
+<td>6 — Autonomia Proporcional</td>
+<td>F3 AGENTE-PROP</td>
+<td>Cap 12 + Cap 40</td>
+<td>Cap 24 Claude Code, Cap 28 Scheduled, Cap 32 Subagents, Cap 33 MCP</td>
+<td>EC1, EC4</td>
+</tr>
+<tr class="odd">
+<td>7 — Termômetro</td>
+<td>F8 EVAL-PIRÂMIDE</td>
+<td>Cap 39</td>
+<td>Cap 34 Executivos (OKRs)</td>
+<td>EC4, EC7</td>
+</tr>
+<tr class="even">
+<td>8 — Responsabilidade Indelegável</td>
+<td>F6 GOV-INDELEGÁVEL</td>
+<td>Cap 42 + Cap 37</td>
+<td>Cap 29 Team, Cap 30 Enterprise, Cap 34 Executivos</td>
+<td>EC1, EC2, EC3</td>
+</tr>
+<tr class="odd">
+<td>9 — Operador</td>
+<td>F1 DECID-IA</td>
+<td>Cap 34 (L2) + Cap 44</td>
+<td>Toda a Parte 5 do Volume Vivo</td>
+<td>Todos os EC</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="trilha-temática-invariante">TRILHA TEMÁTICA × INVARIANTE</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Trilha</th>
+<th>Invariante dominante</th>
+<th>Capítulos sugeridos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Entender LLMs profundamente</td>
+<td>1, 2, 3</td>
+<td>02, 03, 04, 05, 09, 10, 11</td>
+</tr>
+<tr class="even">
+<td>Decidir arquitetura de IA</td>
+<td>3, 4</td>
+<td>06, 08, 13, 14, 15, 16, 43</td>
+</tr>
+<tr class="odd">
+<td>Construir agentes com critério</td>
+<td>6, 7</td>
+<td>12, 32 (L2), 39, 40</td>
+</tr>
+<tr class="even">
+<td>Medir e operar IA em produção</td>
+<td>6, 7, 8</td>
+<td>14, 39, 40</td>
+</tr>
+<tr class="odd">
+<td>Governar IA corporativa</td>
+<td>8, 1</td>
+<td>37, 41, 42</td>
+</tr>
+<tr class="even">
+<td>Otimizar custo composto</td>
+<td>5</td>
+<td>03, 04, 11, 36</td>
+</tr>
+<tr class="odd">
+<td>Liderar adoção executiva</td>
+<td>8, 9</td>
+<td>15, 16, 34 (L2), 42, 43, 44</td>
+</tr>
+<tr class="even">
+<td>Roadmap de longo prazo</td>
+<td>3, 9</td>
+<td>38, 44</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="capítulo-invariante-primário-e-secundário">CAPÍTULO × INVARIANTE PRIMÁRIO E SECUNDÁRIO</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Capítulo</th>
+<th>Inv. primário</th>
+<th>Inv. secundário</th>
+<th>Função no esqueleto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>00M Manifesto</td>
+<td>Todos</td>
+<td>—</td>
+<td>Capítulo-mãe declarativo</td>
+</tr>
+<tr class="even">
+<td>01 O que é IA</td>
+<td>3</td>
+<td>—</td>
+<td>Plantio da Camada Dupla</td>
+</tr>
+<tr class="odd">
+<td>02 Como modelos funcionam</td>
+<td>1</td>
+<td>—</td>
+<td>Mecânica da Plausibilidade</td>
+</tr>
+<tr class="even">
+<td>03 Tokens</td>
+<td>5</td>
+<td>—</td>
+<td>Unidade do Custo Composto</td>
+</tr>
+<tr class="odd">
+<td>04 Janela de contexto</td>
+<td>2</td>
+<td>—</td>
+<td>Capítulo-âncora das Extremidades</td>
+</tr>
+<tr class="even">
+<td>05 Embeddings</td>
+<td>3</td>
+<td>5</td>
+<td>Geometria do significado</td>
+</tr>
+<tr class="odd">
+<td>06 RAG</td>
+<td>3</td>
+<td>7</td>
+<td>Camada Dupla aplicada</td>
+</tr>
+<tr class="even">
+<td>07 Memória</td>
+<td>5</td>
+<td>—</td>
+<td>Custo de retenção</td>
+</tr>
+<tr class="odd">
+<td>08 Fine-tuning</td>
+<td>7</td>
+<td>—</td>
+<td>Decisão sem eval é especulação</td>
+</tr>
+<tr class="even">
+<td>09 Engenharia de prompt</td>
+<td>2</td>
+<td>7</td>
+<td>Estrutura pelas extremidades</td>
+</tr>
+<tr class="odd">
+<td>10 Chain of Thought</td>
+<td>1</td>
+<td>2</td>
+<td>Raciocínio aparente, não real</td>
+</tr>
+<tr class="even">
+<td>11 Context Engineering</td>
+<td>2</td>
+<td>3</td>
+<td>Orquestração das pontas</td>
+</tr>
+<tr class="odd">
+<td>12 Agentes</td>
+<td>6</td>
+<td>—</td>
+<td>Capítulo-âncora conceitual da Autonomia</td>
+</tr>
+<tr class="even">
+<td>13 MCP</td>
+<td>4</td>
+<td>6</td>
+<td>Padrão de encaixe + autonomia</td>
+</tr>
+<tr class="odd">
+<td>14 AI Engineering</td>
+<td>7</td>
+<td>6</td>
+<td>Portal para Evals e LLMOps</td>
+</tr>
+<tr class="even">
+<td>15 Comparação de modelos</td>
+<td>4</td>
+<td>—</td>
+<td>Capítulo-âncora do Encaixe</td>
+</tr>
+<tr class="odd">
+<td>16 Open source</td>
+<td>4</td>
+<td>5</td>
+<td>Decisão estratégica de encaixe</td>
+</tr>
+<tr class="even">
+<td>17-34b (Volume Vivo)</td>
+<td>4-9</td>
+<td>Vários</td>
+<td>Aplicação Claude por capacidade</td>
+</tr>
+<tr class="odd">
+<td>35 GitHub repos</td>
+<td>3</td>
+<td>—</td>
+<td>Critérios duráveis, lista volátil</td>
+</tr>
+<tr class="even">
+<td>36 Economia de tokens</td>
+<td>5</td>
+<td>—</td>
+<td>Capítulo-âncora do Custo Composto</td>
+</tr>
+<tr class="odd">
+<td>37 Segurança e riscos</td>
+<td>8</td>
+<td>1</td>
+<td>Mapeamento de risco com dono</td>
+</tr>
+<tr class="even">
+<td>38 Futuro da IA</td>
+<td>3</td>
+<td>—</td>
+<td>Vetores de mudança duráveis</td>
+</tr>
+<tr class="odd">
+<td>39 Evals</td>
+<td>7</td>
+<td>1, 3, 8</td>
+<td>Capítulo definitivo do Termômetro</td>
+</tr>
+<tr class="even">
+<td>40 LLMOps</td>
+<td>6</td>
+<td>5, 7, 8</td>
+<td>Operação da Autonomia Proporcional</td>
+</tr>
+<tr class="odd">
+<td>41 Alignment</td>
+<td>1</td>
+<td>8, 4</td>
+<td>Mecânica do alinhamento</td>
+</tr>
+<tr class="even">
+<td>42 Governança</td>
+<td>8</td>
+<td>6</td>
+<td>Aplicação da Responsabilidade</td>
+</tr>
+<tr class="odd">
+<td>43 Trade-offs canônicos</td>
+<td>4</td>
+<td>9</td>
+<td>Cardápio de decisão</td>
+</tr>
+<tr class="even">
+<td>44 Roadmap pessoal</td>
+<td>9</td>
+<td>3</td>
+<td>Plano de aplicação</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="relações-críticas-entre-invariantes-não-óbvias">RELAÇÕES CRÍTICAS ENTRE INVARIANTES (não-óbvias)</h2>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 32%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Par</th>
+<th>Relação</th>
+<th>Onde aparece</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 ↔︎ 7</td>
+<td>Plausibilidade exige Termômetro: eval comportamental é antídoto à confiança injustificada</td>
+<td>Caps 39, 41</td>
+</tr>
+<tr class="even">
+<td>2 ↔︎ 5</td>
+<td>Extremidades + Custo Composto: posição importa, mas volume mal arquitetado paga juros</td>
+<td>Caps 11, 36</td>
+</tr>
+<tr class="odd">
+<td>3 ↔︎ 4</td>
+<td>Camada Dupla + Encaixe: o padrão da escolha de modelo dura; o ranking da rodada não</td>
+<td>Caps 15, 18</td>
+</tr>
+<tr class="even">
+<td>6 ↔︎ 7</td>
+<td>Autonomia Proporcional só existe com Termômetro: sem eval, autonomia é fé escalada</td>
+<td>Caps 12, 32, 39, 40</td>
+</tr>
+<tr class="odd">
+<td>6 ↔︎ 8</td>
+<td>Autonomia delegada precisa de Responsabilidade nominal: a IA executa, alguém assina</td>
+<td>Caps 30, 40, 42</td>
+</tr>
+<tr class="even">
+<td>8 ↔︎ 9</td>
+<td>Responsabilidade Indelegável e Operador: governança precisa de operadores competentes</td>
+<td>Caps 34, 42, 44</td>
+</tr>
+<tr class="odd">
+<td>1 ↔︎ 8</td>
+<td>Plausibilidade + Responsabilidade: o erro plausível tem dono humano, sempre</td>
+<td>Caps 02, 37, 42</td>
+</tr>
+<tr class="even">
+<td>3 ↔︎ 9</td>
+<td>Camada Dupla + Operador: padrão na cabeça do operador, número em apêndice datado</td>
+<td>Cap 00M + Apêndice J</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="como-usar-este-mapa">COMO USAR ESTE MAPA</h2>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Situação</th>
+<th>Como o mapa ajuda</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Estou em decisão de adoção</td>
+<td>Olhe o Invariante associado à decisão e siga ao framework e capítulo-âncora</td>
+</tr>
+<tr class="even">
+<td>Quero estudar por trilha temática</td>
+<td>Use a tabela “Trilha × Invariante” para escolher o caminho</td>
+</tr>
+<tr class="odd">
+<td>Vou apresentar a obra a um time</td>
+<td>Use a Roda dos 9 Invariantes como abertura</td>
+</tr>
+<tr class="even">
+<td>Estou em incidente</td>
+<td>Identifique qual Invariante foi violado e leia o capítulo-âncora</td>
+</tr>
+<tr class="odd">
+<td>Quero ensinar um par sênior</td>
+<td>Comece pelo Manifesto (Cap 00M) e este mapa em paralelo</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>🔗 <strong>Próximo:</strong> <a href="L1-APX-C-roadmaps.md">Apêndice C — Roadmaps por persona</a> 🔗 <strong>Manifesto completo:</strong> <a href="../01-manifesto/L1-C00M-manifesto-invariantes.md">Cap 00M</a> 🔗 <strong>Versão de bolso:</strong> <a href="L1-APX-M-manifesto-bolso.md">Apêndice M</a></p>
+<div class="page-break">
+
+</div>
+<h1 id="apêndice-c-roadmaps-por-persona">APÊNDICE C — ROADMAPS POR PERSONA</h1>
+<h2 id="versão-detalhada-do-cap-44-com-checklists-semanais-e-métricas-por-marco"><em>Versão detalhada do Cap 44, com checklists semanais e métricas por marco</em></h2>
+<blockquote>
+<p>Este apêndice expande o Cap 44. Cada roadmap aqui traz, por marco (30/90/180/365 dias), <strong>ações semanais sugeridas</strong>, <strong>métricas com referência numérica</strong>, <strong>artefatos esperados</strong> e <strong>gates de promoção</strong>. Use como bússola e como acompanhamento de progresso real.</p>
+</blockquote>
+<hr />
+<h2 id="roadmap-1-executivo-c-level">ROADMAP 1 — EXECUTIVO (C-Level)</h2>
+<h3 id="marco-30-dias">Marco 30 dias</h3>
+<p><strong>Tese:</strong> instalar o vocabulário e o nome humano por trás de cada decisão crítica.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 25%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Semana</th>
+<th>Ação</th>
+<th>Artefato</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Recitar os 9 Invariantes em apresentação ao seu primeiro escalão</td>
+<td>Slide-deck dos Invariantes</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Listar 5 decisões críticas de IA na organização hoje + identificar Accountable de cada uma</td>
+<td>Tabela RACI mínima</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Definir OKRs de adoção de IA (3 a 5)</td>
+<td>Documento de OKRs</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Produzir o Cartaz dos Invariantes da empresa (Cap 00M projeto)</td>
+<td>Cartaz em A3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gate de promoção:</strong> cartaz publicado + RACI mínimo de 5 decisões assinado + OKRs aprovados.</p>
+<h3 id="marco-90-dias">Marco 90 dias</h3>
+<p><strong>Tese:</strong> instalar governança de IA viva.</p>
+<ul>
+<li>Caderno de Governança v1 aprovado pela diretoria</li>
+<li>AI Council com mandato e primeira reunião realizada</li>
+<li>Cardápio dos 6 trade-offs aplicado a 3 iniciativas atuais</li>
+<li>Caderno de Evals v1 em construção (responsabilidade do CTO)</li>
+</ul>
+<p><strong>Gate:</strong> Caderno de Governança aprovado + AI Council ata pública.</p>
+<h3 id="marco-180-dias">Marco 180 dias</h3>
+<p><strong>Tese:</strong> instalar instrumentação técnica e financeira.</p>
+<ul>
+<li>LLMOps Pilar 1 (tracing) em 100% das features em produção</li>
+<li>Atribuição de custo de IA por feature em dashboard executivo</li>
+<li>Pirâmide de Evals em 50%+ de cobertura</li>
+<li>Primeiro simulado de incidente SEV-1 realizado</li>
+</ul>
+<p><strong>Gate:</strong> dashboard de custo viva + tracing 100%.</p>
+<h3 id="marco-365-dias">Marco 365 dias</h3>
+<p><strong>Tese:</strong> virar cultura.</p>
+<ul>
+<li>Maturidade média dos 10 controles de governança ≥ 3</li>
+<li>Auditoria externa positiva</li>
+<li>Aplicação dos Invariantes virou vocabulário interno (auditoria amostral em reuniões)</li>
+<li>2 simulados de incidente realizados no ano</li>
+</ul>
+<p><strong>Gate:</strong> auditoria externa concluída.</p>
+<hr />
+<h2 id="roadmap-2-gestor-head">ROADMAP 2 — GESTOR / HEAD</h2>
+<h3 id="marco-30-dias-1">Marco 30 dias</h3>
+<ul>
+<li>Selecionar 1 feature de IA sob seu escopo</li>
+<li>Mapear violações dos 9 Invariantes nessa feature (use a checklist do Cap 00M)</li>
+<li>Iniciar golden set de 30 casos representativos</li>
+</ul>
+<p><strong>Gate:</strong> feature mapeada + golden set v0.</p>
+<h3 id="marco-90-dias-1">Marco 90 dias</h3>
+<ul>
+<li>F8 EVAL-PIRÂMIDE base + meio implementados (eval em CI)</li>
+<li>LLMOps Pilares 1, 4 e 7 operantes</li>
+<li>Cardápio dos 6 trade-offs documentado para a feature</li>
+</ul>
+<p><strong>Gate:</strong> eval em CI bloqueando merge + runbook de incidente.</p>
+<h3 id="marco-180-dias-1">Marco 180 dias</h3>
+<ul>
+<li>Cobertura de tracing 100% nas features sob responsabilidade</li>
+<li>Rollback testado mensalmente</li>
+<li>Orçamento por feature visível</li>
+</ul>
+<p><strong>Gate:</strong> maturidade técnica média ≥ 3.</p>
+<h3 id="marco-365-dias-1">Marco 365 dias</h3>
+<ul>
+<li>Time aplicando Invariantes como norma de revisão de PR</li>
+<li>0 SEV-1 no último trimestre</li>
+<li>Cultura aplicada e medida</li>
+</ul>
+<p><strong>Gate:</strong> cultura confirmada por auditoria amostral.</p>
+<hr />
+<h2 id="roadmap-3-desenvolvedor-arquiteto">ROADMAP 3 — DESENVOLVEDOR / ARQUITETO</h2>
+<h3 id="marco-30-dias-2">Marco 30 dias</h3>
+<ul>
+<li>Aplicar F4 PROMPT-EXT em 1 feature</li>
+<li>Instrumentar tracing em 1 feature</li>
+<li>Estudar Caps 39 (Evals) e 40 (LLMOps)</li>
+</ul>
+<p><strong>Gate:</strong> 1 feature instrumentada.</p>
+<h3 id="marco-90-dias-2">Marco 90 dias</h3>
+<ul>
+<li>PR com eval em CI virou padrão do time</li>
+<li>Tool registry implementado</li>
+<li>F3 AGENTE-PROP aplicado em 1 agente</li>
+</ul>
+<p><strong>Gate:</strong> padrão de PR com eval adotado pelo time.</p>
+<h3 id="marco-180-dias-2">Marco 180 dias</h3>
+<ul>
+<li>Cobertura de tracing 100% nas features sob responsabilidade</li>
+<li>Participação no Caderno de LLMOps v1</li>
+</ul>
+<p><strong>Gate:</strong> Caderno de LLMOps publicado.</p>
+<h3 id="marco-365-dias-2">Marco 365 dias</h3>
+<ul>
+<li>Mentor de outros devs no método dos Invariantes</li>
+<li>Contribuição ao repositório de prompts da empresa</li>
+<li>Participação em decisão de arquitetura citando frameworks</li>
+</ul>
+<p><strong>Gate:</strong> reputação interna confirmada por feedback de pares.</p>
+<hr />
+<h2 id="roadmap-4-consultor">ROADMAP 4 — CONSULTOR</h2>
+<h3 id="marco-30-dias-3">Marco 30 dias</h3>
+<ul>
+<li>Aplicar o cardápio dos 6 trade-offs em 1 cliente</li>
+<li>Produzir entrega usando os Invariantes como vocabulário</li>
+</ul>
+<p><strong>Gate:</strong> 1 cliente impactado.</p>
+<h3 id="marco-90-dias-3">Marco 90 dias</h3>
+<ul>
+<li>3 clientes com cardápio aplicado</li>
+<li>1 case publicado em mídia setorial</li>
+</ul>
+<p><strong>Gate:</strong> 3 cases internos documentados.</p>
+<h3 id="marco-180-dias-3">Marco 180 dias</h3>
+<ul>
+<li>Workshop dos 9 Invariantes para clientes</li>
+<li>Framework próprio adaptado ao seu nicho</li>
+</ul>
+<p><strong>Gate:</strong> workshop em pé.</p>
+<h3 id="marco-365-dias-3">Marco 365 dias</h3>
+<ul>
+<li>Reputação como referência em método (não em vendor)</li>
+<li>10+ clientes operando pelo método</li>
+</ul>
+<p><strong>Gate:</strong> marca pessoal consolidada.</p>
+<hr />
+<h2 id="roadmap-5-empreendedor-founder">ROADMAP 5 — EMPREENDEDOR / FOUNDER</h2>
+<h3 id="marco-30-dias-4">Marco 30 dias</h3>
+<ul>
+<li>Aplicar F1 DECID-IA em cada feature de IA do produto</li>
+<li>F7 COMPOSTO-3T para auditar custo atual</li>
+</ul>
+<p><strong>Gate:</strong> decisão de adoção documentada por feature + baseline de custo.</p>
+<h3 id="marco-90-dias-4">Marco 90 dias</h3>
+<ul>
+<li>Golden set inicial para feature-chave</li>
+<li>Canário em produção</li>
+<li>Eval em CI</li>
+<li>Circuit breaker de custo</li>
+</ul>
+<p><strong>Gate:</strong> Pirâmide de Evals operante.</p>
+<h3 id="marco-180-dias-4">Marco 180 dias</h3>
+<ul>
+<li>F2 ENCAIXE-5 aplicado para escolher modelo por feature</li>
+<li>LLMOps maduro</li>
+<li>AUP publicada</li>
+</ul>
+<p><strong>Gate:</strong> TCO de IA / receita dentro do envelope.</p>
+<h3 id="marco-365-dias-4">Marco 365 dias</h3>
+<ul>
+<li>Crescimento sustentado com margem</li>
+<li>Cliente Enterprise compra pela arquitetura defendida</li>
+</ul>
+<p><strong>Gate:</strong> arquitetura virou diferencial competitivo.</p>
+<hr />
+<h2 id="roadmap-6-criador-de-conteúdo-educador">ROADMAP 6 — CRIADOR DE CONTEÚDO / EDUCADOR</h2>
+<h3 id="marco-30-dias-5">Marco 30 dias</h3>
+<ul>
+<li>4 posts/vídeos aplicando 1 Invariante por semana</li>
+<li>Distribuir versão de bolso (Apêndice M) à audiência</li>
+</ul>
+<p><strong>Gate:</strong> 4 peças publicadas.</p>
+<h3 id="marco-90-dias-5">Marco 90 dias</h3>
+<ul>
+<li>Workshop ou minicurso usando os Invariantes</li>
+<li>Biblioteca pessoal de prompts publicada</li>
+</ul>
+<p><strong>Gate:</strong> 1 workshop entregue.</p>
+<h3 id="marco-180-dias-5">Marco 180 dias</h3>
+<ul>
+<li>Comunidade de Operadores Inteligência Aumentada com 100+ membros engajados</li>
+</ul>
+<p><strong>Gate:</strong> comunidade ativa.</p>
+<h3 id="marco-365-dias-5">Marco 365 dias</h3>
+<ul>
+<li>Reconhecimento como referência em IA aplicada em pt-BR</li>
+<li>Convite a falar em eventos setoriais</li>
+</ul>
+<p><strong>Gate:</strong> marca consolidada.</p>
+<hr />
+<h2 id="instrumentos-comuns-a-todas-as-personas">INSTRUMENTOS COMUNS A TODAS AS PERSONAS</h2>
+<h3 id="calendário-recorrente-sugerido">Calendário recorrente sugerido</h3>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Cadência</th>
+<th>Atividade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Diária</td>
+<td>30 min com o Cartaz dos Invariantes em vista; auto-pergunta antes de cada decisão de IA</td>
+</tr>
+<tr class="even">
+<td>Semanal</td>
+<td>Revisão dos artefatos da semana contra os 9 Invariantes</td>
+</tr>
+<tr class="odd">
+<td>Mensal</td>
+<td>Atualização do Apêndice Vivo (J) na sua área; revisão de métricas-chave</td>
+</tr>
+<tr class="even">
+<td>Trimestral</td>
+<td>Revisão do roadmap; gates de promoção; ajuste de plano</td>
+</tr>
+<tr class="odd">
+<td>Anual</td>
+<td>Edição completa de todos os Cadernos (Governança, Evals, LLMOps); auditoria externa</td>
+</tr>
+</tbody>
+</table>
+<h3 id="métricas-universais">Métricas universais</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Métrica</th>
+<th>Cadência</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cobertura de tracing</td>
+<td>Mensal</td>
+</tr>
+<tr class="even">
+<td>MTTR de SEV-1 e SEV-2</td>
+<td>Mensal</td>
+</tr>
+<tr class="odd">
+<td>Custo de IA / receita</td>
+<td>Mensal</td>
+</tr>
+<tr class="even">
+<td>Maturidade dos 10 controles (média)</td>
+<td>Trimestral</td>
+</tr>
+<tr class="odd">
+<td>Aplicação cultural dos Invariantes (auditoria amostral)</td>
+<td>Semestral</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>🔗 <a href="../02-capitulos/L1-C44-roadmap-pessoal.md">Cap 44 Roadmap pessoal e organizacional</a> · <a href="../01-manifesto/L1-C00M-manifesto-invariantes.md">Cap 00M Manifesto</a> · <a href="L1-APX-K-gabaritos.md">Apêndice K Gabaritos</a></p>
+<div class="page-break">
+
+</div>
+<h1 id="apêndice-d-ferramentas-recomendadas">APÊNDICE D — FERRAMENTAS RECOMENDADAS</h1>
+<h2 id="curadoria-por-categoria-com-critério-de-seleção"><em>Curadoria por categoria, com critério de seleção</em></h2>
+<blockquote>
+<p>Lista corrente; aplicam-se os 6 critérios de seleção do <a href="../02-capitulos/L1-C35-github-repos.md">Cap 35 §35.1.5</a>. Versões e líderes correntes ficam no <a href="../../Livro-2-Dominando-Claude/04-apendices/L2-APX-J-apendice-vivo.md">Apêndice Vivo (J)</a>.</p>
+</blockquote>
+<hr />
+<h2 id="categorias">CATEGORIAS</h2>
+<h3 id="desenvolvimento-e-sdk">Desenvolvimento e SDK</h3>
+<ul>
+<li>Anthropic SDK (Python, TypeScript)</li>
+<li>OpenAI SDK</li>
+<li>Google Generative AI SDK</li>
+<li>Vercel AI SDK</li>
+</ul>
+<h3 id="eval-e-qualidade">Eval e qualidade</h3>
+<ul>
+<li>promptfoo (testes de prompt)</li>
+<li>deepeval (eval em Python)</li>
+<li>RAGAS (eval específica para RAG)</li>
+<li>inspect-ai (Anthropic, eval framework)</li>
+<li>Braintrust (parcial open)</li>
+</ul>
+<h3 id="observabilidade-e-llmops">Observabilidade e LLMOps</h3>
+<ul>
+<li>LangSmith (LangChain)</li>
+<li>Langfuse (open)</li>
+<li>Helicone</li>
+<li>Arize Phoenix (open)</li>
+<li>Datadog APM (LLM observability)</li>
+<li>New Relic AI observability</li>
+</ul>
+<h3 id="mcp-servidores-e-clientes">MCP (servidores e clientes)</h3>
+<ul>
+<li><code>modelcontextprotocol/servers</code> (oficial)</li>
+<li>MCP Python SDK / TypeScript SDK</li>
+<li><code>punkpeye/awesome-mcp-servers</code> (comunidade)</li>
+</ul>
+<h3 id="agentes">Agentes</h3>
+<ul>
+<li>Anthropic Claude Code (oficial)</li>
+<li>LangGraph (orquestração)</li>
+<li>crewAI (multi-agente)</li>
+<li>AutoGen (Microsoft)</li>
+</ul>
+<h3 id="rag">RAG</h3>
+<ul>
+<li>LangChain / LlamaIndex (frameworks)</li>
+<li>Chroma, Qdrant, Pinecone, Weaviate (bancos vetoriais)</li>
+<li>Cohere Rerank, voyage-ai (reranking)</li>
+</ul>
+<h3 id="modelos-open-weights">Modelos open weights</h3>
+<ul>
+<li>Hugging Face Hub (registry)</li>
+<li>vLLM, llama.cpp (inferência)</li>
+<li>Ollama (local)</li>
+</ul>
+<h3 id="notebooks-e-exploração">Notebooks e exploração</h3>
+<ul>
+<li>Jupyter / Google Colab</li>
+<li>Claude Code para análise</li>
+</ul>
+<hr />
+<h2 id="critério-de-escolha">CRITÉRIO DE ESCOLHA</h2>
+<p>Antes de adotar qualquer ferramenta, aplicar os <strong>6 critérios</strong> do Cap 35 §35.1.5: 1. Mantenedor com governança clara 2. Último commit relevante 3. Comunidade ativa 4. Documentação completa 5. Compatibilidade declarada 6. Ecossistema reconhece</p>
+<p>Ranking corrente entre concorrentes diretos no <a href="../../Livro-2-Dominando-Claude/04-apendices/L2-APX-J-apendice-vivo.md">Apêndice Vivo (J)</a>.</p>
+<hr />
+<p>🔗 <a href="../02-capitulos/L1-C35-github-repos.md">Cap 35 GitHub Repos</a> · <a href="L1-APX-E-leituras.md">Apêndice E Leituras</a> · <a href="L1-APX-G-papers.md">Apêndice G Papers</a></p>
+<div class="page-break">
+
+</div>
+<h1 id="apêndice-e-leituras-complementares">APÊNDICE E — LEITURAS COMPLEMENTARES</h1>
+<h2 id="livros-blogs-e-cursos-comentados-para-aprofundar"><em>Livros, blogs e cursos comentados para aprofundar</em></h2>
+<hr />
+<h2 id="livros-fundamentos-de-ia">LIVROS — FUNDAMENTOS DE IA</h2>
+<p><strong>Russell, S. &amp; Norvig, P. — <em>Artificial Intelligence: A Modern Approach</em> (4ª ed., 2020).</strong> Referência canônica do campo. Denso. Para quem quer fundamento acadêmico.</p>
+<p><strong>Bishop, C. &amp; Bishop, H. — <em>Deep Learning: Foundations and Concepts</em> (2024).</strong> Fundamentos matemáticos modernos. Para profissional técnico que quer ir além do uso.</p>
+<p><strong>Goodfellow, I., Bengio, Y. &amp; Courville, A. — <em>Deep Learning</em> (2016).</strong> Clássico. Algumas partes desatualizadas; a estrutura conceitual segue válida.</p>
+<p><strong>Murphy, K. — <em>Probabilistic Machine Learning</em> (2 vols., 2022, 2023).</strong> Fundamentos probabilísticos.</p>
+<hr />
+<h2 id="livros-ia-aplicada">LIVROS — IA APLICADA</h2>
+<p><strong>Karpathy, A. — coleção de palestras públicas e o blog <code>karpathy.ai</code>.</strong> Não é livro formal, mas o conjunto vale como referência de pensamento técnico atual.</p>
+<p><strong>Engelbart, D. — <em>Augmenting Human Intellect</em> (1962).</strong> O conceito original de “inteligência aumentada”. Origem filosófica da obra.</p>
+<p><strong>Christian, B. — <em>The Alignment Problem</em> (2020).</strong> Visão geral acessível.</p>
+<p><strong>Russell, S. — <em>Human Compatible</em> (2019).</strong> Fundamento filosófico do alinhamento.</p>
+<hr />
+<h2 id="livros-governança-e-operação">LIVROS — GOVERNANÇA E OPERAÇÃO</h2>
+<p><strong>Beyer, B. et al. — <em>Site Reliability Engineering</em> (Google, 2016) e <em>The Site Reliability Workbook</em> (2018).</strong> Fundamento de operação madura aplicável a LLMOps.</p>
+<p><strong>Doerr, J. — <em>Measure What Matters</em> (2018).</strong> OKRs como instrumento de adoção.</p>
+<p><strong>Allspaw, J. &amp; Robbins, J. — <em>Web Operations</em> (2010).</strong> Fundamentos de cultura blameless.</p>
+<p><strong>Davenport, T. — <em>The AI Advantage</em> (2018).</strong> Visão executiva de adoção.</p>
+<hr />
+<h2 id="blogs-e-newsletters">BLOGS E NEWSLETTERS</h2>
+<ul>
+<li><strong>Anthropic blog</strong> (<code>anthropic.com/news</code>) — releases, research, perspectivas</li>
+<li><strong>OpenAI blog</strong> (<code>openai.com/news</code>)</li>
+<li><strong>Google DeepMind blog</strong></li>
+<li><strong>Karpathy</strong> (<code>karpathy.ai</code>)</li>
+<li><strong>Simon Willison</strong> (<code>simonwillison.net</code>)</li>
+<li><strong>Latent Space</strong> (newsletter sobre IA aplicada)</li>
+<li><strong>The Batch</strong> (deeplearning.ai)</li>
+<li><strong>Import AI</strong> (Jack Clark)</li>
+<li><strong>Marble Block</strong> (em PT-BR, em desenvolvimento)</li>
+</ul>
+<hr />
+<h2 id="cursos">CURSOS</h2>
+<ul>
+<li><strong>DeepLearning.AI</strong> — curso de Andrew Ng + curadoria de cursos curtos sobre temas específicos (RAG, agentes, LangChain, etc.)</li>
+<li><strong>Hugging Face Course</strong> — open source, prático</li>
+<li><strong>Anthropic courses</strong> (<code>github.com/anthropics/courses</code>)</li>
+<li><strong>MIT 6.5940 (TinyML)</strong> — para quem vai para hardware especializado</li>
+<li><strong>Stanford CS25 (Transformers United)</strong> — fundamentos avançados</li>
+</ul>
+<hr />
+<p>🔗 <a href="L1-APX-F-newsletters.md">Apêndice F Newsletters</a> · <a href="L1-APX-G-papers.md">Apêndice G Papers</a> · <a href="L1-APX-H-bibliografia.md">Apêndice H Bibliografia</a></p>
+<div class="page-break">
+
+</div>
+<h1 id="apêndice-f-newsletters-e-canais">APÊNDICE F — NEWSLETTERS E CANAIS</h1>
+<h2 id="curadoria-comentada-para-manutenção-do-conhecimento"><em>Curadoria comentada para manutenção do conhecimento</em></h2>
+<blockquote>
+<p>Manter atualização é parte do método dos Invariantes (F9 ROTA-DUPLA): a Trilha Número exige fontes confiáveis e periódicas. Esta lista é a curadoria de manutenção.</p>
+</blockquote>
+<hr />
+<h2 id="em-inglês-alta-prioridade">EM INGLÊS — ALTA PRIORIDADE</h2>
+<p><strong>Latent Space (<code>latent.space</code>).</strong> Podcast e newsletter sobre IA aplicada em produção. Excelente para profissional que opera, não só estuda.</p>
+<p><strong>Import AI (Jack Clark).</strong> Semanal. Análise de papers, releases e mercado. Conciso.</p>
+<p><strong>The Batch (deeplearning.ai).</strong> Semanal. Andrew Ng e time. Visão executiva.</p>
+<p><strong>Ben’s Bites.</strong> Diária, curta. Para acompanhar a frequência alta de releases.</p>
+<p><strong>Simon Willison weekly notes.</strong> Foco em IA aplicada, ferramentas, prompts.</p>
+<p><strong>One Useful Thing (Ethan Mollick).</strong> Pesquisa em adoção organizacional de IA.</p>
+<hr />
+<h2 id="em-inglês-aprofundamento">EM INGLÊS — APROFUNDAMENTO</h2>
+<p><strong>The Gradient.</strong> Análise técnica, papers comentados.</p>
+<p><strong>Last Week in AI.</strong> Resumo semanal mais técnico que Ben’s Bites.</p>
+<p><strong>AI Snake Oil (Sayash Kapoor, Arvind Narayanan).</strong> Princeton. Crítica fundamentada ao hype.</p>
+<p><strong>The Pragmatic Engineer</strong> (Gergely Orosz) — não é só IA, mas tem cobertura de LLMOps e adoção corporativa.</p>
+<hr />
+<h2 id="em-pt-br">EM PT-BR</h2>
+<blockquote>
+<p>Curadoria em formação. A obra <em>Inteligência Aumentada</em> pretende contribuir para fechar essa lacuna.</p>
+</blockquote>
+<p>A serem incluídas conforme a comunidade brasileira de IA aplicada amadurecer.</p>
+<hr />
+<h2 id="podcasts">PODCASTS</h2>
+<p><strong>No Priors</strong> (Sarah Guo, Elad Gil). <strong>Lex Fridman Podcast</strong> (técnico + entrevistas). <strong>Latent Space podcast</strong>. <strong>Hard Fork</strong> (Kevin Roose, Casey Newton — NYT).</p>
+<hr />
+<h2 id="canais-anthropic">CANAIS ANTHROPIC</h2>
+<p><strong>Anthropic news</strong> (<code>anthropic.com/news</code>). <strong>Anthropic Research</strong> (papers e relatórios). <strong>Anthropic courses</strong> (treinamento estruturado). <strong>Claude Code release notes</strong>.</p>
+<hr />
+<h2 id="frequência-recomendada-de-leitura">FREQUÊNCIA RECOMENDADA DE LEITURA</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Persona</th>
+<th>Cadência</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Executivo</td>
+<td>1 newsletter executiva (Batch ou One Useful Thing) semanal</td>
+</tr>
+<tr class="even">
+<td>Gestor/Head</td>
+<td>+ 1 newsletter técnica (Latent Space ou Import AI) semanal</td>
+</tr>
+<tr class="odd">
+<td>Dev/Arquiteto</td>
+<td>+ papers seminais quinzenal + Simon Willison</td>
+</tr>
+<tr class="even">
+<td>Empreendedor</td>
+<td>Todas as acima + News executive (a16z, Bessemer)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>🔗 <a href="L1-APX-E-leituras.md">Apêndice E Leituras</a> · <a href="L1-APX-G-papers.md">Apêndice G Papers</a> · <a href="../03-frameworks/L1-F9-rota-dupla.md">F9 ROTA-DUPLA</a></p>
+</body>
+</html>

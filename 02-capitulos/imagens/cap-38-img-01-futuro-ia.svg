@@ -1,0 +1,82 @@
+<svg viewBox="0 0 1000 540" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <rect width="1000" height="540" fill="#0d1b2a"/>
+  <text x="500" y="40" fill="#fef3c7" font-size="22" font-weight="700" text-anchor="middle">O FUTURO DA IA — CINCO TENDÊNCIAS PARA 2030</text>
+  <text x="500" y="64" fill="#9ca3af" font-size="13" text-anchor="middle">O que está em curso e vai redefinir como trabalhamos, decidimos e produzimos valor</text>
+
+  <g>
+    <rect x="60" y="100" width="280" height="200" rx="10" fill="#1b263b" stroke="#fbbf24" stroke-width="2"/>
+    <text x="200" y="128" fill="#fbbf24" font-size="13" font-weight="700" text-anchor="middle">1. AGENTES AUTÔNOMOS EM PRODUÇÃO</text>
+    <text x="80" y="156" fill="#e5e7eb" font-size="10">De assistente conversacional para</text>
+    <text x="80" y="172" fill="#e5e7eb" font-size="10">colaborador que executa fluxos completos</text>
+    <text x="80" y="188" fill="#e5e7eb" font-size="10">com supervisão mínima</text>
+    <text x="80" y="216" fill="#fbbf24" font-size="11" font-weight="700">Impacto profissional:</text>
+    <text x="80" y="234" fill="#9ca3af" font-size="10">Quem orquestra agentes vale 10x</text>
+    <text x="80" y="248" fill="#9ca3af" font-size="10">mais que quem executa manualmente</text>
+    <text x="80" y="276" fill="#fbbf24" font-size="10" font-weight="700">Setores mais afetados:</text>
+    <text x="80" y="290" fill="#9ca3af" font-size="10">Software, atendimento, BPO, jurídico</text>
+  </g>
+
+  <g>
+    <rect x="360" y="100" width="280" height="200" rx="10" fill="#1b263b" stroke="#86efac" stroke-width="2"/>
+    <text x="500" y="128" fill="#86efac" font-size="13" font-weight="700" text-anchor="middle">2. IA CIENTÍFICA E MÉDICA</text>
+    <text x="380" y="156" fill="#e5e7eb" font-size="10">Descoberta de fármacos, diagnóstico</text>
+    <text x="380" y="172" fill="#e5e7eb" font-size="10">de doenças raras, design de materiais,</text>
+    <text x="380" y="188" fill="#e5e7eb" font-size="10">pesquisa biomédica acelerada</text>
+    <text x="380" y="216" fill="#86efac" font-size="11" font-weight="700">Impacto profissional:</text>
+    <text x="380" y="234" fill="#9ca3af" font-size="10">Cientistas e médicos com IA</text>
+    <text x="380" y="248" fill="#9ca3af" font-size="10">superam grupos sem em todas métricas</text>
+    <text x="380" y="276" fill="#86efac" font-size="10" font-weight="700">Setores mais afetados:</text>
+    <text x="380" y="290" fill="#9ca3af" font-size="10">Farma, biotech, saúde, química, energia</text>
+  </g>
+
+  <g>
+    <rect x="660" y="100" width="280" height="200" rx="10" fill="#1b263b" stroke="#fb923c" stroke-width="2"/>
+    <text x="800" y="128" fill="#fb923c" font-size="13" font-weight="700" text-anchor="middle">3. ROBÓTICA EMBARCADA</text>
+    <text x="680" y="156" fill="#e5e7eb" font-size="10">Modelos vision-language-action</text>
+    <text x="680" y="172" fill="#e5e7eb" font-size="10">controlando robôs humanoides em</text>
+    <text x="680" y="188" fill="#e5e7eb" font-size="10">fábricas, armazéns, hospitais, lares</text>
+    <text x="680" y="216" fill="#fb923c" font-size="11" font-weight="700">Impacto profissional:</text>
+    <text x="680" y="234" fill="#9ca3af" font-size="10">Trabalho manual repetitivo automatizado</text>
+    <text x="680" y="248" fill="#9ca3af" font-size="10">redistribuição de capital humano</text>
+    <text x="680" y="276" fill="#fb923c" font-size="10" font-weight="700">Setores mais afetados:</text>
+    <text x="680" y="290" fill="#9ca3af" font-size="10">Manufatura, logística, varejo, cuidados</text>
+  </g>
+
+  <g>
+    <rect x="60" y="320" width="280" height="200" rx="10" fill="#1b263b" stroke="#bfdbfe" stroke-width="2"/>
+    <text x="200" y="348" fill="#bfdbfe" font-size="13" font-weight="700" text-anchor="middle">4. MULTIMODALIDADE EXPANDIDA</text>
+    <text x="80" y="376" fill="#e5e7eb" font-size="10">Modelos que processam fluentemente</text>
+    <text x="80" y="392" fill="#e5e7eb" font-size="10">vídeo longo, áudio rico, sensores,</text>
+    <text x="80" y="408" fill="#e5e7eb" font-size="10">3D, simulações físicas</text>
+    <text x="80" y="436" fill="#bfdbfe" font-size="11" font-weight="700">Impacto profissional:</text>
+    <text x="80" y="454" fill="#9ca3af" font-size="10">Análises antes inviáveis viram</text>
+    <text x="80" y="468" fill="#9ca3af" font-size="10">cotidianas em todos os setores</text>
+    <text x="80" y="496" fill="#bfdbfe" font-size="10" font-weight="700">Setores mais afetados:</text>
+    <text x="80" y="510" fill="#9ca3af" font-size="10">Mídia, segurança, monitoramento</text>
+  </g>
+
+  <g>
+    <rect x="360" y="320" width="280" height="200" rx="10" fill="#1b263b" stroke="#fca5a5" stroke-width="2"/>
+    <text x="500" y="348" fill="#fca5a5" font-size="13" font-weight="700" text-anchor="middle">5. POSSIBILIDADE DE AGI</text>
+    <text x="380" y="376" fill="#e5e7eb" font-size="10">Inteligência geral artificial,</text>
+    <text x="380" y="392" fill="#e5e7eb" font-size="10">com capacidade humana ou superior</text>
+    <text x="380" y="408" fill="#e5e7eb" font-size="10">em todos os domínios cognitivos</text>
+    <text x="380" y="436" fill="#fca5a5" font-size="11" font-weight="700">Impacto profissional:</text>
+    <text x="380" y="454" fill="#9ca3af" font-size="10">Disputado: alguns dizem 2027-2030,</text>
+    <text x="380" y="468" fill="#9ca3af" font-size="10">outros 2040+, alguns nunca</text>
+    <text x="380" y="496" fill="#fca5a5" font-size="10" font-weight="700">Setores mais afetados:</text>
+    <text x="380" y="510" fill="#9ca3af" font-size="10">Potencialmente todos</text>
+  </g>
+
+  <g>
+    <rect x="660" y="320" width="280" height="200" rx="10" fill="#E97451" stroke="#fef3c7" stroke-width="2"/>
+    <text x="800" y="348" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">O QUE VOCÊ DEVE FAZER</text>
+    <text x="680" y="378" fill="#fef3c7" font-size="11">★ Continuar aprendendo</text>
+    <text x="680" y="396" fill="#fef3c7" font-size="11">★ Construir capacidade própria</text>
+    <text x="680" y="414" fill="#fef3c7" font-size="11">★ Adotar com cuidado</text>
+    <text x="680" y="432" fill="#fef3c7" font-size="11">★ Acompanhar evolução</text>
+    <text x="680" y="450" fill="#fef3c7" font-size="11">★ Trabalhar em complementaridade</text>
+    <text x="680" y="476" fill="#fde68a" font-size="11" font-weight="700" text-anchor="middle">Quem entende continua</text>
+    <text x="680" y="492" fill="#fde68a" font-size="11" font-weight="700" text-anchor="middle">à frente</text>
+  </g>
+</svg>

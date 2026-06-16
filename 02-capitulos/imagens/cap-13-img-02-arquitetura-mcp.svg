@@ -1,0 +1,69 @@
+<svg viewBox="0 0 900 540" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <marker id="arch-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+  <rect width="900" height="540" fill="#0d1b2a"/>
+
+  <text x="450" y="40" fill="#fef3c7" font-size="22" font-weight="700" text-anchor="middle">ARQUITETURA DO MCP</text>
+  <text x="450" y="64" fill="#9ca3af" font-size="13" text-anchor="middle">Cliente e servidor trocam três tipos de primitivas: Resources, Tools e Prompts</text>
+
+  <!-- Host App (Cliente) -->
+  <rect x="60" y="110" width="280" height="380" rx="12" fill="#1b263b" stroke="#fbbf24" stroke-width="2"/>
+  <text x="200" y="138" fill="#fbbf24" font-size="14" font-weight="700" text-anchor="middle">HOST APP (CLIENTE)</text>
+  <text x="200" y="158" fill="#9ca3af" font-size="11" text-anchor="middle" font-style="italic">Claude Desktop, Cursor, etc.</text>
+
+  <rect x="100" y="180" width="200" height="60" rx="8" fill="#E97451"/>
+  <text x="200" y="206" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">LLM</text>
+  <text x="200" y="224" fill="#fef3c7" font-size="10" text-anchor="middle">processa contexto</text>
+
+  <rect x="100" y="260" width="200" height="60" rx="8" fill="#374151"/>
+  <text x="200" y="286" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">MCP Client</text>
+  <text x="200" y="304" fill="#9ca3af" font-size="10" text-anchor="middle">descobre e invoca</text>
+
+  <rect x="100" y="340" width="200" height="60" rx="8" fill="#374151"/>
+  <text x="200" y="366" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">UI / Frontend</text>
+  <text x="200" y="384" fill="#9ca3af" font-size="10" text-anchor="middle">interação humana</text>
+
+  <text x="200" y="445" fill="#9ca3af" font-size="11" text-anchor="middle">"o que vê o usuário"</text>
+
+  <!-- Protocol arrows -->
+  <g>
+    <line x1="345" y1="220" x2="555" y2="220" stroke="#fbbf24" stroke-width="2" marker-end="url(#arch-arrow)"/>
+    <text x="450" y="210" fill="#fbbf24" font-size="11" text-anchor="middle" font-weight="600">requisições</text>
+
+    <line x1="555" y1="280" x2="345" y2="280" stroke="#86efac" stroke-width="2" marker-end="url(#arch-arrow)"/>
+    <text x="450" y="298" fill="#86efac" font-size="11" text-anchor="middle" font-weight="600">respostas</text>
+
+    <text x="450" y="350" fill="#9ca3af" font-size="11" text-anchor="middle">JSON-RPC sobre stdio</text>
+    <text x="450" y="366" fill="#9ca3af" font-size="11" text-anchor="middle">ou HTTP/SSE</text>
+  </g>
+
+  <!-- Server -->
+  <rect x="560" y="110" width="280" height="380" rx="12" fill="#1b263b" stroke="#86efac" stroke-width="2"/>
+  <text x="700" y="138" fill="#86efac" font-size="14" font-weight="700" text-anchor="middle">MCP SERVER</text>
+  <text x="700" y="158" fill="#9ca3af" font-size="11" text-anchor="middle" font-style="italic">expõe capacidades de um sistema</text>
+
+  <rect x="580" y="180" width="240" height="80" rx="8" fill="#fb923c"/>
+  <text x="700" y="206" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">RESOURCES</text>
+  <text x="700" y="224" fill="#fef3c7" font-size="10" text-anchor="middle">dados consultáveis</text>
+  <text x="700" y="240" fill="#fef3c7" font-size="10" text-anchor="middle">(arquivos, registros, queries)</text>
+  <text x="700" y="254" fill="#fef3c7" font-size="9" text-anchor="middle" font-style="italic">ex: "leia este arquivo"</text>
+
+  <rect x="580" y="270" width="240" height="80" rx="8" fill="#86efac"/>
+  <text x="700" y="296" fill="#0d1b2a" font-size="13" font-weight="700" text-anchor="middle">TOOLS</text>
+  <text x="700" y="314" fill="#0d1b2a" font-size="10" text-anchor="middle">ações executáveis</text>
+  <text x="700" y="330" fill="#0d1b2a" font-size="10" text-anchor="middle">(funções, comandos, APIs)</text>
+  <text x="700" y="344" fill="#0d1b2a" font-size="9" text-anchor="middle" font-style="italic">ex: "envie este e-mail"</text>
+
+  <rect x="580" y="360" width="240" height="80" rx="8" fill="#bfdbfe"/>
+  <text x="700" y="386" fill="#0d1b2a" font-size="13" font-weight="700" text-anchor="middle">PROMPTS</text>
+  <text x="700" y="404" fill="#0d1b2a" font-size="10" text-anchor="middle">templates reutilizáveis</text>
+  <text x="700" y="420" fill="#0d1b2a" font-size="10" text-anchor="middle">(fluxos pré-definidos)</text>
+  <text x="700" y="434" fill="#0d1b2a" font-size="9" text-anchor="middle" font-style="italic">ex: "fluxo de code review"</text>
+
+  <text x="700" y="465" fill="#9ca3af" font-size="11" text-anchor="middle">"o que o sistema oferece"</text>
+
+  <text x="450" y="515" fill="#fbbf24" font-size="11" text-anchor="middle" font-style="italic">Servidor expõe primitivas, cliente descobre dinamicamente, LLM decide quando usar.</text>
+</svg>

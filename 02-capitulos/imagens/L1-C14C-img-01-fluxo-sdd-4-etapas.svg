@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" font-family="Inter, system-ui, sans-serif">
+  <title>C14C — Fluxo canônico Spec-Driven Development</title>
+  <desc>As quatro etapas do SDD — Specify, Plan, Tasks, Implement — com responsável, entregável e gate humano.</desc>
+
+  <defs>
+    <linearGradient id="specGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#0d1b2a"/>
+    </linearGradient>
+    <linearGradient id="planGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7c2d12"/>
+      <stop offset="100%" stop-color="#451a03"/>
+    </linearGradient>
+    <linearGradient id="tasksGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#166534"/>
+      <stop offset="100%" stop-color="#052e16"/>
+    </linearGradient>
+    <linearGradient id="implGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5b21b6"/>
+      <stop offset="100%" stop-color="#2e1065"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#fbbf24"/>
+    </marker>
+  </defs>
+
+  <rect width="1000" height="600" fill="#0d1b2a"/>
+
+  <text x="500" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#fef3c7">SPEC-DRIVEN DEVELOPMENT — FLUXO CANÔNICO EM QUATRO ETAPAS</text>
+  <text x="500" y="64" text-anchor="middle" font-size="12" fill="#9ca3af" font-style="italic">Padrão consolidado em ferramentas como GitHub Spec Kit · cada etapa tem entregável e gate humano</text>
+
+  <!-- Etapa 1 - SPECIFY -->
+  <rect x="40" y="100" width="210" height="380" rx="8" fill="url(#specGrad)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="145" y="135" text-anchor="middle" font-size="16" font-weight="700" fill="#fef3c7">1 · SPECIFY</text>
+  <text x="145" y="155" text-anchor="middle" font-size="10" fill="#fbbf24" font-style="italic">Especificar</text>
+  <line x1="55" y1="170" x2="235" y2="170" stroke="#fbbf24" stroke-width="0.8" opacity="0.5"/>
+  <text x="145" y="195" text-anchor="middle" font-size="11" font-weight="600" fill="#fef3c7">Responsável</text>
+  <text x="145" y="212" text-anchor="middle" font-size="10" fill="#e5e7eb">Operador humano</text>
+  <text x="145" y="228" text-anchor="middle" font-size="10" fill="#e5e7eb">(nominal e indelegável)</text>
+  <text x="145" y="260" text-anchor="middle" font-size="11" font-weight="600" fill="#fef3c7">Entregável</text>
+  <text x="145" y="278" text-anchor="middle" font-size="10" fill="#e5e7eb">Especificação com os</text>
+  <text x="145" y="293" text-anchor="middle" font-size="10" fill="#e5e7eb">sete elementos</text>
+  <text x="145" y="308" text-anchor="middle" font-size="10" fill="#e5e7eb">(escopo, invariantes,</text>
+  <text x="145" y="323" text-anchor="middle" font-size="10" fill="#e5e7eb">critérios, contratos,</text>
+  <text x="145" y="338" text-anchor="middle" font-size="10" fill="#e5e7eb">restrições, gates,</text>
+  <text x="145" y="353" text-anchor="middle" font-size="10" fill="#e5e7eb">exemplos canônicos)</text>
+  <text x="145" y="385" text-anchor="middle" font-size="11" font-weight="600" fill="#fbbf24">Gate</text>
+  <text x="145" y="403" text-anchor="middle" font-size="10" fill="#fbbf24">Revisão por engenheiro</text>
+  <text x="145" y="418" text-anchor="middle" font-size="10" fill="#fbbf24">sênior fora da squad</text>
+  <text x="145" y="445" text-anchor="middle" font-size="10" fill="#9ca3af" font-style="italic">Disciplina humana</text>
+  <text x="145" y="460" text-anchor="middle" font-size="10" fill="#9ca3af" font-style="italic">mais cara desta etapa</text>
+
+  <!-- Etapa 2 - PLAN -->
+  <rect x="270" y="100" width="210" height="380" rx="8" fill="url(#planGrad)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="375" y="135" text-anchor="middle" font-size="16" font-weight="700" fill="#fef3c7">2 · PLAN</text>
+  <text x="375" y="155" text-anchor="middle" font-size="10" fill="#fbbf24" font-style="italic">Planejar</text>
+  <line x1="285" y1="170" x2="465" y2="170" stroke="#fbbf24" stroke-width="0.8" opacity="0.5"/>
+  <text x="375" y="195" text-anchor="middle" font-size="11" font-weight="600" fill="#fef3c7">Responsável</text>
+  <text x="375" y="212" text-anchor="middle" font-size="10" fill="#e5e7eb">Agente (Claude Code,</text>
+  <text x="375" y="228" text-anchor="middle" font-size="10" fill="#e5e7eb">Copilot, Cursor, etc.)</text>
+  <text x="375" y="260" text-anchor="middle" font-size="11" font-weight="600" fill="#fef3c7">Entregável</text>
+  <text x="375" y="278" text-anchor="middle" font-size="10" fill="#e5e7eb">Plano de execução</text>
+  <text x="375" y="293" text-anchor="middle" font-size="10" fill="#e5e7eb">decomposto, com</text>
+  <text x="375" y="308" text-anchor="middle" font-size="10" fill="#e5e7eb">identificação de riscos,</text>
+  <text x="375" y="323" text-anchor="middle" font-size="10" fill="#e5e7eb">dependências e pontos</text>
+  <text x="375" y="338" text-anchor="middle" font-size="10" fill="#e5e7eb">de premissa a confirmar</text>
+  <text x="375" y="385" text-anchor="middle" font-size="11" font-weight="600" fill="#fbbf24">Gate</text>
+  <text x="375" y="403" text-anchor="middle" font-size="10" fill="#fbbf24">Defesa oral do plano</text>
+  <text x="375" y="418" text-anchor="middle" font-size="10" fill="#fbbf24">por engenheiro responsável</text>
+  <text x="375" y="445" text-anchor="middle" font-size="10" fill="#9ca3af" font-style="italic">Candidato natural</text>
+  <text x="375" y="460" text-anchor="middle" font-size="10" fill="#9ca3af" font-style="italic">a reasoning model</text>
+
+  <!-- Etapa 3 - TASKS -->
+  <rect x="500" y="100" width="210" height="380" rx="8" fill="url(#tasksGrad)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="605" y="135" text-anchor="middle" font-size="16" font-weight="700" fill="#fef3c7">3 · TASKS</text>
+  <text x="605" y="155" text-anchor="middle" font-size="10" fill="#fbbf24" font-style="italic">Decompor</text>
+  <line x1="515" y1="170" x2="695" y2="170" stroke="#fbbf24" stroke-width="0.8" opacity="0.5"/>
+  <text x="605" y="195" text-anchor="middle" font-size="11" font-weight="600" fill="#fef3c7">Responsável</text>
+  <text x="605" y="212" text-anchor="middle" font-size="10" fill="#e5e7eb">Agente, com revisão</text>
+  <text x="605" y="228" text-anchor="middle" font-size="10" fill="#e5e7eb">humana de granularidade</text>
+  <text x="605" y="260" text-anchor="middle" font-size="11" font-weight="600" fill="#fef3c7">Entregável</text>
+  <text x="605" y="278" text-anchor="middle" font-size="10" fill="#e5e7eb">Lista de unidades de</text>
+  <text x="605" y="293" text-anchor="middle" font-size="10" fill="#e5e7eb">trabalho pequenas, cada</text>
+  <text x="605" y="308" text-anchor="middle" font-size="10" fill="#e5e7eb">uma com critério próprio</text>
+  <text x="605" y="323" text-anchor="middle" font-size="10" fill="#e5e7eb">de pronto e orçamento</text>
+  <text x="605" y="338" text-anchor="middle" font-size="10" fill="#e5e7eb">explícito de tokens</text>
+  <text x="605" y="385" text-anchor="middle" font-size="11" font-weight="600" fill="#fbbf24">Gate</text>
+  <text x="605" y="403" text-anchor="middle" font-size="10" fill="#fbbf24">Aprovação da decomposição</text>
+  <text x="605" y="418" text-anchor="middle" font-size="10" fill="#fbbf24">por par sênior</text>
+  <text x="605" y="445" text-anchor="middle" font-size="10" fill="#9ca3af" font-style="italic">Iteração granular</text>
+  <text x="605" y="460" text-anchor="middle" font-size="10" fill="#9ca3af" font-style="italic">controla custo composto</text>
+
+  <!-- Etapa 4 - IMPLEMENT -->
+  <rect x="730" y="100" width="230" height="380" rx="8" fill="url(#implGrad)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="845" y="135" text-anchor="middle" font-size="16" font-weight="700" fill="#fef3c7">4 · IMPLEMENT</text>
+  <text x="845" y="155" text-anchor="middle" font-size="10" fill="#fbbf24" font-style="italic">Implementar</text>
+  <line x1="745" y1="170" x2="945" y2="170" stroke="#fbbf24" stroke-width="0.8" opacity="0.5"/>
+  <text x="845" y="195" text-anchor="middle" font-size="11" font-weight="600" fill="#fef3c7">Responsável</text>
+  <text x="845" y="212" text-anchor="middle" font-size="10" fill="#e5e7eb">Agente em loop,</text>
+  <text x="845" y="228" text-anchor="middle" font-size="10" fill="#e5e7eb">humano valida o conjunto</text>
+  <text x="845" y="260" text-anchor="middle" font-size="11" font-weight="600" fill="#fef3c7">Entregável</text>
+  <text x="845" y="278" text-anchor="middle" font-size="10" fill="#e5e7eb">Código que satisfaz os</text>
+  <text x="845" y="293" text-anchor="middle" font-size="10" fill="#e5e7eb">critérios de aceitação</text>
+  <text x="845" y="308" text-anchor="middle" font-size="10" fill="#e5e7eb">da spec, com testes</text>
+  <text x="845" y="323" text-anchor="middle" font-size="10" fill="#e5e7eb">verdes contra golden set</text>
+  <text x="845" y="338" text-anchor="middle" font-size="10" fill="#e5e7eb">e tracing instalado</text>
+  <text x="845" y="385" text-anchor="middle" font-size="11" font-weight="600" fill="#fbbf24">Gate</text>
+  <text x="845" y="403" text-anchor="middle" font-size="10" fill="#fbbf24">CI verde + revisão</text>
+  <text x="845" y="418" text-anchor="middle" font-size="10" fill="#fbbf24">contra a spec original</text>
+  <text x="845" y="445" text-anchor="middle" font-size="10" fill="#9ca3af" font-style="italic">Código é commodity</text>
+  <text x="845" y="460" text-anchor="middle" font-size="10" fill="#9ca3af" font-style="italic">regenerável; spec é ativo</text>
+
+  <!-- Setas entre etapas -->
+  <line x1="252" y1="290" x2="268" y2="290" stroke="#fbbf24" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="482" y1="290" x2="498" y2="290" stroke="#fbbf24" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="712" y1="290" x2="728" y2="290" stroke="#fbbf24" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Rodapé -->
+  <text x="500" y="520" text-anchor="middle" font-size="11" fill="#fbbf24" font-weight="600">A spec é o ativo durável que sobrevive à troca de modelo · o código é a saída descartável de cada rodada</text>
+  <text x="500" y="540" text-anchor="middle" font-size="10" fill="#9ca3af" font-style="italic">Pular qualquer etapa cobra caro na etapa que ela existiria para proteger</text>
+  <text x="500" y="572" text-anchor="middle" font-size="10" fill="#6b7280">Referência: GitHub Spec Kit · Sean Grove (OpenAI) · Anthropic Claude Code best practices</text>
+</svg>

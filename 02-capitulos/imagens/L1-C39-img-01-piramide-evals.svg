@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" font-family="Inter, system-ui, sans-serif">
+  <title>F8 — Pirâmide de Evals</title>
+  <desc>Hierarquia de evals por criticidade e custo. Três camadas verticais e uma faixa transversal de adversarial e segurança.</desc>
+
+  <defs>
+    <linearGradient id="meioGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#E97451"/>
+    </linearGradient>
+    <linearGradient id="topoGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1b263b"/>
+      <stop offset="100%" stop-color="#0d1b2a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="600" fill="#0d1b2a"/>
+
+  <text x="500" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#fef3c7">F8 — PIRÂMIDE DE EVALS</text>
+  <text x="500" y="64" text-anchor="middle" font-size="12" fill="#9ca3af" font-style="italic">Hierarquia por criticidade e custo · Construa a base, depois o meio, depois o topo</text>
+
+  <!-- Base: y de 460 a 540, x inferior 80 a 660 (largura 580), x superior 180 a 560 (largura 380) -->
+  <polygon points="80,540 660,540 560,460 180,460" fill="#fefce8" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="370" y="490" text-anchor="middle" font-size="15" font-weight="700" fill="#0d1b2a">BASE — DETERMINÍSTICA</text>
+  <text x="370" y="510" text-anchor="middle" font-size="11" fill="#374151">Schema validation · Exact match · Regex</text>
+  <text x="370" y="528" text-anchor="middle" font-size="10" font-style="italic" fill="#16a34a">100% das chamadas em CI · custo trivial</text>
+
+  <!-- Meio: y de 460 a 360, x inferior 180 a 560, x superior 260 a 480 -->
+  <polygon points="180,460 560,460 480,360 260,360" fill="url(#meioGrad)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="370" y="392" text-anchor="middle" font-size="13" font-weight="700" fill="#fef3c7">MEIO — GOLDEN SET</text>
+  <text x="370" y="408" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">+ LLM-AS-JUDGE CALIBRADO</text>
+  <text x="370" y="426" text-anchor="middle" font-size="10" fill="#fef3c7">Juiz ≠ gerador · Calibração contra humano</text>
+  <text x="370" y="442" text-anchor="middle" font-size="10" font-style="italic" fill="#fde68a">30 a 80% das chamadas · custo médio</text>
+
+  <!-- Topo: y de 360 a 240, x inferior 260 a 480, x superior 340 a 400 -->
+  <polygon points="260,360 480,360 400,240 340,240" fill="url(#topoGrad)" stroke="#E97451" stroke-width="2"/>
+  <text x="370" y="278" text-anchor="middle" font-size="12" font-weight="700" fill="#fef3c7">TOPO</text>
+  <text x="370" y="296" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">HUMANO</text>
+  <text x="370" y="314" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">ESPECIALISTA</text>
+  <text x="370" y="338" text-anchor="middle" font-size="9" font-style="italic" fill="#fca5a5">5-15% · custo alto</text>
+
+  <!-- Faixa transversal de adversarial -->
+  <rect x="720" y="140" width="230" height="420" rx="14" fill="#6b7280" fill-opacity="0.25" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="835" y="172" text-anchor="middle" font-size="13" font-weight="700" fill="#fbbf24">ADVERSARIAL</text>
+  <text x="835" y="190" text-anchor="middle" font-size="13" font-weight="700" fill="#fbbf24">+ SEGURANÇA</text>
+  <text x="835" y="214" text-anchor="middle" font-size="10" font-style="italic" fill="#fef3c7">— transversal —</text>
+
+  <text x="835" y="248" text-anchor="middle" font-size="11" fill="#fef3c7">· Jailbreak</text>
+  <text x="835" y="268" text-anchor="middle" font-size="11" fill="#fef3c7">· Prompt injection</text>
+  <text x="835" y="288" text-anchor="middle" font-size="11" fill="#fef3c7">· Sycophancy</text>
+  <text x="835" y="308" text-anchor="middle" font-size="11" fill="#fef3c7">· Viés sistemático</text>
+  <text x="835" y="328" text-anchor="middle" font-size="11" fill="#fef3c7">· Honestidade de citação</text>
+  <text x="835" y="348" text-anchor="middle" font-size="11" fill="#fef3c7">· Over-refusal</text>
+  <text x="835" y="368" text-anchor="middle" font-size="11" fill="#fef3c7">· Calibração de incerteza</text>
+
+  <text x="835" y="416" text-anchor="middle" font-size="10" font-style="italic" fill="#fbbf24">Renovação mensal</text>
+  <text x="835" y="436" text-anchor="middle" font-size="10" font-style="italic" fill="#fbbf24">Bloqueia release crítico</text>
+
+  <text x="500" y="582" text-anchor="middle" font-size="11" font-style="italic" fill="#fef3c7">★ "IA sem eval é fé, não engenharia." — Invariante 7</text>
+</svg>

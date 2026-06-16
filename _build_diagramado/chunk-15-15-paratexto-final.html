@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Inteligência Aumentada</title>
+</head>
+<body class="chunk-principal">
+<section class="apendice-bloco">
+<div class="abertura-apendice">
+<div class="selo-apendice">
+Apêndice
+</div>
+<h1 id="apêndice-q-manual-do-professor">Apêndice Q — Manual do Professor</h1>
+<h2 id="como-adotar-inteligência-aumentada-como-livro-texto"><em>Como adotar Inteligência Aumentada como livro-texto</em></h2>
+<blockquote>
+<p><strong>Atualizado em:</strong> junho de 2026
+<strong>Próxima revisão:</strong> anual, com incorporação de feedback de professores adotantes</p>
+</blockquote>
+<hr />
+<h2 id="por-que-este-apêndice-existe">Por que este apêndice existe</h2>
+<p>Esta obra foi escrita com a ambição de durar como livro de fundamentos, e nasceu, desde a estrutura dos primeiros capítulos, com a vocação de ser usada em sala de aula. Quem ensina IA hoje, em graduação, pós-graduação, MBA executivo ou capacitação corporativa, precisa de material que combine três coisas que raramente convivem no mesmo lugar, que são profundidade técnica suficiente para o futuro engenheiro entender o que está construindo, ancoragem em padrão durável para que o material não envelheça a cada release de modelo, e voz executiva clara para que o gestor que decide possa traduzir o conteúdo em conversa de diretoria. O livro foi desenhado para entregar as três, e este apêndice descreve como o professor pode operacionalizar isso em curso real, com plano de aula, projeto final, rubrica de avaliação e variações por contexto.</p>
+<p>A intenção, ao oferecer este manual, é dupla. Primeiro, dar caminho pronto para o professor que quer adotar a obra como referência central, sem precisar redesenhar do zero o plano de curso. Segundo, abrir o convite para que a comunidade de professores adotantes contribua, com casos novos, exercícios adicionais, dataset de práticas e correções, no canal oficial da obra, para que a próxima edição incorpore o que foi aprendido em sala. O livro pretende ser instrumento vivo, e o professor adotante é parte da equipe editorial ampliada.</p>
+<hr />
+<h2 id="públicos-alvo-do-livro-como-livro-texto">1. Públicos-alvo do livro como livro-texto</h2>
+<p>A obra foi escrita pensando em cinco públicos distintos, com peso diferente na densidade técnica, no recorte de capítulos e na carga horária total. Cada público tem plano de curso próprio descrito mais adiante.</p>
+<p><strong>Graduação em Ciência da Computação, Engenharia, Sistemas de Informação, Engenharia de Software.</strong> Sessenta horas é o ideal, distribuídas em um semestre, com cobertura completa dos vinte e oito capítulos e dos apêndices instrumentais. Estudante que termina o curso sai com vocabulário técnico, intuição sobre arquitetura de Transformers, prática mínima de RAG, engenharia de prompt, evals, e capacidade de discutir trade-offs operacionais com senso crítico.</p>
+<p><strong>Pós-graduação em IA, Ciência de Dados, Gestão de Tecnologia.</strong> Quarenta horas, com seleção de capítulos e leitura prévia obrigatória, complementada por seminários de aprofundamento técnico em torno de papers seminais listados no Apêndice G. Estudante que termina opera com profundidade em pelo menos uma vertical aplicada e tem repertório para defender escolhas técnicas em ambiente corporativo.</p>
+<p><strong>MBA Executivo.</strong> Vinte horas, com seleção focada em capítulos executivos, frameworks centrais e apêndices de governança e ferramentas. Estudante que termina sabe encomendar IA com método, ler proposta de fornecedor com olho crítico, decidir entre modelo próprio e API, e estruturar comitê de IA na sua organização.</p>
+<p><strong>Cursos corporativos de capacitação.</strong> Oito a dezesseis horas, com módulos selecionados conforme o objetivo do contratante. Pode focar em fundamentos, em aplicação prática, em operação e governança, em decisão executiva, ou em combinação dessas dimensões. Profissional que termina sai com método aplicável e com vocabulário comum à equipe.</p>
+<p><strong>Educação continuada para profissionais individuais.</strong> Autoestudo, com roteiro estruturado conforme o Apêndice C, que traz os roadmaps de leitura por persona. Profissional que termina mantém prática autônoma de atualização e usa a obra como referência de consulta no dia a dia.</p>
+<hr />
+<h2 id="plano-de-curso-de-60-horas-graduação">2. Plano de Curso de 60 horas, graduação</h2>
+<p>Estrutura recomendada: vinte aulas de três horas cada, distribuídas em um semestre letivo, com proporção aproximada de quinze aulas expositivas e cinco aulas dedicadas a projetos e entregas. A tabela abaixo é referência operacional, e o professor pode ajustar conforme o calendário da instituição e o perfil da turma.</p>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 29%" />
+<col style="width: 20%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aula</th>
+<th>Capítulos cobertos</th>
+<th>Tema central</th>
+<th>Atividade prática sugerida</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>C00P + C01</td>
+<td>Por que padrão dura, o que é IA</td>
+<td>Discussão em grupo sobre Princípios</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>C02 + C03</td>
+<td>Como modelos funcionam, tokens</td>
+<td>Exercício de tokenização em português e inglês</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>C04 + C05</td>
+<td>Janela de contexto, embeddings</td>
+<td>Pequeno notebook com geração de embeddings</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>C06 + C07</td>
+<td>RAG, memória</td>
+<td>Construção de RAG simples sobre corpus dado</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>C08 + C09</td>
+<td>Fine-tuning, engenharia de prompt</td>
+<td>Comparativo entre três versões do mesmo prompt</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>C10 + C11</td>
+<td>Reasoning, context engineering</td>
+<td>Prompt com Chain of Thought sobre problema dado</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>C12 + C13</td>
+<td>Agentes, MCP</td>
+<td>Diagrama de agente com observabilidade</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>C14 + C14B</td>
+<td>AI Engineering, Reasoning Models</td>
+<td>Análise comparativa entre dois modelos</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>C15 + C16</td>
+<td>Posicionamento de mercado, Open Source</td>
+<td>Decisão entre modelo próprio e API, com critério</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td><strong>Projeto 1</strong>, entrega</td>
+<td>Build de RAG completo</td>
+<td>Apresentação em sala, com avaliação por pares</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>C18 + C19</td>
+<td>Economia de tokens, segurança</td>
+<td>Auditoria de segurança em sistema existente</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>C20 + C21</td>
+<td>Cenários futuros, evals</td>
+<td>Construção de eval com base, meio e topo</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>C22 + C23</td>
+<td>LLMOps, alignment</td>
+<td>Análise crítica de release recente</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>C24 + C25</td>
+<td>Governança, trade-offs</td>
+<td>Preenchimento parcial do Caderno do APX-O</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>C26 + C27 + C28</td>
+<td>Roadmap, PME, interpretabilidade</td>
+<td>Roadmap pessoal de 90 dias</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td><strong>Projeto 2</strong>, entrega</td>
+<td>Caso integrado de adoção em organização</td>
+<td>Apresentação com banca interna</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>Apêndices D, J, P</td>
+<td>Ferramentas, Trilha do Número, boxes técnicos</td>
+<td>Atualização da trilha pessoal do número</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>Apêndices L, O</td>
+<td>Biblioteca de prompts, governança</td>
+<td>Aplicação de framework O em caso fictício</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td><strong>Projeto Final</strong></td>
+<td>Revisão e defesa</td>
+<td>Entrega final e defesa oral</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>Síntese</td>
+<td>Fechamento e avaliação</td>
+<td>Avaliação somativa, autoavaliação, plano futuro</td>
+</tr>
+</tbody>
+</table>
+<p>A proporção entre aula expositiva e prática pode ser ajustada conforme o perfil da turma. Turmas mais técnicas pedem mais notebook em sala. Turmas mais executivas pedem mais discussão de caso. A obra suporta os dois extremos sem precisar reescrever capítulo.</p>
+<h3 id="estrutura-interna-de-cada-aula-de-três-horas">2.1 — Estrutura interna de cada aula de três horas</h3>
+<p>Cada aula segue um padrão de quatro blocos calibrado em experiência real de ensino de IA aplicada, com o objetivo de equilibrar exposição, debate, prática e fechamento. O professor pode ajustar a divisão conforme a aula, mas a proporção sugerida abaixo é a que melhor protege o aprendizado contra os dois extremos de “aula 100% palestra que adormece” e “aula 100% prática que dispersa”.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bloco</th>
+<th>Tempo</th>
+<th>Função</th>
+<th>Atividade típica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1. Aquecimento e debate de leitura prévia</td>
+<td>30 min</td>
+<td>Verifica se o estudante leu o capítulo, identifica dúvidas, alinha vocabulário</td>
+<td>Pergunta diagnóstica em grupos de três; cada grupo responde uma das cinco perguntas de revisão do capítulo</td>
+</tr>
+<tr class="even">
+<td>2. Exposição do conceito central com analogia</td>
+<td>60 min</td>
+<td>Aprofunda o que o capítulo já entregou, com novos exemplos e diagramas</td>
+<td>Aula expositiva interativa, com o professor ancorado em SVGs e tabelas do capítulo, pausas para pergunta a cada 15 min</td>
+</tr>
+<tr class="odd">
+<td>3. Atividade prática supervisionada</td>
+<td>60 min</td>
+<td>Aplica o conceito a problema concreto, em duplas ou trios</td>
+<td>Exercício do capítulo, notebook em Colab, análise de caso ou construção de framework aplicado</td>
+</tr>
+<tr class="even">
+<td>4. Síntese e fechamento com tarefa para próxima aula</td>
+<td>30 min</td>
+<td>Consolida o aprendizado e ancora a próxima leitura</td>
+<td>Quiz curto de cinco questões, designação da leitura próxima, próximos passos do projeto</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Leitura prévia obrigatória.</strong> Cada aula exige leitura do capítulo correspondente antes do encontro, com tempo médio de 60 a 90 minutos por capítulo. O professor que tenta cobrir o capítulo em sala como exposição inicial perde a etapa mais importante, que é o estudante chegar à aula com dúvida formulada. A obra foi escrita para sustentar esse padrão, e a Autoavaliação ao final de cada capítulo é o instrumento que o estudante usa para se autoavaliar antes da aula.</p>
+<p><strong>Frequência da entrega.</strong> A cada três a quatro aulas, um entregável intermediário é cobrado, com peso pequeno individualmente mas que somado representa 30% da nota final. A justificativa é pedagógica: entregas distribuídas evitam o efeito comum de “estudante que descobre na semana de prova que não entendeu nada”, e dão ao professor sinal precoce de quem está em risco de reprovação. Os entregáveis intermediários sugeridos são: análise de tokenização comparativa (após aula 2), construção de RAG simples (após aula 6), comparativo entre dois modelos (após aula 9), construção de eval (após aula 12), preenchimento parcial do Caderno de Governança (após aula 14).</p>
+<p><strong>Projeto final em três entregas escalonadas.</strong> O projeto final descrito no item 6 não nasce na semana 18, ele é construído ao longo do semestre em três entregas escalonadas. A primeira entrega, na aula 8, é a escolha do caso e a aplicação do Framework Dois (Encaixe) para diagnóstico inicial, em uma página. A segunda entrega, na aula 14, é o esboço do projeto com três frameworks aplicados, em cinco páginas. A terceira entrega, na aula 19, é o documento final completo de oito a quinze páginas, com defesa oral. Essa decomposição evita o pico de retrabalho na última semana e dá ao professor três oportunidades de orientação ao longo do curso.</p>
+<hr />
+<h2 id="plano-de-curso-de-40-horas-pós-graduação">3. Plano de Curso de 40 horas, pós-graduação</h2>
+<p>Estrutura: vinte aulas de duas horas cada, com leitura prévia obrigatória do capítulo antes de cada aula e seminários de aprofundamento técnico semanais, em torno de papers seminais selecionados do Apêndice G. A carga em sala é menor, mas a carga total de estudo é maior, pois o estudante de pós já chega com base e o tempo em sala vira fórum de debate e aprofundamento.</p>
+<p>A cobertura de capítulos segue a mesma sequência do plano de sessenta horas, com compressão da parte expositiva. Os apêndices ganham peso, e cada estudante apresenta um seminário sobre um paper do Apêndice G escolhido em comum acordo com o professor. O projeto final mantém o formato descrito mais adiante, com a exigência adicional de revisão da literatura citada em pelo menos cinco papers.</p>
+<p>A avaliação combina participação no seminário, qualidade da leitura prévia evidenciada em sala, e projeto final. A obra funciona como espinha dorsal, e os papers funcionam como camada de aprofundamento.</p>
+<hr />
+<h2 id="plano-de-curso-de-20-horas-mba-executivo">4. Plano de Curso de 20 horas, MBA executivo</h2>
+<p>Estrutura: oito sessões de duas horas e meia, presenciais ou híbridas, com foco em frameworks executivos, decisão e governança. Os capítulos selecionados são C00P, C06, C24, C25, C26, complementados pelos apêndices O, que traz o Caderno de Governança, e J, que traz a Trilha do Número.</p>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 35%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sessão</th>
+<th>Conteúdo central</th>
+<th>Objetivo de aprendizagem</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>C00P, Princípios e Camada Dupla</td>
+<td>Vocabulário comum executivo</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>C01, C02 compactos, intuição de Transformer</td>
+<td>Saber o que é o que se compra</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>C06, RAG</td>
+<td>Encomendar projeto de RAG com método</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>C24, Governança</td>
+<td>Estruturar Comitê de IA com RACI</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>C25, Trade-offs estratégicos</td>
+<td>Decidir entre construir e comprar</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>C26, Roadmap executivo</td>
+<td>Construir roadmap de adoção corporativa</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Apêndice O, Caderno aplicado</td>
+<td>Rascunho do caderno na própria empresa</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Apêndice J, Trilha do Número</td>
+<td>Definir cadência de revisão de números na organização</td>
+</tr>
+</tbody>
+</table>
+<p>A avaliação é por entrega de projeto, que é o esboço do Caderno de Governança adaptado à empresa do estudante, com defesa em sala.</p>
+<hr />
+<h2 id="plano-de-curso-de-16-horas-capacitação-corporativa">5. Plano de Curso de 16 horas, capacitação corporativa</h2>
+<p>Estrutura: quatro dias de quatro horas, ou oito sessões de duas horas, conforme a disponibilidade do contratante. Quatro módulos cobrem os pilares da prática profissional, com seleção compacta de capítulos por módulo.</p>
+<p><strong>Módulo 1, Fundamentos, quatro horas.</strong> Capítulos C01, C02, C03, C04, C05. Objetivo: vocabulário técnico mínimo, intuição sobre arquitetura, tokenização e embeddings, base para os módulos seguintes.</p>
+<p><strong>Módulo 2, Aplicação, quatro horas.</strong> Capítulos C06, C09, C11. Objetivo: saber montar RAG, escrever prompt produtivo, aplicar context engineering. Sai com prática inicial replicável.</p>
+<p><strong>Módulo 3, Operação, quatro horas.</strong> Capítulos C21, C22, C24. Objetivo: entender evals, LLMOps básico, e o que é governança em IA. Sai com checklist operacional adaptável.</p>
+<p><strong>Módulo 4, Decisão, quatro horas.</strong> Capítulos C06 revisitado em chave executiva, C25, C26. Objetivo: tomar decisão de adoção com critério, escolher entre construir e comprar, traçar roadmap de noventa dias. Sai com plano aplicado à própria organização.</p>
+<p>A avaliação é leve, baseada em entregas curtas ao final de cada módulo, e o foco é prático, com discussão de caso real trazido pelos próprios participantes.</p>
+<hr />
+<h2 id="projeto-final">6. Projeto Final</h2>
+<p>O projeto final é, na avaliação do autor, a peça central da experiência didática. Ele consolida o aprendizado, força o estudante a aplicar três ou mais frameworks da obra a um caso real, e gera entregável que pode ser reaproveitado em portfólio profissional.</p>
+<p><strong>Formato.</strong> Documento escrito de oito a quinze páginas, com estrutura padronizada, entregue em arquivo de texto e apresentado oralmente em banca interna.</p>
+<p><strong>Caso.</strong> Análise de adoção de IA em organização. Pode ser a empresa do próprio estudante, no caso de MBA e capacitação corporativa, ou organização estudada a partir de fontes públicas e entrevistas, no caso de graduação e pós-graduação.</p>
+<p><strong>Frameworks obrigatórios aplicados.</strong> O projeto deve aplicar, no mínimo, três frameworks da obra, escolhidos entre os listados abaixo, com justificativa da escolha.</p>
+<ul>
+<li><strong>Diagnóstico inicial com Framework Dois, Encaixe.</strong> Mapear o caso ao eixo dominante e descrever por que esse eixo prevalece.</li>
+<li><strong>Decisão de método com Framework Um, Método.</strong> Descrever as duas a três decisões metodológicas centrais que o caso enfrentou, ou enfrentaria.</li>
+<li><strong>Governança com Framework Seis e o Caderno do Apêndice O.</strong> Esboçar o caderno de governança aplicado à organização, com RACI, comitê e dois ou três controles centrais.</li>
+<li><strong>Avaliação com Framework Oito, Pirâmide de Avaliação.</strong> Definir o que entraria em cada camada de eval, em pelo menos três níveis.</li>
+</ul>
+<p><strong>Critérios de avaliação.</strong> Detalhados na rubrica do item 7.</p>
+<p><strong>Entrega.</strong> Texto final em formato livre, com a exigência de tabela ou diagrama por framework aplicado, e seção de reflexão crítica final, na qual o estudante aponta limitações da análise e próximos passos.</p>
+<hr />
+<h2 id="rubrica-de-avaliação">7. Rubrica de avaliação</h2>
+<p>A rubrica abaixo organiza cinco dimensões de avaliação, cada uma com quatro níveis de domínio, e pesos sugeridos. O professor pode ajustar pesos conforme o perfil do curso, mas a sugestão calibrada do autor distribui da seguinte forma: Compreensão Conceitual 20%, Aplicação de Frameworks 30%, Senso Crítico 20%, Qualidade da Comunicação 15%, Profundidade Técnica 15%.</p>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 24%" />
+<col style="width: 14%" />
+<col style="width: 24%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimensão</th>
+<th>Insuficiente</th>
+<th>Básico</th>
+<th>Proficiente</th>
+<th>Excelente</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Compreensão Conceitual</td>
+<td>Confunde conceitos centrais ou usa termos sem precisão</td>
+<td>Usa conceitos com alguma imprecisão, mas reconhece-os</td>
+<td>Usa conceitos com precisão, distingue padrão e número</td>
+<td>Conecta conceitos entre capítulos, demonstra integração</td>
+</tr>
+<tr class="even">
+<td>Aplicação de Frameworks</td>
+<td>Cita framework sem aplicar</td>
+<td>Aplica um framework com dificuldade</td>
+<td>Aplica três frameworks com correção</td>
+<td>Aplica frameworks com criatividade, conectando entre si</td>
+</tr>
+<tr class="odd">
+<td>Senso Crítico</td>
+<td>Aceita afirmação de fornecedor sem questionamento</td>
+<td>Questiona pontualmente</td>
+<td>Questiona com critério, identifica trade-off</td>
+<td>Identifica limites do próprio framework, propõe ajustes</td>
+</tr>
+<tr class="even">
+<td>Qualidade da Comunicação</td>
+<td>Texto confuso, sem estrutura clara</td>
+<td>Texto compreensível, com falhas</td>
+<td>Texto claro, com tabela ou diagrama por framework</td>
+<td>Texto excelente, exposição oral firme, defesa em banca</td>
+</tr>
+<tr class="odd">
+<td>Profundidade Técnica</td>
+<td>Não evidencia leitura técnica do capítulo aplicado</td>
+<td>Cita capítulo aplicado, sem profundidade</td>
+<td>Demonstra leitura profunda do capítulo aplicado</td>
+<td>Vai além do capítulo, cita paper do Apêndice G</td>
+</tr>
+</tbody>
+</table>
+<p>A rubrica deve ser entregue ao estudante no início do curso, e revisitada na aula intermediária e na aula de entrega final, para que o critério seja transparente desde o começo.</p>
+<hr />
+<h2 id="banco-de-exercícios-e-dataset">8. Banco de exercícios e dataset</h2>
+<p>O autor reconhece, com honestidade, que o dataset público de exercícios resolvidos está em construção em junho de 2026. A base inicial de exercícios disponível ao professor adotante é composta pelos exercícios numerados ao final de cada capítulo, pelos gabaritos do Apêndice K, e pelos casos memoráveis descritos como cenários compostos ao longo da obra, que servem como matéria-prima para exercício adicional.</p>
+<p>A construção do banco completo de exercícios, com variações por nível de dificuldade e gabaritos comentados, depende de contribuição da comunidade de professores adotantes. O professor que produzir exercício novo, e quiser contribuir, pode enviar pelo canal oficial da obra, e contribuições selecionadas podem ser incorporadas em revisões futuras do Apêndice K, com crédito ao autor.</p>
+<p>O dataset de práticas, com notebooks, corpus para RAG, golden sets de eval e prompts de referência, está parcialmente disponível no repositório acompanhante, com nota explícita sobre o que está consolidado e o que ainda está em construção. O professor adotante tem acesso prioritário às próximas versões.</p>
+<h3 id="banco-inicial-de-vinte-exercícios-calibrados-um-por-aula">8.1 — Banco inicial de vinte exercícios calibrados, um por aula</h3>
+<p>O banco abaixo é o conjunto mínimo de exercícios calibrados pelo autor, organizado em paralelo com o plano de sessenta horas, com nível de dificuldade e gabarito sucinto. Cada exercício foi escolhido por entregar prática direta sobre o conceito central da aula correspondente. O professor adotante pode usar como ponto de partida e expandir conforme o perfil da turma.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aula</th>
+<th>Exercício</th>
+<th>Nível</th>
+<th>Pista de gabarito</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Identifique três decisões de IA na sua organização (ou em organização pública) e classifique cada uma como “padrão” ou “número” da Camada Dupla, justificando</td>
+<td>Básico</td>
+<td>Padrões: princípios de governança, arquitetura RAG, escolha entre construir e comprar. Números: versão do modelo, preço por milhão de tokens, posição em benchmark</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Tokenize a mesma frase em português e em inglês usando contador online; calcule o overhead em tokens do português</td>
+<td>Básico</td>
+<td>Português costuma gerar 30–60% mais tokens que o inglês, com impacto direto em custo composto (F7)</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Gere embeddings de 10 frases em domínio escolhido e calcule a matriz de similaridade coseno; identifique pares semanticamente próximos</td>
+<td>Intermediário</td>
+<td>Pares com sentido próximo devem ter similaridade &gt; 0.7; pares aleatórios costumam ficar entre 0.2 e 0.4</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Reproduza o experimento Lost in the Middle: coloque uma agulha no início, no meio e no fim de um contexto longo, e meça a taxa de recuperação</td>
+<td>Intermediário</td>
+<td>Taxa de recuperação no meio costuma ser 15–30 pontos percentuais menor que no início e no fim</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Compare três versões do mesmo prompt: (a) zero-shot, (b) few-shot, (c) com Chain of Thought; meça qualidade em 10 casos</td>
+<td>Intermediário</td>
+<td>CoT tipicamente ganha em problemas com 3+ passos lógicos; few-shot ganha em domínios com formato específico</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Construa um RAG simples sobre 20 documentos PDF de domínio escolhido, com chunking, embedding, retrieval e geração; meça precision@5</td>
+<td>Avançado</td>
+<td>Precision@5 razoável fica entre 0.6 e 0.85 dependendo da qualidade do chunking e da query</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Desenhe diagrama de um agente com loop perceber-planejar-agir-observar-refletir, com observabilidade por span e kill switch explícito</td>
+<td>Intermediário</td>
+<td>Diagrama deve incluir tool registry, gate humano em mudanças irreversíveis, log estruturado por span</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Compare dois modelos (um padrão e um reasoning) no mesmo problema de 5 passos lógicos; meça custo, latência e qualidade</td>
+<td>Avançado</td>
+<td>Reasoning model deve ganhar em qualidade mas cobrar 5–20× mais em tokens; calcular ponto de equilíbrio</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Decida entre rodar Llama 3.x próprio em GPU on-prem ou usar API de Claude para um caso real, com cálculo de custo composto F7</td>
+<td>Avançado</td>
+<td>Break-even típico está em 30–80 milhões de tokens/mês; abaixo, API ganha; acima, deploy próprio pode ganhar</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Entregue projeto 1 — RAG completo sobre corpus escolhido, com apresentação em sala e avaliação por pares</td>
+<td>Avançado</td>
+<td>Critério: aderência aos sete elementos da seção 14C.3.1, com eval e governança mínima</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>Audite a segurança de um sistema com IA existente; produza relatório com três vulnerabilidades identificadas e proposta de mitigação</td>
+<td>Avançado</td>
+<td>Vulnerabilidades comuns: prompt injection sem isolamento, tool use sem confirmação, falta de rate limiting por usuário</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>Construa eval em três camadas (base determinística, golden set, humano especialista) para uma feature de IA escolhida</td>
+<td>Intermediário</td>
+<td>Golden set mínimo de 20 casos, judge automatizado, amostragem humana de 5–10% do tráfego</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>Critique tecnicamente o release mais recente de um modelo de fronteira, com base nos seus pontos cegos identificados em alignment</td>
+<td>Avançado</td>
+<td>Foco em over-refusal/under-refusal, sycophancy, faithfulness do raciocínio, dados de treinamento declarados</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>Preencha as três primeiras seções do Caderno de Governança do APX-O aplicado à sua organização</td>
+<td>Intermediário</td>
+<td>Patrocinador nominal, escopo declarado, RACI com Accountable único, AUP com exemplo concreto</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>Construa roadmap pessoal de 90 dias para sair do nível atual em IA para o próximo nível, com três entregáveis verificáveis</td>
+<td>Básico</td>
+<td>Entregáveis SMART, com dependências entre eles, e métrica de sucesso ao final</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>Entregue projeto 2 — análise de adoção em organização escolhida, com três frameworks aplicados e defesa em banca</td>
+<td>Avançado</td>
+<td>Defesa em 10 min, com 5 min de Q&amp;A; critério: aplicação correta e crítica honesta de limites</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>Atualize sua trilha pessoal do número (Apêndice J pessoal) com cinco itens verificáveis em junho de 2026</td>
+<td>Básico</td>
+<td>Itens com fonte primária, data de última verificação, e nota de “por que importa para a minha operação”</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>Adapte um prompt do APX-L à sua organização, com customização da constituição, dos exemplos e do golden set</td>
+<td>Intermediário</td>
+<td>Customização que respeite a anatomia F4, com pelo menos cinco casos de golden próprios</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td>Defesa oral do projeto final, com 15 min de apresentação e 10 min de Q&amp;A com banca</td>
+<td>Avançado</td>
+<td>Critério: aderência à rubrica do item 7, com pelo menos quatro dimensões em nível Proficiente ou superior</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>Avaliação somativa: 20 questões cobrindo conceitos centrais; autoavaliação contra o quadro de Autoavaliação dos capítulos cobertos</td>
+<td>Avançado</td>
+<td>Mínimo 14/20 para aprovação; autoavaliação deve identificar três áreas para estudo continuado</td>
+</tr>
+</tbody>
+</table>
+<p>A construção do gabarito completo (cinco a oito linhas por exercício, com critério de correção, com armadilhas comuns, com pontuação sugerida) está em curso no repositório acompanhante, na pasta <code>/teaching/exercises/</code>, sem cadência fixa anunciada — o autor publica novos exercícios quando estiverem prontos para uso sob crítica. O professor adotante pode acompanhar via <em>watch</em> do repositório, e contribuir com suas próprias variações pelo canal oficial.</p>
+<hr />
+<h2 id="dicas-para-o-professor">9. Dicas para o professor</h2>
+<p>A experiência acumulada do autor em ensino de IA aplicada permite oferecer algumas dicas concretas, organizadas em quatro grupos.</p>
+<p><strong>Cinco pontos onde estudantes costumam travar.</strong></p>
+<ol type="1">
+<li>Confundir Princípio Um, a plausibilidade, com simples ceticismo, sem entender que plausibilidade implica método de verificação, não recusa do uso.</li>
+<li>Tratar embeddings como mágica, sem entender que são representação numérica densa de significado, com geometria que se pode interrogar.</li>
+<li>Achar que RAG é busca, quando RAG é arquitetura completa que combina recuperação, ranking, contexto e geração com observabilidade.</li>
+<li>Tratar agente como aplicação tradicional, sem perceber que autonomia é função de observabilidade e reversibilidade, não de confiança subjetiva.</li>
+<li>Achar que engenharia de prompt é truque, quando é disciplina de arquitetura de blocos, com física da atenção própria do modelo.</li>
+</ol>
+<p><strong>Três erros conceituais comuns a corrigir.</strong></p>
+<ol type="1">
+<li>Confusão entre fine-tuning e RAG, com estudante achando que são alternativas excludentes, quando são camadas distintas com finalidades distintas.</li>
+<li>Tratamento de janela de contexto como sinônimo de memória, quando janela é apenas o espaço ativo de atenção, e memória de longo prazo é arquitetura externa.</li>
+<li>Generalização de benchmark, com estudante achando que líder em GPQA é líder em qualquer tarefa, ignorando o Framework Dois sobre eixo dominante.</li>
+</ol>
+<p><strong>Quatro debates fecundos para gerar discussão em sala.</strong></p>
+<ol type="1">
+<li>Open source versus modelo fechado, com a tensão entre custo, soberania, qualidade e velocidade de atualização.</li>
+<li>Construir versus comprar, com o trade-off entre controle de stack e velocidade de entrega.</li>
+<li>Autonomia de agente, com o trade-off entre eficiência e risco operacional.</li>
+<li>Regulação brasileira de IA, com o estado do PL 2338 e a postura comparada com União Europeia e Estados Unidos.</li>
+</ol>
+<p><strong>Duas formas de combinar com conteúdo externo.</strong></p>
+<ol type="1">
+<li>Papers seminais do Apêndice G, lidos em seminário semanal, com estudante apresentador e debate em sala. A obra dá o contexto, e o paper dá a profundidade técnica.</li>
+<li>Hands-on com modelos reais, em notebooks disponibilizados via Colab ou plataforma equivalente, com prática de prompt, tokenização, embedding e RAG simples. A obra dá a arquitetura mental, e a prática consolida.</li>
+</ol>
+<hr />
+<h2 id="variações-por-curso">10. Variações por curso</h2>
+<p>A obra adapta-se a contextos formativos diversos. As variações abaixo são sugestões de sequência didática.</p>
+<p><strong>Escola técnica de nível médio.</strong> Foco em conceitos centrais e ferramentas práticas. Cobertura dos capítulos C01, C02 simplificado, C06 simplificado, C09 e C11, complementada pelo Apêndice D, que traz o panorama de ferramentas. Carga típica de quarenta horas, com peso grande em laboratório. O estudante sai com vocabulário, intuição e prática mínima de ferramentas modernas.</p>
+<p><strong>Curso de Direito Digital.</strong> Foco em capítulos com peso regulatório e ético. Cobertura central de C19, segurança, C24, governança, e C25, trade-offs, complementada pelo Apêndice O, Caderno de Governança, e pelo Apêndice J no que diz respeito ao estado da regulação brasileira. Carga típica de vinte a trinta horas. O estudante sai com capacidade de ler contrato de IA, redigir cláusula de governança, e estruturar parecer sobre adoção corporativa.</p>
+<p><strong>Curso de Administração.</strong> Foco nos capítulos executivos, semelhante ao plano de MBA descrito no item 4, com adaptação de ritmo para graduação. Carga típica de quarenta horas, com peso em discussão de caso e construção de roadmap. O estudante sai com vocabulário executivo e capacidade de participar de comitê de IA com voz informada.</p>
+<p><strong>Curso de Medicina ou áreas da Saúde.</strong> Foco em RAG sobre literatura médica, em alignment e em segurança aplicada a contexto clínico. Cobertura de C06, RAG, C09, engenharia de prompt, C23, alignment, e C19, segurança, complementada por discussão sobre regulação da Anvisa e do CFM. Carga típica de vinte a trinta horas. O estudante sai com discernimento sobre uso clínico responsável e crítica fundamentada sobre ferramentas comercializadas para o setor.</p>
+<hr />
+<h2 id="fechamento-e-convite">Fechamento e convite</h2>
+<p>O autor desta obra acredita que livro-texto verdadeiramente útil é aquele que se aperfeiçoa edição após edição, incorporando o aprendizado dos professores que o adotam em sala. Este manual é, portanto, ponto de partida e não ponto final. Cada professor que adotar a obra é convidado, com toda a sinceridade, a contribuir com caso de uso novo, exercício aplicado, ajuste de plano de curso e correção pontual, pelo canal oficial da obra. A próxima edição do Apêndice Q incorporará o que foi aprendido, com crédito a quem contribuir, e a próxima geração de estudantes brasileiros de IA aplicada agradece desde já.</p>
+<hr />
+<p><em>Apêndice Q — Manual do Professor. Próxima revisão programada: junho de 2027.</em></p>
+</div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Inteligência Aumentada</title>
+</head>
+<body class="chunk-paratexto-inicial">
+<section class="paratexto-inicial">
+<section id="dedicatória" class="abertura-paratexto">
+<h1>Dedicatória</h1>
+<p>A quem aprende a ler o padrão por trás do número,
+e ensina o próximo a fazer o mesmo.</p>
+<p>A quem teve paciência com minhas ausências
+enquanto este livro foi escrito.</p>
+<p>Ao leitor que vai usar este conhecimento para construir,
+não apenas para opinar.</p>
+</section>
+</section>
+<section class="paratexto-inicial">
+<section id="por-que-este-livro" class="abertura-paratexto">
+<h1>Por que este livro</h1>
+<blockquote>
+<p><em>Modelos passam. Método fica.</em></p>
+</blockquote>
+<hr />
+<h2 id="o-que-você-vai-dominar-até-a-última-página">O que você vai dominar até a última página</h2>
+<p>Este não é um livro de “como usar IA”. É um livro de <strong>como pensar em IA</strong>, com método transferível para o próximo modelo, para o próximo provedor, para a próxima onda regulatória. Os <strong>Nove Princípios Permanentes</strong> que sustentam toda a obra sobrevivem à troca de Claude, GPT, Gemini ou qualquer fronteira que ainda não foi lançada.</p>
+<p>Ao terminar, você sai com:</p>
+<ul>
+<li><strong>Nove Princípios Permanentes</strong> memorizáveis, que viram critério de decisão em reunião executiva, em revisão técnica e em conversa com fornecedor</li>
+<li><strong>Nove Frameworks operacionais</strong> (F1 a F9): método de decisão para adotar IA, encaixe modelo×tarefa, escala de propriedade de agente, engenharia de prompt estendida, cobertura de integrações, governança indelegável, custo composto, pirâmide de avaliação, rota dupla de adoção</li>
+<li><strong>Vocabulário técnico profundo</strong> sobre tokens, contexto, embeddings, RAG, memória, fine-tuning, agentes, MCP, reasoning models, evals, LLMOps, alignment, interpretabilidade mecanicista</li>
+<li><strong>Trinta exemplos memoráveis brasileiros</strong> calibrados ao mercado nacional, com cargo, setor, números e desfecho que materializam decisão local, sem receita americana traduzida. O pacto editorial sobre a construção desses casos está declarado em <em>Sobre os Casos</em>, logo a seguir.</li>
+<li><strong>Trilhas de leitura por perfil</strong> (Iniciante, Intermediário, Avançado, Express Executivo), com critério de recalibração quando a trilha não estiver servindo</li>
+<li><strong>Roadmap pessoal por persona</strong> com horas semanais reais e critério de abandono explícito</li>
+</ul>
+<hr />
+<h2 id="o-que-vive-junto-com-este-livro-executável-e-público">O que vive junto com este livro (executável e público)</h2>
+<p>O método mora no livro. O número e os artefatos vivem em <strong>repositório acompanhante público</strong>, com licença permissiva para uso comercial, atualizações públicas no repositório, sem cadência fixa anunciada, e contrato editorial declarado. O detalhamento aparece logo após o Mapa de Leitura. As sete pastas disponíveis hoje:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pasta</th>
+<th>O que entrega</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><code>/prompts</code></strong></td>
+<td>30 prompts profissionais em XML, com constituição, contexto, tarefa, formato, prefill e self-critique versionados, golden set por prompt e anti-padrões, prontos para clonar para o seu repositório interno</td>
+</tr>
+<tr class="even">
+<td><strong><code>/governance</code></strong></td>
+<td>Caderno de Governança v1 em 6 seções fatiadas + caderno único de 6 páginas para imprimir e assinar + modelos clonáveis dos 6 anexos operacionais</td>
+</tr>
+<tr class="odd">
+<td><strong><code>/evals</code></strong></td>
+<td><code>eval_runner.py</code> executável, <code>compile_golden_sets.py</code>, judges integrados, gate de CI e relatórios timestampados, para validar prompt contra golden set antes de cada release</td>
+</tr>
+<tr class="even">
+<td><strong><code>/datasets</code></strong></td>
+<td>Golden sets em JSONL compilados a partir dos YAMLs originais, prontos para CI</td>
+</tr>
+<tr class="odd">
+<td><strong><code>/agents</code></strong></td>
+<td>Quatro agentes educacionais executáveis em Python puro (ReAct, Escala de Propriedade, Orquestrador-Especialistas e Multiagente Debate), com tools simuladas seguras, tracing local, gates e kill switch testável</td>
+</tr>
+<tr class="even">
+<td><strong><code>/mcp</code></strong></td>
+<td>Servidores MCP educacionais (Hello World e Biblioteca Interna), com cliente de teste local e config-exemplo para Claude Desktop</td>
+</tr>
+<tr class="odd">
+<td><strong><code>/notebooks</code></strong></td>
+<td>4 notebooks fundacionais executáveis — tokenização, <em>Lost in the Middle</em>, embeddings com busca semântica e prompt caching</td>
+</tr>
+</tbody>
+</table>
+<p>A combinação de livro + repositório é o que separa decisão informada de decisão de moda.</p>
+<hr />
+<h2 id="quem-se-reconhece-nestas-três-promessas-vai-aproveitar-a-leitura">Quem se reconhece nestas três promessas vai aproveitar a leitura</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Se você é…</th>
+<th>Você sai daqui com…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Executivo C-level / CTO / Head de Tecnologia</strong></td>
+<td>Critério de decisão sobre adoção, custo, fornecedor e governança; caderno operacional pronto para o Conselho; arquitetura de defesa em camadas para conversar com auditor</td>
+</tr>
+<tr class="even">
+<td><strong>AI Engineer / Desenvolvedor / Arquiteto</strong></td>
+<td>Stack técnica completa de AI Engineering em português, com engenharia de prompt profissional, agentes, MCP, evals e LLMOps; motor de avaliação executável para colocar em CI</td>
+</tr>
+<tr class="odd">
+<td><strong>Profissional de outra área (advogado, médico, RH, professor)</strong></td>
+<td>Vocabulário técnico genuíno sem diluição, frameworks de decisão aplicáveis ao seu domínio, prompts profissionais para clonar e adaptar</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="a-diferença-em-uma-frase">A diferença em uma frase</h2>
+<p>Quem só lê este livro sai com <strong>método</strong> que dura. Quem usa o repositório acompanhante acrescenta <strong>ativos executáveis</strong> prontos para produção. Quem opera só com o repositório sem ler o livro <strong>opera no escuro</strong>, porque não vai entender por que cada peça está naquela posição.</p>
+<p>Boa leitura.</p>
+</section>
+</section>
+<section class="paratexto-inicial">
+<section id="sobre-os-casos-desta-obra" class="abertura-paratexto">
+<h1>Sobre os Casos desta Obra</h1>
+<h2 id="pacto-editorial-de-transparência">Pacto editorial de transparência</h2>
+<p>Esta obra usa, ao longo dos 29 capítulos, mais de 30 exemplos memoráveis como instrumento pedagógico, todos eles construídos como <strong>compostos pedagógicos</strong> a partir de padrões observados em organizações brasileiras reais, sem identificar a organização original. Estes casos aparecem em capítulos centrais como a engenharia de contexto da fintech, a stack de AI Engineering da seguradora, a operação de LLMOps da Pólice.io, a governança da seguradora em diálogo com a ANPD, os trade-offs do e-commerce de moda, o roadmap pessoal do CTO de varejo, o caso da indústria de embalagens de Joinville, a auditoria do banco médio em interpretabilidade mecanicista, e diversos outros. Os exemplos têm cargo, setor, números e desfecho calibrados ao mercado nacional, e foram desenhados para virar referência operacional do leitor. Nenhum deles é caso atribuído nominalmente nesta edição, e o quadro a seguir declara, sem rodeio, a categoria de cada um.</p>
+<hr />
+<h2 id="os-três-tipos-de-caso-nesta-edição">Os três tipos de caso nesta edição</h2>
+<p>A obra opera com três tipos de caso, em proporções diferentes nesta primeira edição. O quadro abaixo declara qual é qual, e o que cada um permite ao leitor crítico.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>O que é</th>
+<th>Quantidade nesta edição</th>
+<th>O que o leitor pode verificar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Composto pedagógico</strong></td>
+<td>Padrão observado em ≥2 organizações reais, com cargos, números e desfecho calibrados ao mercado BR. Não identifica a organização original.</td>
+<td><strong>30+ casos · todos os memoráveis desta edição</strong></td>
+<td>Plausibilidade do padrão. Não verifica número específico.</td>
+</tr>
+<tr class="even">
+<td><strong>Caso atribuído público</strong></td>
+<td>Organização nomeada, com permissão explícita, número auditável, selo editorial específico.</td>
+<td><strong>0 nesta edição. Sugestão de evolução: 3-5 em edição futura, conforme contribuições especialistas chegarem.</strong></td>
+<td>Tudo: nome, número, desfecho, contato pós-publicação.</td>
+</tr>
+<tr class="odd">
+<td><strong>Estudo ficcional declarado</strong></td>
+<td>Caso explicitamente sintético usado para ilustração de conceito (ex: cenários adversariais).</td>
+<td>Pontual, sempre marcado como tal</td>
+<td>Apenas a lógica conceitual; não pretende ser real.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="por-que-esta-edição-usa-compostos-pedagógicos-em-vez-de-casos-atribuídos">Por que esta edição usa compostos pedagógicos em vez de casos atribuídos</h2>
+<p>A escolha tem três razões, declaradas em ordem de peso.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Razão</th>
+<th>O que significa</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><strong>Proteção contratual</strong></td>
+<td>Profissionais que compartilharam aprendizados em conversas privadas, consultorias ou sessões de revisão operam, em sua maioria, sob acordos de confidencialidade vigentes. Publicação nominal violaria compromissos legítimos.</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><strong>Proteção competitiva das organizações fonte</strong></td>
+<td>Empresas brasileiras estão em estágio inicial de maturidade pública sobre IA. Expor decisões específicas, números reais e arquiteturas internas pode comprometer vantagem competitiva ou estratégia.</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><strong>Proteção de dados pessoais de envolvidos</strong></td>
+<td>Muitos casos derivam de discussões com cargos identificáveis. Anonimizar o padrão preserva a privacidade dos profissionais que confiaram em conversa não-pública.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="o-custo-da-escolha-declarado">O custo da escolha, declarado</h2>
+<p>A escolha tem custo, e o custo é declarado: o leitor crítico não pode verificar diretamente cada número, cada decisão, cada resultado. Esse limite é fragilidade real, e a fragilidade não deve ser disfarçada.</p>
+<p>O Apêndice N — Postura Metodológica trata, com mais profundidade, da classificação epistemológica dos números desta obra, em quatro classes (A, B, C, D), com critérios explícitos para cada classe e exemplos do que pertence a cada uma.</p>
+<hr />
+<h2 id="convite-à-atribuição-em-edições-futuras">Convite à atribuição em edições futuras</h2>
+<blockquote>
+<p><strong>Caminho proposto, não compromisso vinculante.</strong> Edições futuras desta obra poderão atribuir nominalmente entre <strong>três e cinco casos memoráveis</strong>, conforme empresas brasileiras se dispuserem a publicar artefato operacional sob selo editorial específico. O instrumento de adoção existe em documento interno do projeto, com critérios de elegibilidade, minuta de termo de autorização e questionário de coleta padronizado. A execução depende do interesse de empresas dispostas a publicar.</p>
+</blockquote>
+<h3 id="como-participar-se-você-é-executivo-de-empresa-brasileira">Como participar, se você é executivo de empresa brasileira</h3>
+<p>Empresas brasileiras dispostas a publicar um caso real são convidadas, com seriedade e respeito ao tempo do leitor executivo, a contatar o autor via canal oficial da obra. Artefatos elegíveis incluem:</p>
+<ul>
+<li>Caderno de Governança aplicado, com decisões e maturidade declaradas</li>
+<li>Eval Harness em produção, com cobertura e cadência de revisão</li>
+<li>Pipeline de LLMOps instrumentado, com métricas de SLA real</li>
+<li>Decisão de adoção documentada, com critério explícito e resultado pós-12 meses</li>
+<li>Postmortem público de incidente material, com aprendizado consolidado</li>
+<li>Outro artefato operacional que demonstre o método em uso</li>
+</ul>
+<p>Edições futuras poderão destacar casos atribuídos com selo editorial específico, com permissão explícita da organização e com cumprimento integral dos requisitos de LGPD e dos termos contratuais aplicáveis.</p>
+<hr />
+<h2 id="por-que-esta-nota-existe">Por que esta nota existe</h2>
+<p>Esta nota existe porque o pacto editorial precisa declarar com honestidade onde está a verificabilidade direta e onde está a fidelidade pedagógica. O leitor merece o pacto explícito, e o autor merece a responsabilidade de cumpri-lo.</p>
+</section>
+</section>
+<section class="paratexto-inicial">
+<section id="prefácio" class="abertura-paratexto">
+<h1>Prefácio</h1>
+<p>Liderando tecnologia há mais de quinze anos em empresas brasileiras, atravessei algumas ondas. Vi a nuvem deixar de ser controvérsia, vi mobile reorganizar canais inteiros, vi big data ser anunciado como revolução e absorvido sem barulho na operação. Cada onda chegou prometendo permanência, e cada uma, dentro de um intervalo previsível, foi substituída por outra que reivindicava a mesma permanência. O que ficou foram os princípios que cada ciclo revelou, raramente as ferramentas que ele trouxe.</p>
+<p>A inteligência artificial chegou usando o mesmo manual de marketing, e por isso muita gente está cometendo com ela os mesmos erros de leitura. Confundindo velocidade com profundidade, adoção com competência, presença com domínio. Gastando muito mais tempo escolhendo qual modelo usar do que entendendo por que usar.</p>
+<p>Mas a IA não é igual às outras ondas, e é o motivo direto deste livro existir.</p>
+<h2 id="a-diferença-que-muda-tudo">A diferença que muda tudo</h2>
+<p>A internet amplificou comunicação. O ERP amplificou processo. A nuvem amplificou infraestrutura. Cada uma reorganizou empresas e mercados, mas nenhuma amplificou diretamente aquilo que distingue um profissional do outro, uma decisão acertada de uma equivocada.</p>
+<p>A IA amplifica julgamento. Amplifica capacidade de raciocínio. Amplifica, em quem sabe usar, a própria competência cognitiva, e amplifica, em quem não sabe, a própria mediocridade. É a primeira onda da minha carreira em que a ferramenta opera na mesma camada da competência humana mais cara, a de pensar. Por isso as analogias que vinham funcionando para explicar transformação tecnológica passam a falhar.</p>
+<p>Em ondas anteriores, o que diferenciava as empresas era a capacidade de implementar. Em IA, o que diferencia é a capacidade de pensar antes de implementar. A vantagem migrou da execução para a interpretação. Quem entende isso reorganiza times, repensa governança, redesenha decisão. Quem não entende continua tratando IA como mais um sistema a contratar, e descobre, com atraso, que comprou tecnologia sem comprar critério.</p>
+<h2 id="o-erro-que-o-mercado-está-cometendo">O erro que o mercado está cometendo</h2>
+<p>O erro mais comum cabe em uma frase. O mercado está estudando produtos quando deveria estar estudando princípios.</p>
+<p>A obsessão é com benchmarks, rankings, versões, lançamentos. Empresas trocam fornecedor toda semana, equipes refazem prompts toda semana, dirigentes pedem estratégia de IA em reunião sem saber o que pediram. É um erro de categoria.</p>
+<p>Em qualquer área madura, os profissionais mais respeitados são aqueles que dominam fundamentos, não ferramentas. Um arquiteto que entende estruturas sobrevive a qualquer software de cálculo. Um médico que entende fisiologia sobrevive a qualquer protocolo. Em tecnologia, cultivamos por décadas a ilusão de que dominar a ferramenta da moda é dominar a profissão. Conheciam o como, não conheciam o porquê. Quando o framework mudava, voltavam ao começo.</p>
+<p>A obsessão por ferramentas produz dependência intelectual. Quem não tem critério próprio sempre precisa de alguém para dizer qual é a melhor ferramenta da semana. Quem tem critério escolhe sozinho, escolhe melhor, e revisa a escolha quando o cenário muda, sem precisar começar de novo a cada ciclo.</p>
+<p>Em IA, essa diferença vai separar duas categorias de profissionais, e duas categorias de empresas, pelos próximos dez anos.</p>
+<h2 id="por-que-escrevi-este-livro">Por que escrevi este livro</h2>
+<p>Podia ter feito o caminho fácil. Catálogo de prompts, tutorial de ferramentas, guia de adoção corporativa. Conteúdo desse tipo se publica em três meses, vende razoavelmente, e expira em outros três.</p>
+<p>Recusei essa opção desde o primeiro rascunho. Os livros que sobrevivem na minha estante são os que ensinam a pensar, não os que ensinam a operar. O princípio dobra a década. A versão dura um trimestre.</p>
+<p>A tese central deste livro cabe em quatro palavras. <strong>Modelos passam, método fica.</strong></p>
+<p>A obra estrutura essa tese em torno de <strong>Nove Princípios Permanentes da Inteligência Artificial</strong>. Nada na tecnologia é permanente no sentido absoluto, mas há padrões de pensamento que sobreviveram a múltiplas ondas e que provavelmente vão sobreviver a esta. São o que chamo de invariantes. O conjunto de critérios que permite ao profissional manter capacidade de julgamento mesmo quando o cenário muda completamente.</p>
+<p>Construir um livro sobre invariantes, em uma época em que o mercado paga por novidade, é uma declaração editorial. Este livro decidiu não competir no eixo da velocidade, porque quem quer notícia tem newsletter, podcast, post, vídeo. Decidiu competir no eixo da profundidade. Tudo que envelhece em três meses não merece ser livro. Livro deve ser aquilo que ainda vai estar de pé dez anos depois.</p>
+<p>Há ainda uma convicção que orientou cada decisão editorial. Quis escrever um livro que respeitasse o leitor brasileiro. Que não diluísse. Que assumisse que profissional brasileiro lê texto técnico denso quando o texto é honesto, e que iniciante brasileiro merece a mesma profundidade conceitual oferecida a iniciante americano.</p>
+<h2 id="o-que-está-em-jogo">O que está em jogo</h2>
+<p>Vantagem competitiva real raramente vem do acesso à ferramenta nova. Quase sempre, vem da capacidade de compreender, mais cedo, com mais profundidade e com mais clareza, o que aquela ferramenta significa.</p>
+<p>Acesso democratiza. Compreensão diferencia.</p>
+<p>Quem soube ler a internet em 1996 ganhou uma década. Quem soube ler a nuvem em 2008 ganhou uma década. Quem souber ler a IA agora vai ganhar a próxima. Não por ter acesso, porque acesso, hoje, é commodity. Vai ganhar por compreender, mais profundamente que os outros, o que essa onda específica está reorganizando no mundo.</p>
+<p>Compreender, em ambiente saturado de informação rasa, é um ato de disciplina. É o exercício deliberado de buscar o princípio quando todos correm atrás da versão. É a teimosia intelectual de aprender o que dura, em um mercado que insiste em ensinar o que passa.</p>
+<p>As próximas páginas são, antes de tudo, um convite a esse exercício. Não é leitura confortável, nem rápida, nem que se esgota em uma viagem de avião. Se em algum momento o texto pedir demais, é porque está fazendo a parte dele do contrato.</p>
+<p>Modelos vão continuar passando. Quem dominar o método vai continuar de pé.</p>
+<p>Compreender, no fim das contas, sempre foi a vantagem competitiva mais subestimada da história da tecnologia. E sempre foi a única que durou.</p>
+<p>Boa leitura.</p>
+</section>
+</section>
+<section class="paratexto-inicial">
+<section id="como-ler-este-livro" class="abertura-paratexto">
+<h1>Como Ler Este Livro</h1>
+<hr />
+<h2 id="a-obra-opera-com-três-caminhos-de-leitura">A obra opera com três caminhos de leitura</h2>
+<p>Esta obra foi projetada para servir leitores em estágios e contextos diferentes. Cada caminho responde a uma intenção distinta, e quem usa o livro mais de uma vez tende a percorrer todos eles em ordens diferentes.</p>
+<p><strong>Caminho 1 — Linear.</strong> Comece pela Introdução e siga até o último capítulo. A ordem foi pensada em curva de aprendizado deliberada, com cada conceito construindo sobre o anterior. É o caminho recomendado para quem está começando.</p>
+<p><strong>Caminho 2 — Por interesse.</strong> Cada capítulo é autocontido o suficiente para ser lido isoladamente, e o leitor que aterriza no meio do livro vai encontrar as referências de que precisa. As trilhas temáticas estão organizadas no Mapa de Leitura por Nível, a seguir.</p>
+<p><strong>Caminho 3 — Pelos princípios.</strong> Este é o caminho que mais diferencia o uso profissional do livro. Em vez de ler em ordem de página, leia pela camada-mãe. Parta de um dos nove princípios, percorra o capítulo onde ele é tratado em profundidade, depois os capítulos que o instanciam em outros temas, depois o framework derivado, depois o exemplo correspondente. É a forma mais rápida de internalizar o vocabulário que dá nome ao livro.</p>
+<blockquote>
+<p><strong>A escolha por nível de experiência, as horas estimadas, os roteiros por orçamento de tempo e o critério de recalibração estão no Mapa de Leitura por Nível, logo após o Sumário.</strong></p>
+</blockquote>
+<hr />
+<h2 id="como-cada-capítulo-funciona">Como cada capítulo funciona</h2>
+<p>Os capítulos seguem uma arquitetura pedagógica recorrente, não por convenção, mas porque ela espelha como adultos profissionais realmente aprendem conceito novo. A anatomia de cada capítulo, em quadro de bolso:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bloco</th>
+<th>O que faz</th>
+<th>Por que está aí</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Abertura</td>
+<td>Provoca, ancora o porquê</td>
+<td>Engajamento antes de carga cognitiva</td>
+</tr>
+<tr class="even">
+<td>Conceito intuitivo</td>
+<td>Estabelece a ideia central em linguagem simples</td>
+<td>Modelo mental antes do rigor</td>
+</tr>
+<tr class="odd">
+<td>Analogia</td>
+<td>Conecta o novo com o conhecido</td>
+<td>Transferência de conhecimento prévio</td>
+</tr>
+<tr class="even">
+<td>Explicação técnica</td>
+<td>Aprofunda com rigor controlado</td>
+<td>Profundidade sob a intuição</td>
+</tr>
+<tr class="odd">
+<td>Diagrama</td>
+<td>Visualiza o que palavras não conseguem</td>
+<td>Compressão cognitiva</td>
+</tr>
+<tr class="even">
+<td>Exemplo brasileiro</td>
+<td>Materializa em composto pedagógico calibrado ao mercado BR (ver <em>Sobre os Casos</em>)</td>
+<td>Plausibilidade local</td>
+</tr>
+<tr class="odd">
+<td>Quando usar / quando evitar</td>
+<td>Constrói framework de decisão</td>
+<td>Regra prática operacional</td>
+</tr>
+<tr class="even">
+<td>Resumo executivo</td>
+<td>Síntese de 30 segundos</td>
+<td>Recuperação rápida em consulta</td>
+</tr>
+<tr class="odd">
+<td>Checklist + revisão + exercícios</td>
+<td>Fixação ativa</td>
+<td>Aprendizado durável</td>
+</tr>
+<tr class="even">
+<td>Autoavaliação</td>
+<td>Filtro objetivo de “estou pronto?”</td>
+<td>Honestidade pedagógica</td>
+</tr>
+</tbody>
+</table>
+<p>Não pule as perguntas de revisão, os exercícios e a autoavaliação. São onde o conhecimento se fixa.</p>
+<hr />
+<h2 id="convenções-visuais">Convenções visuais</h2>
+<p>Algumas marcas pontuais atravessam toda a obra. Cada uma tem função única e a obra é consistente no uso.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Marca</th>
+<th>Função</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Citação destacada</strong></td>
+<td>Frase-chave memorável, recortável para post ou citação</td>
+</tr>
+<tr class="even">
+<td><strong>▲ Alerta</strong></td>
+<td>Armadilha comum ou cenário ilustrativo de risco</td>
+</tr>
+<tr class="odd">
+<td><strong>✸ Insight</strong></td>
+<td>Sacada conceitual importante que merece pausa</td>
+</tr>
+<tr class="even">
+<td><strong>Para Executivos</strong></td>
+<td>Conexão direta com decisão de negócio</td>
+</tr>
+<tr class="odd">
+<td><strong>Na Prática</strong></td>
+<td>Aplicação imediata na operação</td>
+</tr>
+<tr class="even">
+<td><strong>Diagrama</strong></td>
+<td>Visualização densa que sintetiza relações</td>
+</tr>
+<tr class="odd">
+<td><strong>Referência</strong></td>
+<td>Fonte primária externa, com URL ou DOI quando aplicável</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="o-que-fazer-ao-terminar">O que fazer ao terminar</h2>
+<p>Terminar o livro não é o fim do aprendizado, é o início da operação. A lista abaixo é o protocolo de consolidação, em ordem de retorno.</p>
+<ol type="1">
+<li><strong>Refazer os exercícios</strong> dos capítulos que sentiu mais difíceis. Repetição espaçada vale mais que releitura passiva.</li>
+<li><strong>Voltar ao mapa mental</strong> nos apêndices e explicar cada nó em voz alta. Se travar, releia o capítulo correspondente.</li>
+<li><strong>Executar o roadmap por persona</strong> para consolidar prática em ciclo curto.</li>
+<li><strong>Identificar três áreas</strong> de aprofundamento e buscar os papers indicados nos apêndices.</li>
+<li><strong>Assinar duas newsletters</strong> recomendadas e criar hábito de manutenção semanal.</li>
+<li><strong>Consultar a documentação atualizada</strong> dos fornecedores periodicamente para reajustar decisões à fronteira atual.</li>
+</ol>
+<hr />
+<blockquote>
+<p><em>A leitura não termina o aprendizado. Ela começa.</em> A diferença real entre quem leu e quem domina está na aplicação dos princípios na próxima decisão.</p>
+</blockquote>
+</section>
+</section>
+<section class="paratexto-inicial">
+<section id="introdução" class="abertura-paratexto">
+<h1>INTRODUÇÃO</h1>
+<h2 id="por-que-este-livro-existe">Por que este livro existe</h2>
+<hr />
+<blockquote>
+<p><em>“Quando uma tecnologia muda mais rápido do que sua capacidade de entendê-la, você perde duas coisas ao mesmo tempo: o controle e a oportunidade. Quando uma obra técnica envelhece junto com a tecnologia que documenta, o leitor que confiou nela perde a terceira: o instrumento que escolheu para se proteger.”</em></p>
+</blockquote>
+<hr />
+<h2 id="a-cena-que-se-repete">A CENA QUE SE REPETE</h2>
+<p>Você provavelmente já viveu, ou viu alguém viver, esta cena que tem se repetido em milhares de reuniões executivas pelo país nos últimos dois anos. Uma sala com diretoria sentada, slide projetado com o título “Estratégia de IA para 2026”, e o diretor de tecnologia apresentando uma arquitetura cheia de siglas — LLM, RAG, MCP, fine-tuning, embeddings, agentes — com setas conectando caixas que ninguém na sala consegue explicar em profundidade. A diretoria assente, faz perguntas educadas sobre cronograma e orçamento, evita perguntas técnicas para não parecer desinformada, e em vinte minutos decisões de milhões de reais são tomadas com base em entendimento superficial do que está sendo proposto.</p>
+<p>Saindo da reunião, dois executivos no corredor, sem testemunhas. Um pergunta baixinho, “você entendeu de verdade o que ele propôs?”. O outro responde, “mais ou menos, mas pareceu sólido, vamos seguir”. Multiplique essa cena por milhares de empresas, por milhões de profissionais, e está pintado o retrato de uma geração inteira tomando decisões sobre IA sem ter o modelo mental necessário para validar essas decisões. Esse é o problema que este livro existe para resolver.</p>
+<hr />
+<h2 id="a-lacuna-que-ninguém-assume">A LACUNA QUE NINGUÉM ASSUME</h2>
+<p>Vale ser direto sobre algo desconfortável que tem implicações sérias para quem trabalha com tecnologia em 2026. A maior parte dos profissionais, incluindo muitos seniores com salários generosos e currículos respeitáveis, opera com entendimento bastante superficial de IA moderna. Sabe usar ChatGPT, sabe escrever prompts decentes, talvez tenha brincado com uma API em algum projeto paralelo. Mas quando a conversa desce um nível, a coisa muda.</p>
+<p>Por que tokens custam mais em modelos diferentes? O que exatamente acontece dentro de uma janela de contexto, em termos arquiteturais? Como embeddings transformam significado em geometria, e por que isso permite busca semântica? Por que RAG existe como padrão arquitetural, em quais situações ele falha, e o que fazer quando falha? O que diferencia tecnicamente um agente de um chatbot com retrieval? Como MCP muda a arquitetura de sistemas, e por que esse padrão está se consolidando como referência? Quando fine-tuning é desperdício de dinheiro, e em quais situações específicas ele é necessário? Como se mede um sistema de IA antes de soltar em produção? Como se opera IA em produção sem que ela vire incidente? Quem responde quando algo dá errado? A resposta para essas perguntas, na maioria dos casos que aparecem em campo, é silêncio constrangido ou explicação rasa que não sobrevive a uma segunda pergunta.</p>
+<p>Não é culpa do profissional. É culpa de uma lacuna na literatura, que em português ainda não foi preenchida. Em inglês existem obras profundas; em vídeo, canais excelentes; em fóruns, discussões ricas. Em português, ainda em 2026, não há uma obra que cubra tudo isso com profundidade real, em linguagem executiva, conectando conceito a prática a impacto de negócio. Esta é a tentativa de fechar essa lacuna, com a aposta de que o leitor brasileiro está pronto para esse nível de conteúdo desde que ele seja oferecido com clareza, sem academicismo nem condescendência.</p>
+<hr />
+<h2 id="as-quatro-apostas-deste-livro">AS QUATRO APOSTAS DESTE LIVRO</h2>
+<h3 id="aposta-1-conceitos-sobre-ferramentas">Aposta 1 — Conceitos sobre ferramentas</h3>
+<p>Modelos mudam a cada três meses, plataformas mudam a cada seis, frameworks vêm e vão. Mas os conceitos — token, contexto, embedding, atenção, raciocínio, agência, custo composto, eval, autonomia proporcional — permanecem, e são o esqueleto sobre o qual toda nova ferramenta é construída. Investir tempo em conceitos é investir em fundação que não envelhece; investir tempo apenas em ferramentas é correr atrás de algo que sempre vai mudar de lugar antes de ser dominado.</p>
+<h3 id="aposta-2-mas-conceitos-sem-aplicação-são-abstração-morta">Aposta 2 — Mas conceitos sem aplicação são abstração morta</h3>
+<p>Existe uma tradição perigosa em livros de tecnologia: tratar conceitos como se vivessem no vácuo. O autor explica RAG no abstrato, agentes no abstrato, MCP no abstrato, e o leitor termina sabendo definir cada termo, mas sem ter visto um único exemplo profundo em produção real. Quando vai aplicar, descobre que a teoria não basta.</p>
+<p>A aposta desta obra é diferente: cada conceito é apresentado com aplicação imediata, compostos pedagógicos calibrados ao mercado brasileiro a partir de padrões observados em organizações reais, e exemplos extraídos do uso profissional dos modelos comerciais atuais — GPT, Claude, Gemini, Llama —, sem que nenhum deles vire fundamento. Os fornecedores aparecem para ilustrar, não para sustentar. O pacto editorial sobre verificabilidade dos casos está declarado em <em>Sobre os Casos</em>, antes da introdução.</p>
+<h3 id="aposta-3-profundidade-sobre-cobertura-rasa">Aposta 3 — Profundidade sobre cobertura rasa</h3>
+<p>Existe uma tentação editorial recorrente: cobrir tudo superficialmente, com promessas como “100 ferramentas de IA em 100 páginas”. Esse formato vende bem, mas não forma profissional. A aposta aqui é oposta: menos temas tratados em mais profundidade, e cada capítulo aprofunda até o ponto em que o conceito fica realmente assentado, não apenas memorizado.</p>
+<h3 id="aposta-4-sistema-citável-próprio">Aposta 4 — Sistema citável próprio</h3>
+<p>Esta é a aposta mais ambiciosa do livro, e a que mais o distingue da literatura existente. Em vez de simplesmente cobrir os tópicos com excelência, a obra propõe um sistema citável que costura tudo: os <strong>nove princípios permanentes da inteligência artificial</strong>. São os princípios que decidem se a IA funciona, independentemente do modelo da semana. Cada princípio tem regra, mecânica e violação típica. Cada capítulo declara, na primeira página, qual princípio instancia. Cada framework proprietário deriva de um princípio. Cada estudo de caso ilustra um conjunto deles em decisão real.</p>
+<p>Quem termina o livro não sai sabendo apenas o vocabulário técnico. Sai com um sistema de decisão que pode ser invocado em reunião — “estamos violando o princípio do encaixe nessa migração”, “essa proposta passa pelo termômetro?”, “quem é o nome humano que responde pela indelegabilidade?” — e que continua válido enquanto a função da IA for amplificar trabalho humano.</p>
+<hr />
+<h2 id="o-arco-narrativo">O ARCO NARRATIVO</h2>
+<p>Você vai percorrer cinco grandes territórios. A introdução apresenta os nove princípios como sistema citável que costura toda a obra. Os fundamentos cobrem o que é IA, como modelos funcionam, tokens, contexto, embeddings, RAG, memória e fine-tuning. Em seguida, prompts e raciocínio — engenharia de prompt, chain of thought, engenharia de contexto. Depois, agentes e IA moderna — agentes, MCP, AI Engineering. Adiante, modelos — comparação por encaixe e modelos open source. A última parte traz os temas avançados e definitivos: economia de tokens, segurança e riscos, futuro, avaliações, operação em produção, alinhamento, governança, trade-offs canônicos e roadmap pessoal e organizacional.</p>
+<p>Cada parte é uma camada de competência, e cada capítulo é uma peça que se encaixa no quadro maior. A ordem é deliberada. Ainda que cada capítulo seja autocontido o suficiente, ler na sequência produz aprendizado mais robusto do que pular para o que parece imediatamente útil.</p>
+<hr />
+<h2 id="a-promessa">A PROMESSA</h2>
+<p>Ao terminar este livro, o leitor deve ser capaz de fazer dez coisas específicas que separam quem entende de quem só usa. Vale registrar de forma direta para que a obra possa ser cobrada ao final.</p>
+<ol type="1">
+<li>Recitar os nove princípios, descrever a mecânica de cada um, e identificar a violação típica em sua própria operação.</li>
+<li>Explicar IA moderna em três níveis de profundidade — leigo, gestor, técnico —, usando analogias e exemplos.</li>
+<li>Avaliar criticamente uma proposta de arquitetura de IA, saber quais perguntas fazer, e reconhecer quando algo não bate.</li>
+<li>Decidir com critério entre RAG, fine-tuning, engenharia de prompt ou nenhuma das anteriores, para um problema concreto.</li>
+<li>Construir prompts profissionais que produzem resultados consistentes, com método e estrutura pelas extremidades.</li>
+<li>Entender agentes como classe de software, sabendo quando usá-los, quando evitá-los, e qual nível de autonomia é proporcional à observabilidade disponível.</li>
+<li>Medir sistema de IA com golden set, LLM-as-judge calibrado e regressão em CI.</li>
+<li>Operar IA em produção com tracing, versionamento, deploy progressivo, rollback testado e gestão de custo composto.</li>
+<li>Governar IA corporativa com RACI assinado, política de incidente testada, accountability nominal e controles canônicos.</li>
+<li>Tomar decisões de carreira e de negócio com base em entendimento real e sistema próprio, não em discurso de fornecedor.</li>
+</ol>
+<hr />
+<h2 id="uma-última-coisa-antes-de-começar">UMA ÚLTIMA COISA ANTES DE COMEÇAR</h2>
+<p>A IA não vai esperar ninguém se atualizar. Essa é uma realidade dura que vale internalizar antes de virar a próxima página. A cada mês que passa sem investimento em entendimento, a distância entre quem domina e quem apenas usa cresce. Em 2026 essa distância já é visível em conversas executivas, em decisões de carreira, em quem é convidado para projetos estratégicos. Em 2028, segundo as projeções mais conservadoras, essa distância será inegociável.</p>
+<p>Há duas opções. A primeira é continuar usando IA como ferramenta de consulta esporádica, aceitando que outras pessoas vão entender mais do que você sobre algo que vai redefinir profundamente sua carreira nos próximos anos. A segunda é investir entre trinta e cinco e cinquenta horas neste livro, e sair com base sólida que vai diferenciar pelos próximos dez anos. Se a escolha é a segunda, vire a página.</p>
+<p>Os nove princípios começam na próxima.</p>
+</section>
+</section>
+<section class="paratexto-inicial">
+<section id="sumário" class="abertura-paratexto">
+<h1>SUMÁRIO</h1>
+<h2 id="inteligência-aumentada-os-princípios-permanentes-da-ia"><em>Inteligência Aumentada · Os Princípios Permanentes da IA</em></h2>
+<hr />
+<h2 id="paratexto-inicial">PARATEXTO INICIAL</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Seção</th>
+<th style="text-align: right;">pg</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dedicatória</td>
+<td style="text-align: right;">ii</td>
+</tr>
+<tr class="even">
+<td>Por que este livro — proposta de valor e ganhos por perfil</td>
+<td style="text-align: right;">iii</td>
+</tr>
+<tr class="odd">
+<td>Sobre os Casos desta Obra — pacto editorial</td>
+<td style="text-align: right;">vi</td>
+</tr>
+<tr class="even">
+<td>Prefácio</td>
+<td style="text-align: right;">xi</td>
+</tr>
+<tr class="odd">
+<td>Como Ler Este Livro</td>
+<td style="text-align: right;">xv</td>
+</tr>
+<tr class="even">
+<td>Introdução</td>
+<td style="text-align: right;">xxi</td>
+</tr>
+<tr class="odd">
+<td>Sumário (este)</td>
+<td style="text-align: right;">xxvii</td>
+</tr>
+<tr class="even">
+<td>Mapa de Leitura por Nível</td>
+<td style="text-align: right;">xxxiii</td>
+</tr>
+<tr class="odd">
+<td>Repositório Acompanhante</td>
+<td style="text-align: right;">xlii</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="os-nove-princípios-permanentes">OS NOVE PRINCÍPIOS PERMANENTES</h2>
+<table>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Seção</th>
+<th style="text-align: right;">pg</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Manifesto — Os Nove Princípios Permanentes da Inteligência Artificial</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>Por que Padrão Dura e Número Morre — fundação intelectual da Camada Dupla</td>
+<td style="text-align: right;">22</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="parte-1-fundamentos-da-inteligência-artificial-pg-34">PARTE 1 — FUNDAMENTOS DA INTELIGÊNCIA ARTIFICIAL · pg 34</h2>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Capítulo</th>
+<th>Princípio central</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>O Que É Inteligência Artificial</td>
+<td>Camada Dupla</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Como os Modelos de IA Funcionam</td>
+<td>Plausibilidade</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Tokens</td>
+<td>Custo Composto</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Janela de Contexto</td>
+<td>Extremidades</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Embeddings</td>
+<td>Camada Dupla, Custo Composto</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>RAG — Retrieval Augmented Generation</td>
+<td>Camada Dupla, Termômetro</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Memória em IA</td>
+<td>Custo Composto</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Fine-Tuning</td>
+<td>Termômetro</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="parte-2-engenharia-de-prompt-e-raciocínio-pg-146">PARTE 2 — ENGENHARIA DE PROMPT E RACIOCÍNIO · pg 146</h2>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Capítulo</th>
+<th>Princípio central</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>9</td>
+<td>Engenharia de Prompt</td>
+<td>Extremidades, Termômetro</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Chain of Thought e Raciocínio</td>
+<td>Plausibilidade, Extremidades</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>Context Engineering</td>
+<td>Extremidades, Camada Dupla</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="parte-3-agentes-e-ia-moderna-pg-187">PARTE 3 — AGENTES E IA MODERNA · pg 187</h2>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 31%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Capítulo</th>
+<th>Princípio central</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>12</td>
+<td>Agentes de IA</td>
+<td>Autonomia Proporcional</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>MCP — Model Context Protocol</td>
+<td>Encaixe, Autonomia Proporcional</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>AI Engineering</td>
+<td>Termômetro, Autonomia Proporcional</td>
+</tr>
+<tr class="even">
+<td>14C</td>
+<td>Spec-Driven Development</td>
+<td>Operador, Camada Dupla, Autonomia Proporcional, Responsabilidade Indelegável</td>
+</tr>
+<tr class="odd">
+<td>14B</td>
+<td>Reasoning Models</td>
+<td>Plausibilidade, Extremidades, Custo Composto</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="parte-4-modelos-de-ia-pg-259">PARTE 4 — MODELOS DE IA · pg 259</h2>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Capítulo</th>
+<th>Princípio central</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>15</td>
+<td>Comparação dos Principais Modelos</td>
+<td>Encaixe</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>Modelos Open Source</td>
+<td>Encaixe, Custo Composto</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="parte-5-tópicos-avançados-pg-298">PARTE 5 — TÓPICOS AVANÇADOS · pg 298</h2>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 31%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Capítulo</th>
+<th>Princípio central</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>17</td>
+<td>Repositórios GitHub — método de auditoria em 30 minutos</td>
+<td>Termômetro, Operador</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>Economia de Tokens em Profundidade</td>
+<td>Custo Composto</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td>Segurança em IA — anatomia de ataque, arquitetura de defesa</td>
+<td>Responsabilidade Indelegável, Plausibilidade</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>O Futuro da IA em Cenários Estruturados</td>
+<td>Camada Dupla</td>
+</tr>
+<tr class="odd">
+<td>21</td>
+<td>Avaliações — A Engenharia de Medir IA</td>
+<td>Termômetro</td>
+</tr>
+<tr class="even">
+<td>22</td>
+<td>LLMOps — Operação de IA em Produção</td>
+<td>Autonomia Proporcional</td>
+</tr>
+<tr class="odd">
+<td>23</td>
+<td>Alinhamento — Mito, técnica e prática</td>
+<td>Responsabilidade Indelegável, Plausibilidade</td>
+</tr>
+<tr class="even">
+<td>24</td>
+<td>Governança de IA Corporativa</td>
+<td>Responsabilidade Indelegável</td>
+</tr>
+<tr class="odd">
+<td>25</td>
+<td>Trade-offs Canônicos da IA</td>
+<td>Encaixe, Operador</td>
+</tr>
+<tr class="even">
+<td>26</td>
+<td>Roadmap Pessoal de IA — horas, prerrequisitos e critério de abandono</td>
+<td>Operador</td>
+</tr>
+<tr class="odd">
+<td>27</td>
+<td>IA para PME Brasileira</td>
+<td>Operador, Custo Composto, Encaixe</td>
+</tr>
+<tr class="even">
+<td>28</td>
+<td>Interpretabilidade Mecanicista</td>
+<td>Plausibilidade, Responsabilidade Indelegável</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="frameworks-da-obra">FRAMEWORKS DA OBRA</h2>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 55%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Framework</th>
+<th>Princípio central</th>
+<th style="text-align: right;">pg</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F1 — Método de Decisão para Adotar IA</td>
+<td>Operador</td>
+<td style="text-align: right;">630</td>
+</tr>
+<tr class="even">
+<td>F2 — Diagnóstico de Encaixe entre Tarefa e Modelo</td>
+<td>Encaixe</td>
+<td style="text-align: right;">634</td>
+</tr>
+<tr class="odd">
+<td>F3 — Escala de Propriedade do Agente</td>
+<td>Autonomia Proporcional</td>
+<td style="text-align: right;">639</td>
+</tr>
+<tr class="even">
+<td>F4 — Engenharia de Prompt Estendida</td>
+<td>Extremidades, Camada Dupla</td>
+<td style="text-align: right;">644</td>
+</tr>
+<tr class="odd">
+<td>F5 — Matriz de Cobertura de Integrações</td>
+<td>Autonomia Proporcional, Encaixe</td>
+<td style="text-align: right;">649</td>
+</tr>
+<tr class="even">
+<td>F6 — Governança Indelegável</td>
+<td>Responsabilidade Indelegável</td>
+<td style="text-align: right;">660</td>
+</tr>
+<tr class="odd">
+<td>F7 — Custo Composto em Três Tempos</td>
+<td>Custo Composto, Operador</td>
+<td style="text-align: right;">665</td>
+</tr>
+<tr class="even">
+<td>F8 — Pirâmide da Avaliação</td>
+<td>Termômetro</td>
+<td style="text-align: right;">670</td>
+</tr>
+<tr class="odd">
+<td>F9 — Rota Dupla de Adoção</td>
+<td>Camada Dupla</td>
+<td style="text-align: right;">676</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="apêndices">APÊNDICES</h2>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 55%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>ID</th>
+<th>Apêndice</th>
+<th style="text-align: right;">pg</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>Glossário Completo</td>
+<td style="text-align: right;">681</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>Mapa Mental Geral</td>
+<td style="text-align: right;">689</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>Roadmaps Detalhados por Persona</td>
+<td style="text-align: right;">698</td>
+</tr>
+<tr class="even">
+<td>D</td>
+<td>Ferramentas e Stack — curadoria datada</td>
+<td style="text-align: right;">706</td>
+</tr>
+<tr class="odd">
+<td>E</td>
+<td>Leituras Complementares</td>
+<td style="text-align: right;">718</td>
+</tr>
+<tr class="even">
+<td>F</td>
+<td>Comunidade Brasileira de IA em 2026</td>
+<td style="text-align: right;">721</td>
+</tr>
+<tr class="odd">
+<td>G</td>
+<td>Papers Fundamentais</td>
+<td style="text-align: right;">730</td>
+</tr>
+<tr class="even">
+<td>H</td>
+<td>Bibliografia Completa</td>
+<td style="text-align: right;">735</td>
+</tr>
+<tr class="odd">
+<td>I</td>
+<td>Índice Remissivo</td>
+<td style="text-align: right;">741</td>
+</tr>
+<tr class="even">
+<td>J</td>
+<td>Trilha do Número — versões, preços, benchmarks, papers, regulação datados</td>
+<td style="text-align: right;">746</td>
+</tr>
+<tr class="odd">
+<td>K</td>
+<td>Gabaritos Comentados</td>
+<td style="text-align: right;">762</td>
+</tr>
+<tr class="even">
+<td>L</td>
+<td>Biblioteca de Prompts Profissionais — 30 fichas</td>
+<td style="text-align: right;">767</td>
+</tr>
+<tr class="odd">
+<td>M</td>
+<td>Manifesto de Bolso — Os Nove Princípios em Uma Página</td>
+<td style="text-align: right;">825</td>
+</tr>
+<tr class="even">
+<td>N</td>
+<td>Postura Metodológica sobre os Números desta Obra</td>
+<td style="text-align: right;">829</td>
+</tr>
+<tr class="odd">
+<td>O</td>
+<td>Caderno de Governança v1</td>
+<td style="text-align: right;">837</td>
+</tr>
+<tr class="even">
+<td>P</td>
+<td>Boxes Técnicos — 11 boxes técnicos</td>
+<td style="text-align: right;">849</td>
+</tr>
+<tr class="odd">
+<td>Q</td>
+<td>Manual do Professor — planos de curso, projeto final, rubrica</td>
+<td style="text-align: right;">882</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Após os apêndices:</strong> Sobre o Autor.</p>
+</section>
+</section>
+<section class="paratexto-inicial">
+<section id="mapa-de-leitura-por-nível" class="abertura-paratexto">
+<h1>MAPA DE LEITURA POR NÍVEL</h1>
+<h2 id="a-partir-de-onde-você-está">A partir de onde você está</h2>
+<p>A maior parte dos livros técnicos densos cobra do leitor um preço alto quando ele tenta ler linearmente sem reconhecer o próprio ponto de partida. O iniciante absoluto trava em capítulos avançados e abandona; o profissional experiente perde tempo nos capítulos iniciais e desiste na metade; o cientista de dados pula direto para a profundidade técnica e perde a costura conceitual que sustenta o sistema. Esta nota existe para evitar os três destinos.</p>
+<p>A obra é desenhada para três níveis de leitor, e cada nível tem trilha recomendada de leitura, com volume horário estimado e capítulos prioritários. O leitor honesto faz primeiro o diagnóstico de cinco perguntas abaixo, identifica o próprio nível, e segue a trilha correspondente. As trilhas por nível são subsets enxutos: quem quiser leitura integral encontra o roteiro de cinquenta horas mais adiante, na seção <em>Roteiros de leitura por orçamento de tempo</em>.</p>
+<hr />
+<h2 id="diagnóstico-em-cinco-perguntas">Diagnóstico em cinco perguntas</h2>
+<p>Responda sim ou não para cada uma, com honestidade.</p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 31%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Pergunta</th>
+<th style="text-align: center;">Sim</th>
+<th style="text-align: center;">Não</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Sabe explicar, com analogia ou linguagem técnica, o que é um <em>embedding</em> e por que ele importa em sistemas modernos de IA?</td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Já operou, em ambiente profissional, um <em>agente</em> baseado em LLM, com loop de planejamento, ação e observação?</td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Lê papers técnicos no arXiv ou em conferências (NeurIPS, ICML, ACL, ICLR) com regularidade suficiente para reconhecer trabalhos recentes do campo?</td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Consegue explicar, em pelo menos linguagem intermediária, como funciona o mecanismo de <em>attention</em> em arquiteturas Transformer?</td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Já conduziu, em produção ou em projeto-piloto sério, processo de <em>fine-tuning</em> ou de <em>engenharia de prompt</em> em escala, com métrica de qualidade auditável?</td>
+<td style="text-align: center;">☐</td>
+<td style="text-align: center;">☐</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sua-trilha-pela-contagem-de-sim">Sua trilha pela contagem de “sim”</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Sim</th>
+<th>Seu nível</th>
+<th>Trilha recomendada</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>0-2</strong></td>
+<td>Iniciante absoluto</td>
+<td>Trilha INICIANTE (12h em 4 semanas)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>3-4</strong></td>
+<td>Intermediário</td>
+<td>Trilha INTERMEDIÁRIO (30h em 6-8 semanas)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>5</strong></td>
+<td>Avançado ou especialista</td>
+<td>Trilha AVANÇADO (18h focadas + leitura cruzada)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fluxo-entre-trilhas">Fluxo entre trilhas</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Trilha atual</th>
+<th>Avança quando</th>
+<th>Recua quando</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Iniciante</strong></td>
+<td>Consolida C5 (embeddings) + C9 (engenharia de prompt) com autoavaliação ≥ 4/5 em três capítulos seguidos</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><strong>Intermediário</strong></td>
+<td>Opera C11 (context) + C14 (AI engineering) + C21 (evals) em produção, com critério explícito</td>
+<td>Três autoavaliações seguidas &lt; 3/5 → volta para Iniciante</td>
+</tr>
+<tr class="odd">
+<td><strong>Avançado</strong></td>
+<td>—</td>
+<td>Três autoavaliações seguidas &lt; 3/5 em capítulo avançado → volta para Intermediário</td>
+</tr>
+</tbody>
+</table>
+<p>Voltar uma trilha é movimento normal, não custo de orgulho. Avançar acontece naturalmente conforme a base consolida.</p>
+<hr />
+<h2 id="trilha-do-leitor-iniciante-absoluto">Trilha do leitor INICIANTE ABSOLUTO</h2>
+<p><strong>Pressupostos:</strong> nunca operou IA generativa regularmente em ambiente profissional, não domina vocabulário básico (prompt, token, modelo, fine-tuning, embedding), entrou na obra para construir base sólida.</p>
+<p><strong>Volume estimado:</strong> cerca de doze horas de leitura ativa, em quatro semanas.</p>
+<p><strong>Capítulos prioritários, em ordem de leitura:</strong></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Ordem</th>
+<th>Item</th>
+<th>Por que vir agora</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Manifesto C00P — Por que padrão dura e número morre</td>
+<td>Fundação intelectual; lê em qualquer nível</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Manifesto C00M — Os Nove Princípios Permanentes</td>
+<td>Espinha da obra; lê com calma</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>C1 — O que é IA</td>
+<td>Contexto histórico e conceitual mínimo</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>C2 — Como modelos funcionam</td>
+<td>Versão intuitiva da arquitetura</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>C3 — Tokens</td>
+<td>Conceito que abre tudo o resto</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>C4 — Janela de contexto</td>
+<td>Limite prático que estrutura uso real</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>C5 — Embeddings</td>
+<td>Conceito fundamental para entender RAG</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>C9 — Engenharia de prompt</td>
+<td>Habilidade prática imediata</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>C26 — Roadmap pessoal</td>
+<td>Define o próximo passo para seu caso</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Apêndices A (glossário) e B (mapa mental)</td>
+<td>Consulta permanente</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pular nesta primeira passada:</strong> C11, C14, C21, C22, C28, todos os frameworks F3 a F9, Apêndices L, P, O. Voltar a eles quando o vocabulário e os fundamentos estiverem consolidados.</p>
+<hr />
+<h2 id="trilha-do-leitor-intermediário">Trilha do leitor INTERMEDIÁRIO</h2>
+<p><strong>Pressupostos:</strong> usa IA generativa regularmente, opera prompts profissionais, conhece vocabulário básico, busca sistematizar conhecimento, ampliar profundidade técnica e instalar disciplina executiva.</p>
+<p><strong>Volume estimado:</strong> cerca de trinta horas de leitura ativa, em seis a oito semanas.</p>
+<p><strong>Trilha completa, com prioridades:</strong></p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Prioridade</th>
+<th>Capítulos e Frameworks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Alta</strong></td>
+<td>C00P, C00M, C6 (RAG), C7 (memória), C9, C10 (chain of thought), C11 (context engineering), C12 (agentes), C13 (MCP), C14 (AI Engineering), C18 (economia de tokens), C24 (governança), C25 (trade-offs), C26 (roadmap), C27 (PME se for fundador)</td>
+</tr>
+<tr class="even">
+<td><strong>Frameworks essenciais</strong></td>
+<td>F1 (decisão), F2 (encaixe), F4 (prompt estendido), F6 (governança), F7 (custo), F8 (avaliação)</td>
+</tr>
+<tr class="odd">
+<td><strong>Apêndices essenciais</strong></td>
+<td>L (biblioteca de prompts), J (trilha do número), O (caderno de governança), D (ferramentas)</td>
+</tr>
+<tr class="even">
+<td><strong>Média</strong></td>
+<td>C8 (fine-tuning), C15 (comparação), C16 (open source), C19 (segurança), C20 (futuro), C21 (evals), C22 (LLMOps), C23 (alignment)</td>
+</tr>
+<tr class="odd">
+<td><strong>Frameworks médios</strong></td>
+<td>F3 (agente), F5 (cobertura), F9 (rota dupla)</td>
+</tr>
+<tr class="even">
+<td><strong>Apêndices médios</strong></td>
+<td>M (síntese), N (metodológico), P (boxes técnicos)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pular nesta primeira passada:</strong> C14B (reasoning models — voltar quando estiver operando reasoning em produção), C28 (interpretabilidade mecanicista — voltar quando enfrentar caso regulatório real), C17 (auditoria de repositórios — usar como referência operacional). Apêndice Q (Manual do Professor) somente se for docente.</p>
+<hr />
+<h2 id="trilha-do-leitor-avançado-ou-especialista">Trilha do leitor AVANÇADO ou ESPECIALISTA</h2>
+<p><strong>Pressupostos:</strong> trabalha com IA em produção, lê papers, opera evals e LLMOps, busca sistema próprio coeso, profundidade técnica em pontos centrais e diferenciação intelectual da obra.</p>
+<p><strong>Volume estimado:</strong> cerca de dezoito horas focadas em capítulos centrais, com leitura cruzada do restante.</p>
+<p><strong>Trilha prioritária:</strong></p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bloco</th>
+<th>Capítulos e itens</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Sistema intelectual</strong></td>
+<td>C00P, C00M, F3, F8, F9</td>
+</tr>
+<tr class="even">
+<td><strong>Núcleo técnico</strong></td>
+<td>C11 (context engineering), C14 (AI Engineering), C14B (reasoning models), C21 (evals), C22 (LLMOps), C23 (alignment)</td>
+</tr>
+<tr class="odd">
+<td><strong>Fronteira técnica</strong></td>
+<td>C28 (interpretabilidade), Apêndice P (boxes técnicos), Apêndice J (trilha do número)</td>
+</tr>
+<tr class="even">
+<td><strong>Operação rigorosa</strong></td>
+<td>C19 (segurança), C24 (governança), C25 (trade-offs), Apêndice O (caderno)</td>
+</tr>
+<tr class="odd">
+<td><strong>Diferenciação</strong></td>
+<td>Apêndice N (postura metodológica), F6 (governança indelegável)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Apêndices de referência permanente:</strong> N, P, J, O, L.</p>
+<p><strong>Não precisa ler na primeira passada:</strong> C1 a C4 (revisão de fundamentos — pode pular ou ler em diagonal), C27 (PME — só se for atuar em consultoria neste segmento), Apêndice Q (somente se for docente).</p>
+<hr />
+<h2 id="bandeira-por-capítulo">Bandeira por capítulo</h2>
+<p>Para o leitor que quiser identificar rapidamente o público primário de cada capítulo, a obra mantém a seguinte classificação:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Nível primário</th>
+<th>Capítulos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Iniciante</strong></td>
+<td>C1, C2, C3, C4, C9</td>
+</tr>
+<tr class="even">
+<td><strong>Iniciante + Intermediário</strong></td>
+<td>C5, C6, C7, C8</td>
+</tr>
+<tr class="odd">
+<td><strong>Intermediário</strong></td>
+<td>C10, C11, C12, C13, C15, C16, C18, C24, C25, C26, C27</td>
+</tr>
+<tr class="even">
+<td><strong>Intermediário + Avançado</strong></td>
+<td>C14, C19, C20, C21, C22</td>
+</tr>
+<tr class="odd">
+<td><strong>Avançado / Especialista</strong></td>
+<td>C14B, C17, C23, C28</td>
+</tr>
+<tr class="even">
+<td><strong>Todos os níveis (fundação)</strong></td>
+<td>Manifesto C00P, Manifesto C00M</td>
+</tr>
+</tbody>
+</table>
+<p>Frameworks (F1 a F9) e Apêndices são consulta permanente, não leitura sequencial obrigatória.</p>
+<hr />
+<h2 id="roteiros-de-leitura-por-orçamento-de-tempo">Roteiros de leitura por orçamento de tempo</h2>
+<p><strong>8 horas (executivo com agenda apertada):</strong>
+C00P → C00M → F1 (Método de Decisão) → C24 (governança) → C25 (trade-offs) → C26 (roadmap pessoal) → Apêndice O (caderno) → Apêndice M (síntese de bolso).</p>
+<p><strong>20 horas (intermediário em primeira passada):</strong>
+Manifestos C00P e C00M → C1 a C9 em ritmo regular → C11, C12, C13 com profundidade → C18, C24, C25, C26 → frameworks F1, F4, F6, F7 → apêndices L, J, O.</p>
+<p><strong>50 horas (leitura completa para construir referência interna):</strong>
+Leitura sequencial integral com pausa em cada Autoavaliação. Aplicação dos exercícios numerados ao longo dos capítulos. Construção do roadmap pessoal (C26). Aplicação do Caderno de Governança v1 no contexto do leitor (Apêndice O). Revisão da Trilha do Número (Apêndice J) e da Biblioteca de Prompts (Apêndice L) como instrumentos diários.</p>
+<hr />
+<h2 id="como-saber-se-a-trilha-está-funcionando">Como saber se a trilha está funcionando</h2>
+<p>Cada capítulo termina com Autoavaliação em tabela de cinco critérios. A regra prática de recalibração:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sinal observado</th>
+<th>O que fazer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>3 capítulos seguidos com Autoavaliação ≥ 4/5</td>
+<td>Considerar avançar uma trilha</td>
+</tr>
+<tr class="even">
+<td>3 capítulos seguidos com Autoavaliação ≤ 2/5</td>
+<td>Voltar uma trilha</td>
+</tr>
+<tr class="odd">
+<td>1-2 capítulos com nota baixa entre vários ≥ 3/5</td>
+<td>Reler o capítulo específico, não mudar trilha</td>
+</tr>
+<tr class="even">
+<td>Autoavaliação inconsistente entre temas</td>
+<td>Trilha mista provável — seguir por interesse, não por nível</td>
+</tr>
+</tbody>
+</table>
+<p>A leitura honesta deste mapa, antes do primeiro capítulo, economiza horas de esforço mal direcionado. A leitura desonesta cobra o preço típico do leitor que escolhe a trilha que aspira ser, em vez da trilha que efetivamente serve agora.</p>
+</section>
+</section>
+<section class="paratexto-inicial">
+<section id="repositório-acompanhante" class="abertura-paratexto">
+<h1>Repositório Acompanhante</h1>
+<blockquote>
+<p><em>O padrão dura no livro. O número muda no repositório.</em></p>
+</blockquote>
+<hr />
+<p>Este livro tem um companheiro executável público que carrega o que muda mais rápido do que a tinta no papel. Enquanto o livro entrega o método que sobrevive à próxima geração de modelo — os princípios, os frameworks, a anatomia das decisões, os anti-padrões observáveis — o repositório carrega o número datado: prompts em XML versionado, golden sets executáveis, scripts de regressão, caderno operacional de governança em arquivos editáveis, changelog público versionado.</p>
+<p>A combinação dos dois materializa o Princípio Três da obra, <strong>Camada Dupla</strong>. Quem só lê o livro sai com método e precisa montar os artefatos do zero. Quem opera só com o repositório sem ler o livro opera no escuro, porque não vai entender por que cada peça está naquela posição. Quem usa os dois sai com modelo mental sólido e ativos prontos para entrar em pipeline.</p>
+<hr />
+<h2 id="endereço">Endereço</h2>
+<p><strong><a href="https://github.com/falercia/inteligencia-aumentada-recursos">github.com/falercia/inteligencia-aumentada-recursos</a></strong></p>
+<p>Licenças: MIT para código, CC-BY 4.0 para conteúdo editorial. Uso comercial permitido com atribuição.</p>
+<hr />
+<h2 id="o-que-vive-lá-agora">O que vive lá agora</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pasta</th>
+<th>Conteúdo</th>
+<th>Capítulos relacionados</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>/prompts</code></td>
+<td>30 prompts profissionais em XML, com golden set, prefill, self-critique, anti-padrões e métrica de qualidade por prompt</td>
+<td>C9 · F4 · Apêndice L</td>
+</tr>
+<tr class="even">
+<td><code>/governance</code></td>
+<td>Caderno de Governança v1.0 em 6 seções fatiadas, modelo de 6 páginas para imprimir e assinar, modelos clonáveis dos 6 anexos</td>
+<td>C24 · F6 · Apêndice O</td>
+</tr>
+<tr class="odd">
+<td><code>/evals</code></td>
+<td><code>eval_runner.py</code> executável, <code>compile_golden_sets.py</code>, judges integrados (substring, regex, json_schema, classification), gate de CI</td>
+<td>C21 · F8</td>
+</tr>
+<tr class="even">
+<td><code>/datasets</code></td>
+<td>Golden sets em JSONL compilados a partir dos YAMLs originais, prontos para CI</td>
+<td>C21 · C23</td>
+</tr>
+<tr class="odd">
+<td><code>/agents</code></td>
+<td>Quatro agentes educacionais executáveis em Python puro — A01 (ReAct Simples), A02 (Escala de Propriedade nos 4 níveis F3 lado a lado), A03 (Orquestrador-Especialistas, multiagente cooperativo em estrela reusando <code>/prompts</code>) e A04 (Multiagente Debate, adversarial com juiz integrável a <code>/evals</code>). Todos com tools simuladas seguras, tracing local em JSONL, gates, kill switch testável e exemplos rodáveis</td>
+<td>C12 · C14C · C21 · C25 · F3 · F8</td>
+</tr>
+<tr class="even">
+<td><code>/mcp</code></td>
+<td>Servidores MCP educacionais — M01 (Hello World com Resource, Tool e Prompt mínimos) e M02 (Biblioteca Interna que expõe os prompts de <code>/prompts</code> e o caderno de governança como Resources para qualquer cliente MCP), com cliente de teste local e config-exemplo para Claude Desktop</td>
+<td>C13 · F5</td>
+</tr>
+<tr class="odd">
+<td><code>/notebooks</code></td>
+<td>4 notebooks fundacionais executáveis com narrativa didática célula a célula — tokenização com <code>tiktoken</code>, reprodução do experimento <em>Lost in the Middle</em>, embeddings com visualização 2D e busca semântica, e demonstração quantitativa de prompt caching</td>
+<td>C3 · C4 · C5 · C18</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cada-pasta-tem-o-seu-próprio-readme">Cada pasta tem o seu próprio README</h2>
+<p>Cada pasta com conteúdo tem <code>README.md</code> próprio com instruções específicas, ficha técnica do que entrega, padrões de uso, exemplos rodáveis e conexão com os capítulos do livro. Antes de clonar artefato isolado, vale ler o README da pasta correspondente — quinze minutos de leitura economizam horas de tentativa-e-erro.</p>
+<p>Quem identifica lacuna, anti-padrão útil para a obra, ou caso de uso não coberto pelas estruturas atuais, é convidado a abrir issue no repositório com o template correspondente. Contribuições qualificadas com fonte primária ou validação por especialista entram nas revisões seguintes, com atribuição quando o contribuidor autoriza.</p>
+<hr />
+<h2 id="como-começar">Como começar</h2>
+<p>Três caminhos, conforme a intenção:</p>
+<ol type="1">
+<li><p><strong>Quero entender antes de usar.</strong> Abra <code>prompts/P-LEG-01/</code> e leia o <code>README.md</code> da pasta, depois compare com a ficha conceitual correspondente no Apêndice L. Em quinze minutos você terá o mapa mental completo de como livro e repositório se costuram.</p></li>
+<li><p><strong>Quero colocar em produção rápido.</strong> Pegue o prompt mais próximo do seu domínio, copie o diretório inteiro para o seu repositório interno, adapte a constituição ao seu contexto, construa seu golden set próprio com pelo menos vinte casos representativos do seu tráfego real, rode <code>eval_runner.py</code> antes de cada release.</p></li>
+<li><p><strong>Quero contribuir.</strong> Leia <code>CONTRATO.md</code> e abra issue com a categoria sugerida. Contribuições qualificadas com fonte primária são incorporadas nas revisões seguintes, com atribuição quando o contribuidor autoriza.</p></li>
+</ol>
+<hr />
+<h2 id="política-de-evolução">Política de evolução</h2>
+<p>O repositório evolui de forma incremental, sem cadência fixa anunciada, com prioridade para a qualidade da entrega sobre o cumprimento de calendário. Releases recebem tag semântica e <code>CHANGELOG.md</code> versionado, indicando mudança item por item, motivo da mudança, e impacto observado em golden set ou em produção. A política editorial é simples e dura: nenhuma promessa de release que não esteja pronta para ser cumprida, e nenhum release publicado sem ter passado pela mesma disciplina de revisão que o livro exige de qualquer artefato sério.</p>
+<p>O que separa repositório acompanhante vivo de folheto promocional não é cadência declarada, é entrega consistente sob crítica pública. O leitor que clona o repositório pode ativar <em>watch</em> no GitHub para receber notificação de novos releases, e o autor compromete-se apenas com a verdade do que foi entregue, jamais com data futura que não dependa só dele.</p>
+<hr />
+<h2 id="conexão-capítulo-a-capítulo">Conexão capítulo a capítulo</h2>
+<p>Ao longo da leitura, cada vez que aparecer a marcação <strong>▸ repo</strong> ou a referência a um caminho <code>pasta/arquivo</code>, trata-se de artefato executável que vive no repositório. Quem está com pressa pode anotar o caminho e visitar depois; quem quer ver o instrumento em mãos pode abrir em outra aba enquanto lê.</p>
+<blockquote>
+<p><em>Quem só lê o livro sai com método. Quem usa este repositório acrescenta implementação. Quem opera só com este repositório sem ler o livro opera no escuro.</em></p>
+</blockquote>
+</section>
+</section>
+
+</body>
+</html>

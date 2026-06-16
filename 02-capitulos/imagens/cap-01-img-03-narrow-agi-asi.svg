@@ -1,0 +1,74 @@
+<svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <rect width="900" height="500" fill="#0d1b2a"/>
+
+  <text x="450" y="40" fill="#fef3c7" font-size="22" font-weight="700" text-anchor="middle">NARROW AI · AGI · ASI</text>
+  <text x="450" y="64" fill="#9ca3af" font-size="13" text-anchor="middle">Onde estamos, para onde apontam, e por que os termos são tão disputados</text>
+
+  <!-- Narrow AI -->
+  <g>
+    <rect x="60" y="110" width="240" height="340" rx="12" fill="#1b263b" stroke="#86efac" stroke-width="2"/>
+    <text x="180" y="140" fill="#86efac" font-size="14" font-weight="700" text-anchor="middle">NARROW AI</text>
+    <text x="180" y="158" fill="#9ca3af" font-size="10" text-anchor="middle" font-style="italic">"IA estreita"</text>
+    <text x="180" y="186" fill="#bef264" font-size="12" font-weight="600" text-anchor="middle">→ Onde estamos hoje</text>
+
+    <text x="80" y="216" fill="#fef3c7" font-size="11" font-weight="600">Características:</text>
+    <text x="80" y="236" fill="#e5e7eb" font-size="10">• Brilha em domínios específicos</text>
+    <text x="80" y="254" fill="#e5e7eb" font-size="10">• Linguagem, visão, jogos</text>
+    <text x="80" y="272" fill="#e5e7eb" font-size="10">• Falha em generalidade humana</text>
+
+    <text x="80" y="304" fill="#fef3c7" font-size="11" font-weight="600">Exemplos:</text>
+    <text x="80" y="322" fill="#e5e7eb" font-size="10">• Claude, GPT-5, Gemini</text>
+    <text x="80" y="340" fill="#e5e7eb" font-size="10">• AlphaFold, AlphaGo</text>
+    <text x="80" y="358" fill="#e5e7eb" font-size="10">• Tradução, recomendação</text>
+
+    <text x="80" y="392" fill="#fef3c7" font-size="11" font-weight="600">Limites:</text>
+    <text x="80" y="410" fill="#fca5a5" font-size="10">• Raciocínio causal robusto</text>
+    <text x="80" y="428" fill="#fca5a5" font-size="10">• Planejamento longo prazo</text>
+  </g>
+
+  <!-- AGI -->
+  <g>
+    <rect x="320" y="110" width="240" height="340" rx="12" fill="#1b263b" stroke="#fbbf24" stroke-width="2"/>
+    <text x="440" y="140" fill="#fbbf24" font-size="14" font-weight="700" text-anchor="middle">AGI</text>
+    <text x="440" y="158" fill="#9ca3af" font-size="10" text-anchor="middle" font-style="italic">"Artificial General Intelligence"</text>
+    <text x="440" y="186" fill="#fbbf24" font-size="12" font-weight="600" text-anchor="middle">→ Território disputado</text>
+
+    <text x="340" y="216" fill="#fef3c7" font-size="11" font-weight="600">Definição (uma das muitas):</text>
+    <text x="340" y="236" fill="#e5e7eb" font-size="10">• Iguala ou supera humano</text>
+    <text x="340" y="254" fill="#e5e7eb" font-size="10">• Em praticamente qualquer</text>
+    <text x="340" y="272" fill="#e5e7eb" font-size="10">• tarefa cognitiva</text>
+
+    <text x="340" y="304" fill="#fef3c7" font-size="11" font-weight="600">Previsões:</text>
+    <text x="340" y="322" fill="#e5e7eb" font-size="10">• Otimistas: antes de 2030</text>
+    <text x="340" y="340" fill="#e5e7eb" font-size="10">• Céticos: depois de 2050</text>
+    <text x="340" y="358" fill="#e5e7eb" font-size="10">• Críticos: talvez nunca</text>
+
+    <text x="340" y="392" fill="#fef3c7" font-size="11" font-weight="600">Problema:</text>
+    <text x="340" y="410" fill="#fca5a5" font-size="10">• Cada laboratório usa</text>
+    <text x="340" y="428" fill="#fca5a5" font-size="10">• definição diferente</text>
+  </g>
+
+  <!-- ASI -->
+  <g>
+    <rect x="580" y="110" width="240" height="340" rx="12" fill="#1b263b" stroke="#dc2626" stroke-width="2"/>
+    <text x="700" y="140" fill="#fca5a5" font-size="14" font-weight="700" text-anchor="middle">ASI</text>
+    <text x="700" y="158" fill="#9ca3af" font-size="10" text-anchor="middle" font-style="italic">"Artificial Superintelligence"</text>
+    <text x="700" y="186" fill="#fca5a5" font-size="12" font-weight="600" text-anchor="middle">→ Especulativo</text>
+
+    <text x="600" y="216" fill="#fef3c7" font-size="11" font-weight="600">Definição:</text>
+    <text x="600" y="236" fill="#e5e7eb" font-size="10">• Excede em muito a</text>
+    <text x="600" y="254" fill="#e5e7eb" font-size="10">• capacidade humana em</text>
+    <text x="600" y="272" fill="#e5e7eb" font-size="10">• todos os domínios</text>
+
+    <text x="600" y="304" fill="#fef3c7" font-size="11" font-weight="600">Onde mora a discussão:</text>
+    <text x="600" y="322" fill="#e5e7eb" font-size="10">• Alinhamento</text>
+    <text x="600" y="340" fill="#e5e7eb" font-size="10">• Segurança existencial</text>
+    <text x="600" y="358" fill="#e5e7eb" font-size="10">• Filosofia da mente</text>
+
+    <text x="600" y="392" fill="#fef3c7" font-size="11" font-weight="600">Posição da Anthropic:</text>
+    <text x="600" y="410" fill="#fca5a5" font-size="10">• Empresa foi fundada</text>
+    <text x="600" y="428" fill="#fca5a5" font-size="10">• exatamente sobre esse risco</text>
+  </g>
+
+  <text x="450" y="480" fill="#9ca3af" font-size="11" text-anchor="middle" font-style="italic">⚠ Use "AGI" com cautela e sempre pergunte: "AGI segundo qual definição?"</text>
+</svg>

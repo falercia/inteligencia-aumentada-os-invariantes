@@ -1,0 +1,52 @@
+<svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <rect width="900" height="520" fill="#fefce8"/>
+
+  <text x="450" y="40" fill="#0d1b2a" font-size="22" font-weight="700" text-anchor="middle">HIERARQUIA DE AUTONOMIA EM IA</text>
+  <text x="450" y="64" fill="#6b7280" font-size="13" text-anchor="middle">De chatbot passivo a sistema multiagente autônomo, em quatro níveis qualitativamente distintos</text>
+
+  <!-- Level 1: Chatbot -->
+  <g>
+    <rect x="60" y="100" width="780" height="80" rx="10" fill="#fde68a" stroke="#fb923c"/>
+    <text x="80" y="128" fill="#0d1b2a" font-size="14" font-weight="700">NÍVEL 1 — CHATBOT</text>
+    <text x="80" y="148" fill="#374151" font-size="11">Recebe pergunta → responde. Sem ferramentas, sem memória persistente, sem iniciativa.</text>
+    <text x="80" y="168" fill="#6b7280" font-size="10" font-style="italic">Exemplos: ChatGPT modo básico (2022), assistentes simples de FAQ</text>
+
+    <text x="820" y="128" fill="#fb923c" font-size="11" text-anchor="end" font-weight="700">Autonomia: 0</text>
+    <text x="820" y="148" fill="#6b7280" font-size="10" text-anchor="end">1 turno por interação</text>
+  </g>
+
+  <!-- Level 2: Assistant with tools -->
+  <g>
+    <rect x="60" y="195" width="780" height="80" rx="10" fill="#bfdbfe" stroke="#2563eb"/>
+    <text x="80" y="223" fill="#0d1b2a" font-size="14" font-weight="700">NÍVEL 2 — ASSISTENTE COM FERRAMENTAS</text>
+    <text x="80" y="243" fill="#374151" font-size="11">Chama tools (busca, cálculo, APIs) durante a resposta. Ainda reativo, sem objetivo de longo prazo.</text>
+    <text x="80" y="263" fill="#6b7280" font-size="10" font-style="italic">Exemplos: ChatGPT com plugins, Claude com tool use básico</text>
+
+    <text x="820" y="223" fill="#2563eb" font-size="11" text-anchor="end" font-weight="700">Autonomia: baixa</text>
+    <text x="820" y="243" fill="#6b7280" font-size="10" text-anchor="end">poucos turnos, escopo curto</text>
+  </g>
+
+  <!-- Level 3: Agent -->
+  <g>
+    <rect x="60" y="290" width="780" height="80" rx="10" fill="#bbf7d0" stroke="#16a34a"/>
+    <text x="80" y="318" fill="#0d1b2a" font-size="14" font-weight="700">NÍVEL 3 — AGENTE</text>
+    <text x="80" y="338" fill="#374151" font-size="11">Recebe objetivo, planeja, executa loop perceber-agir-refletir até cumprir. Decide quais tools usar e quando.</text>
+    <text x="80" y="358" fill="#6b7280" font-size="10" font-style="italic">Exemplos: Claude Code, agentes de pesquisa, Browser Agents</text>
+
+    <text x="820" y="318" fill="#16a34a" font-size="11" text-anchor="end" font-weight="700">Autonomia: alta</text>
+    <text x="820" y="338" fill="#6b7280" font-size="10" text-anchor="end">cumpre tarefa de ponta a ponta</text>
+  </g>
+
+  <!-- Level 4: Multi-agent -->
+  <g>
+    <rect x="60" y="385" width="780" height="80" rx="10" fill="#fecaca" stroke="#dc2626"/>
+    <text x="80" y="413" fill="#0d1b2a" font-size="14" font-weight="700">NÍVEL 4 — SISTEMA MULTIAGENTE</text>
+    <text x="80" y="433" fill="#374151" font-size="11">Múltiplos agentes especializados coordenados. Orquestrador delega, agentes colaboram, resultado agregado.</text>
+    <text x="80" y="453" fill="#6b7280" font-size="10" font-style="italic">Exemplos: Claude Subagents, AutoGen, AgentVerse, sistemas de pesquisa profunda</text>
+
+    <text x="820" y="413" fill="#dc2626" font-size="11" text-anchor="end" font-weight="700">Autonomia: muito alta</text>
+    <text x="820" y="433" fill="#6b7280" font-size="10" text-anchor="end">orquestração de equipe</text>
+  </g>
+
+  <text x="450" y="500" fill="#E97451" font-size="12" text-anchor="middle" font-weight="600">A maioria das aplicações corporativas de 2026 ainda está no nível 1 ou 2, sem saber. O salto para nível 3 é onde o ROI explode.</text>
+</svg>

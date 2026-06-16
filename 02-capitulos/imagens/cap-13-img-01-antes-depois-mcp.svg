@@ -1,0 +1,125 @@
+<svg viewBox="0 0 900 540" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <marker id="mcp-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+  <rect width="900" height="540" fill="#fefce8"/>
+
+  <text x="450" y="40" fill="#0d1b2a" font-size="22" font-weight="700" text-anchor="middle">O PROBLEMA QUE O MCP RESOLVE</text>
+  <text x="450" y="64" fill="#6b7280" font-size="13" text-anchor="middle">Antes do MCP, integrar IA com ferramentas era pesadelo combinatório. Depois, virou padrão.</text>
+
+  <!-- Antes -->
+  <g>
+    <text x="225" y="100" fill="#dc2626" font-size="14" font-weight="700" text-anchor="middle">ANTES DO MCP (2022-2024)</text>
+    <text x="225" y="118" fill="#6b7280" font-size="11" text-anchor="middle" font-style="italic">cada cliente × cada tool = integração custom</text>
+
+    <!-- Apps left -->
+    <rect x="60" y="150" width="100" height="36" rx="6" fill="#fde68a" stroke="#fb923c"/>
+    <text x="110" y="173" fill="#0d1b2a" font-size="11" text-anchor="middle">Claude</text>
+
+    <rect x="60" y="200" width="100" height="36" rx="6" fill="#fde68a" stroke="#fb923c"/>
+    <text x="110" y="223" fill="#0d1b2a" font-size="11" text-anchor="middle">ChatGPT</text>
+
+    <rect x="60" y="250" width="100" height="36" rx="6" fill="#fde68a" stroke="#fb923c"/>
+    <text x="110" y="273" fill="#0d1b2a" font-size="11" text-anchor="middle">Cursor</text>
+
+    <rect x="60" y="300" width="100" height="36" rx="6" fill="#fde68a" stroke="#fb923c"/>
+    <text x="110" y="323" fill="#0d1b2a" font-size="11" text-anchor="middle">Outro app</text>
+
+    <!-- Tools right -->
+    <rect x="290" y="150" width="100" height="36" rx="6" fill="#bfdbfe" stroke="#2563eb"/>
+    <text x="340" y="173" fill="#0d1b2a" font-size="11" text-anchor="middle">GitHub</text>
+
+    <rect x="290" y="200" width="100" height="36" rx="6" fill="#bfdbfe" stroke="#2563eb"/>
+    <text x="340" y="223" fill="#0d1b2a" font-size="11" text-anchor="middle">Notion</text>
+
+    <rect x="290" y="250" width="100" height="36" rx="6" fill="#bfdbfe" stroke="#2563eb"/>
+    <text x="340" y="273" fill="#0d1b2a" font-size="11" text-anchor="middle">Slack</text>
+
+    <rect x="290" y="300" width="100" height="36" rx="6" fill="#bfdbfe" stroke="#2563eb"/>
+    <text x="340" y="323" fill="#0d1b2a" font-size="11" text-anchor="middle">Drive</text>
+
+    <!-- Chaos lines (M×N) -->
+    <g stroke="#dc2626" stroke-width="1" opacity="0.5">
+      <line x1="160" y1="168" x2="290" y2="168"/>
+      <line x1="160" y1="168" x2="290" y2="218"/>
+      <line x1="160" y1="168" x2="290" y2="268"/>
+      <line x1="160" y1="168" x2="290" y2="318"/>
+      <line x1="160" y1="218" x2="290" y2="168"/>
+      <line x1="160" y1="218" x2="290" y2="218"/>
+      <line x1="160" y1="218" x2="290" y2="268"/>
+      <line x1="160" y1="218" x2="290" y2="318"/>
+      <line x1="160" y1="268" x2="290" y2="168"/>
+      <line x1="160" y1="268" x2="290" y2="218"/>
+      <line x1="160" y1="268" x2="290" y2="268"/>
+      <line x1="160" y1="268" x2="290" y2="318"/>
+      <line x1="160" y1="318" x2="290" y2="168"/>
+      <line x1="160" y1="318" x2="290" y2="218"/>
+      <line x1="160" y1="318" x2="290" y2="268"/>
+      <line x1="160" y1="318" x2="290" y2="318"/>
+    </g>
+
+    <text x="225" y="385" fill="#dc2626" font-size="13" font-weight="700" text-anchor="middle">M × N integrações</text>
+    <text x="225" y="406" fill="#374151" font-size="11" text-anchor="middle">4 clientes × 4 tools = 16 conexões</text>
+    <text x="225" y="424" fill="#374151" font-size="11" text-anchor="middle">cada uma com auth, formato e bugs próprios</text>
+    <text x="225" y="450" fill="#fca5a5" font-size="11" text-anchor="middle" font-style="italic">não escala</text>
+  </g>
+
+  <!-- Depois -->
+  <g>
+    <text x="675" y="100" fill="#16a34a" font-size="14" font-weight="700" text-anchor="middle">DEPOIS DO MCP (2025+)</text>
+    <text x="675" y="118" fill="#6b7280" font-size="11" text-anchor="middle" font-style="italic">cliente e tool falam o mesmo protocolo</text>
+
+    <!-- Apps left -->
+    <rect x="510" y="150" width="100" height="36" rx="6" fill="#fde68a" stroke="#fb923c"/>
+    <text x="560" y="173" fill="#0d1b2a" font-size="11" text-anchor="middle">Claude</text>
+
+    <rect x="510" y="200" width="100" height="36" rx="6" fill="#fde68a" stroke="#fb923c"/>
+    <text x="560" y="223" fill="#0d1b2a" font-size="11" text-anchor="middle">ChatGPT</text>
+
+    <rect x="510" y="250" width="100" height="36" rx="6" fill="#fde68a" stroke="#fb923c"/>
+    <text x="560" y="273" fill="#0d1b2a" font-size="11" text-anchor="middle">Cursor</text>
+
+    <rect x="510" y="300" width="100" height="36" rx="6" fill="#fde68a" stroke="#fb923c"/>
+    <text x="560" y="323" fill="#0d1b2a" font-size="11" text-anchor="middle">Outro app</text>
+
+    <!-- MCP layer -->
+    <rect x="640" y="170" width="80" height="170" rx="10" fill="#E97451"/>
+    <text x="680" y="220" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">MCP</text>
+    <text x="680" y="240" fill="#fef3c7" font-size="9" text-anchor="middle">protocolo</text>
+    <text x="680" y="254" fill="#fef3c7" font-size="9" text-anchor="middle">padronizado</text>
+    <text x="680" y="280" fill="#fef3c7" font-size="9" text-anchor="middle">aberto</text>
+
+    <!-- Tools right -->
+    <rect x="740" y="150" width="100" height="36" rx="6" fill="#bfdbfe" stroke="#2563eb"/>
+    <text x="790" y="173" fill="#0d1b2a" font-size="11" text-anchor="middle">GitHub</text>
+
+    <rect x="740" y="200" width="100" height="36" rx="6" fill="#bfdbfe" stroke="#2563eb"/>
+    <text x="790" y="223" fill="#0d1b2a" font-size="11" text-anchor="middle">Notion</text>
+
+    <rect x="740" y="250" width="100" height="36" rx="6" fill="#bfdbfe" stroke="#2563eb"/>
+    <text x="790" y="273" fill="#0d1b2a" font-size="11" text-anchor="middle">Slack</text>
+
+    <rect x="740" y="300" width="100" height="36" rx="6" fill="#bfdbfe" stroke="#2563eb"/>
+    <text x="790" y="323" fill="#0d1b2a" font-size="11" text-anchor="middle">Drive</text>
+
+    <!-- Clean lines -->
+    <line x1="610" y1="168" x2="640" y2="200" stroke="#16a34a" stroke-width="1.5" opacity="0.6"/>
+    <line x1="610" y1="218" x2="640" y2="230" stroke="#16a34a" stroke-width="1.5" opacity="0.6"/>
+    <line x1="610" y1="268" x2="640" y2="260" stroke="#16a34a" stroke-width="1.5" opacity="0.6"/>
+    <line x1="610" y1="318" x2="640" y2="290" stroke="#16a34a" stroke-width="1.5" opacity="0.6"/>
+
+    <line x1="720" y1="200" x2="740" y2="168" stroke="#16a34a" stroke-width="1.5" opacity="0.6"/>
+    <line x1="720" y1="230" x2="740" y2="218" stroke="#16a34a" stroke-width="1.5" opacity="0.6"/>
+    <line x1="720" y1="260" x2="740" y2="268" stroke="#16a34a" stroke-width="1.5" opacity="0.6"/>
+    <line x1="720" y1="290" x2="740" y2="318" stroke="#16a34a" stroke-width="1.5" opacity="0.6"/>
+
+    <text x="675" y="385" fill="#16a34a" font-size="13" font-weight="700" text-anchor="middle">M + N integrações</text>
+    <text x="675" y="406" fill="#374151" font-size="11" text-anchor="middle">cada lado fala MCP uma vez</text>
+    <text x="675" y="424" fill="#374151" font-size="11" text-anchor="middle">conecta com qualquer outro lado</text>
+    <text x="675" y="450" fill="#16a34a" font-size="11" text-anchor="middle" font-style="italic">escala linear</text>
+  </g>
+
+  <text x="450" y="510" fill="#E97451" font-size="12" text-anchor="middle" font-weight="700">É o "USB-C da IA". Anunciado pela Anthropic em novembro de 2024, adotado por OpenAI e Google em 2025.</text>
+</svg>

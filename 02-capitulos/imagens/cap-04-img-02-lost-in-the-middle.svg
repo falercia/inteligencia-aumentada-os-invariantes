@@ -1,0 +1,62 @@
+<svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <rect width="900" height="480" fill="#0d1b2a"/>
+
+  <text x="450" y="40" fill="#fef3c7" font-size="22" font-weight="700" text-anchor="middle">LOST IN THE MIDDLE</text>
+  <text x="450" y="64" fill="#9ca3af" font-size="13" text-anchor="middle">A informação no meio da janela é a menos lembrada pelo modelo</text>
+
+  <!-- Chart axes -->
+  <line x1="100" y1="380" x2="820" y2="380" stroke="#9ca3af" stroke-width="1.5"/>
+  <line x1="100" y1="120" x2="100" y2="380" stroke="#9ca3af" stroke-width="1.5"/>
+
+  <!-- Y axis labels -->
+  <text x="92" y="125" fill="#9ca3af" font-size="11" text-anchor="end">100%</text>
+  <text x="92" y="190" fill="#9ca3af" font-size="11" text-anchor="end">75%</text>
+  <text x="92" y="255" fill="#9ca3af" font-size="11" text-anchor="end">50%</text>
+  <text x="92" y="320" fill="#9ca3af" font-size="11" text-anchor="end">25%</text>
+  <text x="92" y="385" fill="#9ca3af" font-size="11" text-anchor="end">0%</text>
+
+  <!-- X axis labels -->
+  <text x="120" y="402" fill="#9ca3af" font-size="11" text-anchor="middle">início</text>
+  <text x="280" y="402" fill="#9ca3af" font-size="11" text-anchor="middle">25%</text>
+  <text x="460" y="402" fill="#9ca3af" font-size="11" text-anchor="middle">meio</text>
+  <text x="640" y="402" fill="#9ca3af" font-size="11" text-anchor="middle">75%</text>
+  <text x="800" y="402" fill="#9ca3af" font-size="11" text-anchor="middle">fim</text>
+
+  <text x="460" y="430" fill="#fef3c7" font-size="12" text-anchor="middle">Posição da informação relevante dentro da janela</text>
+
+  <text x="40" y="250" fill="#fef3c7" font-size="12" transform="rotate(-90, 40, 250)" text-anchor="middle">Taxa de recuperação correta</text>
+
+  <!-- Grid lines -->
+  <g stroke="#374151" stroke-width="0.5" opacity="0.5">
+    <line x1="100" y1="190" x2="820" y2="190"/>
+    <line x1="100" y1="255" x2="820" y2="255"/>
+    <line x1="100" y1="320" x2="820" y2="320"/>
+  </g>
+
+  <!-- The U curve -->
+  <path d="M 120 140 C 180 150, 250 280, 460 310 C 670 280, 740 150, 800 140" stroke="#E97451" stroke-width="3" fill="none"/>
+
+  <!-- Points on curve -->
+  <circle cx="120" cy="140" r="6" fill="#E97451"/>
+  <text x="120" y="100" fill="#fef3c7" font-size="11" font-weight="700" text-anchor="middle">95%</text>
+
+  <circle cx="280" cy="220" r="6" fill="#fbbf24"/>
+  <text x="280" y="200" fill="#fef3c7" font-size="11" text-anchor="middle">75%</text>
+
+  <circle cx="460" cy="312" r="7" fill="#dc2626"/>
+  <text x="460" y="340" fill="#fca5a5" font-size="11" font-weight="700" text-anchor="middle">42% ← ZONA DE PERDA</text>
+
+  <circle cx="640" cy="220" r="6" fill="#fbbf24"/>
+  <text x="640" y="200" fill="#fef3c7" font-size="11" text-anchor="middle">78%</text>
+
+  <circle cx="800" cy="140" r="6" fill="#E97451"/>
+  <text x="800" y="100" fill="#fef3c7" font-size="11" font-weight="700" text-anchor="middle">93%</text>
+
+  <!-- Insight callout -->
+  <rect x="540" y="120" width="280" height="60" rx="8" fill="#1b263b" stroke="#fbbf24"/>
+  <text x="680" y="142" fill="#fbbf24" font-size="11" font-weight="700" text-anchor="middle">INSIGHT PRÁTICO</text>
+  <text x="680" y="161" fill="#fef3c7" font-size="10" text-anchor="middle">Coloque o que é crítico no início</text>
+  <text x="680" y="175" fill="#fef3c7" font-size="10" text-anchor="middle">ou no fim, nunca no meio</text>
+
+  <text x="450" y="464" fill="#9ca3af" font-size="11" text-anchor="middle" font-style="italic">Fonte: Liu et al. (2023) — "Lost in the Middle" · Stanford NLP</text>
+</svg>

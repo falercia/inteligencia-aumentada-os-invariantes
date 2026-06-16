@@ -1,0 +1,58 @@
+<svg viewBox="0 0 900 540" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <rect width="900" height="540" fill="#0d1b2a"/>
+
+  <text x="450" y="40" fill="#fef3c7" font-size="22" font-weight="700" text-anchor="middle">A HIERARQUIA DO CONTEXTO BEM PROJETADO</text>
+  <text x="450" y="64" fill="#9ca3af" font-size="13" text-anchor="middle">Cada camada tem características próprias e merece tratamento diferente em custo e atualização</text>
+
+  <!-- Layer 1: System (most stable) -->
+  <g>
+    <rect x="80" y="100" width="740" height="70" rx="8" fill="#1b263b" stroke="#86efac" stroke-width="2"/>
+    <text x="100" y="124" fill="#86efac" font-size="13" font-weight="700">1. SYSTEM / IDENTIDADE</text>
+    <text x="100" y="144" fill="#9ca3af" font-size="11">"Você é um analista financeiro sênior..." · regras de comportamento, tom, persona</text>
+    <text x="800" y="124" fill="#fef3c7" font-size="11" text-anchor="end" font-weight="600">muda raramente</text>
+    <text x="800" y="144" fill="#86efac" font-size="11" text-anchor="end">100% cacheável</text>
+    <text x="800" y="160" fill="#86efac" font-size="10" text-anchor="end" font-style="italic">~2.000 tokens</text>
+  </g>
+
+  <!-- Layer 2: Knowledge base (semi-stable) -->
+  <g>
+    <rect x="80" y="180" width="740" height="70" rx="8" fill="#1b263b" stroke="#fbbf24" stroke-width="2"/>
+    <text x="100" y="204" fill="#fbbf24" font-size="13" font-weight="700">2. KNOWLEDGE BASE / DOMÍNIO</text>
+    <text x="100" y="224" fill="#9ca3af" font-size="11">manuais, políticas, padrões internos · conhecimento estável da organização</text>
+    <text x="800" y="204" fill="#fef3c7" font-size="11" text-anchor="end" font-weight="600">muda mensalmente</text>
+    <text x="800" y="224" fill="#fbbf24" font-size="11" text-anchor="end">cacheável</text>
+    <text x="800" y="240" fill="#fbbf24" font-size="10" text-anchor="end" font-style="italic">~4.000 tokens</text>
+  </g>
+
+  <!-- Layer 3: RAG (dynamic) -->
+  <g>
+    <rect x="80" y="260" width="740" height="70" rx="8" fill="#1b263b" stroke="#fb923c" stroke-width="2"/>
+    <text x="100" y="284" fill="#fb923c" font-size="13" font-weight="700">3. RAG / DOCUMENTOS RELEVANTES</text>
+    <text x="100" y="304" fill="#9ca3af" font-size="11">trechos recuperados por similaridade · varia a cada consulta</text>
+    <text x="800" y="284" fill="#fef3c7" font-size="11" text-anchor="end" font-weight="600">muda a cada query</text>
+    <text x="800" y="304" fill="#fb923c" font-size="11" text-anchor="end">não cacheável</text>
+    <text x="800" y="320" fill="#fb923c" font-size="10" text-anchor="end" font-style="italic">~3.000 tokens</text>
+  </g>
+
+  <!-- Layer 4: User context (per session) -->
+  <g>
+    <rect x="80" y="340" width="740" height="70" rx="8" fill="#1b263b" stroke="#fdba74" stroke-width="2"/>
+    <text x="100" y="364" fill="#fdba74" font-size="13" font-weight="700">4. SESSION / HISTÓRICO DA CONVERSA</text>
+    <text x="100" y="384" fill="#9ca3af" font-size="11">turnos anteriores · contexto conversacional acumulado</text>
+    <text x="800" y="364" fill="#fef3c7" font-size="11" text-anchor="end" font-weight="600">cresce na sessão</text>
+    <text x="800" y="384" fill="#fdba74" font-size="11" text-anchor="end">parcialmente cacheável</text>
+    <text x="800" y="400" fill="#fdba74" font-size="10" text-anchor="end" font-style="italic">~variável</text>
+  </g>
+
+  <!-- Layer 5: Query (most volatile) -->
+  <g>
+    <rect x="80" y="420" width="740" height="70" rx="8" fill="#E97451" stroke="#fef3c7" stroke-width="2"/>
+    <text x="100" y="444" fill="#fef3c7" font-size="13" font-weight="700">5. QUERY / PERGUNTA ATUAL</text>
+    <text x="100" y="464" fill="#fef3c7" font-size="11">a mensagem específica do usuário · o gatilho da resposta</text>
+    <text x="800" y="444" fill="#fef3c7" font-size="11" text-anchor="end" font-weight="600">muda sempre</text>
+    <text x="800" y="464" fill="#fef3c7" font-size="11" text-anchor="end">nunca cacheável</text>
+    <text x="800" y="480" fill="#fef3c7" font-size="10" text-anchor="end" font-style="italic">~300 tokens</text>
+  </g>
+
+  <text x="450" y="520" fill="#9ca3af" font-size="11" text-anchor="middle" font-style="italic">Quanto mais alto na pilha, mais estável e mais cacheável. Tratar tudo igual é desperdiçar 70% do potencial de economia.</text>
+</svg>

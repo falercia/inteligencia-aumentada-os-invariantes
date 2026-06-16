@@ -1,0 +1,52 @@
+<svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <rect width="900" height="560" fill="#fefce8"/>
+
+  <text x="450" y="40" fill="#0d1b2a" font-size="22" font-weight="700" text-anchor="middle">ANATOMIA DE UM PROMPT PROFISSIONAL</text>
+  <text x="450" y="64" fill="#6b7280" font-size="13" text-anchor="middle">Cada bloco tem função específica, e cada decisão de posicionamento afeta a qualidade da resposta</text>
+
+  <!-- Block 1: Role / System -->
+  <g>
+    <rect x="60" y="100" width="780" height="60" rx="8" fill="#1f2937"/>
+    <text x="80" y="124" fill="#fbbf24" font-size="12" font-weight="700">1. PAPEL / SISTEMA</text>
+    <text x="80" y="144" fill="#e5e7eb" font-size="12" font-style="italic">"Você é um analista financeiro sênior, especializado em mercados emergentes, com tom executivo."</text>
+    <text x="820" y="144" fill="#9ca3af" font-size="10" text-anchor="end">define identidade</text>
+  </g>
+
+  <!-- Block 2: Context -->
+  <g>
+    <rect x="60" y="170" width="780" height="80" rx="8" fill="#fde68a" stroke="#fb923c"/>
+    <text x="80" y="194" fill="#0d1b2a" font-size="12" font-weight="700">2. CONTEXTO / BACKGROUND</text>
+    <text x="80" y="214" fill="#374151" font-size="11">"A empresa X é uma fintech brasileira com receita de R$ 200M/ano, operando há 7 anos,</text>
+    <text x="80" y="230" fill="#374151" font-size="11">considera entrar no mercado mexicano. Documentos relevantes: [...]"</text>
+    <text x="820" y="240" fill="#6b7280" font-size="10" text-anchor="end">situa o problema</text>
+  </g>
+
+  <!-- Block 3: Examples (Few-shot) -->
+  <g>
+    <rect x="60" y="260" width="780" height="100" rx="8" fill="#bbf7d0" stroke="#16a34a"/>
+    <text x="80" y="284" fill="#0d1b2a" font-size="12" font-weight="700">3. EXEMPLOS (FEW-SHOT)</text>
+    <text x="80" y="306" fill="#374151" font-size="11">Exemplo 1: [pergunta] → [resposta no formato desejado]</text>
+    <text x="80" y="324" fill="#374151" font-size="11">Exemplo 2: [pergunta] → [resposta no formato desejado]</text>
+    <text x="80" y="342" fill="#374151" font-size="11">Exemplo 3: [pergunta] → [resposta no formato desejado]</text>
+    <text x="820" y="352" fill="#6b7280" font-size="10" text-anchor="end">calibra padrão</text>
+  </g>
+
+  <!-- Block 4: Task -->
+  <g>
+    <rect x="60" y="370" width="780" height="60" rx="8" fill="#bfdbfe" stroke="#2563eb"/>
+    <text x="80" y="394" fill="#0d1b2a" font-size="12" font-weight="700">4. TAREFA / INSTRUÇÃO ESPECÍFICA</text>
+    <text x="80" y="414" fill="#374151" font-size="11" font-style="italic">"Analise os 3 cenários de entrada e recomende uma estratégia, justificando trade-offs."</text>
+    <text x="820" y="414" fill="#6b7280" font-size="10" text-anchor="end">o que fazer</text>
+  </g>
+
+  <!-- Block 5: Format -->
+  <g>
+    <rect x="60" y="440" width="780" height="60" rx="8" fill="#fecaca" stroke="#dc2626"/>
+    <text x="80" y="464" fill="#0d1b2a" font-size="12" font-weight="700">5. FORMATO ESPERADO DA RESPOSTA</text>
+    <text x="80" y="484" fill="#374151" font-size="11" font-style="italic">"Responda em JSON com campos: recomendacao, justificativa, riscos, proximos_passos."</text>
+    <text x="820" y="484" fill="#6b7280" font-size="10" text-anchor="end">forma da saída</text>
+  </g>
+
+  <!-- Insight -->
+  <text x="450" y="535" fill="#E97451" font-size="12" text-anchor="middle" font-weight="600">REGRA DE OURO: papel + contexto vão no início, tarefa específica e formato vão no fim. Lost in the Middle não perdoa.</text>
+</svg>

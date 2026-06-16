@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="Inter, system-ui, sans-serif">
+  <title>Quadrante LLM-as-judge: quando confiar / quando duvidar</title>
+  <desc>Matriz 2x2 com especificidade da rubrica no eixo X e risco da decisão no eixo Y. Cada quadrante com decisão clara.</desc>
+
+  <rect width="900" height="620" fill="#fefce8"/>
+
+  <text x="450" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#0d1b2a">LLM-AS-JUDGE — QUANDO CONFIAR, QUANDO DUVIDAR</text>
+  <text x="450" y="64" text-anchor="middle" font-size="12" font-style="italic" fill="#6b7280">Quadrante de decisão pela especificidade da rubrica e pelo risco da decisão</text>
+
+  <!-- Área do quadrante: 200 a 800 em x, 120 a 520 em y -->
+  <!-- Eixos -->
+  <line x1="200" y1="120" x2="200" y2="520" stroke="#0d1b2a" stroke-width="2"/>
+  <line x1="200" y1="520" x2="800" y2="520" stroke="#0d1b2a" stroke-width="2"/>
+
+  <!-- Setas dos eixos -->
+  <polygon points="200,108 195,118 205,118" fill="#0d1b2a"/>
+  <polygon points="812,520 802,515 802,525" fill="#0d1b2a"/>
+
+  <!-- Rótulos dos eixos -->
+  <text x="500" y="556" text-anchor="middle" font-size="13" font-weight="700" fill="#0d1b2a">ESPECIFICIDADE DA RUBRICA →</text>
+  <g transform="translate(176,320) rotate(-90)">
+    <text x="0" y="0" text-anchor="middle" font-size="13" font-weight="700" fill="#0d1b2a">RISCO DA DECISÃO →</text>
+  </g>
+
+  <!-- Marcadores nos extremos -->
+  <text x="280" y="540" text-anchor="middle" font-size="11" fill="#6b7280">vaga</text>
+  <text x="720" y="540" text-anchor="middle" font-size="11" fill="#6b7280">muito específica</text>
+  <g transform="translate(188,460) rotate(-90)">
+    <text x="0" y="0" text-anchor="middle" font-size="11" fill="#6b7280">baixo</text>
+  </g>
+  <g transform="translate(188,180) rotate(-90)">
+    <text x="0" y="0" text-anchor="middle" font-size="11" fill="#6b7280">alto</text>
+  </g>
+
+  <!-- Linhas divisórias do quadrante -->
+  <line x1="500" y1="120" x2="500" y2="520" stroke="#9ca3af" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="200" y1="320" x2="800" y2="320" stroke="#9ca3af" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Quadrante superior esquerdo: alto risco + rubrica vaga -->
+  <g>
+    <rect x="210" y="130" width="280" height="180" rx="10" fill="#fca5a5" fill-opacity="0.85" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="350" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#0d1b2a">EXIGIR HUMANO</text>
+    <text x="350" y="200" text-anchor="middle" font-size="10" fill="#0d1b2a">Rubrica vaga + alto risco =</text>
+    <text x="350" y="216" text-anchor="middle" font-size="10" fill="#0d1b2a">LLM-as-judge fabrica falsa</text>
+    <text x="350" y="232" text-anchor="middle" font-size="10" fill="#0d1b2a">segurança institucional</text>
+    <text x="350" y="262" text-anchor="middle" font-size="10" font-weight="700" fill="#0d1b2a">Não use LLM-as-judge</text>
+    <text x="350" y="278" text-anchor="middle" font-size="10" fill="#0d1b2a">como decisor único aqui</text>
+    <text x="350" y="298" text-anchor="middle" font-size="9" font-style="italic" fill="#0d1b2a">Ex: parecer jurídico de DD</text>
+  </g>
+
+  <!-- Quadrante superior direito: alto risco + rubrica específica -->
+  <g>
+    <rect x="510" y="130" width="280" height="180" rx="10" fill="#fbbf24" fill-opacity="0.85" stroke="#D97706" stroke-width="1.5"/>
+    <text x="650" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#0d1b2a">CALIBRADO + ENSEMBLE</text>
+    <text x="650" y="200" text-anchor="middle" font-size="10" fill="#0d1b2a">Rubrica específica + alto risco =</text>
+    <text x="650" y="216" text-anchor="middle" font-size="10" fill="#0d1b2a">LLM-as-judge com calibração</text>
+    <text x="650" y="232" text-anchor="middle" font-size="10" fill="#0d1b2a">contra humano e auditoria</text>
+    <text x="650" y="262" text-anchor="middle" font-size="10" font-weight="700" fill="#0d1b2a">Ensemble de juízes,</text>
+    <text x="650" y="278" text-anchor="middle" font-size="10" fill="#0d1b2a">amostra revisada por humano</text>
+    <text x="650" y="298" text-anchor="middle" font-size="9" font-style="italic" fill="#0d1b2a">Ex: extração de cláusula M&amp;A</text>
+  </g>
+
+  <!-- Quadrante inferior esquerdo: baixo risco + rubrica vaga -->
+  <g>
+    <rect x="210" y="330" width="280" height="180" rx="10" fill="#9ca3af" fill-opacity="0.4" stroke="#6b7280" stroke-width="1.5"/>
+    <text x="350" y="370" text-anchor="middle" font-size="14" font-weight="700" fill="#0d1b2a">ACEITAR COM REVISÃO</text>
+    <text x="350" y="386" text-anchor="middle" font-size="14" font-weight="700" fill="#0d1b2a">AMOSTRAL</text>
+    <text x="350" y="416" text-anchor="middle" font-size="10" fill="#0d1b2a">Rubrica vaga + baixo risco =</text>
+    <text x="350" y="432" text-anchor="middle" font-size="10" fill="#0d1b2a">aceitável, mas amostra</text>
+    <text x="350" y="448" text-anchor="middle" font-size="10" fill="#0d1b2a">revisada periodicamente</text>
+    <text x="350" y="478" text-anchor="middle" font-size="10" font-weight="700" fill="#0d1b2a">Auditoria 10-20%</text>
+    <text x="350" y="498" text-anchor="middle" font-size="9" font-style="italic" fill="#0d1b2a">Ex: classificação de tema</text>
+  </g>
+
+  <!-- Quadrante inferior direito: baixo risco + rubrica específica -->
+  <g>
+    <rect x="510" y="330" width="280" height="180" rx="10" fill="#86efac" fill-opacity="0.75" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="650" y="370" text-anchor="middle" font-size="14" font-weight="700" fill="#0d1b2a">LLM-AS-JUDGE</text>
+    <text x="650" y="386" text-anchor="middle" font-size="14" font-weight="700" fill="#0d1b2a">ISOLADO SERVE</text>
+    <text x="650" y="416" text-anchor="middle" font-size="10" fill="#0d1b2a">Rubrica específica + baixo risco</text>
+    <text x="650" y="432" text-anchor="middle" font-size="10" fill="#0d1b2a">= confiar no LLM-as-judge,</text>
+    <text x="650" y="448" text-anchor="middle" font-size="10" fill="#0d1b2a">manter calibração</text>
+    <text x="650" y="478" text-anchor="middle" font-size="10" font-weight="700" fill="#0d1b2a">Re-calibração mensal</text>
+    <text x="650" y="498" text-anchor="middle" font-size="9" font-style="italic" fill="#0d1b2a">Ex: schema validation</text>
+  </g>
+
+  <!-- Regras estruturais embaixo -->
+  <g transform="translate(50,560)">
+    <rect width="800" height="40" rx="6" fill="#0d1b2a"/>
+    <text x="400" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">REGRA ESTRUTURAL — Juiz ≠ gerador · calibração ≥ 30 itens · correlação ≥ 0,7 vs humano</text>
+  </g>
+</svg>

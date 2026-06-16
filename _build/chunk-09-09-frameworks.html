@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Inteligência Aumentada</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Inteligência Aumentada</h1>
+</header>
+<div class="page-break">
+
+</div>
+<h1 id="framework-f1-decid-ia">FRAMEWORK F1 — DECID-IA</h1>
+<h2 id="decisão-de-adoção-de-ia-por-iniciativa">Decisão de adoção de IA por iniciativa</h2>
+<hr />
+<blockquote>
+<p>🧭 <strong>Invariante-mãe:</strong> <strong>Invariante 9 — Operador</strong> — <em>“A IA multiplica competência e incompetência pelo mesmo fator.”</em> Invariante secundário: <strong>Inv. 8 — Responsabilidade Indelegável</strong> (toda iniciativa tem cadeira humana). Capítulo-âncora: <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C34-executivos.md">Cap 34 (L2) — Claude para Executivos</a> + <a href="../02-capitulos/L1-C44-roadmap-pessoal.md">Cap 44 — Roadmap pessoal e organizacional</a>.</p>
+</blockquote>
+<hr />
+<h2 id="objetivo">1. OBJETIVO</h2>
+<p>Decidir, em até 30 minutos, se uma iniciativa específica deve usar IA, com qual nível de autonomia, e quem é o dono. Sai com cinco respostas duras e um plano mínimo, ou sai com a recusa documentada da iniciativa por critério explícito.</p>
+<h2 id="funcionamento">2. FUNCIONAMENTO</h2>
+<p>Cinco perguntas em ordem rígida. Sair em qualquer uma delas com resposta vaga interrompe o framework: ou se torna específica, ou a iniciativa não passa.</p>
+<h3 id="pergunta-1-tarefa">Pergunta 1 — Tarefa</h3>
+<p><em>“O que exatamente a IA vai fazer?”</em> Verbo + objeto + critério de sucesso, em uma frase.</p>
+<p>Exemplo aceitável: “Classificar tickets de suporte em uma de cinco categorias com F1 mínimo de 0,85 contra rótulo humano”. Exemplo não aceitável: “Ajudar o time de suporte com IA”.</p>
+<h3 id="pergunta-2-operador">Pergunta 2 — Operador</h3>
+<p><em>“Quem opera, com que critério de aceitação?”</em> Pessoa nominal e regra explícita de quando aceita a saída.</p>
+<p>Se a resposta for “ninguém define” ou “o usuário decide”, a iniciativa não passa. Voltar à pergunta 1 e estreitar.</p>
+<h3 id="pergunta-3-risco">Pergunta 3 — Risco</h3>
+<p><em>“O que acontece se a saída estiver errada? Reversível ou não?”</em> Tipologia: financeiro, jurídico, reputacional, clínico, operacional. Reversibilidade em escala de quatro: totalmente reversível (idempotente), reversível com custo (compensável), parcialmente reversível, irreversível.</p>
+<h3 id="pergunta-4-linha-de-medição">Pergunta 4 — Linha de medição</h3>
+<p><em>“Como saberemos que está funcionando?”</em> Métrica primária + golden set inicial + frequência de revisão.</p>
+<p>Sem golden set planejado, a iniciativa pode passar para piloto interno mas não para produção. Inv. 7 manda.</p>
+<h3 id="pergunta-5-responsabilidade">Pergunta 5 — Responsabilidade</h3>
+<p><em>“Quem assina?”</em> Nome próprio, com cadeira específica, com competência para responder pela decisão.</p>
+<p>Sem nome, não passa. Inv. 8 manda.</p>
+<h2 id="output">3. OUTPUT</h2>
+<p>A saída do F1, em uma página, contém:</p>
+<table>
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Conteúdo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Vai / Não-vai</td>
+<td>Decisão binária com justificativa em uma frase</td>
+</tr>
+<tr class="even">
+<td>Nível de autonomia</td>
+<td>Assistente · Co-piloto · Agente supervisionado · Agente autônomo regulado (define-se via <a href="L1-F3-agente-prop.md">F3 AGENTE-PROP</a>)</td>
+</tr>
+<tr class="odd">
+<td>Plano de eval</td>
+<td>Golden set inicial, métrica primária, gate de bloqueio (via <a href="L1-F8-eval-piramide.md">F8 EVAL-PIRÂMIDE</a>)</td>
+</tr>
+<tr class="even">
+<td>Dono nominal</td>
+<td>Nome + cadeira + cláusula de accountability</td>
+</tr>
+<tr class="odd">
+<td>Revisão programada</td>
+<td>Quando o framework volta a rodar para reavaliar</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exemplo-de-uso">4. EXEMPLO DE USO</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pergunta</th>
+<th>Resposta concreta</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 — Tarefa</td>
+<td>Triar currículos em “candidato com fit &gt; 0,7 contra rubrica do hiring manager” (NÃO decisão de contratação)</td>
+</tr>
+<tr class="even">
+<td>2 — Operador</td>
+<td>Recrutador sênior + hiring manager; aceitação se humano revisa top-15 antes de contato</td>
+</tr>
+<tr class="odd">
+<td>3 — Risco</td>
+<td>Reputacional alto (alegação de discriminação); irreversível em reputação; reversível em decisão</td>
+</tr>
+<tr class="even">
+<td>4 — Linha de medição</td>
+<td>Golden set de 400 currículos com gabarito de sêniores; viés ≤2% em adversarial de variantes equivalentes; revisão trimestral</td>
+</tr>
+<tr class="odd">
+<td>5 — Responsabilidade</td>
+<td>Diretor de RH + DPO assinam Caderno de Governança da iniciativa</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Decisão:</strong> vai como <strong>assistente</strong> (humano decide sempre), nunca como decisor único. Eval comportamental mensal (Cap 41). Auditoria de viés trimestral (Cap 42). Política de transparência com candidato.</p>
+<h2 id="anti-padrões">5. ANTI-PADRÕES</h2>
+<table>
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Anti-padrão</th>
+<th>Por que mata</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pular a pergunta 2 (operador)</td>
+<td>Iniciativa fica sem dono operacional; falha quando precisa iterar</td>
+</tr>
+<tr class="even">
+<td>Pular a pergunta 5 (responsabilidade)</td>
+<td>Falha jurídica e institucional quando der ruim</td>
+</tr>
+<tr class="odd">
+<td>Aceitar “depois a gente decide isso” em qualquer pergunta</td>
+<td>Toda dúvida adiada vira incidente</td>
+</tr>
+<tr class="even">
+<td>Aplicar o framework retroativamente, em iniciativa já em produção, sem corrigir buracos</td>
+<td>Vira teatro de processo</td>
+</tr>
+</tbody>
+</table>
+<h2 id="conexões">6. CONEXÕES</h2>
+<ul>
+<li>🔗 <a href="../01-manifesto/L1-C00M-manifesto-invariantes.md">Manifesto dos Invariantes</a></li>
+<li>🔗 <a href="../02-capitulos/L1-C39-evals.md">Cap 39 — Evals</a> (linha de medição da Pergunta 4)</li>
+<li>🔗 <a href="../02-capitulos/L1-C40-llmops.md">Cap 40 — LLMOps</a> (nível de autonomia da Pergunta 3)</li>
+<li>🔗 <a href="../02-capitulos/L1-C42-governanca.md">Cap 42 — Governança</a> (responsabilidade nominal da Pergunta 5)</li>
+<li>🔗 <a href="L1-F3-agente-prop.md">F3 — AGENTE-PROP</a> (decide o nível de autonomia)</li>
+<li>🔗 <a href="L1-F6-gov-indelegavel.md">F6 — GOV-INDELEGÁVEL</a> (governança da iniciativa)</li>
+<li>🔗 <a href="L1-F8-eval-piramide.md">F8 — EVAL-PIRÂMIDE</a> (plano de eval da iniciativa)</li>
+</ul>
+<hr />
+<blockquote>
+<p><em>“Vai ou não-vai não é palpite, é resposta a cinco perguntas duras. Quem pula uma delas paga depois.”</em></p>
+</blockquote>
+<div class="page-break">
+
+</div>
+<h1 id="framework-f2-encaixe-5">FRAMEWORK F2 — ENCAIXE-5</h1>
+<h2 id="escolha-de-modelo-por-5-eixos-de-tarefa">Escolha de modelo por 5 eixos de tarefa</h2>
+<hr />
+<blockquote>
+<p>🧭 <strong>Invariante-mãe:</strong> <strong>Invariante 4 — Encaixe</strong> — <em>“Escolha pelo padrão da tarefa, nunca pela versão da moda.”</em> Capítulo-âncora: <a href="../02-capitulos/L1-C15-comparacao-modelos.md">Cap 15 — Comparação dos principais modelos</a>. Aplicação Claude: <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C18-modelos-claude.md">Cap 18 — Modelos Claude</a>. Números correntes: <a href="../../Livro-2-Dominando-Claude/04-apendices/L2-APX-J-apendice-vivo.md">Apêndice Vivo (J)</a>.</p>
+</blockquote>
+<hr />
+<h2 id="objetivo-1">1. OBJETIVO</h2>
+<p>Decidir qual modelo usar para uma tarefa específica, sem cair em “modelo do mês”. A decisão é função do <strong>padrão da tarefa</strong> (durável), não da liderança da semana em benchmark agregado (volátil).</p>
+<h2 id="funcionamento-1">2. FUNCIONAMENTO</h2>
+<p>Pontuar a tarefa de 0 a 5 em cinco eixos canônicos, e aplicar a matriz de perfis de família. Modelo escolhido é o de <strong>melhor encaixe ponderado</strong>, não o de melhor benchmark agregado.</p>
+<h3 id="os-5-eixos">Os 5 eixos</h3>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 30%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Eixo</th>
+<th>O que pontuar</th>
+<th>Família que tende a vencer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Razão complexa</strong></td>
+<td>Tarefas com múltiplos passos, auditoria do percurso, decisão lógica encadeada</td>
+<td>Premium dos três frontier; thinking-models open</td>
+</tr>
+<tr class="even">
+<td><strong>Código</strong></td>
+<td>Edição de código real, com testes, contexto longo, refatoração</td>
+<td>Família Claude (Opus) em SWE-bench Verified, historicamente</td>
+</tr>
+<tr class="odd">
+<td><strong>Contexto longo</strong></td>
+<td>Análise de documentos extensos, bases volumosas, múltiplos arquivos</td>
+<td>Família Gemini Pro (pelo tamanho de janela típico)</td>
+</tr>
+<tr class="even">
+<td><strong>Multimodal</strong></td>
+<td>Vídeo, imagem, áudio nativos; OCR, leitura de gráfico</td>
+<td>Família Gemini Pro</td>
+</tr>
+<tr class="odd">
+<td><strong>Custo crítico</strong></td>
+<td>Volume altíssimo, margem apertada, classificação simples em produção</td>
+<td>Variantes Flash/Haiku/Mini; open source self-hosted</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mecânica-de-aplicação">Mecânica de aplicação</h3>
+<ol type="1">
+<li><strong>Pontuar a tarefa</strong> de 0 a 5 em cada eixo. Notas altas indicam que o eixo importa muito para essa tarefa.</li>
+<li><strong>Identificar o eixo dominante</strong> (maior nota). Se houver empate entre dois ou três eixos, marcar todos.</li>
+<li><strong>Consultar o Apêndice Vivo</strong> para a família corrente que lidera cada eixo dominante.</li>
+<li><strong>Escolher pelo melhor encaixe</strong>, com fallback explícito. Se o eixo dominante é “código” + “razão complexa”, o premium da família com força em ambos vence.</li>
+<li><strong>Definir critério de reavaliação</strong>: a cada seis meses, a cada lançamento de mesmo eixo, ou conforme custo cruzar limite.</li>
+</ol>
+<h2 id="output-1">3. OUTPUT</h2>
+<table>
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Conteúdo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tarefa pontuada nos 5 eixos</td>
+<td>Tabela 5×1 com notas</td>
+</tr>
+<tr class="even">
+<td>Eixo(s) dominante(s)</td>
+<td>1 a 3 eixos com nota ≥4</td>
+</tr>
+<tr class="odd">
+<td>Modelo escolhido</td>
+<td>Família + tier + variante específica (com link ao Apêndice Vivo)</td>
+</tr>
+<tr class="even">
+<td>Modelo fallback</td>
+<td>Para resiliência ou cost ceiling</td>
+</tr>
+<tr class="odd">
+<td>Critério de reavaliação</td>
+<td>Cadência e gatilho</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exemplos-de-uso">4. EXEMPLOS DE USO</h2>
+<h3 id="exemplo-a-classificação-de-e-mail-em-larga-escala-5mmês">Exemplo A — Classificação de e-mail em larga escala (5M/mês)</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Eixo</th>
+<th>Nota</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Razão complexa</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Código</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Contexto longo</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Multimodal</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Custo crítico</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p>Eixo dominante: <strong>custo crítico</strong>. Encaixe: variante pequena (Haiku-like) com prompt enxuto ou fine-tuning leve. Fallback: variante pequena de outro vendor. Reavaliação: trimestral ou quando volume mudar de magnitude.</p>
+<h3 id="exemplo-b-agente-de-engenharia-para-refatoração-de-código-legado">Exemplo B — Agente de engenharia para refatoração de código legado</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Eixo</th>
+<th>Nota</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Razão complexa</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>Código</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>Contexto longo</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>Multimodal</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Custo crítico</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>Eixos dominantes: <strong>código + razão complexa + contexto longo</strong>. Encaixe: premium da família Claude (Opus) com Claude Code. Fallback: premium concorrente para tarefas onde matemática lidera. Reavaliação: a cada release relevante; teste cego comparado em PRs reais.</p>
+<h3 id="exemplo-c-análise-de-relatório-técnico-com-gráficos-e-tabelas">Exemplo C — Análise de relatório técnico com gráficos e tabelas</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Eixo</th>
+<th>Nota</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Razão complexa</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Código</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>Contexto longo</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>Multimodal</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>Custo crítico</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>Eixos dominantes: <strong>multimodal + contexto longo</strong>. Encaixe: Gemini Pro pela liderança em multimodal e janela grande. Fallback: variante balanceada de Claude para texto + chamada multimodal específica para o anexo. Reavaliação: semestral.</p>
+<h2 id="anti-padrões-1">5. ANTI-PADRÕES</h2>
+<table>
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Anti-padrão</th>
+<th>Por que mata</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“Lançou novo, vou trocar”</td>
+<td>Migração sem teste cego na própria carga troca problema conhecido por desconhecido</td>
+</tr>
+<tr class="even">
+<td>Usar Opus para tudo “porque é o melhor”</td>
+<td>Viola Inv. 5; em meses, a fatura mostra o erro</td>
+</tr>
+<tr class="odd">
+<td>Não ter fallback</td>
+<td>Vendor outage vira incidente para o cliente final</td>
+</tr>
+<tr class="even">
+<td>Decidir por benchmark agregado</td>
+<td>Esconde força em eixo específico que importa para sua carga</td>
+</tr>
+<tr class="odd">
+<td>Reavaliar só quando “a equipe quiser”</td>
+<td>Sem cadência fixa, vira reação ao boato da semana</td>
+</tr>
+</tbody>
+</table>
+<h2 id="conexões-1">6. CONEXÕES</h2>
+<ul>
+<li>🔗 <a href="../01-manifesto/L1-C00M-manifesto-invariantes.md">Manifesto dos Invariantes</a></li>
+<li>🔗 <a href="../02-capitulos/L1-C15-comparacao-modelos.md">Cap 15 — Comparação de modelos</a></li>
+<li>🔗 <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C18-modelos-claude.md">Cap 18 — Modelos Claude (L2)</a></li>
+<li>🔗 <a href="../../Livro-2-Dominando-Claude/04-apendices/L2-APX-J-apendice-vivo.md">Apêndice Vivo (J)</a></li>
+<li>🔗 <a href="L1-F5-mcp-cobertura.md">F5 — MCP-COBERTURA</a> (decisão complementar para integração)</li>
+<li>🔗 <a href="L1-F7-composto-3t.md">F7 — COMPOSTO-3T</a> (decisão de tier como vetor de custo)</li>
+</ul>
+<hr />
+<blockquote>
+<p><em>“Padrão da tarefa não muda toda rodada. Líder da rodada muda toda rodada. Decida pelo que dura.”</em></p>
+</blockquote>
+<div class="page-break">
+
+</div>
+<h1 id="framework-f3-agente-prop">FRAMEWORK F3 — AGENTE-PROP</h1>
+<h2 id="arquitetura-de-agentes-por-autonomia-proporcional">Arquitetura de agentes por autonomia proporcional</h2>
+<hr />
+<blockquote>
+<p>🧭 <strong>Invariante-mãe:</strong> <strong>Invariante 6 — Autonomia Proporcional</strong> — <em>“Só dê ao agente a autonomia que você consegue medir e desfazer.”</em> Capítulo-âncora conceitual: <a href="../02-capitulos/L1-C12-agentes.md">Cap 12 — Agentes de IA</a>. Capítulo-âncora operacional: <a href="../02-capitulos/L1-C40-llmops.md">Cap 40 — LLMOps</a>. Aplicação Claude: <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C24-claude-code.md">Cap 24 Claude Code</a>, <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C32-subagents-workflows.md">Cap 32 Subagents</a>.</p>
+</blockquote>
+<hr />
+<h2 id="objetivo-2">1. OBJETIVO</h2>
+<p>Decidir o nível de autonomia que um agente pode receber, em função direta de duas capacidades operacionais: <strong>rastrear</strong> (observabilidade) e <strong>reverter</strong> (rollback). Garantir que autonomia delegada nunca exceda a proporção que o time consegue medir e desfazer.</p>
+<h2 id="funcionamento-2">2. FUNCIONAMENTO</h2>
+<p>Matriz 4×4 cruzando observabilidade × reversibilidade. O quadrante de encontro determina o nível máximo de autonomia permitido na iniciativa.</p>
+<h3 id="eixos-da-matriz">Eixos da matriz</h3>
+<p><strong>Eixo X — Observabilidade disponível:</strong> 1. Nenhuma (só log de erro) 2. Logs estruturados de input/output 3. Tracing por span (input, output, latência, tokens, custo por passo) 4. Tracing + replay (capacidade de reproduzir a execução completa)</p>
+<p><strong>Eixo Y — Reversibilidade da ação:</strong> 1. Nenhuma (irreversível — envio externo, comunicação a cliente, transação financeira) 2. Compensável (existe ação de desfazer com custo) 3. Totalmente reversível (rollback automático, idempotente) 4. Sem efeito externo (só leitura, simulação)</p>
+<h3 id="os-4-níveis-canônicos-de-autonomia">Os 4 níveis canônicos de autonomia</h3>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 33%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Nível</th>
+<th>Quando aplicar</th>
+<th>Tipo de ação permitida</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Assistente</strong></td>
+<td>Observabilidade 1-2 OU reversibilidade 1 sem rollback</td>
+<td>Gera proposta; humano executa</td>
+</tr>
+<tr class="even">
+<td><strong>Co-piloto</strong></td>
+<td>Observabilidade 2-3 + reversibilidade 2</td>
+<td>Executa com confirmação a cada passo crítico</td>
+</tr>
+<tr class="odd">
+<td><strong>Agente supervisionado</strong></td>
+<td>Observabilidade 3 + reversibilidade 3 + humano monitora trace em tempo real</td>
+<td>Executa em lote; humano interrompe se algo errado</td>
+</tr>
+<tr class="even">
+<td><strong>Agente autônomo regulado</strong></td>
+<td>Observabilidade 4 + reversibilidade 3-4 + eval online + kill switch testado</td>
+<td>Executa em produção sem supervisão direta, com gates de promoção</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gates-de-promoção-entre-níveis">Gates de promoção entre níveis</h3>
+<p>Promoção entre níveis exige: 1. <strong>Métrica de qualidade</strong> estável por N dias (N depende da carga; tipicamente 14-30 dias) 2. <strong>Zero incidentes</strong> SEV-1 ou SEV-2 no período 3. <strong>Custo composto</strong> dentro do envelope acordado 4. <strong>Aprovação nominal</strong> do dono operacional (Inv. 8) 5. <strong>Plano de rollback</strong> testado no nível em questão</p>
+<p>Rebaixamento é automático: incidente SEV-1 ou SEV-2 desativa promoção até nova análise.</p>
+<h2 id="output-2">3. OUTPUT</h2>
+<table>
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Conteúdo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nível atual autorizado</td>
+<td>Assistente / Co-piloto / Supervisionado / Autônomo regulado</td>
+</tr>
+<tr class="even">
+<td>Tools permitidas no nível</td>
+<td>Lista com permissões (read-only, write com confirmação, write livre)</td>
+</tr>
+<tr class="odd">
+<td>Gates de promoção</td>
+<td>Condições explícitas e mensuráveis para subir de nível</td>
+</tr>
+<tr class="even">
+<td>Critérios de rebaixamento</td>
+<td>Triggers que retornam o agente a nível anterior</td>
+</tr>
+<tr class="odd">
+<td>Kill switch</td>
+<td>Quem aciona, em quantos segundos, e como testar</td>
+</tr>
+<tr class="even">
+<td>Plano de rollback</td>
+<td>Estado anterior em hot standby; teste mensal documentado</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exemplo-de-uso-1">4. EXEMPLO DE USO</h2>
+<p><strong>Caso:</strong> agente que envia e-mail externo de boas-vindas em onboarding de cliente B2B.</p>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimensão</th>
+<th>Avaliação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Observabilidade</td>
+<td>Tracing por span existe (3); replay não</td>
+</tr>
+<tr class="even">
+<td>Reversibilidade da ação</td>
+<td>Compensável (e-mail de apologia, escalonamento humano) — nível 2</td>
+</tr>
+<tr class="odd">
+<td>Quadrante de encontro</td>
+<td>Observabilidade 3 + reversibilidade 2 → <strong>Co-piloto</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Decisão inicial:</strong> agente opera como co-piloto, com confirmação humana a cada e-mail antes do envio nos primeiros 30 dias.</p>
+<p><strong>Gates de promoção a agente supervisionado:</strong> zero reclamação de cliente em 30 dias, taxa de aprovação humana &gt;95%, eval comportamental sem regressão. Após promoção, humano monitora trace em dashboard mas não confirma cada envio.</p>
+<p><strong>Gate de promoção a agente autônomo regulado:</strong> após mais 60 dias de operação supervisionada sem incidente, implementação de replay completo (atinge observabilidade 4), kill switch testado em simulado mensal.</p>
+<p><strong>Kill switch:</strong> desliga via feature flag em ≤30 segundos. Testado mensalmente em staging com rollback simulado. Dono: VP de Customer Success.</p>
+<h2 id="anti-padrões-2">5. ANTI-PADRÕES</h2>
+<table>
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Anti-padrão</th>
+<th>Por que mata</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Agente autônomo com escrita em produção sem tracing</td>
+<td>Passivo, não ativo; incidente vira investigação de semanas</td>
+</tr>
+<tr class="even">
+<td>“A IA é boa, podemos confiar” como justificativa de pular níveis</td>
+<td>Quando ela falhar (e vai), não há observabilidade para reconstruir</td>
+</tr>
+<tr class="odd">
+<td>Kill switch teórico (existe no roadmap, nunca foi testado)</td>
+<td>Na hora do incidente, descobre-se que não funciona</td>
+</tr>
+<tr class="even">
+<td>Rollback documentado, nunca exercitado</td>
+<td>Rollback que não é testado, na hora não funciona</td>
+</tr>
+<tr class="odd">
+<td>Tratar todos os agentes da empresa no mesmo nível</td>
+<td>Ignora variação real de risco entre casos de uso</td>
+</tr>
+</tbody>
+</table>
+<h2 id="conexões-2">6. CONEXÕES</h2>
+<ul>
+<li>🔗 <a href="../01-manifesto/L1-C00M-manifesto-invariantes.md">Manifesto dos Invariantes</a></li>
+<li>🔗 <a href="../02-capitulos/L1-C12-agentes.md">Cap 12 — Agentes</a></li>
+<li>🔗 <a href="../02-capitulos/L1-C40-llmops.md">Cap 40 — LLMOps</a> (os 7 pilares operacionais sustentam o framework)</li>
+<li>🔗 <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C24-claude-code.md">Cap 24 — Claude Code (L2)</a></li>
+<li>🔗 <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C32-subagents-workflows.md">Cap 32 — Subagents (L2)</a></li>
+<li>🔗 <a href="L1-F1-decid-ia.md">F1 — DECID-IA</a> (passo 3 do F1: define o risco; F3 decide o nível)</li>
+<li>🔗 <a href="L1-F8-eval-piramide.md">F8 — EVAL-PIRÂMIDE</a> (eval suporta promoção entre níveis)</li>
+<li>🔗 <a href="L1-F6-gov-indelegavel.md">F6 — GOV-INDELEGÁVEL</a> (Inv. 8 sustenta o “dono” de cada nível)</li>
+</ul>
+<hr />
+<blockquote>
+<p><em>“Autonomia sem rollback testado é passivo no balanço. Não importa que esteja funcionando hoje.”</em></p>
+</blockquote>
+<div class="page-break">
+
+</div>
+<h1 id="framework-f4-prompt-ext">FRAMEWORK F4 — PROMPT-EXT</h1>
+<h2 id="engenharia-de-prompts-pelas-extremidades">Engenharia de prompts pelas extremidades</h2>
+<hr />
+<blockquote>
+<p>🧭 <strong>Invariante-mãe:</strong> <strong>Invariante 2 — Extremidades</strong> — <em>“O meio do contexto é onde a informação vai morrer.”</em> Invariante secundário: <strong>Inv. 3 — Camada Dupla</strong> (separa o padrão durável do conteúdo da chamada). Capítulos-âncora: <a href="../02-capitulos/L1-C04-janela-de-contexto.md">Cap 04 — Janela de contexto</a>, <a href="../02-capitulos/L1-C09-engenharia-prompt.md">Cap 09 — Engenharia de prompt</a>, <a href="../02-capitulos/L1-C11-context-engineering.md">Cap 11 — Context Engineering</a>.</p>
+</blockquote>
+<hr />
+<h2 id="objetivo-3">1. OBJETIVO</h2>
+<p>Escrever prompts de produção que respeitam a física de atenção (Inv. 2) e que separam, dentro do prompt, o que é padrão estável do que é número volátil (Inv. 3). Garantir que a regra crítica nunca fique no centro do prompt, e que cada bloco esteja na posição em que será efetivamente seguido.</p>
+<h2 id="funcionamento-3">2. FUNCIONAMENTO</h2>
+<p>Estrutura canônica em <strong>5 blocos</strong>, com regras explícitas de posição.</p>
+<h3 id="bloco-1-persona-e-missão-topo-do-prompt">Bloco 1 — Persona e missão (topo do prompt)</h3>
+<p>Curto, claro, ancorado. Diz o que o modelo é e qual o seu objetivo no fluxo. Esta posição recebe a maior parte da atenção do modelo, e por isso carrega a definição que precisa permear toda a resposta.</p>
+<blockquote>
+<p><em>Exemplo:</em> “Você é o agente de atendimento ao cliente do Banco Solar. Sua missão é resolver o caso do cliente em até três respostas, ou escalar para humano com sumário estruturado.”</p>
+</blockquote>
+<h3 id="bloco-2-constituição-regras-invioláveis-imediatamente-após-persona">Bloco 2 — Constituição (regras invioláveis, imediatamente após persona)</h3>
+<p>Pequeno, denso, em bullets curtos. Aqui ficam as regras que <strong>nunca podem ser quebradas</strong>, e que precisam estar próximas da persona para receberem peso adequado. É a parte do prompt que sobrevive entre chamadas — versionada, revisada, governada. É a Camada Dupla materializada: padrão estável.</p>
+<blockquote>
+<p><em>Exemplo:</em> <em>Constituição:</em> <em>— Nunca afirmar saldo sem consultar a tool <code>consulta_saldo</code>.</em> <em>— Em qualquer suspeita de fraude, escalar imediatamente para humano.</em> <em>— Nunca prometer ressarcimento; só humano autoriza.</em> <em>— Comunicação sempre em pt-BR formal, sem expressões coloquiais.</em></p>
+</blockquote>
+<h3 id="bloco-3-contexto-da-tarefa-atual-meio-do-prompt">Bloco 3 — Contexto da tarefa atual (meio do prompt)</h3>
+<p>Pode ser maior. Documentos, exemplos, dados, histórico de conversa. Esta é a parte que recebe <strong>menos atenção em prompts longos</strong> — por isso, <strong>nada crítico vai aqui</strong>. Conteúdo do meio é informação de apoio, não regra.</p>
+<h3 id="bloco-4-instrução-operacional-formato-esperado-imediatamente-antes-da-pergunta-viva">Bloco 4 — Instrução operacional + formato esperado (imediatamente antes da pergunta viva)</h3>
+<p>Curto. Posição forte (a segunda mais atendida, depois da abertura). Repete o crítico das regras na linguagem da tarefa específica, e define o formato exato da saída esperada.</p>
+<blockquote>
+<p><em>Exemplo:</em> “Responda em pt-BR formal, máximo três parágrafos, sem expressões coloquiais. Cite a tool consultada quando aplicável. Se não conseguir resolver, escale para humano com sumário em 3 bullets.”</p>
+</blockquote>
+<h3 id="bloco-5-pergunta-viva-input-do-usuário-última-posição">Bloco 5 — Pergunta viva / input do usuário (última posição)</h3>
+<p>Sempre na última posição. Sempre. Sanitizada contra prompt injection. Esta é a única parte do prompt que muda em cada chamada — a Camada Dupla materializada: número volátil.</p>
+<h2 id="output-3">3. OUTPUT</h2>
+<p>O F4 produz um prompt que se lê assim:</p>
+<pre><code>[BLOCO 1 — PERSONA E MISSÃO]
+(curto, 1-3 linhas)
+
+[BLOCO 2 — CONSTITUIÇÃO]
+(bullets curtos, 4-8 itens)
+
+[BLOCO 3 — CONTEXTO]
+(documentos, exemplos, dados, histórico)
+
+[BLOCO 4 — INSTRUÇÃO OPERACIONAL + FORMATO]
+(reitera o crítico, define output)
+
+[BLOCO 5 — PERGUNTA VIVA]
+(input do usuário, sanitizado)</code></pre>
+<h2 id="exemplo-de-uso-2">4. EXEMPLO DE USO</h2>
+<p><strong>Caso:</strong> agente de revisão de contrato em escritório de advocacia.</p>
+<pre><code>Você é o agente de revisão de contratos comerciais do escritório Vianna,
+Castro e Almeida. Sua missão é identificar cláusulas atípicas, com base
+nos padrões da banca, e produzir parecer estruturado em até cinco minutos
+de processamento.
+
+[CONSTITUIÇÃO]
+- Nunca afirmar cláusula sem citar o trecho literal e a localização (página
+  e parágrafo).
+- Em qualquer cláusula de mudança de controle, change of control ou MAC,
+  marcar como red flag SEV-1 mesmo se redação parecer padrão.
+- Nunca recomendar assinatura ou rejeição: produzir parecer; sócio decide.
+- Idioma de saída: pt-BR técnico. Citações no idioma original do contrato.
+
+[CONTEXTO]
+[Inserir aqui: trechos relevantes do contrato, padrões da banca, casos
+similares de DD anteriores, glossário de cláusulas-alvo.]
+
+[INSTRUÇÃO OPERACIONAL]
+Produza parecer em três seções: (1) sumário executivo em 5 bullets;
+(2) red flags SEV-1 e SEV-2 com citação literal de página/parágrafo;
+(3) cláusulas padrão verificadas com nota de &quot;normal&quot; ou &quot;negociar&quot;.
+Não recomende assinatura. Em qualquer cláusula change of control,
+marcar SEV-1 mesmo se redação parecer padrão.
+
+[PERGUNTA VIVA]
+[Input do operador: pergunta específica sobre o contrato em análise]</code></pre>
+<p>A constituição vive em artefato versionado (Skills no L2). O contexto muda por contrato. A pergunta viva muda por chamada. O bloco 4 reitera as regras críticas porque, mesmo com a constituição no topo, <strong>a chamada do modelo termina pelo bloco 4</strong> — daí a redundância deliberada.</p>
+<h2 id="anti-padrões-3">5. ANTI-PADRÕES</h2>
+<table>
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Anti-padrão</th>
+<th>Por que mata</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Enterrar regra crítica no parágrafo 40 de prompt longo</td>
+<td>Inv. 2: atenção decai no meio; regra ignorada silenciosamente</td>
+</tr>
+<tr class="even">
+<td>Colocar a pergunta no início, antes do contexto</td>
+<td>Modelo responde ao input sem ter visto o contexto</td>
+</tr>
+<tr class="odd">
+<td>Constituição não versionada (string no código)</td>
+<td>Sem rastreabilidade de mudança; vira buraco de governança</td>
+</tr>
+<tr class="even">
+<td>Misturar regra inviolável com sugestão estilística</td>
+<td>Modelo perde hierarquia; quebra ambas com a mesma facilidade</td>
+</tr>
+<tr class="odd">
+<td>Não reiterar o crítico no bloco 4</td>
+<td>Em prompts longos, o final domina; sem reiteração, regra do topo enfraquece</td>
+</tr>
+<tr class="even">
+<td>Não sanitizar a pergunta viva</td>
+<td>Prompt injection via input do usuário sobrescreve a constituição</td>
+</tr>
+</tbody>
+</table>
+<h2 id="conexões-3">6. CONEXÕES</h2>
+<ul>
+<li>🔗 <a href="../01-manifesto/L1-C00M-manifesto-invariantes.md">Manifesto dos Invariantes</a></li>
+<li>🔗 <a href="../02-capitulos/L1-C04-janela-de-contexto.md">Cap 04 — Janela de contexto</a></li>
+<li>🔗 <a href="../02-capitulos/L1-C09-engenharia-prompt.md">Cap 09 — Engenharia de prompt</a></li>
+<li>🔗 <a href="../02-capitulos/L1-C11-context-engineering.md">Cap 11 — Context Engineering</a></li>
+<li>🔗 <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C20-projects.md">Cap 20 — Projects (L2)</a> — <em>Projects materializam o bloco de constituição</em></li>
+<li>🔗 <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C31-skills.md">Cap 31 — Skills (L2)</a> — <em>Skills versionam o bloco de constituição como ativo</em></li>
+<li>🔗 <a href="L1-F8-eval-piramide.md">F8 — EVAL-PIRÂMIDE</a> — <em>o adversarial set inclui prompt injection contra a pergunta viva</em></li>
+</ul>
+<hr />
+<blockquote>
+<p><em>“A regra que importa não vai no meio do prompt. Vai na primeira posição forte e na última. Quem coloca no centro está rezando para a atenção do modelo, e a atenção não está olhando.”</em></p>
+</blockquote>
+<div class="page-break">
+
+</div>
+<h1 id="framework-f5-mcp-cobertura">FRAMEWORK F5 — MCP-COBERTURA</h1>
+<h2 id="decisão-de-adoção-de-mcp-por-quadrante">Decisão de adoção de MCP por quadrante</h2>
+<hr />
+<blockquote>
+<p>🧭 <strong>Invariante-mãe:</strong> <strong>Invariante 6 — Autonomia Proporcional</strong> — <em>“Só dê ao agente a autonomia que você consegue medir e desfazer.”</em> Invariante secundário: <strong>Inv. 4 — Encaixe</strong> (padrão maduro × padrão ad-hoc). Capítulos-âncora: <a href="../02-capitulos/L1-C13-mcp.md">Cap 13 — MCP</a>, <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C33-claude-mcp.md">Cap 33 (L2) — Claude + MCP</a>.</p>
+</blockquote>
+<hr />
+<h2 id="objetivo-4">1. OBJETIVO</h2>
+<p>Decidir, por <em>capability</em> (capacidade), se vale adotar <strong>MCP existente público</strong>, <strong>MCP self-hosted</strong>, <strong>MCP próprio</strong> ou <strong>tool ad-hoc</strong> — sem cair no extremo de “tudo MCP” (over-engineering) nem no de “nada MCP” (lock-in artesanal). A decisão é função do <strong>padrão maduro disponível</strong> e da <strong>sensibilidade dos dados</strong> envolvidos.</p>
+<h2 id="funcionamento-4">2. FUNCIONAMENTO</h2>
+<p>Matriz 2×2 cruzando padrão maduro × sensibilidade de dados. Cada quadrante dita o tipo de MCP correto.</p>
+<h3 id="eixos-da-matriz-1">Eixos da matriz</h3>
+<p><strong>Eixo X — Padrão maduro disponível?</strong> - <strong>Sim:</strong> existe MCP público bem mantido, com comunidade ativa, governança clara - <strong>Não:</strong> sem padrão estabelecido; ou existe mas é experimental, abandonado, sem dono claro</p>
+<p><strong>Eixo Y — Sensibilidade dos dados?</strong> - <strong>Alta:</strong> dados sob LGPD/regulação, segredos comerciais, PII, dados de cliente em produção - <strong>Baixa:</strong> dados públicos, dados de teste, contexto sem implicação regulatória</p>
+<h3 id="os-4-quadrantes">Os 4 quadrantes</h3>
+<table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 21%" />
+<col style="width: 19%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Quadrante</th>
+<th>Condição</th>
+<th>Decisão</th>
+<th>Exemplo típico</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>A</strong></td>
+<td>Padrão maduro + dados não sensíveis</td>
+<td><strong>Adotar MCP público</strong></td>
+<td>Calendar, Notion público, GitHub public APIs, Google Search</td>
+</tr>
+<tr class="even">
+<td><strong>B</strong></td>
+<td>Padrão maduro + dados sensíveis</td>
+<td><strong>MCP self-hosted ou variante privada</strong></td>
+<td>Slack workspace privado, Salesforce, GitHub enterprise</td>
+</tr>
+<tr class="odd">
+<td><strong>C</strong></td>
+<td>Sem padrão + dados não sensíveis</td>
+<td><strong>Tool ad-hoc</strong> até virar padrão</td>
+<td>API interna nova, integração experimental</td>
+</tr>
+<tr class="even">
+<td><strong>D</strong></td>
+<td>Sem padrão + dados sensíveis</td>
+<td><strong>MCP próprio com auditoria completa</strong></td>
+<td>Core bancário, sistemas regulados, PHI/PII em saúde</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mecânica-de-aplicação-1">Mecânica de aplicação</h3>
+<ol type="1">
+<li>Listar as <em>capabilities</em> (capacidades) que a operação precisa que o agente acesse — leitura, escrita, busca, execução em sistemas terceiros</li>
+<li>Para cada capability, pontuar os dois eixos</li>
+<li>Aplicar o quadrante correspondente</li>
+<li>Documentar: dono nominal por MCP, política de auditoria, política de versionamento, plano de migração se quadrante mudar</li>
+</ol>
+<h2 id="output-4">3. OUTPUT</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Conteúdo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Lista de capabilities</td>
+<td>O que o agente precisa acessar</td>
+</tr>
+<tr class="even">
+<td>Quadrante por capability</td>
+<td>A/B/C/D justificado</td>
+</tr>
+<tr class="odd">
+<td>Tipo de MCP escolhido</td>
+<td>Público / self-hosted / ad-hoc / próprio</td>
+</tr>
+<tr class="even">
+<td>Dono nominal por MCP</td>
+<td>Pessoa responsável + cadeira</td>
+</tr>
+<tr class="odd">
+<td>Política de auditoria</td>
+<td>Frequência, escopo, retenção</td>
+</tr>
+<tr class="even">
+<td>Plano de migração</td>
+<td>Quando o quadrante mudar</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exemplo-de-uso-banco-solar-fintech">4. EXEMPLO DE USO — BANCO SOLAR (FINTECH)</h2>
+<p>Caso composto: fintech BR precisa expor ao agente conjuntos diversos de capability.</p>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 32%" />
+<col style="width: 30%" />
+<col style="width: 13%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Capability</th>
+<th>Eixo X (padrão maduro?)</th>
+<th>Eixo Y (sensibilidade?)</th>
+<th>Quadrante</th>
+<th>Decisão</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Calendário do atendente</td>
+<td>Sim (Google Calendar MCP)</td>
+<td>Baixa</td>
+<td>A</td>
+<td>MCP público</td>
+</tr>
+<tr class="even">
+<td>Conhecimento público de produto</td>
+<td>Sim (Notion público)</td>
+<td>Baixa</td>
+<td>A</td>
+<td>MCP público</td>
+</tr>
+<tr class="odd">
+<td>Slack workspace interno (notificações)</td>
+<td>Sim (Slack MCP)</td>
+<td>Alta</td>
+<td>B</td>
+<td>MCP self-hosted ou variante privada</td>
+</tr>
+<tr class="even">
+<td>CRM da fintech (Salesforce)</td>
+<td>Sim</td>
+<td>Alta</td>
+<td>B</td>
+<td>MCP self-hosted</td>
+</tr>
+<tr class="odd">
+<td>Sistema novo de tickets (lançado mês passado)</td>
+<td>Não</td>
+<td>Baixa</td>
+<td>C</td>
+<td>Tool ad-hoc até virar padrão</td>
+</tr>
+<tr class="even">
+<td>Core bancário (consulta saldo, abre contestação)</td>
+<td>Não</td>
+<td>Alta</td>
+<td>D</td>
+<td>MCP próprio com auditoria completa</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resultado:</strong> o Banco Solar opera 4 categorias de MCP simultaneamente, com governança específica para cada quadrante. Capability do quadrante D (core bancário) tem dono nominal de área de tecnologia + DPO + Compliance, auditoria a cada release, retenção de log por 5 anos.</p>
+<h2 id="anti-padrões-4">5. ANTI-PADRÕES</h2>
+<table>
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Anti-padrão</th>
+<th>Por que mata</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“Tudo MCP” (over-engineering)</td>
+<td>Capability nova sem padrão maduro vira projeto de plataforma que atrasa entrega</td>
+</tr>
+<tr class="even">
+<td>“Nada MCP” (lock-in artesanal)</td>
+<td>Toda integração vira tool específica; agente fica frágil; manutenção explode</td>
+</tr>
+<tr class="odd">
+<td>MCP público para dados sensíveis</td>
+<td>Risco regulatório e de vendor — o servidor MCP pode logar, vazar, mudar</td>
+</tr>
+<tr class="even">
+<td>MCP próprio sem auditoria</td>
+<td>Cria o falso conforto de “está sob controle” sem sustentar a alegação</td>
+</tr>
+<tr class="odd">
+<td>Não documentar o quadrante por capability</td>
+<td>Decisão é refeita por cada engenheiro novo, sem critério</td>
+</tr>
+<tr class="even">
+<td>Não monitorar quando o quadrante mudou</td>
+<td>Capability C que virou padrão maduro precisa migrar para A; ninguém percebe</td>
+</tr>
+</tbody>
+</table>
+<h2 id="conexões-4">6. CONEXÕES</h2>
+<ul>
+<li>🔗 <a href="../01-manifesto/L1-C00M-manifesto-invariantes.md">Manifesto dos Invariantes</a></li>
+<li>🔗 <a href="../02-capitulos/L1-C13-mcp.md">Cap 13 — MCP</a></li>
+<li>🔗 <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C33-claude-mcp.md">Cap 33 (L2) — Claude + MCP</a></li>
+<li>🔗 <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C34b-connectors-dispatch-routines.md">Cap 34b (L2) — Connectors, Dispatch, Routines</a></li>
+<li>🔗 <a href="L1-F3-agente-prop.md">F3 — AGENTE-PROP</a> (níveis de autonomia limitam permissões por MCP)</li>
+<li>🔗 <a href="L1-F6-gov-indelegavel.md">F6 — GOV-INDELEGÁVEL</a> (cada MCP tem dono nominal)</li>
+</ul>
+<hr />
+<blockquote>
+<p><em>“Tool ad-hoc é dívida técnica disfarçada. MCP público sem auditoria é risco regulatório disfarçado. MCP próprio sem dono é teatro disfarçado. O quadrante decide qual disfarce você vai vestir.”</em></p>
+</blockquote>
+<div class="page-break">
+
+</div>
+<h1 id="framework-f6-gov-indelegável">FRAMEWORK F6 — GOV-INDELEGÁVEL</h1>
+<h2 id="governança-de-ia-aplicada-3-camadas-10-controles">Governança de IA aplicada — 3 camadas × 10 controles</h2>
+<hr />
+<blockquote>
+<p>🧭 <strong>Invariante-mãe:</strong> <strong>Invariante 8 — Responsabilidade Indelegável</strong> — <em>“A IA executa; a responsabilidade tem sempre um nome humano.”</em> Capítulo-âncora: <a href="../02-capitulos/L1-C42-governanca.md">Cap 42 — Governança de IA corporativa</a>. Aprofundamento: <a href="../02-capitulos/L1-C37-seguranca.md">Cap 37 — Segurança</a>. Aplicação Claude: <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C30-enterprise.md">Cap 30 (L2) — Enterprise</a>.</p>
+</blockquote>
+<hr />
+<h2 id="objetivo-5">1. OBJETIVO</h2>
+<p>Construir governança de IA que <strong>protege o negócio sem virar teatro de compliance</strong>. Saída: Caderno de Governança v1 com política em ≤6 páginas + RACI assinado + plano de incidente testado em simulado + matriz de maturidade dos 10 controles.</p>
+<h2 id="funcionamento-5">2. FUNCIONAMENTO</h2>
+<p>Governança real opera em <strong>três camadas que precisam fechar</strong>, sustentadas por <strong>dez controles canônicos</strong>.</p>
+<h3 id="as-3-camadas">As 3 camadas</h3>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 35%" />
+<col style="width: 43%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Camada</th>
+<th>O que cobre</th>
+<th>Quem responde</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Técnica</strong></td>
+<td>Acesso, auditoria imutável, kill switch, rollback, observability, evals em CI</td>
+<td>CTO / Head de tecnologia</td>
+</tr>
+<tr class="even">
+<td><strong>Operacional</strong></td>
+<td>RACI, AUP, política de incidentes, runbooks, treinamento, postmortem</td>
+<td>Head de operações / VP de produto</td>
+</tr>
+<tr class="odd">
+<td><strong>Executiva</strong></td>
+<td>AI Council, política pública, accountability nominal, comitê de ética, comunicação com conselho</td>
+<td>CEO / Diretor com mandato</td>
+</tr>
+</tbody>
+</table>
+<p>Cada camada tem dono nominal. Sem nome em cada camada, governança não fecha — vira documento publicado sem prática efetiva.</p>
+<h3 id="os-10-controles-canônicos">Os 10 controles canônicos</h3>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 47%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Controle</th>
+<th>Camada</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Controle de acesso por feature, por usuário, por papel</td>
+<td>Técnica</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Auditoria imutável de cada chamada de IA em produção</td>
+<td>Técnica</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Kill switch testado por tool, por agente, por modelo, por feature</td>
+<td>Técnica</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Rollback testado mensalmente em staging</td>
+<td>Técnica</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Observability com tracing (pilares 1 de LLMOps)</td>
+<td>Técnica</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Evals em CI com critério de bloqueio explícito</td>
+<td>Técnica</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>RACI de IA assinado pela diretoria</td>
+<td>Operacional</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Política de Uso Aceitável (AUP) publicada e treinada</td>
+<td>Operacional</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Política de incidentes testada em simulado trimestral</td>
+<td>Operacional</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>AI Council com mandato e cadência fixa</td>
+<td>Executiva</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mecânica-de-aplicação-2">Mecânica de aplicação</h3>
+<ol type="1">
+<li><strong>Diagnóstico de maturidade.</strong> Pontuar cada um dos 10 controles em escala 0-4 (inexistente, declarado, implementado, auditado, melhoria contínua).</li>
+<li><strong>Identificação de buracos.</strong> Controles em maturidade ≤1 são prioridade. Maturidade 2 sem auditoria é teatro.</li>
+<li><strong>Plano em 90/180/365 dias.</strong> Cada controle com maturidade-alvo, dono, gate de promoção.</li>
+<li><strong>Caderno em ≤6 páginas.</strong> Política + RACI + plano de incidente + matriz de maturidade.</li>
+<li><strong>Revisão trimestral.</strong> Maturidade atualizada, plano ajustado, incidentes do trimestre integrados.</li>
+</ol>
+<h2 id="output-5">3. OUTPUT</h2>
+<table>
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Conteúdo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Política em ≤6 páginas</td>
+<td>AUP + princípios + categorias de safety</td>
+</tr>
+<tr class="even">
+<td>RACI assinado</td>
+<td>8 papéis × 12 decisões mínimas</td>
+</tr>
+<tr class="odd">
+<td>Plano de incidente testado</td>
+<td>Severidades, comunicação, postmortem</td>
+</tr>
+<tr class="even">
+<td>Matriz de maturidade</td>
+<td>10 controles em escala 0-4, com meta de 90/180/365 dias</td>
+</tr>
+<tr class="odd">
+<td>Donos nominais por camada</td>
+<td>Técnica, Operacional, Executiva</td>
+</tr>
+<tr class="even">
+<td>Cadência de revisão</td>
+<td>Trimestral, com pauta fixa</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exemplo-de-uso-seguradora-após-incidente-cenário-ilustrativo">4. EXEMPLO DE USO — SEGURADORA APÓS INCIDENTE (CENÁRIO ILUSTRATIVO)</h2>
+<p>Seguradora BR de médio porte, após multa ANPD por negação automatizada de cobertura sem trilha de auditoria.</p>
+<p><strong>Diagnóstico de maturidade pré-incidente:</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Controle</th>
+<th>Maturidade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 Acesso</td>
+<td>1 (declarado)</td>
+</tr>
+<tr class="even">
+<td>2 Auditoria</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>3 Kill switch</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>4 Rollback</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>5 Observability</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>6 Evals em CI</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>7 RACI</td>
+<td>0 (implícito, “o time de dados cuida”)</td>
+</tr>
+<tr class="even">
+<td>8 AUP</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>9 Política de incidentes</td>
+<td>1 (documento sem teste)</td>
+</tr>
+<tr class="even">
+<td>10 AI Council</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Plano após incidente (90 dias):</strong></p>
+<ul>
+<li>Controle 7 (RACI): assinado pela diretoria com 8 papéis (CTO, Head Dados, DPO, Head Compliance, Diretor Operações, Diretor Comercial, Diretor Jurídico, CEO) × 12 decisões (modelo, prompt, dataset, agente, MCP, tool, incidente SEV-1, política, etc.)</li>
+<li>Controle 8 (AUP): 4 páginas, publicada, treinada em todo o time em ≤30 dias</li>
+<li>Controle 2 (Auditoria): retenção 5 anos para decisão automatizada com efeito jurídico</li>
+<li>Controle 6 (Evals em CI): golden set inicial para classificação de cobertura</li>
+<li>Controle 9 (Incidente): simulado trimestral com cronômetro</li>
+<li>Controle 10 (AI Council): mandato escrito, cadência mensal nos primeiros 6 meses</li>
+</ul>
+<p><strong>Após 7 meses:</strong> matriz com 8 de 10 controles em maturidade ≥3. Multa não voltou. Seguradora apresenta caso em comitê setorial como exemplo de remediação.</p>
+<h2 id="anti-padrões-5">5. ANTI-PADRÕES</h2>
+<table>
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Anti-padrão</th>
+<th>Por que mata</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Política publicada, processo inexistente, prática divergente</td>
+<td>Governança morta no PDF; quando o incidente vier, o documento será exposto como teatro</td>
+</tr>
+<tr class="even">
+<td>RACI implícito (“o time X cuida”)</td>
+<td>Sem nome, ninguém responde. Inv. 8 viola por omissão</td>
+</tr>
+<tr class="odd">
+<td>AI Council sem mandato</td>
+<td>Vira reunião de tom sem decisão; conselho fica simbólico</td>
+</tr>
+<tr class="even">
+<td>Política de incidente nunca testada em simulado</td>
+<td>Na hora do incidente, descobre-se que não funciona</td>
+</tr>
+<tr class="odd">
+<td>Auditoria interna sem auditoria externa periódica</td>
+<td>Auto-auditoria tende a falsa segurança</td>
+</tr>
+<tr class="even">
+<td>“Vamos terceirizar o problema”</td>
+<td>Compliance terceirizado vira processo terceirizado; accountability não terceiriza</td>
+</tr>
+</tbody>
+</table>
+<h2 id="conexões-5">6. CONEXÕES</h2>
+<ul>
+<li>🔗 <a href="../01-manifesto/L1-C00M-manifesto-invariantes.md">Manifesto dos Invariantes</a></li>
+<li>🔗 <a href="../02-capitulos/L1-C37-seguranca.md">Cap 37 — Segurança</a></li>
+<li>🔗 <a href="../02-capitulos/L1-C41-alignment.md">Cap 41 — Alignment</a> (sustenta safety em produto)</li>
+<li>🔗 <a href="../02-capitulos/L1-C42-governanca.md">Cap 42 — Governança</a></li>
+<li>🔗 <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C29-team.md">Cap 29 (L2) — Team</a>, <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C30-enterprise.md">Cap 30 (L2) — Enterprise</a></li>
+<li>🔗 <a href="L1-F1-decid-ia.md">F1 — DECID-IA</a> (Pergunta 5 — Responsabilidade — alimenta o RACI)</li>
+<li>🔗 <a href="L1-F3-agente-prop.md">F3 — AGENTE-PROP</a> (níveis de autonomia precisam de governança proporcional)</li>
+</ul>
+<hr />
+<blockquote>
+<p><em>“Governança não é documento publicado, é controle aplicado. Quem confunde, descobre na multa ou no processo.”</em></p>
+</blockquote>
+<div class="page-break">
+
+</div>
+<h1 id="framework-f7-composto-3t">FRAMEWORK F7 — COMPOSTO-3T</h1>
+<h2 id="adoção-corporativa-pelos-3-vetores-arquiteturais-de-custo-composto">Adoção corporativa pelos 3 vetores arquiteturais de custo composto</h2>
+<hr />
+<blockquote>
+<p>🧭 <strong>Invariante-mãe:</strong> <strong>Invariante 5 — Custo Composto</strong> — <em>“Trivial é o preço do token; o que quebra o orçamento é quantas vezes você o paga.”</em> Invariante secundário: <strong>Inv. 9 — Operador</strong> (operação madura aplica em ordem certa). Capítulo-âncora: <a href="../02-capitulos/L1-C36-economia-tokens.md">Cap 36 — Economia de Tokens em profundidade</a>. Fundamento: <a href="../02-capitulos/L1-C03-tokens.md">Cap 03 — Tokens</a> e <a href="../02-capitulos/L1-C07-memoria.md">Cap 07 — Memória</a>.</p>
+</blockquote>
+<hr />
+<h2 id="objetivo-6">1. OBJETIVO</h2>
+<p>Atacar o orçamento real de IA na empresa pelo lado certo — <strong>arquitetural</strong> — não pelo lado errado — <strong>textual</strong>. Garantir que esforço de otimização vai onde o termo composto escala, não onde aparece o termo trivial.</p>
+<h2 id="funcionamento-6">2. FUNCIONAMENTO</h2>
+<p>A fórmula do Custo Composto:</p>
+<pre><code>Custo Total = Σ (tokens_in × preço_in + tokens_out × preço_out)
+              × chamadas
+              × redundância
+              × tier</code></pre>
+<p>O framework opera em <strong>três alavancas arquiteturais</strong> (os “3T”), em ordem fixa de impacto e de risco.</p>
+<h3 id="t1-tier-de-modelo">T1 — Tier de modelo</h3>
+<p><strong>O que é:</strong> rotear cada chamada ao <strong>modelo mais barato suficiente</strong> para a qualidade exigida.</p>
+<p><strong>Mecânica.</strong> - Classificador leve (Haiku-like) na entrada da pipeline decide rota. - Tarefas estruturadas, classificação binária, extração de campo → tier pequeno (Haiku). - Tarefas de razão balanceada, sumarização, resposta em escala → tier balanceado (Sonnet). - Tarefas críticas de razão profunda, código complexo, escrita executiva → tier premium (Opus).</p>
+<p><strong>Implementação.</strong> 1-3 semanas para versão inicial; classificador é prompt simples ou pequeno modelo dedicado.</p>
+<p><strong>Economia típica observada.</strong> 30% a 60% do gasto total na primeira virada de roteamento, em operações que usavam premium para tudo.</p>
+<p><strong>Risco.</strong> Médio. Exige golden set para mostrar que tier pequeno entrega qualidade equivalente (Invariante 7 sustenta a decisão).</p>
+<h3 id="t2-topologia-de-chamada">T2 — Topologia de chamada</h3>
+<p><strong>O que é:</strong> reduzir <strong>redundância</strong> dentro do fluxo, sem mexer em tier nem em prompt.</p>
+<p><strong>Mecânica.</strong> - <strong>Prompt caching</strong> para prefixos estáveis (system prompt, instruções recorrentes). - <strong>Batching</strong> de chamadas independentes. - <strong>Eliminação de loops</strong> de agente que reconsultam o mesmo dado. - <strong>Circuit breaker</strong> contra runaway loops por usuário ou sessão. - <strong>Tool design</strong> que devolve em uma chamada o contexto que o próximo passo precisa.</p>
+<p><strong>Implementação.</strong> 2-4 semanas para o conjunto inicial; depende do quanto a arquitetura já está modular.</p>
+<p><strong>Economia típica observada.</strong> 20% a 50% adicional, após T1.</p>
+<p><strong>Risco.</strong> Médio-alto. Mudanças em topologia podem introduzir regressão se o pilar 1 de LLMOps (tracing) e o pilar 3 (deploy progressivo) não estiverem maduros.</p>
+<h3 id="t3-tamanho-de-contexto">T3 — Tamanho de contexto</h3>
+<p><strong>O que é:</strong> podar agressivamente o que entra no contexto da chamada.</p>
+<p><strong>Mecânica.</strong> - <strong>RAG enxuto:</strong> top-k baixo após reranking; chunks compactos; descarte de duplicidade. - <strong>Compressão de histórico:</strong> sumarização hierárquica de turnos antigos. - <strong>Expiração de memória:</strong> turnos com idade ou irrelevância vão para sumário ou são descartados. - <strong>Bibliografia controlada:</strong> evitar inflar context com documentação que não está sendo consultada.</p>
+<p><strong>Implementação.</strong> 1-3 semanas, depende de quanto havia de “carona” no contexto.</p>
+<p><strong>Economia típica observada.</strong> 15% a 40% adicional, após T1 e T2.</p>
+<p><strong>Risco.</strong> Baixo. Exige eval cuidadoso para detectar regressão de qualidade por contexto insuficiente.</p>
+<h3 id="ordem-de-aplicação">Ordem de aplicação</h3>
+<p>Mexer em T3 antes de T1 é o erro mais comum, porque T3 é o mais visível (“vamos cortar palavras do prompt”). Visível e marginal. A ordem é T1 → T2 → T3.</p>
+<h2 id="output-6">3. OUTPUT</h2>
+<table>
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Conteúdo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Análise atual de custo por feature</td>
+<td>Atribuição via Pilar 5 de LLMOps</td>
+</tr>
+<tr class="even">
+<td>Identificação do componente que mais escala</td>
+<td>Tokens, chamadas, redundância ou tier</td>
+</tr>
+<tr class="odd">
+<td>T1 plan</td>
+<td>Quais features migrar de tier, em que ordem, com qual golden set</td>
+</tr>
+<tr class="even">
+<td>T2 plan</td>
+<td>Onde implementar caching, batching, circuit breaker</td>
+</tr>
+<tr class="odd">
+<td>T3 plan</td>
+<td>RAG enxuto, compressão de histórico, expiração de memória</td>
+</tr>
+<tr class="even">
+<td>Meta de economia</td>
+<td>% por T, por feature, por trimestre</td>
+</tr>
+<tr class="odd">
+<td>Eval que sustenta cada mudança</td>
+<td>Inv. 7 — sem eval, não muda</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exemplo-de-uso-pólice.io-pós-incidente">4. EXEMPLO DE USO — PÓLICE.IO PÓS-INCIDENTE</h2>
+<p>Marketplace BR de seguros, após o incidente do loop com cartão de crédito (Cap 40).</p>
+<p><strong>Diagnóstico inicial.</strong> - Fatura mensal: R$ 142 mil - Atribuição por feature: 87% concentrado no agente de cotação - Componente que mais escala: <strong>redundância</strong> (loop de agente reconsultando 7 seguradoras) - Tier dominante: 92% das chamadas vão para Opus, mesmo em classificação intermediária</p>
+<p><strong>Plano T1.</strong> Migrar classificação de intent (~38% do volume) para Haiku. Migrar geração de resposta padrão (~24%) para Sonnet. Manter Opus apenas para casos com sinal de complexidade alta (~15%).</p>
+<p><strong>Plano T2.</strong> Prompt caching para system prompt das cotações (eliminar 6.4kb por chamada). Circuit breaker de 5 chamadas Opus por sessão. Reescrita do agente para não reconsultar seguradoras em mudança de campo não-crítico (resolve o bug raiz do incidente).</p>
+<p><strong>Plano T3.</strong> RAG enxuto de documentação de produtos (top-3 chunks após reranking, em vez de top-20). Sumarização hierárquica em sessões com mais de 6 turnos.</p>
+<p><strong>Resultado em 3 meses.</strong> R$ 142 mil → R$ 47 mil, com volume servido maior. Distribuição final: 60% Haiku, 28% Sonnet, 12% Opus.</p>
+<h2 id="anti-padrões-6">5. ANTI-PADRÕES</h2>
+<table>
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Anti-padrão</th>
+<th>Por que mata</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Otimizar tamanho do prompt enquanto agente loopa no Opus</td>
+<td>Esforço no termo trivial, fatura segue subindo</td>
+</tr>
+<tr class="even">
+<td>Usar premium para classificação binária “por garantia”</td>
+<td>30-50× o preço para entregar a mesma qualidade do pequeno</td>
+</tr>
+<tr class="odd">
+<td>Começar por T3 porque é visível</td>
+<td>T1 entrega ordem de magnitude a mais</td>
+</tr>
+<tr class="even">
+<td>Migrar tier sem golden set</td>
+<td>Sem eval, regressão silenciosa em subgrupo</td>
+</tr>
+<tr class="odd">
+<td>Ignorar atribuição de custo por feature</td>
+<td>Sem atribuição, decisão de corte é tiro no escuro</td>
+</tr>
+<tr class="even">
+<td>Cortar caching para “simplificar”</td>
+<td>Caching é o ROI mais alto de T2; descartar é multiplicar fatura</td>
+</tr>
+</tbody>
+</table>
+<h2 id="conexões-6">6. CONEXÕES</h2>
+<ul>
+<li>🔗 <a href="../01-manifesto/L1-C00M-manifesto-invariantes.md">Manifesto dos Invariantes</a></li>
+<li>🔗 <a href="../02-capitulos/L1-C03-tokens.md">Cap 03 — Tokens</a>, <a href="../02-capitulos/L1-C04-janela-de-contexto.md">Cap 04 — Janela</a>, <a href="../02-capitulos/L1-C07-memoria.md">Cap 07 — Memória</a></li>
+<li>🔗 <a href="../02-capitulos/L1-C11-context-engineering.md">Cap 11 — Context Engineering</a></li>
+<li>🔗 <a href="../02-capitulos/L1-C36-economia-tokens.md">Cap 36 — Economia de Tokens</a> (capítulo-âncora completo)</li>
+<li>🔗 <a href="../02-capitulos/L1-C40-llmops.md">Cap 40 — LLMOps Pilar 5</a> (atribuição de custo sustenta o framework)</li>
+<li>🔗 <a href="L1-F2-encaixe-5.md">F2 — ENCAIXE-5</a> (decisão de tier do F2 alimenta o T1 do F7)</li>
+<li>🔗 <a href="L1-F8-eval-piramide.md">F8 — EVAL-PIRÂMIDE</a> (eval sustenta cada virada de T1)</li>
+</ul>
+<hr />
+<blockquote>
+<p><em>“Preço por token é o termo trivial da fórmula. Quem otimiza só ali está mexendo onde menos dói. Os 3T mexem onde dói de verdade.”</em></p>
+</blockquote>
+<div class="page-break">
+
+</div>
+<h1 id="framework-f8-eval-pirâmide">FRAMEWORK F8 — EVAL-PIRÂMIDE</h1>
+<h2 id="pirâmide-de-evals-por-criticidade">Pirâmide de Evals por criticidade</h2>
+<hr />
+<blockquote>
+<p>🧭 <strong>Invariante-mãe:</strong> <strong>Invariante 7 — Termômetro</strong> — <em>“IA sem eval é fé, não engenharia.”</em> Invariantes secundários: <strong>Inv. 1</strong> (Plausibilidade — eval comportamental detecta o que o modelo finge saber), <strong>Inv. 8</strong> (Responsabilidade — eval sustenta accountability técnica). Capítulo-âncora: <a href="../02-capitulos/L1-C39-evals.md">Cap 39 — Evals</a>. Aplicação operacional: <a href="../02-capitulos/L1-C40-llmops.md">Cap 40 — LLMOps</a>. Aplicação comportamental: <a href="../02-capitulos/L1-C41-alignment.md">Cap 41 — Alignment</a>.</p>
+</blockquote>
+<hr />
+<h2 id="objetivo-7">1. OBJETIVO</h2>
+<p>Decidir <strong>quanto investir em cada camada de eval</strong>, em função do risco da tarefa e do custo de cada camada. Garantir que nenhum sistema entre em produção sem cobertura mínima e que recursos de eval mais caros (humano especialista) sejam alocados onde fazem diferença.</p>
+<h2 id="funcionamento-7">2. FUNCIONAMENTO</h2>
+<p>Hierarquia de três camadas verticais + uma faixa transversal. Cada camada cobre um percentual diferente da carga e tem custo diferente.</p>
+<h3 id="base-determinística">Base — Determinística</h3>
+<p><strong>O que mede.</strong> Estrutura da saída, formato, campos críticos, presença de elementos obrigatórios.</p>
+<p><strong>Técnicas.</strong> Schema validation, exact match em campos críticos, regex para padrões obrigatórios, validações estruturais.</p>
+<p><strong>Cobertura.</strong> 100% das chamadas, em CI antes do merge e em produção como primeiro filtro.</p>
+<p><strong>Custo.</strong> Muito baixo. Implementação leva horas a poucos dias.</p>
+<p><strong>Detecta.</strong> Regressões grosseiras (formato quebrado, campo faltante, alucinação estrutural).</p>
+<h3 id="meio-golden-set-llm-as-judge-calibrado">Meio — Golden Set + LLM-as-judge calibrado</h3>
+<p><strong>O que mede.</strong> Qualidade semântica contra rubrica explícita, faithfulness, relevância, completude.</p>
+<p><strong>Técnicas.</strong> Golden set fixo com gabarito + LLM-as-judge aplicando rubrica calibrada contra humano em pelo menos 30 itens. Juiz diferente do gerador. Ensemble em decisões críticas.</p>
+<p><strong>Cobertura.</strong> 30% a 80% das chamadas conforme criticidade.</p>
+<p><strong>Custo.</strong> Médio. Implementação leva 1-4 semanas. Manutenção exige revisão do golden set e recalibração mensal do juiz.</p>
+<p><strong>Detecta.</strong> Regressão de qualidade que escapa da base. Cobre tarefas onde exact match não funciona (geração aberta).</p>
+<h3 id="topo-rubrica-humana-especialista">Topo — Rubrica humana especialista</h3>
+<p><strong>O que mede.</strong> Nuances específicas de domínio que LLM-as-judge não capta.</p>
+<p><strong>Técnicas.</strong> Revisão de amostra por especialista do domínio, em release crítico, em auditoria mensal ou trimestral, em incidente sob investigação.</p>
+<p><strong>Cobertura.</strong> 5% a 15% da carga, por amostra.</p>
+<p><strong>Custo.</strong> Alto. Demanda especialista do domínio em horas dedicadas.</p>
+<p><strong>Detecta.</strong> Erros sutis específicos do domínio. Calibra o juiz LLM contra o critério humano.</p>
+<h3 id="transversal-adversarial-e-segurança">Transversal — Adversarial e segurança</h3>
+<p><strong>O que mede.</strong> Casos que sabidamente quebram o sistema — jailbreak, prompt injection, conteúdo proibido, sycophancy, viés, honestidade de citação, over-refusal, calibração de incerteza.</p>
+<p><strong>Técnicas.</strong> Conjunto adversarial separado, renovado a cada trimestre. Casos vindos de produção (incidentes anteriores) e de literatura (HarmBench, JailbreakBench, BBQ).</p>
+<p><strong>Cadência.</strong> Mensal por padrão. Bloqueia release crítico se regredir.</p>
+<p><strong>Custo.</strong> Médio-alto. Exige curadoria contínua.</p>
+<p><strong>Detecta.</strong> Falhas comportamentais que as camadas verticais não cobrem por design.</p>
+<h2 id="output-7">3. OUTPUT</h2>
+<table>
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Conteúdo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mapa de cobertura por camada</td>
+<td>% atual em base, meio, topo, adversarial</td>
+</tr>
+<tr class="even">
+<td>Mapa-meta em 90 dias</td>
+<td>% desejado por camada</td>
+</tr>
+<tr class="odd">
+<td>Golden set inicial</td>
+<td>30-50 casos representativos com gabarito</td>
+</tr>
+<tr class="even">
+<td>Rubrica de LLM-as-judge calibrada</td>
+<td>4-6 critérios objetivos, com correlação alvo ≥0,7 contra humano</td>
+</tr>
+<tr class="odd">
+<td>Adversarial set inicial</td>
+<td>20+ casos por categoria de segurança crítica</td>
+</tr>
+<tr class="even">
+<td>Política de bloqueio em CI</td>
+<td>Delta que bloqueia merge, delta que alerta, delta que passa</td>
+</tr>
+<tr class="odd">
+<td>Cadência de revisão</td>
+<td>Golden set: trimestral. Adversarial: mensal. Calibração de juiz: mensal.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exemplo-de-uso-atlas-strategy-pós-incidente">4. EXEMPLO DE USO — ATLAS STRATEGY PÓS-INCIDENTE</h2>
+<p>Consultoria estratégica BR, após o incidente dos números trocados no relatório (Cap 39).</p>
+<p><strong>Estado anterior.</strong> Vibe-eval (3 sócios na sexta). 0% de cobertura em qualquer camada da pirâmide.</p>
+<p><strong>Plano de pirâmide v1:</strong></p>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 37%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Camada</th>
+<th>Cobertura</th>
+<th>Conteúdo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Base</td>
+<td>100%</td>
+<td>Schema validation do relatório (seções obrigatórias, números formatados, citação presente)</td>
+</tr>
+<tr class="even">
+<td>Meio</td>
+<td>100%</td>
+<td>Golden set de 80 relatórios reais com gabarito de números e tese. LLM-as-judge com rubrica de faithfulness numérico (4 critérios). Juiz = Claude Opus (gerador = Sonnet). Calibrado contra 3 sócios em 30 itens, correlação 0,82</td>
+</tr>
+<tr class="odd">
+<td>Topo</td>
+<td>10%</td>
+<td>Auditoria semanal de partner em release crítico. Trimestralmente, auditoria externa por consultor sênior independente</td>
+</tr>
+<tr class="even">
+<td>Adversarial</td>
+<td>mensal</td>
+<td>30 casos: paciente com sycophancy (cliente forçando conclusão), prompt injection via dado de cliente, números invertidos sutilmente, citação de fonte inexistente, omissão de risco crítico</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Política de bloqueio.</strong> Faithfulness numérico ≥0,95 (delta máximo 1 ponto contra baseline). Adversarial: zero passagens. Caso falhe, merge bloqueado automaticamente.</p>
+<p><strong>Resultado em 6 meses.</strong> Regressões silenciosas zeraram. Tempo de revisão humana caiu 50% — gate filtra ruído antes de o humano ver.</p>
+<h2 id="anti-padrões-7">5. ANTI-PADRÕES</h2>
+<table>
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Anti-padrão</th>
+<th>Por que mata</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Construir o topo da pirâmide sem a base</td>
+<td>Humano revisa muito, identifica pouco, time não escala</td>
+</tr>
+<tr class="even">
+<td>LLM-as-judge sem calibração contra humano</td>
+<td>Viés institucionalizado; auto-validação inflada</td>
+</tr>
+<tr class="odd">
+<td>Golden set único, sem renovação</td>
+<td>Vira folclore que não bate com produção atual</td>
+</tr>
+<tr class="even">
+<td>Adversarial só de literatura, sem casos de produção</td>
+<td>Cobertura teórica, falhas reais escapam</td>
+</tr>
+<tr class="odd">
+<td>Métrica única agregada (acurácia média)</td>
+<td>Esconde regressão por subgrupo crítico</td>
+</tr>
+<tr class="even">
+<td>“Eval é caro” como justificativa para não fazer</td>
+<td>Regressão silenciosa é mais cara, descoberta tarde</td>
+</tr>
+</tbody>
+</table>
+<h2 id="conexões-7">6. CONEXÕES</h2>
+<ul>
+<li>🔗 <a href="../01-manifesto/L1-C00M-manifesto-invariantes.md">Manifesto dos Invariantes</a></li>
+<li>🔗 <a href="../02-capitulos/L1-C06-rag.md">Cap 06 — RAG</a> (RAGAS aplicado ao meio da pirâmide)</li>
+<li>🔗 <a href="../02-capitulos/L1-C08-fine-tuning.md">Cap 08 — Fine-tuning</a> (decisão sustentada por golden set)</li>
+<li>🔗 <a href="../02-capitulos/L1-C39-evals.md">Cap 39 — Evals</a> (capítulo-âncora completo)</li>
+<li>🔗 <a href="../02-capitulos/L1-C40-llmops.md">Cap 40 — LLMOps</a> (pilares 1, 2 e 3 sustentam o framework)</li>
+<li>🔗 <a href="../02-capitulos/L1-C41-alignment.md">Cap 41 — Alignment</a> (adversarial cobre 8 safety categories)</li>
+<li>🔗 <a href="../02-capitulos/L1-C42-governanca.md">Cap 42 — Governança</a> (eval em CI é controle técnico canônico)</li>
+<li>🔗 <a href="L1-F1-decid-ia.md">F1 — DECID-IA</a> (Pergunta 4 — linha de medição — alimenta o plano de pirâmide)</li>
+<li>🔗 <a href="L1-F3-agente-prop.md">F3 — AGENTE-PROP</a> (níveis de autonomia exigem cobertura proporcional na pirâmide)</li>
+</ul>
+<hr />
+<blockquote>
+<p><em>“A pirâmide é barata na base, cara no topo. Quem inverte paga muito sem cobrir bem. Quem ignora paga em incidente.”</em></p>
+</blockquote>
+<div class="page-break">
+
+</div>
+<h1 id="framework-f9-rota-dupla">FRAMEWORK F9 — ROTA-DUPLA</h1>
+<h2 id="trilha-de-aprendizado-e-operação-por-camada-padrão-número">Trilha de aprendizado e operação por camada (padrão × número)</h2>
+<hr />
+<blockquote>
+<p>🧭 <strong>Invariante-mãe:</strong> <strong>Invariante 3 — Camada Dupla</strong> — <em>“Decore o padrão, consulte o número.”</em> Capítulo-âncora: <a href="../02-capitulos/L1-C01-o-que-e-ia.md">Cap 01 — O que é IA</a> e o <strong><a href="../../Livro-2-Dominando-Claude/04-apendices/L2-APX-J-apendice-vivo.md">Apêndice Vivo (J)</a></strong>.</p>
+</blockquote>
+<hr />
+<h2 id="objetivo-8">1. OBJETIVO</h2>
+<p>Orientar o estudo e a operação do leitor distinguindo, em cada peça de conhecimento, o que é <strong>padrão (decora)</strong> do que é <strong>número (consulta)</strong>. Garantir que tempo de aprendizado vá para o que envelhece bem, e que tempo de consulta vá para o que muda — com fonte e data.</p>
+<h2 id="funcionamento-8">2. FUNCIONAMENTO</h2>
+<p>Toda peça de conhecimento sobre IA pertence a <strong>uma de duas trilhas</strong> com cadências distintas de revisitação.</p>
+<h3 id="trilha-padrão-padrão-durável">Trilha Padrão (Padrão durável)</h3>
+<p><strong>O que vai aqui.</strong> - Os 9 Invariantes da IA - Os 9 Frameworks proprietários (F1-F9) - Capítulos conceituais (Cap 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13, 14) - Anatomia de eval, LLMOps, Alignment, Governança (Caps 39, 40, 41, 42) - Tradeoffs canônicos (Cap 43) - Padrões arquiteturais (RAG, agente, MCP, fine-tuning)</p>
+<p><strong>Cadência de revisitação.</strong> Trimestral para revisão completa. Anual para releitura focada.</p>
+<p><strong>Como armazena.</strong> Cabeça do operador. Cartaz dos Invariantes (Apêndice M) na parede. Caderno do Operador como notas pessoais.</p>
+<h3 id="trilha-número-número-volátil">Trilha Número (Número volátil)</h3>
+<p><strong>O que vai aqui.</strong> - Versões correntes de modelos (Anthropic, OpenAI, Google, open weights) - Preços por milhão de tokens - Posições em benchmark da rodada (SWE-bench, GPQA, OSWorld, etc.) - Limites correntes de janela de contexto - Capacidades novas de produto (Claude Skills X.Y, Connectors, etc.) - Lista corrente de repositórios GitHub relevantes - Datas de regulação aplicável (versões de LGPD, AI Act, NIST AI RMF)</p>
+<p><strong>Cadência de revisitação.</strong> Mensal para conferência. Antes de cada decisão que use o número como insumo.</p>
+<p><strong>Como armazena.</strong> <strong>Apêndice Vivo (J)</strong> no Livro 2, datado, com fonte por linha, atualizado fora do livro.</p>
+<h3 id="mecânica-de-aplicação-3">Mecânica de aplicação</h3>
+<ol type="1">
+<li><strong>Diagnóstico.</strong> Listar o que se sabe sobre IA hoje. Para cada item, classificar: padrão ou número?</li>
+<li><strong>Migração.</strong> Item classificado errado vai para a trilha certa.</li>
+<li><strong>Cadência de revisão.</strong> Padrão entra em revisão trimestral. Número fica disponível para consulta sob demanda.</li>
+<li><strong>Antes de cada decisão.</strong> Identificar quais padrões e quais números a decisão precisa. Buscar cada um na trilha certa.</li>
+</ol>
+<h2 id="output-8">3. OUTPUT</h2>
+<table>
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Conteúdo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mapa pessoal de padrões dominados</td>
+<td>Os 9 Invariantes, frameworks F1-F9, conceitos centrais</td>
+</tr>
+<tr class="even">
+<td>Mapa pessoal de gaps de padrão</td>
+<td>O que ainda precisa ser estudado</td>
+</tr>
+<tr class="odd">
+<td>Calendário de revisão de padrão</td>
+<td>Trimestral e anual</td>
+</tr>
+<tr class="even">
+<td>Bookmark do Apêndice Vivo</td>
+<td>Para consulta de número</td>
+</tr>
+<tr class="odd">
+<td>Calendário de checagem do Apêndice Vivo</td>
+<td>Mensal por padrão; antes de cada decisão crítica</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exemplo-de-uso-cto-que-precisa-decidir-modelo">4. EXEMPLO DE USO — CTO QUE PRECISA DECIDIR MODELO</h2>
+<p>Cenário: CTO de SaaS B2B precisa decidir migração de modelo para feature de copiloto in-product.</p>
+<p><strong>Identificação do que a decisão precisa.</strong></p>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Insumo</th>
+<th>Trilha</th>
+<th>Onde buscar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Quais são os eixos relevantes para escolha de modelo?</td>
+<td>Padrão</td>
+<td>F2 ENCAIXE-5 (Trilha Padrão)</td>
+</tr>
+<tr class="even">
+<td>Como pontuar a tarefa nos eixos?</td>
+<td>Padrão</td>
+<td>Cap 15 + F2</td>
+</tr>
+<tr class="odd">
+<td>Qual a liderança corrente em “razão complexa” e “código”?</td>
+<td>Número</td>
+<td>Apêndice Vivo (J) — SWE-bench Verified, GPQA</td>
+</tr>
+<tr class="even">
+<td>Qual o preço por milhão de tokens hoje?</td>
+<td>Número</td>
+<td>Apêndice Vivo (J) — pricing pages</td>
+</tr>
+<tr class="odd">
+<td>Qual a filosofia de alignment do vendor?</td>
+<td>Padrão</td>
+<td>Cap 41 (depende pouco da versão)</td>
+</tr>
+<tr class="even">
+<td>Qual a janela de contexto corrente do modelo X?</td>
+<td>Número</td>
+<td>Apêndice Vivo (J)</td>
+</tr>
+</tbody>
+</table>
+<p>A decisão é informada por padrão (F2 + Cap 41) e número (Apêndice Vivo). O padrão vive na cabeça do CTO; o número é conferido na semana da decisão.</p>
+<p><strong>Em 6 meses,</strong> a fronteira muda. Versões novas saem. Mas o padrão F2 continua válido. O CTO refaz o exercício, busca o novo número no Apêndice Vivo atualizado, e a decisão é consciente em vez de reativa.</p>
+<h2 id="anti-padrões-8">5. ANTI-PADRÕES</h2>
+<table>
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Anti-padrão</th>
+<th>Por que mata</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Memorizar versão e benchmark “porque é importante”</td>
+<td>Memória vira passivo no próximo release</td>
+</tr>
+<tr class="even">
+<td>Não memorizar o padrão “porque é teórico”</td>
+<td>Sem padrão, decisão fica refém do marketing do vendor</td>
+</tr>
+<tr class="odd">
+<td>Achar que o livro tem tudo</td>
+<td>Livro tem o padrão; Apêndice Vivo tem o número</td>
+</tr>
+<tr class="even">
+<td>Confiar em memória para o número</td>
+<td>Modelo X mudou de versão; preço caiu 40%; benchmark líder é outro</td>
+</tr>
+<tr class="odd">
+<td>Ignorar o padrão porque “é óbvio”</td>
+<td>Operadores que conhecem o óbvio cometem 80% dos erros do mercado</td>
+</tr>
+<tr class="even">
+<td>Atualizar o padrão na mesma cadência do número</td>
+<td>Tempo gasto reescrevendo o que não mudou</td>
+</tr>
+</tbody>
+</table>
+<h2 id="conexões-8">6. CONEXÕES</h2>
+<ul>
+<li>🔗 <a href="../01-manifesto/L1-C00M-manifesto-invariantes.md">Manifesto dos Invariantes</a></li>
+<li>🔗 <a href="../02-capitulos/L1-C01-o-que-e-ia.md">Cap 01 — O que é IA</a></li>
+<li>🔗 <a href="../02-capitulos/L1-C15-comparacao-modelos.md">Cap 15 — Comparação de modelos</a></li>
+<li>🔗 <a href="../../Livro-2-Dominando-Claude/04-apendices/L2-APX-J-apendice-vivo.md">Apêndice Vivo (J)</a></li>
+<li>🔗 <a href="../04-apendices/L1-APX-M-manifesto-bolso.md">Apêndice M — Manifesto de bolso</a></li>
+<li>🔗 <a href="../04-apendices/L1-APX-B-mapa-mental.md">Apêndice B — Mapa Mental Geral</a></li>
+<li>🔗 Todos os frameworks F1-F8 (cada um opera um padrão)</li>
+</ul>
+<hr />
+<blockquote>
+<p><em>“Decore o padrão, consulte o número. Misturar as duas trilhas é envelhecer junto com o release.”</em></p>
+</blockquote>
+</body>
+</html>

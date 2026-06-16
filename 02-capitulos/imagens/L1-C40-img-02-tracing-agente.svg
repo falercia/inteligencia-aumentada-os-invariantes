@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 600" font-family="Inter, system-ui, sans-serif">
+  <title>Tracing de agente — Session × Trace × Spans</title>
+  <desc>Modelo mental de observabilidade em IA. Cada chamada é um span; sequência relacionada é trace; sessão temporal envolve traces.</desc>
+
+  <defs>
+    <linearGradient id="spanBox" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0d1b2a"/>
+      <stop offset="100%" stop-color="#1b263b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1080" height="600" fill="#fefce8"/>
+
+  <text x="540" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#0d1b2a">TRACING DE AGENTE</text>
+  <text x="540" y="64" text-anchor="middle" font-size="12" fill="#6b7280" font-style="italic">SESSION → TRACE → SPAN · padrão OpenTelemetry GenAI semantic conventions</text>
+
+  <!-- Session envolvendo tudo -->
+  <rect x="40" y="100" width="1000" height="430" rx="14" fill="#1b263b" stroke="#E97451" stroke-width="2"/>
+  <text x="60" y="130" font-size="14" font-weight="700" fill="#fef3c7">SESSION</text>
+  <text x="140" y="130" font-size="11" fill="#fde68a">session_id=abc-123 · user_id=u742 · feature=cotacao_assistida · iniciou em 10:23:14</text>
+
+  <!-- Trace 1: x 60 a 380 (largura 320), y 150 a 510 -->
+  <rect x="60" y="150" width="320" height="360" rx="10" fill="#0d1b2a" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="80" y="178" font-size="12" font-weight="700" fill="#fbbf24">TRACE #1</text>
+  <text x="80" y="196" font-size="10" fill="#fde68a">turno 1 — "qual a cobertura para SUV?"</text>
+
+  <g transform="translate(80,212)">
+    <rect width="280" height="44" rx="6" fill="url(#spanBox)" stroke="#86efac" stroke-width="1"/>
+    <text x="12" y="18" font-size="10" font-weight="700" fill="#86efac">span: modelo · classify_intent</text>
+    <text x="12" y="34" font-size="9" fill="#fef3c7">in=42tk · out=8tk · 320ms · R$ 0,002</text>
+  </g>
+
+  <g transform="translate(80,266)">
+    <rect width="280" height="58" rx="6" fill="url(#spanBox)" stroke="#E97451" stroke-width="1"/>
+    <text x="12" y="18" font-size="10" font-weight="700" fill="#E97451">span: tool · seguradora_A.cotar</text>
+    <text x="12" y="34" font-size="9" fill="#fef3c7">args={cep:01310, veic:SUV} · 480ms</text>
+    <text x="12" y="50" font-size="9" fill="#fef3c7">ret_size=2,1kb · ok</text>
+  </g>
+
+  <g transform="translate(80,334)">
+    <rect width="280" height="58" rx="6" fill="url(#spanBox)" stroke="#E97451" stroke-width="1"/>
+    <text x="12" y="18" font-size="10" font-weight="700" fill="#E97451">span: tool · seguradora_B.cotar</text>
+    <text x="12" y="34" font-size="9" fill="#fef3c7">args={cep:01310, veic:SUV} · 520ms</text>
+    <text x="12" y="50" font-size="9" fill="#fef3c7">ret_size=2,4kb · ok</text>
+  </g>
+
+  <g transform="translate(80,402)">
+    <rect width="280" height="44" rx="6" fill="url(#spanBox)" stroke="#86efac" stroke-width="1"/>
+    <text x="12" y="18" font-size="10" font-weight="700" fill="#86efac">span: modelo · generate_response</text>
+    <text x="12" y="34" font-size="9" fill="#fef3c7">in=842tk · out=312tk · 1,8s · R$ 0,18</text>
+  </g>
+
+  <text x="220" y="486" text-anchor="middle" font-size="10" font-style="italic" fill="#9ca3af">latência trace: 3,1s · tokens: 1204 · custo: R$ 0,18</text>
+
+  <!-- Trace 2: x 400 a 720 (largura 320), y 150 a 510 -->
+  <rect x="400" y="150" width="320" height="360" rx="10" fill="#0d1b2a" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="420" y="178" font-size="12" font-weight="700" fill="#fbbf24">TRACE #2</text>
+  <text x="420" y="196" font-size="10" fill="#fde68a">turno 2 — "e se eu mudar para casado?"</text>
+
+  <g transform="translate(420,212)">
+    <rect width="280" height="44" rx="6" fill="url(#spanBox)" stroke="#86efac" stroke-width="1"/>
+    <text x="12" y="18" font-size="10" font-weight="700" fill="#86efac">span: modelo · classify_intent</text>
+    <text x="12" y="34" font-size="9" fill="#fef3c7">in=48tk · out=8tk · 280ms · R$ 0,002</text>
+  </g>
+
+  <g transform="translate(420,266)">
+    <rect width="280" height="74" rx="6" fill="url(#spanBox)" stroke="#fca5a5" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <text x="12" y="18" font-size="10" font-weight="700" fill="#fca5a5">span: agent_loop (anomalia)</text>
+    <text x="12" y="34" font-size="9" fill="#fef3c7">31 sub-spans tool · todas seguradoras</text>
+    <text x="12" y="48" font-size="9" fill="#fef3c7">reconsultadas por mudança de estado</text>
+    <text x="12" y="64" font-size="9" font-weight="700" fill="#fca5a5">→ R$ 3,42 nessa chamada (bug)</text>
+  </g>
+
+  <g transform="translate(420,350)">
+    <rect width="280" height="44" rx="6" fill="url(#spanBox)" stroke="#86efac" stroke-width="1"/>
+    <text x="12" y="18" font-size="10" font-weight="700" fill="#86efac">span: modelo · generate_response</text>
+    <text x="12" y="34" font-size="9" fill="#fef3c7">in=2,1k tk · out=380tk · 4,2s · R$ 0,42</text>
+  </g>
+
+  <text x="560" y="486" text-anchor="middle" font-size="10" font-weight="700" font-style="italic" fill="#dc2626">latência trace: 6,8s · tokens: 6,4k · custo: R$ 3,84 ⚠</text>
+
+  <!-- Trace 3: x 740 a 1020 (largura 280), y 150 a 510 -->
+  <rect x="740" y="150" width="280" height="360" rx="10" fill="#0d1b2a" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="760" y="178" font-size="12" font-weight="700" fill="#fbbf24">TRACE #3</text>
+  <text x="760" y="196" font-size="10" fill="#fde68a">turno 3 — finalização</text>
+
+  <g transform="translate(760,212)">
+    <rect width="240" height="44" rx="6" fill="url(#spanBox)" stroke="#86efac" stroke-width="1"/>
+    <text x="12" y="18" font-size="10" font-weight="700" fill="#86efac">span: modelo · summarize</text>
+    <text x="12" y="34" font-size="9" fill="#fef3c7">in=1,2k tk · out=180tk · R$ 0,12</text>
+  </g>
+
+  <g transform="translate(760,266)">
+    <rect width="240" height="44" rx="6" fill="url(#spanBox)" stroke="#E97451" stroke-width="1"/>
+    <text x="12" y="18" font-size="10" font-weight="700" fill="#E97451">span: tool · email.send</text>
+    <text x="12" y="34" font-size="9" fill="#fef3c7">to=cliente · status=enviado</text>
+  </g>
+
+  <text x="880" y="486" text-anchor="middle" font-size="10" font-style="italic" fill="#9ca3af">latência trace: 2,1s · custo: R$ 0,12</text>
+
+  <text x="540" y="562" text-anchor="middle" font-size="12" font-style="italic" fill="#0d1b2a">★ Sem tracing por span, o agent_loop do Trace #2 fica invisível. Custo aparece só na fatura mensal.</text>
+  <text x="540" y="584" text-anchor="middle" font-size="11" font-style="italic" fill="#6b7280">"Autonomia sem observabilidade é passivo, não ativo." — Invariante 6</text>
+</svg>

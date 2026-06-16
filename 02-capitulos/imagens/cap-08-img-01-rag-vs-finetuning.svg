@@ -1,0 +1,56 @@
+<svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <rect width="900" height="520" fill="#fefce8"/>
+
+  <text x="450" y="40" fill="#0d1b2a" font-size="22" font-weight="700" text-anchor="middle">RAG vs FINE-TUNING — QUANDO ESCOLHER CADA UM</text>
+  <text x="450" y="64" fill="#6b7280" font-size="13" text-anchor="middle">A decisão arquitetural que mais custa errar em projetos corporativos</text>
+
+  <!-- RAG -->
+  <g>
+    <rect x="60" y="100" width="380" height="380" rx="12" fill="#bbf7d0" opacity="0.4" stroke="#16a34a" stroke-width="2"/>
+    <text x="250" y="130" fill="#0d1b2a" font-size="16" font-weight="700" text-anchor="middle">RAG</text>
+    <text x="250" y="150" fill="#6b7280" font-size="11" text-anchor="middle" font-style="italic">externalizar conhecimento</text>
+
+    <text x="80" y="186" fill="#0d1b2a" font-size="12" font-weight="700">USE QUANDO:</text>
+    <text x="80" y="208" fill="#374151" font-size="11">✓ Conhecimento muda com frequência</text>
+    <text x="80" y="228" fill="#374151" font-size="11">✓ Precisa de citações verificáveis</text>
+    <text x="80" y="248" fill="#374151" font-size="11">✓ Base grande e diversa</text>
+    <text x="80" y="268" fill="#374151" font-size="11">✓ Quer atualizar sem retreinar</text>
+    <text x="80" y="288" fill="#374151" font-size="11">✓ Não precisa mudar comportamento</text>
+
+    <text x="80" y="326" fill="#0d1b2a" font-size="12" font-weight="700">CUSTO:</text>
+    <text x="80" y="346" fill="#16a34a" font-size="11">• Setup: US$ 5k–50k</text>
+    <text x="80" y="364" fill="#16a34a" font-size="11">• Operação: tokens + storage</text>
+
+    <text x="80" y="402" fill="#0d1b2a" font-size="12" font-weight="700">TEMPO:</text>
+    <text x="80" y="422" fill="#16a34a" font-size="11">• 2 a 8 semanas até produção</text>
+
+    <text x="80" y="460" fill="#0d1b2a" font-size="12" font-weight="700">REVERSIBILIDADE:</text>
+    <text x="80" y="476" fill="#16a34a" font-size="11" font-weight="600">Alta — base pode ser editada</text>
+  </g>
+
+  <!-- Fine-tuning -->
+  <g>
+    <rect x="460" y="100" width="380" height="380" rx="12" fill="#fde68a" opacity="0.4" stroke="#fb923c" stroke-width="2"/>
+    <text x="650" y="130" fill="#0d1b2a" font-size="16" font-weight="700" text-anchor="middle">FINE-TUNING</text>
+    <text x="650" y="150" fill="#6b7280" font-size="11" text-anchor="middle" font-style="italic">modificar o modelo</text>
+
+    <text x="480" y="186" fill="#0d1b2a" font-size="12" font-weight="700">USE QUANDO:</text>
+    <text x="480" y="208" fill="#374151" font-size="11">✓ Estilo/tom/formato muito específico</text>
+    <text x="480" y="228" fill="#374151" font-size="11">✓ Domínio com vocabulário fechado</text>
+    <text x="480" y="248" fill="#374151" font-size="11">✓ Tarefa repetitiva em alta escala</text>
+    <text x="480" y="268" fill="#374151" font-size="11">✓ Latência ou custo extremos importam</text>
+    <text x="480" y="288" fill="#374151" font-size="11">✓ Tem 1.000+ exemplos rotulados</text>
+
+    <text x="480" y="326" fill="#0d1b2a" font-size="12" font-weight="700">CUSTO:</text>
+    <text x="480" y="346" fill="#fb923c" font-size="11">• Setup: US$ 20k–500k+</text>
+    <text x="480" y="364" fill="#fb923c" font-size="11">• Operação: hosting do modelo</text>
+
+    <text x="480" y="402" fill="#0d1b2a" font-size="12" font-weight="700">TEMPO:</text>
+    <text x="480" y="422" fill="#fb923c" font-size="11">• 2 a 6 meses até produção</text>
+
+    <text x="480" y="460" fill="#0d1b2a" font-size="12" font-weight="700">REVERSIBILIDADE:</text>
+    <text x="480" y="476" fill="#fb923c" font-size="11" font-weight="600">Baixa — exige retrabalho</text>
+  </g>
+
+  <text x="450" y="510" fill="#dc2626" font-size="12" text-anchor="middle" font-weight="700">REGRA DE OURO: 90% dos casos começam com RAG. Só vá para fine-tuning quando RAG provadamente não basta.</text>
+</svg>

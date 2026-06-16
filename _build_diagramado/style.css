@@ -1,0 +1,698 @@
+
+/* ==========================================================================
+   PALETA OFICIAL
+   - #E97451  Laranja queimado (acentos, separadores, destaques)
+   - #0d1b2a  Navy escuro (cabeçalhos, texto institucional)
+   - #1b263b  Navy médio (subcabeçalhos)
+   - #fefce8  Amarelo claro (boxes destacados)
+   - #fafafa  Cinza claro (alternância de linhas)
+   - #6b7280  Cinza médio (paginação, rodapé)
+   - #D97706  Âmbar (links)
+   ========================================================================== */
+
+/* --------------------- FONTES (web font fallback chain) --------------------- */
+@font-face {
+    font-family: 'Charter';
+    src: local('Charter'), local('Bitstream Charter'), local('DejaVu Serif');
+}
+
+/* --------------------- @PAGE: paratexto inicial (romanos) ------------------ */
+@page paratexto-inicial {
+    size: 16cm 24cm;
+    margin: 1.8cm 1.7cm 1.9cm 1.5cm;
+    @bottom-center {
+        content: counter(page, lower-roman);
+        font-family: "DejaVu Sans", sans-serif;
+        font-size: 9pt;
+        color: #6b7280;
+    }
+}
+
+/* --------------------- @PAGE: corpo principal (arábica) -------------------- */
+@page principal {
+    size: 16cm 24cm;
+    margin: 1.8cm 1.7cm 1.9cm 1.5cm;
+    @top-left {
+        content: string(chap-title);
+        font-family: "DejaVu Sans", sans-serif;
+        font-size: 8pt;
+        font-style: italic;
+        color: #9ca3af;
+    }
+    @top-right {
+        content: string(sect-title);
+        font-family: "DejaVu Sans", sans-serif;
+        font-size: 8pt;
+        font-style: italic;
+        color: #9ca3af;
+    }
+    @bottom-center {
+        content: counter(page);
+        font-family: "DejaVu Sans", sans-serif;
+        font-size: 9pt;
+        color: #6b7280;
+    }
+}
+
+/* --------------------- @PAGE: abertura de capítulo ------------------------- */
+@page abertura-capitulo {
+    size: 16cm 24cm;
+    margin: 1.8cm 1.7cm 1.9cm 1.5cm;
+    @top-left { content: none; }
+    @top-right { content: none; }
+    @bottom-center {
+        content: counter(page);
+        font-family: "DejaVu Sans", sans-serif;
+        font-size: 9pt;
+        color: #6b7280;
+    }
+}
+
+/* --------------------- HTML/BODY base -------------------------------------- */
+html { font-size: 10pt; }
+
+body {
+    font-family: 'Charter', 'Bitstream Charter', 'DejaVu Serif', Georgia, serif;
+    font-size: 10pt;
+    line-height: 1.32;
+    color: #0d1b2a;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+}
+
+/* Default page por chunk: chunk 0 = paratexto, restante = principal */
+body.chunk-paratexto-inicial { page: paratexto-inicial; }
+body.chunk-principal { page: principal; }
+
+/* --------------------- Blocos de seção principais -------------------------- */
+.paratexto-inicial { page: paratexto-inicial; }
+
+.corpo-principal,
+.manifesto-bloco,
+.capitulo-bloco,
+.framework-bloco,
+.apendice-bloco,
+.paratexto-final-bloco {
+    page: principal;
+}
+
+/* Reset de contador de páginas no início do corpo principal (Manifesto C00M) */
+.reset-arabica {
+    counter-reset: page 0;
+}
+
+/* --------------------- Abertura de seção (capítulo/framework/apêndice) ---- */
+.abertura-capitulo,
+.abertura-framework,
+.abertura-apendice,
+.abertura-manifesto,
+.abertura-paratexto-final {
+    page: abertura-capitulo;
+    page-break-before: always; /* nova página, sem forçar ímpar (economiza páginas em branco) */
+    padding-top: 0;
+}
+
+/* Para o paratexto inicial: cada seção começa em página nova */
+.abertura-paratexto {
+    page-break-before: always;
+}
+
+/* --------------------- TÍTULOS (hierarquia) -------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Charter', 'Bitstream Charter', 'DejaVu Serif', Georgia, serif;
+    font-weight: 700;
+    color: #0d1b2a;
+    page-break-after: avoid;
+    text-align: left;
+}
+
+/* H1 = abertura de capítulo: número grande à direita, título, linha laranja */
+h1 {
+    font-size: 30pt;
+    line-height: 1.15;
+    color: #0d1b2a;
+    margin: 0 0 0.6cm 0;
+    padding-bottom: 12pt;
+    border-bottom: 3pt solid #E97451;
+    string-set: chap-title content(), sect-title content();
+    bookmark-level: 1;
+    bookmark-state: open;
+    letter-spacing: -0.5pt;
+    font-weight: 800;
+}
+
+/* H1 dentro de abertura de capítulo recebe número grande antes do texto via JS pré-processado */
+.abertura-capitulo h1 {
+    margin-top: 0;
+    font-size: 28pt;
+}
+
+/* Em paratexto inicial sem capítulo numerado, H1 é mais sóbrio */
+.paratexto-inicial h1 {
+    font-size: 22pt;
+    border-bottom-width: 2pt;
+}
+
+/* H2 = seções X.1, X.2: borda lateral laranja */
+h2 {
+    font-size: 15pt;
+    color: #1b263b;
+    margin: 14pt 0 8pt 0;
+    padding-left: 12pt;
+    border-left: 4pt solid #E97451;
+    line-height: 1.22;
+    string-set: sect-title content();
+    bookmark-level: 2;
+}
+
+h3 {
+    font-size: 12pt;
+    color: #1b263b;
+    margin: 10pt 0 4pt 0;
+    font-weight: 700;
+    bookmark-level: 3;
+}
+
+h4 {
+    font-size: 10.5pt;
+    color: #1b263b;
+    margin: 8pt 0 3pt 0;
+    font-weight: 700;
+    font-style: italic;
+    bookmark-level: 4;
+}
+
+h5, h6 {
+    font-size: 10pt;
+    color: #1b263b;
+    margin: 8pt 0 3pt 0;
+    font-weight: 700;
+}
+
+/* --------------------- PARÁGRAFOS ------------------------------------------ */
+p {
+    margin: 0 0 0.1em 0;
+    text-indent: 1.2em;
+    orphans: 3;
+    widows: 3;
+}
+
+/* Ficha catalográfica: campos Autor/Categoria/ISBN sem indentação, com pausa */
+.ficha-dados p {
+    text-indent: 0;
+    margin: 0 0 0.5em 0;
+}
+
+/* Parágrafos com cara de "linha de dados" (Autor: X, Categoria: Y) recebem
+   espaçamento extra para não grudarem em parede de texto. */
+p > strong:first-child {
+    /* nada visual no strong, mas o parágrafo que o contém merece pausa */
+}
+
+/* Primeiro parágrafo após título não tem recuo */
+h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p,
+blockquote + p.dropcap,
+.epigrafe + p,
+.linha-decorativa + p {
+    text-indent: 0;
+}
+
+/* Espaçamento entre parágrafos para densidade legível */
+p + p { margin-top: 0; }
+
+/* --------------------- DROP CAP -------------------------------------------
+   WeasyPrint tem bug com float:left em ::first-letter combinado com outros
+   floats em árvore complexa. Usamos initial-letter (CSS Inline Layout Module
+   Level 3), suportado pelo WeasyPrint 60+. Fallback: ::first-letter maior. */
+p.dropcap {
+    text-indent: 0;
+}
+
+p.dropcap::first-letter {
+    font-family: 'Charter', 'Bitstream Charter', 'DejaVu Serif', Georgia, serif;
+    initial-letter: 3 2;
+    font-weight: 800;
+    color: #0d1b2a;
+    padding-right: 6pt;
+}
+
+/* --------------------- EPÍGRAFE (citação sob título do capítulo) ---------- */
+.epigrafe {
+    margin: 14pt 18pt 24pt 18pt;
+    padding: 0;
+    border: none;
+    background: none;
+    font-style: italic;
+    color: #1b263b;
+    font-size: 11pt;
+    text-align: right;
+    line-height: 1.4;
+}
+.epigrafe::before { content: "❝ "; color: #E97451; font-size: 14pt; }
+.epigrafe::after { content: " ❞"; color: #E97451; font-size: 14pt; }
+.epigrafe cite, .epigrafe .autor {
+    display: block;
+    font-style: normal;
+    font-size: 9pt;
+    color: #6b7280;
+    margin-top: 6pt;
+    letter-spacing: 0.5pt;
+}
+
+/* --------------------- BLOCKQUOTES (padrão) -------------------------------- */
+blockquote {
+    margin: 8pt 0;
+    padding: 8pt 12pt;
+    border-left: 3pt solid #E97451;
+    background-color: #fefce8;
+    font-style: italic;
+    color: #1b263b;
+    page-break-inside: avoid;
+}
+blockquote p { margin: 4pt 0; text-indent: 0; }
+
+/* --------------------- BOX PARA EXECUTIVOS (🎯) --------------------------- */
+.box-executivos {
+    margin: 10pt 0;
+    padding: 10pt 14pt 10pt 14pt;
+    background-color: #fefce8;
+    border-left: 4pt solid #0d1b2a;
+    page-break-inside: avoid;
+    position: relative;
+    font-style: normal;
+    color: #1b263b;
+}
+.box-executivos::before {
+    content: "PARA EXECUTIVOS";
+    display: block;
+    background-color: #0d1b2a;
+    color: #fef3c7;
+    font-family: "DejaVu Sans", sans-serif;
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 1.2pt;
+    padding: 3pt 8pt;
+    margin: -10pt -14pt 8pt -14pt;
+    text-align: left;
+}
+.box-executivos p { margin: 4pt 0; text-indent: 0; font-style: normal; }
+
+/* --------------------- BOX ALERTA (⚠) ------------------------------------- */
+.box-alerta {
+    margin: 8pt 0;
+    padding: 8pt 12pt 8pt 36pt;
+    background-color: #fef3c7;
+    border-left: 4pt solid #E97451;
+    page-break-inside: avoid;
+    position: relative;
+    color: #1b263b;
+}
+.box-alerta::before {
+    content: "▲";
+    position: absolute;
+    left: 14pt;
+    top: 10pt;
+    color: #E97451;
+    font-size: 16pt;
+    font-weight: 700;
+    line-height: 1;
+}
+.box-alerta p { margin: 3pt 0; text-indent: 0; }
+.box-alerta strong:first-child {
+    display: block;
+    font-family: "DejaVu Sans", sans-serif;
+    font-size: 8.5pt;
+    letter-spacing: 1pt;
+    color: #E97451;
+    margin-bottom: 4pt;
+}
+
+/* --------------------- BOX DICA / INSIGHT (💡) ---------------------------- */
+.box-dica,
+.box-insight {
+    margin: 8pt 0;
+    padding: 8pt 12pt 8pt 36pt;
+    background-color: #f3f4f6;
+    border-left: 4pt solid #D97706;
+    page-break-inside: avoid;
+    position: relative;
+    color: #1b263b;
+}
+.box-dica::before,
+.box-insight::before {
+    content: "✸";
+    position: absolute;
+    left: 14pt;
+    top: 10pt;
+    color: #D97706;
+    font-size: 14pt;
+    line-height: 1;
+}
+.box-dica p, .box-insight p { margin: 3pt 0; text-indent: 0; }
+.box-dica strong:first-child,
+.box-insight strong:first-child {
+    display: block;
+    font-family: "DejaVu Sans", sans-serif;
+    font-size: 8.5pt;
+    letter-spacing: 1pt;
+    color: #D97706;
+    margin-bottom: 4pt;
+}
+
+/* --------------------- BOX TÉCNICO (🔧) ------------------------------------ */
+.box-tecnico {
+    margin: 8pt 0;
+    padding: 8pt 12pt 8pt 36pt;
+    background-color: #eff6ff;
+    border-left: 4pt solid #1b263b;
+    page-break-inside: avoid;
+    position: relative;
+    font-size: 10pt;
+    color: #1b263b;
+}
+.box-tecnico::before {
+    content: "⚙";
+    position: absolute;
+    left: 14pt;
+    top: 10pt;
+    color: #1b263b;
+    font-size: 14pt;
+    line-height: 1;
+}
+.box-tecnico p { margin: 3pt 0; text-indent: 0; }
+.box-tecnico strong:first-child {
+    display: block;
+    font-family: "DejaVu Sans", sans-serif;
+    font-size: 8.5pt;
+    letter-spacing: 1pt;
+    color: #1b263b;
+    margin-bottom: 4pt;
+}
+
+/* --------------------- LISTAS --------------------------------------------- */
+ul, ol {
+    margin: 6pt 0 8pt 0;
+    padding-left: 22pt;
+}
+li {
+    margin-bottom: 2pt;
+    line-height: 1.32;
+}
+li p { text-indent: 0; margin: 0; } /* parágrafo dentro de item: sem indent */
+ul li::marker { color: #E97451; }
+ol li::marker {
+    font-family: "DejaVu Sans", sans-serif;
+    font-weight: 700;
+    color: #0d1b2a;
+}
+
+/* --------------------- TASK LIST (checklist com checkboxes) --------------- */
+/* Pandoc converte "- [ ] item" em <ul class="task-list"><li><input ...></li></ul>.
+   No HTML do pandoc, depois do <input> vem o texto direto, mas o <p> implícito
+   do markdown bloco-nível joga o texto para linha de baixo. Solução robusta:
+   forçar tudo dentro de <li> a renderizar inline + tirar o marker. */
+ul.task-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 6pt 0 8pt 0;
+}
+ul.task-list > li {
+    display: block;
+    padding-left: 16pt;
+    text-indent: -16pt;
+    margin-bottom: 3pt;
+    line-height: 1.32;
+}
+ul.task-list > li::marker,
+ul.task-list > li::before { content: none !important; display: none !important; }
+ul.task-list input[type="checkbox"] {
+    display: inline-block;
+    width: 8pt;
+    height: 8pt;
+    margin: 0 6pt 0 0;
+    padding: 0;
+    vertical-align: -1pt;
+    border: 0.8pt solid #6b7280;
+}
+/* Caso pandoc envolva o texto em <p> dentro do <li>, força inline */
+ul.task-list > li > p {
+    display: inline;
+    text-indent: 0;
+    margin: 0;
+}
+
+/* --------------------- TABELAS -------------------------------------------- */
+/* Tabelas precisam NUNCA quebrar palavras letra-por-letra (acontece quando o
+   text-align: justify do body se combina com hyphens: auto e células estreitas).
+   Forçamos text-align: left, word-spacing normal e quebra apenas em fronteiras
+   reais de palavra para evitar o efeito "Q u a n t i z a ç ã o" vertical. */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10pt 0;
+    font-size: 9pt;
+    page-break-inside: auto; /* tabelas longas podem quebrar entre linhas */
+    table-layout: auto;
+    text-align: left;
+    word-spacing: normal;
+    hyphens: manual;
+    -webkit-hyphens: manual;
+}
+th {
+    background-color: #0d1b2a;
+    color: #fef3c7;
+    padding: 5pt 8pt;
+    text-align: left;
+    font-family: "DejaVu Sans", sans-serif;
+    font-weight: 700;
+    font-size: 8.5pt;
+    letter-spacing: 0.3pt;
+    vertical-align: middle;
+    hyphens: manual;
+    -webkit-hyphens: manual;
+    word-break: normal;
+    overflow-wrap: normal;
+}
+td {
+    padding: 4pt 8pt;
+    border-bottom: 0.5pt solid #d1d5db;
+    vertical-align: top;
+    line-height: 1.3;
+    text-align: left;
+    hyphens: manual;
+    -webkit-hyphens: manual;
+    word-break: normal;
+    overflow-wrap: break-word;
+    word-spacing: normal;
+}
+tr:nth-child(even) td { background-color: #fafafa; }
+table p { text-indent: 0; margin: 0; text-align: left; word-spacing: normal; }
+
+/* Tabelas curtas (4 ou menos linhas) podem ficar inteiras na página */
+table.compacta { page-break-inside: avoid; }
+
+/* Em tabelas longas, cabeçalho se repete entre páginas */
+thead { display: table-header-group; }
+tbody { display: table-row-group; }
+tr { page-break-inside: avoid; }
+
+/* --------------------- CÓDIGO --------------------------------------------- */
+code {
+    font-family: 'DejaVu Sans Mono', monospace;
+    font-size: 9.5pt;
+    background-color: #f3f4f6;
+    padding: 1pt 4pt;
+    color: #0d1b2a;
+    border-radius: 2pt;
+}
+pre {
+    background-color: #0d1b2a;
+    color: #fef3c7;
+    padding: 10pt 12pt;
+    overflow: visible;
+    font-size: 7.5pt;
+    line-height: 1.3;
+    page-break-inside: avoid;
+    margin: 10pt 0;
+    border-radius: 2pt;
+    max-width: 100%;
+    white-space: pre;
+    word-wrap: normal;
+    hyphens: none;
+    -webkit-hyphens: none;
+    word-spacing: normal;
+}
+pre code {
+    background-color: transparent;
+    color: #fef3c7;
+    padding: 0;
+    font-size: 7.5pt;
+    white-space: pre;
+    word-spacing: normal;
+}
+
+/* --------------------- IMAGENS / SVG / FIGURAS ---------------------------- */
+img, svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 14pt auto;
+    page-break-inside: avoid;
+}
+figure {
+    margin: 16pt 0;
+    text-align: center;
+    page-break-inside: avoid;
+}
+figcaption {
+    font-family: "DejaVu Sans", sans-serif;
+    font-size: 9pt;
+    color: #6b7280;
+    margin-top: 6pt;
+    font-style: italic;
+}
+/* Figura placeholder discreta: só uma linha em itálico, sem caixa pesada */
+.figura-placeholder { margin: 10pt 0; }
+.figura-caixa {
+    display: none; /* não mostra a caixa visual feia */
+}
+.figura-placeholder figcaption {
+    font-style: italic;
+    color: #6b7280;
+    font-size: 9pt;
+    text-align: center;
+    border-top: 0.5pt solid #e5e7eb;
+    border-bottom: 0.5pt solid #e5e7eb;
+    padding: 4pt 0;
+}
+
+/* --------------------- LINKS ---------------------------------------------- */
+a, a:link, a:visited {
+    color: #D97706;
+    text-decoration: none;
+}
+
+/* --------------------- SEPARADORES (---) ---------------------------------- */
+hr {
+    border: none;
+    border-top: 1pt solid #E97451;
+    margin: 18pt auto;
+    width: 60%;
+    opacity: 0.6;
+    page-break-after: avoid;
+}
+
+/* --------------------- ÊNFASES -------------------------------------------- */
+strong { color: #0d1b2a; font-weight: 700; }
+em { color: #1b263b; font-style: italic; }
+
+/* --------------------- ABERTURA DE CAPÍTULO (cabeçalho dedicado) ---------- */
+.abertura-capitulo-header {
+    padding-top: 1.5cm;
+    margin-bottom: 1cm;
+}
+.abertura-capitulo-numero {
+    font-family: 'Charter', 'DejaVu Serif', Georgia, serif;
+    font-size: 80pt;
+    font-weight: 800;
+    color: #0d1b2a;
+    line-height: 1;
+    text-align: right;
+    margin: 0;
+    letter-spacing: -3pt;
+}
+.abertura-capitulo-numero .pequeno {
+    font-size: 22pt;
+    color: #6b7280;
+    font-weight: 400;
+    display: block;
+    letter-spacing: 2pt;
+    margin-bottom: 4pt;
+}
+.abertura-capitulo-titulo {
+    font-family: 'Charter', 'DejaVu Serif', Georgia, serif;
+    font-size: 24pt;
+    font-weight: 700;
+    color: #0d1b2a;
+    line-height: 1.2;
+    margin: 10pt 0 0 0;
+    text-align: left;
+}
+.abertura-capitulo-linha {
+    border: none;
+    border-top: 3pt solid #E97451;
+    width: 40%;
+    margin: 20pt 0 24pt 0;
+    opacity: 1;
+}
+
+/* --------------------- BANDEIRA DE NÍVEL (faixa no topo) ----------------- */
+/* Faixa horizontal no topo da página de abertura (WeasyPrint não suporta
+   bem position:absolute sangrando para fora do bloco, então usamos faixa). */
+.bandeira-nivel {
+    display: inline-block;
+    background-color: #E97451;
+    color: #fff;
+    font-family: "DejaVu Sans", sans-serif;
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 1.5pt;
+    padding: 4pt 14pt;
+    text-transform: uppercase;
+    margin: 0 0 14pt 0;
+}
+.bandeira-iniciante { background-color: #16a34a; }
+.bandeira-iniciante-intermediario { background-color: #ca8a04; }
+.bandeira-intermediario { background-color: #D97706; }
+.bandeira-intermediario-avancado { background-color: #c2410c; }
+.bandeira-avancado { background-color: #b91c1c; }
+.bandeira-referencia { background-color: #1b263b; }
+.bandeira-fundacao { background-color: #0d1b2a; }
+
+/* --------------------- FRAMEWORK / APÊNDICE (selo dedicado) --------------- */
+.selo-framework, .selo-apendice {
+    display: inline-block;
+    font-family: "DejaVu Sans", sans-serif;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 2pt;
+    color: #fef3c7;
+    background-color: #0d1b2a;
+    padding: 4pt 12pt;
+    margin-bottom: 16pt;
+    text-transform: uppercase;
+    white-space: nowrap;
+    hyphens: none;
+    -webkit-hyphens: none;
+}
+.selo-apendice { background-color: #E97451; color: #fff; }
+
+/* --------------------- AVOID PAGE BREAKS DENTRO DE ELEMENTOS CRÍTICOS ---- */
+pre, blockquote, .box-executivos, .box-alerta, .box-dica, .box-tecnico { page-break-inside: avoid; }
+/* Tabelas: longas podem quebrar, curtas (classe .compacta) ficam inteiras */
+h1, h2, h3, h4 { page-break-after: avoid; }
+/* Headers nunca ficam órfãos no fim da página: o conteúdo seguinte vem junto */
+h2 + p, h2 + ul, h2 + ol, h2 + table, h2 + pre, h2 + blockquote,
+h3 + p, h3 + ul, h3 + ol, h3 + table, h3 + pre, h3 + blockquote,
+h4 + p, h4 + ul, h4 + ol, h4 + table, h4 + pre, h4 + blockquote {
+    page-break-before: avoid;
+}
+
+/* --------------------- PARATEXTO INICIAL: sem text-indent --------------- */
+/* Paratexto (dedicatória, prefácio, como ler, sumário, mapa de leitura) usa
+   prosa curta. Identar primeira linha de cada parágrafo distrai mais do que
+   ajuda, e produz o efeito "A quem teve paciência..." indentado no print 1. */
+.paratexto-inicial p { text-indent: 0; }
+.paratexto-inicial h1 + p,
+.paratexto-inicial h2 + p,
+.paratexto-inicial h3 + p { text-indent: 0; }
+
+/* --------------------- AJUSTES FINOS DE DENSIDADE ------------------------- */
+.paratexto-inicial { font-size: 10.5pt; line-height: 1.5; }
+.framework-bloco { font-size: 10.5pt; line-height: 1.5; }
+.apendice-bloco { font-size: 10pt; line-height: 1.45; }
+
+/* Sumário e Mapa: tabelas mais compactas */
+.paratexto-inicial table { font-size: 9pt; }
+.paratexto-inicial td { padding: 4pt 6pt; }

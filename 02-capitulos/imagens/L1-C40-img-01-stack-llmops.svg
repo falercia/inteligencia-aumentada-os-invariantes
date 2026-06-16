@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 620" font-family="Inter, system-ui, sans-serif">
+  <title>Stack canônico de LLMOps — os 7 pilares</title>
+  <desc>Sete pilares operacionais de LLMOps: Tracing, Versionamento, Deploy progressivo, Rollback, Custos, Segurança operacional, Governança operacional.</desc>
+
+  <defs>
+    <linearGradient id="ancorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E97451"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0d1b2a"/>
+      <stop offset="100%" stop-color="#1b263b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1080" height="620" fill="url(#bgGrad)"/>
+
+  <text x="540" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#fef3c7">STACK CANÔNICO DE LLMOPS</text>
+  <text x="540" y="64" text-anchor="middle" font-size="12" fill="#9ca3af" font-style="italic">Os 7 pilares que sustentam Autonomia Proporcional · Invariante 6 + Framework F3</text>
+
+  <!-- 7 pilares: largura 138, gap 8, 7 pilares = 7*138 + 6*8 = 1014. Margem (1080-1014)/2 = 33 -->
+
+  <!-- Pilar 1 - âncora -->
+  <g transform="translate(33,110)">
+    <rect width="138" height="430" rx="10" fill="url(#ancorGrad)" stroke="#fef3c7" stroke-width="1"/>
+    <text x="69" y="38" text-anchor="middle" font-size="24" font-weight="800" fill="#0d1b2a">1</text>
+    <text x="69" y="64" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">TRACING</text>
+    <text x="69" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">OBSERVABILIDADE</text>
+    <line x1="20" y1="92" x2="118" y2="92" stroke="#0d1b2a" stroke-width="0.5"/>
+    <text x="69" y="112" text-anchor="middle" font-size="9" fill="#0d1b2a">Span × Trace ×</text>
+    <text x="69" y="126" text-anchor="middle" font-size="9" fill="#0d1b2a">Session</text>
+    <text x="69" y="150" text-anchor="middle" font-size="9" fill="#0d1b2a">Tokens · Latência</text>
+    <text x="69" y="164" text-anchor="middle" font-size="9" fill="#0d1b2a">Custo · Tools</text>
+    <text x="69" y="178" text-anchor="middle" font-size="9" fill="#0d1b2a">Modelo · Versão</text>
+    <text x="69" y="216" text-anchor="middle" font-size="9" fill="#fef3c7" font-weight="700">OpenTelemetry</text>
+    <text x="69" y="230" text-anchor="middle" font-size="9" fill="#fef3c7" font-weight="700">GenAI</text>
+    <text x="69" y="392" text-anchor="middle" font-size="8" font-style="italic" fill="#0d1b2a">Sem isto,</text>
+    <text x="69" y="406" text-anchor="middle" font-size="8" font-style="italic" fill="#0d1b2a">nada opera.</text>
+  </g>
+
+  <!-- Pilar 2 -->
+  <g transform="translate(179,110)">
+    <rect width="138" height="430" rx="10" fill="#1b263b" stroke="#E97451" stroke-width="1.2"/>
+    <text x="69" y="38" text-anchor="middle" font-size="24" font-weight="800" fill="#E97451">2</text>
+    <text x="69" y="64" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">VERSIONAMENTO</text>
+    <text x="69" y="80" text-anchor="middle" font-size="9" fill="#9ca3af">do que muda</text>
+    <line x1="20" y1="92" x2="118" y2="92" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="69" y="112" text-anchor="middle" font-size="9" fill="#fef3c7">Prompt · Tool</text>
+    <text x="69" y="126" text-anchor="middle" font-size="9" fill="#fef3c7">System prompt</text>
+    <text x="69" y="140" text-anchor="middle" font-size="9" fill="#fef3c7">Dataset de RAG</text>
+    <text x="69" y="166" text-anchor="middle" font-size="9" fill="#fef3c7">Promptware</text>
+    <text x="69" y="180" text-anchor="middle" font-size="9" fill="#fef3c7">como código</text>
+    <text x="69" y="206" text-anchor="middle" font-size="9" fill="#fef3c7">Tool registry</text>
+    <text x="69" y="220" text-anchor="middle" font-size="9" fill="#fef3c7">Model registry</text>
+    <text x="69" y="246" text-anchor="middle" font-size="9" fill="#fef3c7">Changelog</text>
+    <text x="69" y="260" text-anchor="middle" font-size="9" fill="#fef3c7">obrigatório</text>
+  </g>
+
+  <!-- Pilar 3 -->
+  <g transform="translate(325,110)">
+    <rect width="138" height="430" rx="10" fill="#1b263b" stroke="#E97451" stroke-width="1.2"/>
+    <text x="69" y="38" text-anchor="middle" font-size="24" font-weight="800" fill="#E97451">3</text>
+    <text x="69" y="64" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">DEPLOY</text>
+    <text x="69" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">PROGRESSIVO</text>
+    <line x1="20" y1="92" x2="118" y2="92" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="69" y="112" text-anchor="middle" font-size="9" fill="#fef3c7">Shadow mode</text>
+    <text x="69" y="138" text-anchor="middle" font-size="9" fill="#fef3c7">Canário</text>
+    <text x="69" y="152" text-anchor="middle" font-size="9" fill="#fef3c7">1% → 10% → 50%</text>
+    <text x="69" y="178" text-anchor="middle" font-size="9" fill="#fef3c7">Canário por</text>
+    <text x="69" y="192" text-anchor="middle" font-size="9" fill="#fef3c7">segmento</text>
+    <text x="69" y="218" text-anchor="middle" font-size="9" fill="#fef3c7">Feature flag</text>
+    <text x="69" y="244" text-anchor="middle" font-size="9" fill="#86efac" font-weight="700">Gates explícitos</text>
+    <text x="69" y="258" text-anchor="middle" font-size="9" fill="#86efac">de promoção</text>
+  </g>
+
+  <!-- Pilar 4 -->
+  <g transform="translate(471,110)">
+    <rect width="138" height="430" rx="10" fill="#1b263b" stroke="#E97451" stroke-width="1.2"/>
+    <text x="69" y="38" text-anchor="middle" font-size="24" font-weight="800" fill="#E97451">4</text>
+    <text x="69" y="64" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">ROLLBACK</text>
+    <text x="69" y="80" text-anchor="middle" font-size="9" fill="#9ca3af">que funciona</text>
+    <line x1="20" y1="92" x2="118" y2="92" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="69" y="112" text-anchor="middle" font-size="9" fill="#fef3c7">Botão único</text>
+    <text x="69" y="126" text-anchor="middle" font-size="9" fill="#fef3c7">por feature</text>
+    <text x="69" y="152" text-anchor="middle" font-size="9" fill="#fef3c7">Estado anterior</text>
+    <text x="69" y="166" text-anchor="middle" font-size="9" fill="#fef3c7">em hot standby</text>
+    <text x="69" y="192" text-anchor="middle" font-size="9" fill="#fef3c7">Teste mensal</text>
+    <text x="69" y="206" text-anchor="middle" font-size="9" fill="#fef3c7">em staging</text>
+    <text x="69" y="232" text-anchor="middle" font-size="9" fill="#fca5a5" font-weight="700">MTTR ≤ 15min</text>
+    <text x="69" y="246" text-anchor="middle" font-size="9" fill="#fca5a5">para SEV-1</text>
+  </g>
+
+  <!-- Pilar 5 -->
+  <g transform="translate(617,110)">
+    <rect width="138" height="430" rx="10" fill="#1b263b" stroke="#E97451" stroke-width="1.2"/>
+    <text x="69" y="38" text-anchor="middle" font-size="24" font-weight="800" fill="#E97451">5</text>
+    <text x="69" y="64" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">CUSTOS</text>
+    <text x="69" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">+ QUOTAS</text>
+    <line x1="20" y1="92" x2="118" y2="92" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="69" y="112" text-anchor="middle" font-size="9" fill="#fef3c7">Atribuição por</text>
+    <text x="69" y="126" text-anchor="middle" font-size="9" fill="#fef3c7">feature · cliente</text>
+    <text x="69" y="140" text-anchor="middle" font-size="9" fill="#fef3c7">usuário</text>
+    <text x="69" y="166" text-anchor="middle" font-size="9" fill="#fef3c7">Alertas de</text>
+    <text x="69" y="180" text-anchor="middle" font-size="9" fill="#fef3c7">orçamento</text>
+    <text x="69" y="206" text-anchor="middle" font-size="9" fill="#fef3c7">Circuit breaker</text>
+    <text x="69" y="220" text-anchor="middle" font-size="9" fill="#fef3c7">por usuário</text>
+    <text x="69" y="246" text-anchor="middle" font-size="9" fill="#86efac" font-weight="700">F7 COMPOSTO-3T</text>
+  </g>
+
+  <!-- Pilar 6 -->
+  <g transform="translate(763,110)">
+    <rect width="138" height="430" rx="10" fill="#1b263b" stroke="#E97451" stroke-width="1.2"/>
+    <text x="69" y="38" text-anchor="middle" font-size="24" font-weight="800" fill="#E97451">6</text>
+    <text x="69" y="64" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">SEGURANÇA</text>
+    <text x="69" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">OPERACIONAL</text>
+    <line x1="20" y1="92" x2="118" y2="92" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="69" y="112" text-anchor="middle" font-size="9" fill="#fef3c7">Prompt injection</text>
+    <text x="69" y="126" text-anchor="middle" font-size="9" fill="#fef3c7">defesa em camadas</text>
+    <text x="69" y="152" text-anchor="middle" font-size="9" fill="#fef3c7">Tool poisoning</text>
+    <text x="69" y="178" text-anchor="middle" font-size="9" fill="#fef3c7">Data exfiltration</text>
+    <text x="69" y="204" text-anchor="middle" font-size="9" fill="#fef3c7">Kill switch</text>
+    <text x="69" y="218" text-anchor="middle" font-size="9" fill="#fef3c7">testado mensal</text>
+    <text x="69" y="246" text-anchor="middle" font-size="9" fill="#fca5a5" font-weight="700">por escopo</text>
+  </g>
+
+  <!-- Pilar 7 - âncora -->
+  <g transform="translate(909,110)">
+    <rect width="138" height="430" rx="10" fill="url(#ancorGrad)" stroke="#fef3c7" stroke-width="1"/>
+    <text x="69" y="38" text-anchor="middle" font-size="24" font-weight="800" fill="#0d1b2a">7</text>
+    <text x="69" y="64" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">GOVERNANÇA</text>
+    <text x="69" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">OPERACIONAL</text>
+    <line x1="20" y1="92" x2="118" y2="92" stroke="#0d1b2a" stroke-width="0.5"/>
+    <text x="69" y="112" text-anchor="middle" font-size="9" fill="#0d1b2a">Severidades</text>
+    <text x="69" y="126" text-anchor="middle" font-size="9" fill="#0d1b2a">SEV-1 a SEV-4</text>
+    <text x="69" y="152" text-anchor="middle" font-size="9" fill="#0d1b2a">Comunicação</text>
+    <text x="69" y="166" text-anchor="middle" font-size="9" fill="#0d1b2a">durante incidente</text>
+    <text x="69" y="192" text-anchor="middle" font-size="9" fill="#0d1b2a">Postmortem</text>
+    <text x="69" y="206" text-anchor="middle" font-size="9" fill="#0d1b2a">sem culpa</text>
+    <text x="69" y="232" text-anchor="middle" font-size="9" fill="#0d1b2a">Auditoria 90d</text>
+    <text x="69" y="246" text-anchor="middle" font-size="9" fill="#0d1b2a">(5 anos regulado)</text>
+    <text x="69" y="392" text-anchor="middle" font-size="8" font-style="italic" fill="#0d1b2a">Sustenta</text>
+    <text x="69" y="406" text-anchor="middle" font-size="8" font-style="italic" fill="#0d1b2a">o Inv. 8.</text>
+  </g>
+
+  <text x="540" y="572" text-anchor="middle" font-size="12" fill="#fef3c7" font-style="italic">★ Pilares 1 e 7 são onde se começa. Sem tracing, nada se opera. Sem governança, nada se sustenta.</text>
+  <text x="540" y="596" text-anchor="middle" font-size="11" fill="#9ca3af" font-style="italic">"Autonomia sem observabilidade é loop com cartão de crédito." — Invariante 6</text>
+</svg>

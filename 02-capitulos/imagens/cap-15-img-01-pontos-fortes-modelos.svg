@@ -1,0 +1,90 @@
+<svg viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <rect width="1000" height="560" fill="#fefce8"/>
+
+  <text x="500" y="40" fill="#0d1b2a" font-size="22" font-weight="700" text-anchor="middle">PONTOS FORTES DOS PRINCIPAIS MODELOS — MAIO 2026</text>
+  <text x="500" y="64" fill="#6b7280" font-size="13" text-anchor="middle">No platô da fronteira, capacidade bruta é parecida. As diferenças aparecem em especialização.</text>
+
+  <!-- Table header -->
+  <rect x="60" y="100" width="880" height="40" rx="6" fill="#0d1b2a"/>
+  <text x="80" y="125" fill="#fef3c7" font-size="12" font-weight="700">MODELO</text>
+  <text x="280" y="125" fill="#fef3c7" font-size="12" font-weight="700">LIDERANÇA</text>
+  <text x="540" y="125" fill="#fef3c7" font-size="12" font-weight="700">CUSTO (input/M)</text>
+  <text x="740" y="125" fill="#fef3c7" font-size="12" font-weight="700">QUANDO ESCOLHER</text>
+
+  <!-- Claude Opus -->
+  <rect x="60" y="142" width="880" height="55" fill="#fde68a"/>
+  <text x="80" y="165" fill="#0d1b2a" font-size="12" font-weight="700">Claude Opus 4.6/4.7</text>
+  <text x="80" y="182" fill="#6b7280" font-size="10">Anthropic · frontier</text>
+  <text x="280" y="165" fill="#0d1b2a" font-size="11">Código (SWE-bench 80.8%), escrita</text>
+  <text x="280" y="182" fill="#6b7280" font-size="10">raciocínio profundo</text>
+  <text x="540" y="165" fill="#0d1b2a" font-size="11">US$ 15</text>
+  <text x="540" y="182" fill="#dc2626" font-size="10">premium</text>
+  <text x="740" y="165" fill="#0d1b2a" font-size="11">desenvolvimento, análise crítica</text>
+  <text x="740" y="182" fill="#6b7280" font-size="10">conteúdo executivo, agentes</text>
+
+  <!-- Claude Sonnet -->
+  <rect x="60" y="199" width="880" height="55" fill="#fde68a" opacity="0.7"/>
+  <text x="80" y="222" fill="#0d1b2a" font-size="12" font-weight="700">Claude Sonnet 4.5/4.6</text>
+  <text x="80" y="239" fill="#6b7280" font-size="10">Anthropic · balanceado</text>
+  <text x="280" y="222" fill="#0d1b2a" font-size="11">Custo-benefício em tarefas complexas</text>
+  <text x="280" y="239" fill="#6b7280" font-size="10">o "cavalo de batalha" corporativo</text>
+  <text x="540" y="222" fill="#0d1b2a" font-size="11">US$ 3</text>
+  <text x="540" y="239" fill="#16a34a" font-size="10">médio</text>
+  <text x="740" y="222" fill="#0d1b2a" font-size="11">aplicações em produção em volume</text>
+  <text x="740" y="239" fill="#6b7280" font-size="10">RAG, agentes, automação</text>
+
+  <!-- GPT-5 -->
+  <rect x="60" y="256" width="880" height="55" fill="#bbf7d0"/>
+  <text x="80" y="279" fill="#0d1b2a" font-size="12" font-weight="700">GPT-5.4 / 5.5</text>
+  <text x="80" y="296" fill="#6b7280" font-size="10">OpenAI · frontier</text>
+  <text x="280" y="279" fill="#0d1b2a" font-size="11">Matemática (AIME 2026 perfeito)</text>
+  <text x="280" y="296" fill="#6b7280" font-size="10">computer use (OSWorld 75%)</text>
+  <text x="540" y="279" fill="#0d1b2a" font-size="11">US$ 12</text>
+  <text x="540" y="296" fill="#dc2626" font-size="10">premium</text>
+  <text x="740" y="279" fill="#0d1b2a" font-size="11">workflows agentes autônomos</text>
+  <text x="740" y="296" fill="#6b7280" font-size="10">raciocínio estruturado, plugins</text>
+
+  <!-- Gemini 3.1 Pro -->
+  <rect x="60" y="313" width="880" height="55" fill="#bfdbfe"/>
+  <text x="80" y="336" fill="#0d1b2a" font-size="12" font-weight="700">Gemini 3.1 Pro</text>
+  <text x="80" y="353" fill="#6b7280" font-size="10">Google · frontier</text>
+  <text x="280" y="336" fill="#0d1b2a" font-size="11">Multimodal (Video-MME 78.2%)</text>
+  <text x="280" y="353" fill="#6b7280" font-size="10">ARC-AGI-2, contexto 2M tokens</text>
+  <text x="540" y="336" fill="#0d1b2a" font-size="11">US$ 2</text>
+  <text x="540" y="353" fill="#16a34a" font-size="10">melhor custo</text>
+  <text x="740" y="336" fill="#0d1b2a" font-size="11">vídeo, imagem, documentos longos</text>
+  <text x="740" y="353" fill="#6b7280" font-size="10">workloads Google Workspace</text>
+
+  <!-- DeepSeek -->
+  <rect x="60" y="370" width="880" height="55" fill="#fecaca"/>
+  <text x="80" y="393" fill="#0d1b2a" font-size="12" font-weight="700">DeepSeek V3 / R1</text>
+  <text x="80" y="410" fill="#6b7280" font-size="10">DeepSeek · open weights</text>
+  <text x="280" y="393" fill="#0d1b2a" font-size="11">Raciocínio econômico, código</text>
+  <text x="280" y="410" fill="#6b7280" font-size="10">R1 com thinking visível</text>
+  <text x="540" y="393" fill="#0d1b2a" font-size="11">US$ 0,27</text>
+  <text x="540" y="410" fill="#16a34a" font-size="10">disruptivo</text>
+  <text x="740" y="393" fill="#0d1b2a" font-size="11">volume massivo, privacidade</text>
+  <text x="740" y="410" fill="#6b7280" font-size="10">deploy próprio, exploração</text>
+
+  <!-- Grok 4 -->
+  <rect x="60" y="427" width="880" height="55" fill="#e9d5ff"/>
+  <text x="80" y="450" fill="#0d1b2a" font-size="12" font-weight="700">Grok 4</text>
+  <text x="80" y="467" fill="#6b7280" font-size="10">xAI · frontier</text>
+  <text x="280" y="450" fill="#0d1b2a" font-size="11">Acesso ao X em tempo real</text>
+  <text x="280" y="467" fill="#6b7280" font-size="10">tolerância maior a temas sensíveis</text>
+  <text x="540" y="450" fill="#0d1b2a" font-size="11">US$ 5</text>
+  <text x="540" y="467" fill="#16a34a" font-size="10">médio</text>
+  <text x="740" y="450" fill="#0d1b2a" font-size="11">monitoramento de redes, jornalismo</text>
+  <text x="740" y="467" fill="#6b7280" font-size="10">tendências sociais em tempo real</text>
+
+  <!-- Llama 4 -->
+  <rect x="60" y="484" width="880" height="55" fill="#cffafe"/>
+  <text x="80" y="507" fill="#0d1b2a" font-size="12" font-weight="700">Llama 4 (open)</text>
+  <text x="80" y="524" fill="#6b7280" font-size="10">Meta · open weights</text>
+  <text x="280" y="507" fill="#0d1b2a" font-size="11">Ecossistema open source dominante</text>
+  <text x="280" y="524" fill="#6b7280" font-size="10">flexibilidade total</text>
+  <text x="540" y="507" fill="#0d1b2a" font-size="11">grátis (modelo)</text>
+  <text x="540" y="524" fill="#16a34a" font-size="10">+ infra</text>
+  <text x="740" y="507" fill="#0d1b2a" font-size="11">deploy on-premises, fine-tuning</text>
+  <text x="740" y="524" fill="#6b7280" font-size="10">dados sensíveis, customização</text>
+</svg>

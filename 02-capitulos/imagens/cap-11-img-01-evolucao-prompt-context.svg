@@ -1,0 +1,60 @@
+<svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <marker id="evo-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#E97451"/>
+    </marker>
+  </defs>
+  <rect width="900" height="520" fill="#fefce8"/>
+
+  <text x="450" y="40" fill="#0d1b2a" font-size="22" font-weight="700" text-anchor="middle">DE PROMPT ENGINEERING PARA CONTEXT ENGINEERING</text>
+  <text x="450" y="64" fill="#6b7280" font-size="13" text-anchor="middle">A disciplina evoluiu, e quem ficou parado no prompt isolado perdeu o jogo</text>
+
+  <!-- Old: Prompt Engineering -->
+  <g>
+    <rect x="50" y="110" width="370" height="370" rx="12" fill="#1f2937"/>
+    <text x="235" y="138" fill="#fbbf24" font-size="14" font-weight="700" text-anchor="middle">PROMPT ENGINEERING</text>
+    <text x="235" y="158" fill="#9ca3af" font-size="11" text-anchor="middle" font-style="italic">2020–2023 · o prompt como peça única</text>
+
+    <text x="70" y="194" fill="#fef3c7" font-size="12" font-weight="700">FOCO:</text>
+    <text x="70" y="216" fill="#e5e7eb" font-size="11">• Escrever um bom prompt</text>
+    <text x="70" y="234" fill="#e5e7eb" font-size="11">• Ajustar palavra por palavra</text>
+    <text x="70" y="252" fill="#e5e7eb" font-size="11">• Otimizar single-shot</text>
+
+    <text x="70" y="284" fill="#fef3c7" font-size="12" font-weight="700">PRESSUPOSTOS:</text>
+    <text x="70" y="306" fill="#e5e7eb" font-size="11">• Tudo cabe no contexto</text>
+    <text x="70" y="324" fill="#e5e7eb" font-size="11">• Contexto é estático</text>
+    <text x="70" y="342" fill="#e5e7eb" font-size="11">• Cada chamada é independente</text>
+
+    <text x="70" y="374" fill="#fef3c7" font-size="12" font-weight="700">LIMITAÇÕES:</text>
+    <text x="70" y="396" fill="#fca5a5" font-size="11">✗ Não escala em volume</text>
+    <text x="70" y="414" fill="#fca5a5" font-size="11">✗ Custo explode com tamanho</text>
+    <text x="70" y="432" fill="#fca5a5" font-size="11">✗ Lost in the Middle não resolvido</text>
+    <text x="70" y="450" fill="#fca5a5" font-size="11">✗ Sem memória ou continuidade</text>
+  </g>
+
+  <!-- Arrow -->
+  <line x1="430" y1="295" x2="475" y2="295" stroke="#E97451" stroke-width="3" marker-end="url(#evo-arrow)"/>
+
+  <!-- New: Context Engineering -->
+  <g>
+    <rect x="480" y="110" width="370" height="370" rx="12" fill="#1f2937" stroke="#E97451" stroke-width="2"/>
+    <text x="665" y="138" fill="#E97451" font-size="14" font-weight="700" text-anchor="middle">CONTEXT ENGINEERING</text>
+    <text x="665" y="158" fill="#9ca3af" font-size="11" text-anchor="middle" font-style="italic">2024+ · o contexto como sistema dinâmico</text>
+
+    <text x="500" y="194" fill="#fef3c7" font-size="12" font-weight="700">FOCO:</text>
+    <text x="500" y="216" fill="#e5e7eb" font-size="11">• O que vai dentro do contexto</text>
+    <text x="500" y="234" fill="#e5e7eb" font-size="11">• Como e quando carregar</text>
+    <text x="500" y="252" fill="#e5e7eb" font-size="11">• Orquestrar múltiplas camadas</text>
+
+    <text x="500" y="284" fill="#fef3c7" font-size="12" font-weight="700">PRINCÍPIOS:</text>
+    <text x="500" y="306" fill="#e5e7eb" font-size="11">• Hierarquizar (estável vs variável)</text>
+    <text x="500" y="324" fill="#e5e7eb" font-size="11">• Comprimir agressivamente</text>
+    <text x="500" y="342" fill="#e5e7eb" font-size="11">• Cachear o que se repete</text>
+
+    <text x="500" y="374" fill="#fef3c7" font-size="12" font-weight="700">CAPACIDADES:</text>
+    <text x="500" y="396" fill="#86efac" font-size="11">✓ Escala em volume real</text>
+    <text x="500" y="414" fill="#86efac" font-size="11">✓ Custo controlado por design</text>
+    <text x="500" y="432" fill="#86efac" font-size="11">✓ Atenção posicional otimizada</text>
+    <text x="500" y="450" fill="#86efac" font-size="11">✓ Memória externa integrada</text>
+  </g>
+</svg>

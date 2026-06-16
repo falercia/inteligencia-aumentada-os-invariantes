@@ -1,0 +1,80 @@
+<svg viewBox="0 0 900 580" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <marker id="dec-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#E97451"/>
+    </marker>
+  </defs>
+  <rect width="900" height="580" fill="#0d1b2a"/>
+
+  <text x="450" y="40" fill="#fef3c7" font-size="22" font-weight="700" text-anchor="middle">FRAMEWORK DE DECISÃO — QUAL MODELO ESCOLHER</text>
+  <text x="450" y="64" fill="#9ca3af" font-size="13" text-anchor="middle">Desça a árvore com critério. Não existe "melhor modelo", existe melhor modelo para o caso.</text>
+
+  <!-- Q1 -->
+  <rect x="320" y="100" width="260" height="50" rx="8" fill="#1b263b" stroke="#fbbf24" stroke-width="2"/>
+  <text x="450" y="124" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">Dados sensíveis e privacidade crítica?</text>
+  <text x="450" y="142" fill="#9ca3af" font-size="10" text-anchor="middle">precisa rodar em sua infraestrutura?</text>
+
+  <path d="M 340 150 L 180 195" stroke="#86efac" stroke-width="2" marker-end="url(#dec-arr)"/>
+  <text x="230" y="180" fill="#86efac" font-size="11" font-weight="700">SIM</text>
+
+  <path d="M 560 150 L 720 195" stroke="#fca5a5" stroke-width="2" marker-end="url(#dec-arr)"/>
+  <text x="670" y="180" fill="#fca5a5" font-size="11" font-weight="700">NÃO</text>
+
+  <!-- Branch A: Open source -->
+  <rect x="60" y="200" width="240" height="60" rx="8" fill="#cffafe"/>
+  <text x="180" y="226" fill="#0d1b2a" font-size="12" font-weight="700" text-anchor="middle">→ OPEN SOURCE</text>
+  <text x="180" y="246" fill="#374151" font-size="10" text-anchor="middle">Llama 4 · Mistral · Qwen · DeepSeek</text>
+
+  <!-- Q2: cost-driven -->
+  <rect x="600" y="200" width="260" height="50" rx="8" fill="#1b263b" stroke="#fbbf24" stroke-width="2"/>
+  <text x="730" y="224" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">Custo é restrição dura?</text>
+  <text x="730" y="242" fill="#9ca3af" font-size="10" text-anchor="middle">volume alto, margem apertada?</text>
+
+  <path d="M 620 250 L 480 295" stroke="#86efac" stroke-width="2" marker-end="url(#dec-arr)"/>
+  <text x="540" y="280" fill="#86efac" font-size="11" font-weight="700">SIM</text>
+
+  <path d="M 800 250 L 800 295" stroke="#fca5a5" stroke-width="2" marker-end="url(#dec-arr)"/>
+  <text x="820" y="280" fill="#fca5a5" font-size="11" font-weight="700">NÃO</text>
+
+  <!-- Branch B: Best cost -->
+  <rect x="350" y="300" width="260" height="60" rx="8" fill="#bfdbfe"/>
+  <text x="480" y="326" fill="#0d1b2a" font-size="12" font-weight="700" text-anchor="middle">→ GEMINI 3.1 FLASH</text>
+  <text x="480" y="346" fill="#374151" font-size="10" text-anchor="middle">ou Claude Haiku · GPT-5 mini</text>
+
+  <!-- Q3: multimodal? -->
+  <rect x="660" y="300" width="240" height="50" rx="8" fill="#1b263b" stroke="#fbbf24" stroke-width="2"/>
+  <text x="780" y="324" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">Vídeo / imagem / áudio?</text>
+  <text x="780" y="342" fill="#9ca3af" font-size="10" text-anchor="middle">multimodal pesado?</text>
+
+  <path d="M 680 350 L 540 395" stroke="#86efac" stroke-width="2" marker-end="url(#dec-arr)"/>
+  <text x="600" y="380" fill="#86efac" font-size="11" font-weight="700">SIM</text>
+
+  <path d="M 880 350 L 880 395" stroke="#fca5a5" stroke-width="2" marker-end="url(#dec-arr)"/>
+  <text x="850" y="380" fill="#fca5a5" font-size="11" font-weight="700">NÃO</text>
+
+  <!-- Gemini multimodal -->
+  <rect x="410" y="400" width="260" height="60" rx="8" fill="#bfdbfe"/>
+  <text x="540" y="426" fill="#0d1b2a" font-size="12" font-weight="700" text-anchor="middle">→ GEMINI 3.1 PRO</text>
+  <text x="540" y="446" fill="#374151" font-size="10" text-anchor="middle">líder em multimodal e vídeo</text>
+
+  <!-- Q4: agents -->
+  <rect x="720" y="400" width="180" height="50" rx="8" fill="#1b263b" stroke="#fbbf24" stroke-width="2"/>
+  <text x="810" y="424" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">Agente / computer use?</text>
+  <text x="810" y="442" fill="#9ca3af" font-size="10" text-anchor="middle">workflows autônomos?</text>
+
+  <path d="M 740 450 L 600 495" stroke="#86efac" stroke-width="2" marker-end="url(#dec-arr)"/>
+  <text x="660" y="480" fill="#86efac" font-size="11" font-weight="700">SIM</text>
+
+  <path d="M 880 450 L 880 495" stroke="#fca5a5" stroke-width="2" marker-end="url(#dec-arr)"/>
+  <text x="850" y="480" fill="#fca5a5" font-size="11" font-weight="700">NÃO</text>
+
+  <!-- GPT-5 for agents -->
+  <rect x="450" y="500" width="240" height="60" rx="8" fill="#bbf7d0"/>
+  <text x="570" y="526" fill="#0d1b2a" font-size="12" font-weight="700" text-anchor="middle">→ GPT-5.4 ou Claude Opus</text>
+  <text x="570" y="546" fill="#374151" font-size="10" text-anchor="middle">computer use + raciocínio</text>
+
+  <!-- Default Claude -->
+  <rect x="740" y="500" width="160" height="60" rx="8" fill="#fde68a"/>
+  <text x="820" y="526" fill="#0d1b2a" font-size="12" font-weight="700" text-anchor="middle">→ CLAUDE SONNET</text>
+  <text x="820" y="546" fill="#374151" font-size="10" text-anchor="middle">o cavalo de batalha</text>
+</svg>

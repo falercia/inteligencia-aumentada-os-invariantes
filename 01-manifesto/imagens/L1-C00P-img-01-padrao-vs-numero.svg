@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" font-family="Inter, system-ui, sans-serif">
+  <title>C00P — Padrão que dura versus número que morre</title>
+  <desc>Quatro casos históricos em que o número virou ortodoxia e morreu; o padrão derivado sobreviveu três gerações.</desc>
+
+  <defs>
+    <linearGradient id="numeroGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7f1d1d"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
+    </linearGradient>
+    <linearGradient id="padraoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#E97451"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="620" fill="#0d1b2a"/>
+
+  <text x="500" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#fef3c7">PADRÃO DURA · NÚMERO MORRE</text>
+  <text x="500" y="64" text-anchor="middle" font-size="12" fill="#9ca3af" font-style="italic">Quatro casos públicos · janela de obsolescência entre 18 e 36 meses</text>
+
+  <!-- Cabeçalho de colunas -->
+  <rect x="40" y="100" width="180" height="40" fill="#1b263b" stroke="#6b7280" stroke-width="1"/>
+  <text x="130" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#fef3c7">CASO</text>
+
+  <rect x="220" y="100" width="370" height="40" fill="url(#numeroGrad)" stroke="#fbbf24" stroke-width="1"/>
+  <text x="405" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#fef3c7">NÚMERO QUE MORREU</text>
+
+  <rect x="590" y="100" width="370" height="40" fill="url(#padraoGrad)" stroke="#fbbf24" stroke-width="1"/>
+  <text x="775" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#fef3c7">PADRÃO QUE SOBREVIVEU</text>
+
+  <!-- Caso 1: Hadoop -->
+  <rect x="40" y="140" width="180" height="100" fill="#1b263b" stroke="#374151" stroke-width="1"/>
+  <text x="130" y="170" text-anchor="middle" font-size="13" font-weight="700" fill="#E97451">2008-2015</text>
+  <text x="130" y="190" text-anchor="middle" font-size="11" fill="#fef3c7">Hadoop / MapReduce</text>
+  <text x="130" y="210" text-anchor="middle" font-size="10" fill="#9ca3af">dados em escala</text>
+
+  <rect x="220" y="140" width="370" height="100" fill="#1f1416" stroke="#6b7280" stroke-width="0.5"/>
+  <text x="235" y="165" font-size="11" fill="#fca5a5">"Hadoop é a plataforma do dado"</text>
+  <text x="235" y="183" font-size="11" fill="#fca5a5">"Cluster on-prem é diferencial"</text>
+  <text x="235" y="201" font-size="11" fill="#fca5a5">"Petabytes só rodam em MapReduce"</text>
+  <text x="235" y="225" font-size="10" font-style="italic" fill="#9ca3af">Cloudera deslistada · LBO US$ 5,3 bi</text>
+
+  <rect x="590" y="140" width="370" height="100" fill="#1f1714" stroke="#6b7280" stroke-width="0.5"/>
+  <text x="605" y="165" font-size="11" fill="#fef3c7">Separar storage de compute</text>
+  <text x="605" y="183" font-size="11" fill="#fef3c7">Pipeline declarativo, otimização lazy</text>
+  <text x="605" y="201" font-size="11" fill="#fef3c7">Dado versionado e governado</text>
+  <text x="605" y="225" font-size="10" font-style="italic" fill="#fbbf24">→ Spark, Snowflake, Databricks, Iceberg</text>
+
+  <!-- Caso 2: LSTM -->
+  <rect x="40" y="240" width="180" height="100" fill="#1b263b" stroke="#374151" stroke-width="1"/>
+  <text x="130" y="270" text-anchor="middle" font-size="13" font-weight="700" fill="#E97451">2014-2018</text>
+  <text x="130" y="290" text-anchor="middle" font-size="11" fill="#fef3c7">LSTM / RNN</text>
+  <text x="130" y="310" text-anchor="middle" font-size="10" fill="#9ca3af">sequência em NLP</text>
+
+  <rect x="220" y="240" width="370" height="100" fill="#1f1416" stroke="#6b7280" stroke-width="0.5"/>
+  <text x="235" y="265" font-size="11" fill="#fca5a5">"BLEU da minha LSTM bi-direcional"</text>
+  <text x="235" y="283" font-size="11" fill="#fca5a5">"Gating recorrente é arte da casa"</text>
+  <text x="235" y="301" font-size="11" fill="#fca5a5">"Google GNMT é o padrão"</text>
+  <text x="235" y="325" font-size="10" font-style="italic" fill="#9ca3af">Obsoleto em 18 meses pós-Transformer</text>
+
+  <rect x="590" y="240" width="370" height="100" fill="#1f1714" stroke="#6b7280" stroke-width="0.5"/>
+  <text x="605" y="265" font-size="11" fill="#fef3c7">Atenção como mecanismo central</text>
+  <text x="605" y="283" font-size="11" fill="#fef3c7">Encoders contextuais, embeddings densos</text>
+  <text x="605" y="301" font-size="11" fill="#fef3c7">Sequence-to-sequence como estrutura</text>
+  <text x="605" y="325" font-size="10" font-style="italic" fill="#fbbf24">→ Transformer, BERT, GPT, Claude, Gemini</text>
+
+  <!-- Caso 3: Fine-tuning -->
+  <rect x="40" y="340" width="180" height="100" fill="#1b263b" stroke="#374151" stroke-width="1"/>
+  <text x="130" y="370" text-anchor="middle" font-size="13" font-weight="700" fill="#E97451">2022-2024</text>
+  <text x="130" y="390" text-anchor="middle" font-size="11" fill="#fef3c7">Fine-tuning corporativo</text>
+  <text x="130" y="410" text-anchor="middle" font-size="10" fill="#9ca3af">adaptação de domínio</text>
+
+  <rect x="220" y="340" width="370" height="100" fill="#1f1416" stroke="#6b7280" stroke-width="0.5"/>
+  <text x="235" y="365" font-size="11" fill="#fca5a5">"Fine-tune para seu domínio"</text>
+  <text x="235" y="383" font-size="11" fill="#fca5a5">Ticket de US$ 100 mil a US$ 1 milhão</text>
+  <text x="235" y="401" font-size="11" fill="#fca5a5">Aderência fixa no momento do treino</text>
+  <text x="235" y="425" font-size="10" font-style="italic" fill="#9ca3af">Substituído por RAG ao longo de 2024</text>
+
+  <rect x="590" y="340" width="370" height="100" fill="#1f1714" stroke="#6b7280" stroke-width="0.5"/>
+  <text x="605" y="365" font-size="11" fill="#fef3c7">Conhecimento dinâmico ≠ capacidade estática</text>
+  <text x="605" y="383" font-size="11" fill="#fef3c7">Atualizar base sem retreinar modelo</text>
+  <text x="605" y="401" font-size="11" fill="#fef3c7">Decisão sobre ONDE colocar a informação</text>
+  <text x="605" y="425" font-size="10" font-style="italic" fill="#fbbf24">→ RAG, Context Engineering, agentic memory</text>
+
+  <!-- Caso 4: LangChain -->
+  <rect x="40" y="440" width="180" height="100" fill="#1b263b" stroke="#374151" stroke-width="1"/>
+  <text x="130" y="470" text-anchor="middle" font-size="13" font-weight="700" fill="#E97451">2023-2025</text>
+  <text x="130" y="490" text-anchor="middle" font-size="11" fill="#fef3c7">LangChain</text>
+  <text x="130" y="510" text-anchor="middle" font-size="10" fill="#9ca3af">framework de agente</text>
+
+  <rect x="220" y="440" width="370" height="100" fill="#1f1416" stroke="#6b7280" stroke-width="0.5"/>
+  <text x="235" y="465" font-size="11" fill="#fca5a5">"LangChain é o framework de agentes"</text>
+  <text x="235" y="483" font-size="11" fill="#fca5a5">Série A de US$ 200 mi em Sequoia</text>
+  <text x="235" y="501" font-size="11" fill="#fca5a5">Padronização técnica em centenas de startups</text>
+  <text x="235" y="525" font-size="10" font-style="italic" fill="#9ca3af">Postmortems · debug difícil · 24 meses</text>
+
+  <rect x="590" y="440" width="370" height="100" fill="#1f1714" stroke="#6b7280" stroke-width="0.5"/>
+  <text x="605" y="465" font-size="11" fill="#fef3c7">Loop conceitual perceber→planejar→agir→refletir</text>
+  <text x="605" y="483" font-size="11" fill="#fef3c7">Tool use, contexto, observabilidade, kill switch</text>
+  <text x="605" y="501" font-size="11" fill="#fef3c7">Framework é tática reversível, não padrão</text>
+  <text x="605" y="525" font-size="10" font-style="italic" fill="#fbbf24">→ Anthropic Building Effective Agents (2024)</text>
+
+  <!-- Rodapé -->
+  <text x="500" y="575" text-anchor="middle" font-size="11" fill="#9ca3af" font-style="italic">Em cada caso, quem decorou o número migrou três vezes perdendo tudo.</text>
+  <text x="500" y="595" text-anchor="middle" font-size="11" fill="#E97451" font-weight="700">Quem internalizou o padrão fez a transição em meses.</text>
+</svg>

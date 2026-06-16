@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 600" font-family="Inter, system-ui, sans-serif">
+  <title>Curva de adoção por persona — Roadmap 365 dias</title>
+  <desc>Curvas em S de maturidade por persona ao longo de 4 marcos (30, 90, 180, 365 dias).</desc>
+
+  <rect width="1100" height="600" fill="#0d1b2a"/>
+
+  <text x="550" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#fef3c7">CURVA DE ADOÇÃO POR PERSONA</text>
+  <text x="550" y="64" text-anchor="middle" font-size="12" font-style="italic" fill="#9ca3af">Maturidade × Tempo — 4 marcos canônicos: 30 / 90 / 180 / 365 dias</text>
+
+  <!-- Eixos: x de 80 a 1020, y de 110 a 470 -->
+  <!-- Eixo Y (maturidade) -->
+  <line x1="80" y1="110" x2="80" y2="470" stroke="#fef3c7" stroke-width="2"/>
+  <polygon points="80,98 75,108 85,108" fill="#fef3c7"/>
+  <text x="64" y="468" text-anchor="end" font-size="10" fill="#9ca3af">0</text>
+  <text x="64" y="380" text-anchor="end" font-size="10" fill="#9ca3af">1</text>
+  <text x="64" y="290" text-anchor="end" font-size="10" fill="#9ca3af">2</text>
+  <text x="64" y="200" text-anchor="end" font-size="10" fill="#9ca3af">3</text>
+  <text x="64" y="115" text-anchor="end" font-size="10" fill="#9ca3af">4</text>
+
+  <g transform="translate(40,290) rotate(-90)">
+    <text x="0" y="0" text-anchor="middle" font-size="12" font-weight="700" fill="#fef3c7">MATURIDADE (0-4)</text>
+  </g>
+
+  <!-- Eixo X (tempo) -->
+  <line x1="80" y1="470" x2="1020" y2="470" stroke="#fef3c7" stroke-width="2"/>
+  <polygon points="1032,470 1022,465 1022,475" fill="#fef3c7"/>
+
+  <!-- Marcas verticais nos marcos -->
+  <line x1="220" y1="470" x2="220" y2="475" stroke="#fef3c7"/>
+  <line x1="450" y1="470" x2="450" y2="475" stroke="#fef3c7"/>
+  <line x1="680" y1="470" x2="680" y2="475" stroke="#fef3c7"/>
+  <line x1="950" y1="470" x2="950" y2="475" stroke="#fef3c7"/>
+
+  <text x="220" y="492" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">30 dias</text>
+  <text x="450" y="492" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">90 dias</text>
+  <text x="680" y="492" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">180 dias</text>
+  <text x="950" y="492" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">365 dias</text>
+
+  <text x="550" y="520" text-anchor="middle" font-size="12" font-weight="700" fill="#fef3c7">TEMPO →</text>
+
+  <!-- Linhas guia horizontais -->
+  <g stroke="#374151" stroke-width="0.5" stroke-dasharray="3,3">
+    <line x1="80" y1="200" x2="1020" y2="200"/>
+    <line x1="80" y1="290" x2="1020" y2="290"/>
+    <line x1="80" y1="380" x2="1020" y2="380"/>
+  </g>
+
+  <!-- Linhas guia verticais -->
+  <g stroke="#374151" stroke-width="0.5" stroke-dasharray="3,3">
+    <line x1="220" y1="110" x2="220" y2="470"/>
+    <line x1="450" y1="110" x2="450" y2="470"/>
+    <line x1="680" y1="110" x2="680" y2="470"/>
+    <line x1="950" y1="110" x2="950" y2="470"/>
+  </g>
+
+  <!-- Curvas em S por persona, indo de y=460 (mat 0) -->
+  <!-- Executivo (laranja) -->
+  <path d="M 80,460 Q 220,420 220,380 Q 450,310 450,290 Q 680,230 680,200 Q 950,140 950,140" stroke="#E97451" stroke-width="3" fill="none"/>
+  <circle cx="220" cy="380" r="5" fill="#E97451"/>
+  <circle cx="450" cy="290" r="5" fill="#E97451"/>
+  <circle cx="680" cy="200" r="5" fill="#E97451"/>
+  <circle cx="950" cy="140" r="6" fill="#E97451" stroke="#fef3c7" stroke-width="1.5"/>
+
+  <!-- Gestor/Head (laranja claro) -->
+  <path d="M 80,465 Q 220,440 220,400 Q 450,330 450,300 Q 680,250 680,210 Q 950,170 950,160" stroke="#fbbf24" stroke-width="3" fill="none"/>
+  <circle cx="220" cy="400" r="5" fill="#fbbf24"/>
+  <circle cx="450" cy="300" r="5" fill="#fbbf24"/>
+  <circle cx="680" cy="210" r="5" fill="#fbbf24"/>
+  <circle cx="950" cy="160" r="6" fill="#fbbf24" stroke="#fef3c7" stroke-width="1.5"/>
+
+  <!-- Dev/Arquiteto (verde) -->
+  <path d="M 80,460 Q 220,430 220,395 Q 450,340 450,310 Q 680,260 680,230 Q 950,190 950,170" stroke="#86efac" stroke-width="3" fill="none"/>
+  <circle cx="220" cy="395" r="5" fill="#86efac"/>
+  <circle cx="450" cy="310" r="5" fill="#86efac"/>
+  <circle cx="680" cy="230" r="5" fill="#86efac"/>
+  <circle cx="950" cy="170" r="6" fill="#86efac" stroke="#fef3c7" stroke-width="1.5"/>
+
+  <!-- Consultor (azul claro) -->
+  <path d="M 80,465 Q 220,445 220,410 Q 450,360 450,330 Q 680,290 680,260 Q 950,220 950,190" stroke="#7dd3fc" stroke-width="3" fill="none"/>
+  <circle cx="220" cy="410" r="5" fill="#7dd3fc"/>
+  <circle cx="450" cy="330" r="5" fill="#7dd3fc"/>
+  <circle cx="680" cy="260" r="5" fill="#7dd3fc"/>
+  <circle cx="950" cy="190" r="6" fill="#7dd3fc" stroke="#fef3c7" stroke-width="1.5"/>
+
+  <!-- Founder (rosa) -->
+  <path d="M 80,468 Q 220,435 220,390 Q 450,320 450,295 Q 680,240 680,215 Q 950,175 950,155" stroke="#f9a8d4" stroke-width="3" fill="none"/>
+  <circle cx="220" cy="390" r="5" fill="#f9a8d4"/>
+  <circle cx="450" cy="295" r="5" fill="#f9a8d4"/>
+  <circle cx="680" cy="215" r="5" fill="#f9a8d4"/>
+  <circle cx="950" cy="155" r="6" fill="#f9a8d4" stroke="#fef3c7" stroke-width="1.5"/>
+
+  <!-- Criador (lavanda) -->
+  <path d="M 80,465 Q 220,450 220,420 Q 450,370 450,340 Q 680,290 680,270 Q 950,230 950,210" stroke="#c4b5fd" stroke-width="3" fill="none"/>
+  <circle cx="220" cy="420" r="5" fill="#c4b5fd"/>
+  <circle cx="450" cy="340" r="5" fill="#c4b5fd"/>
+  <circle cx="680" cy="270" r="5" fill="#c4b5fd"/>
+  <circle cx="950" cy="210" r="6" fill="#c4b5fd" stroke="#fef3c7" stroke-width="1.5"/>
+
+  <!-- Legenda -->
+  <g transform="translate(80,545)" font-size="10" fill="#fef3c7">
+    <circle cx="6" cy="0" r="5" fill="#E97451"/>
+    <text x="18" y="4">Executivo</text>
+
+    <circle cx="156" cy="0" r="5" fill="#fbbf24"/>
+    <text x="168" y="4">Gestor/Head</text>
+
+    <circle cx="306" cy="0" r="5" fill="#86efac"/>
+    <text x="318" y="4">Dev/Arquiteto</text>
+
+    <circle cx="466" cy="0" r="5" fill="#7dd3fc"/>
+    <text x="478" y="4">Consultor</text>
+
+    <circle cx="616" cy="0" r="5" fill="#f9a8d4"/>
+    <text x="628" y="4">Founder</text>
+
+    <circle cx="766" cy="0" r="5" fill="#c4b5fd"/>
+    <text x="778" y="4">Criador / Educador</text>
+  </g>
+
+  <text x="550" y="585" text-anchor="middle" font-size="11" fill="#9ca3af" font-style="italic">★ Cada marco com gate explícito de promoção · Cap 44 e Apêndice C</text>
+</svg>

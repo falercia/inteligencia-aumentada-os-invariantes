@@ -1,0 +1,68 @@
+<svg viewBox="0 0 900 540" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <marker id="tot-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+  <rect width="900" height="540" fill="#0d1b2a"/>
+
+  <text x="450" y="40" fill="#fef3c7" font-size="22" font-weight="700" text-anchor="middle">TREE OF THOUGHTS</text>
+  <text x="450" y="64" fill="#9ca3af" font-size="13" text-anchor="middle">Em vez de seguir uma linha de raciocínio, explorar múltiplos caminhos e escolher o melhor</text>
+
+  <!-- Root -->
+  <rect x="380" y="100" width="140" height="50" rx="8" fill="#E97451"/>
+  <text x="450" y="124" fill="#fef3c7" font-size="12" font-weight="700" text-anchor="middle">PROBLEMA</text>
+  <text x="450" y="142" fill="#fef3c7" font-size="10" text-anchor="middle">ponto de partida</text>
+
+  <!-- Branches level 1 -->
+  <line x1="450" y1="150" x2="180" y2="195" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#tot-arrow)"/>
+  <line x1="450" y1="150" x2="450" y2="195" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#tot-arrow)"/>
+  <line x1="450" y1="150" x2="720" y2="195" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#tot-arrow)"/>
+
+  <rect x="100" y="200" width="160" height="50" rx="8" fill="#1b263b" stroke="#fbbf24"/>
+  <text x="180" y="222" fill="#fbbf24" font-size="11" font-weight="700" text-anchor="middle">Abordagem A</text>
+  <text x="180" y="240" fill="#9ca3af" font-size="9" text-anchor="middle">decompor por categoria</text>
+
+  <rect x="370" y="200" width="160" height="50" rx="8" fill="#1b263b" stroke="#fbbf24"/>
+  <text x="450" y="222" fill="#fbbf24" font-size="11" font-weight="700" text-anchor="middle">Abordagem B</text>
+  <text x="450" y="240" fill="#9ca3af" font-size="9" text-anchor="middle">decompor por etapa</text>
+
+  <rect x="640" y="200" width="160" height="50" rx="8" fill="#1b263b" stroke="#fbbf24"/>
+  <text x="720" y="222" fill="#fbbf24" font-size="11" font-weight="700" text-anchor="middle">Abordagem C</text>
+  <text x="720" y="240" fill="#9ca3af" font-size="9" text-anchor="middle">analogia com caso anterior</text>
+
+  <!-- Branches level 2 from B (the winner) -->
+  <line x1="450" y1="250" x2="350" y2="295" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#tot-arrow)"/>
+  <line x1="450" y1="250" x2="550" y2="295" stroke="#9ca3af" stroke-width="1.5" marker-end="url(#tot-arrow)"/>
+
+  <line x1="180" y1="250" x2="180" y2="295" stroke="#9ca3af" stroke-width="1" marker-end="url(#tot-arrow)" opacity="0.4"/>
+  <line x1="720" y1="250" x2="720" y2="295" stroke="#9ca3af" stroke-width="1" marker-end="url(#tot-arrow)" opacity="0.4"/>
+
+  <!-- Pruned dead ends -->
+  <rect x="100" y="300" width="160" height="40" rx="6" fill="#374151" opacity="0.4"/>
+  <text x="180" y="324" fill="#9ca3af" font-size="10" text-anchor="middle" font-style="italic" opacity="0.6">beco sem saída ✗</text>
+
+  <rect x="640" y="300" width="160" height="40" rx="6" fill="#374151" opacity="0.4"/>
+  <text x="720" y="324" fill="#9ca3af" font-size="10" text-anchor="middle" font-style="italic" opacity="0.6">caminho fraco ✗</text>
+
+  <!-- Promising branches -->
+  <rect x="270" y="300" width="160" height="50" rx="8" fill="#1b263b" stroke="#86efac"/>
+  <text x="350" y="322" fill="#86efac" font-size="11" font-weight="700" text-anchor="middle">B1: passo direto</text>
+  <text x="350" y="340" fill="#9ca3af" font-size="9" text-anchor="middle">score: 0.72</text>
+
+  <rect x="470" y="300" width="160" height="50" rx="8" fill="#1b263b" stroke="#86efac"/>
+  <text x="550" y="322" fill="#86efac" font-size="11" font-weight="700" text-anchor="middle">B2: com validação</text>
+  <text x="550" y="340" fill="#9ca3af" font-size="9" text-anchor="middle">score: 0.91 ★</text>
+
+  <!-- Final answer -->
+  <line x1="550" y1="350" x2="450" y2="395" stroke="#86efac" stroke-width="2" marker-end="url(#tot-arrow)"/>
+
+  <rect x="370" y="400" width="160" height="60" rx="10" fill="#16a34a"/>
+  <text x="450" y="425" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">RESPOSTA</text>
+  <text x="450" y="443" fill="#fef3c7" font-size="10" text-anchor="middle">melhor caminho</text>
+  <text x="450" y="455" fill="#fef3c7" font-size="10" text-anchor="middle">selecionado</text>
+
+  <!-- Legend -->
+  <text x="450" y="500" fill="#9ca3af" font-size="11" text-anchor="middle" font-style="italic">O modelo (ou orquestrador externo) avalia cada ramo, poda os fracos, e expande os promissores.</text>
+  <text x="450" y="520" fill="#fbbf24" font-size="11" text-anchor="middle" font-weight="600">Mais custoso que CoT linear, mas dramaticamente superior em problemas com múltiplas abordagens válidas.</text>
+</svg>

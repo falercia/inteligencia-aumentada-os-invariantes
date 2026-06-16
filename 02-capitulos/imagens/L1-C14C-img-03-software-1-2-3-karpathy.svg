@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" font-family="Inter, system-ui, sans-serif">
+  <title>C14C — Software 1.0, 2.0 e 3.0 segundo Karpathy</title>
+  <desc>A evolução do que é o artefato primário de engenharia, da era do código clássico ao código gerado a partir de spec em linguagem natural.</desc>
+
+  <defs>
+    <linearGradient id="s1Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="s2Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7c2d12"/>
+      <stop offset="100%" stop-color="#431407"/>
+    </linearGradient>
+    <linearGradient id="s3Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#15803d"/>
+      <stop offset="100%" stop-color="#052e16"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="580" fill="#0d1b2a"/>
+
+  <text x="500" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#fef3c7">SOFTWARE 1.0 → 2.0 → 3.0 — A INVERSÃO DO ARTEFATO PRIMÁRIO</text>
+  <text x="500" y="64" text-anchor="middle" font-size="12" fill="#9ca3af" font-style="italic">Karpathy (Y Combinator, 2025) · Grove (OpenAI, AI Engineer World&apos;s Fair) · GitHub Spec Kit (2025–2026)</text>
+
+  <!-- Software 1.0 -->
+  <rect x="40" y="100" width="290" height="420" rx="8" fill="url(#s1Grad)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="185" y="135" text-anchor="middle" font-size="18" font-weight="700" fill="#fef3c7">Software 1.0</text>
+  <text x="185" y="156" text-anchor="middle" font-size="11" fill="#fbbf24" font-style="italic">Código clássico</text>
+  <text x="185" y="171" text-anchor="middle" font-size="10" fill="#9ca3af">~1950–2015</text>
+  <line x1="55" y1="185" x2="315" y2="185" stroke="#fbbf24" stroke-width="0.7" opacity="0.5"/>
+
+  <text x="60" y="210" font-size="11" font-weight="700" fill="#fbbf24">Artefato primário</text>
+  <text x="60" y="228" font-size="10" fill="#e5e7eb">Código fonte escrito por</text>
+  <text x="60" y="242" font-size="10" fill="#e5e7eb">humanos em linguagem</text>
+  <text x="60" y="256" font-size="10" fill="#e5e7eb">imperativa</text>
+
+  <text x="60" y="285" font-size="11" font-weight="700" fill="#fbbf24">Como se programa</text>
+  <text x="60" y="303" font-size="10" fill="#e5e7eb">Linhas de instrução</text>
+  <text x="60" y="317" font-size="10" fill="#e5e7eb">determinística</text>
+
+  <text x="60" y="345" font-size="11" font-weight="700" fill="#fbbf24">Quem é o programador</text>
+  <text x="60" y="363" font-size="10" fill="#e5e7eb">Engenheiro humano</text>
+  <text x="60" y="377" font-size="10" fill="#e5e7eb">escreve cada linha</text>
+
+  <text x="60" y="405" font-size="11" font-weight="700" fill="#fbbf24">Documento descartável</text>
+  <text x="60" y="423" font-size="10" fill="#e5e7eb">A spec, a doc, o README</text>
+  <text x="60" y="437" font-size="10" fill="#e5e7eb">diverge do código sempre</text>
+
+  <text x="60" y="465" font-size="11" font-weight="700" fill="#fbbf24">Fonte de verdade</text>
+  <text x="60" y="483" font-size="10" fill="#fbbf24">Código</text>
+
+  <text x="185" y="510" text-anchor="middle" font-size="10" fill="#9ca3af" font-style="italic">"Spec era aspiracional"</text>
+
+  <!-- Software 2.0 -->
+  <rect x="350" y="100" width="290" height="420" rx="8" fill="url(#s2Grad)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="495" y="135" text-anchor="middle" font-size="18" font-weight="700" fill="#fef3c7">Software 2.0</text>
+  <text x="495" y="156" text-anchor="middle" font-size="11" fill="#fbbf24" font-style="italic">Redes neurais</text>
+  <text x="495" y="171" text-anchor="middle" font-size="10" fill="#9ca3af">~2015–2022</text>
+  <line x1="365" y1="185" x2="625" y2="185" stroke="#fbbf24" stroke-width="0.7" opacity="0.5"/>
+
+  <text x="370" y="210" font-size="11" font-weight="700" fill="#fbbf24">Artefato primário</text>
+  <text x="370" y="228" font-size="10" fill="#e5e7eb">Pesos aprendidos pela</text>
+  <text x="370" y="242" font-size="10" fill="#e5e7eb">rede neural sobre</text>
+  <text x="370" y="256" font-size="10" fill="#e5e7eb">dataset rotulado</text>
+
+  <text x="370" y="285" font-size="11" font-weight="700" fill="#fbbf24">Como se programa</text>
+  <text x="370" y="303" font-size="10" fill="#e5e7eb">Curar dataset, ajustar</text>
+  <text x="370" y="317" font-size="10" fill="#e5e7eb">arquitetura, treinar</text>
+
+  <text x="370" y="345" font-size="11" font-weight="700" fill="#fbbf24">Quem é o programador</text>
+  <text x="370" y="363" font-size="10" fill="#e5e7eb">Engenheiro de ML curador</text>
+  <text x="370" y="377" font-size="10" fill="#e5e7eb">de dados e arquitetura</text>
+
+  <text x="370" y="405" font-size="11" font-weight="700" fill="#fbbf24">Documento descartável</text>
+  <text x="370" y="423" font-size="10" fill="#e5e7eb">Notebooks de treino que</text>
+  <text x="370" y="437" font-size="10" fill="#e5e7eb">só rodam uma vez</text>
+
+  <text x="370" y="465" font-size="11" font-weight="700" fill="#fbbf24">Fonte de verdade</text>
+  <text x="370" y="483" font-size="10" fill="#fbbf24">Dataset + pesos</text>
+
+  <text x="495" y="510" text-anchor="middle" font-size="10" fill="#9ca3af" font-style="italic">"Dado vira código"</text>
+
+  <!-- Software 3.0 -->
+  <rect x="660" y="100" width="300" height="420" rx="8" fill="url(#s3Grad)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="810" y="135" text-anchor="middle" font-size="18" font-weight="700" fill="#fef3c7">Software 3.0</text>
+  <text x="810" y="156" text-anchor="middle" font-size="11" fill="#fbbf24" font-style="italic">LLMs como computador programável</text>
+  <text x="810" y="171" text-anchor="middle" font-size="10" fill="#9ca3af">2023–presente</text>
+  <line x1="675" y1="185" x2="945" y2="185" stroke="#fbbf24" stroke-width="0.7" opacity="0.5"/>
+
+  <text x="680" y="210" font-size="11" font-weight="700" fill="#fbbf24">Artefato primário</text>
+  <text x="680" y="228" font-size="10" fill="#e5e7eb">Especificação executável</text>
+  <text x="680" y="242" font-size="10" fill="#e5e7eb">em linguagem natural</text>
+  <text x="680" y="256" font-size="10" fill="#e5e7eb">estruturada</text>
+
+  <text x="680" y="285" font-size="11" font-weight="700" fill="#fbbf24">Como se programa</text>
+  <text x="680" y="303" font-size="10" fill="#e5e7eb">Escrever spec com escopo,</text>
+  <text x="680" y="317" font-size="10" fill="#e5e7eb">invariantes e critérios</text>
+
+  <text x="680" y="345" font-size="11" font-weight="700" fill="#fbbf24">Quem é o programador</text>
+  <text x="680" y="363" font-size="10" fill="#e5e7eb">Operador humano + agente</text>
+  <text x="680" y="377" font-size="10" fill="#e5e7eb">de codificação (Claude Code,</text>
+  <text x="680" y="391" font-size="10" fill="#e5e7eb">Copilot, Cursor)</text>
+
+  <text x="680" y="418" font-size="11" font-weight="700" fill="#fbbf24">Código vira descartável</text>
+  <text x="680" y="436" font-size="10" fill="#e5e7eb">Regenerável a cada novo</text>
+  <text x="680" y="450" font-size="10" fill="#e5e7eb">modelo, fornecedor ou stack</text>
+
+  <text x="680" y="478" font-size="11" font-weight="700" fill="#fbbf24">Fonte de verdade</text>
+  <text x="680" y="496" font-size="10" fill="#fbbf24">Spec</text>
+
+  <text x="810" y="514" text-anchor="middle" font-size="10" fill="#fbbf24" font-style="italic">"A spec é o novo código"</text>
+
+  <!-- Rodapé -->
+  <text x="500" y="548" text-anchor="middle" font-size="11" fill="#fbbf24" font-weight="600">A inversão: o que era descartável virou ativo, e o que era ativo virou commodity regenerável</text>
+  <text x="500" y="568" text-anchor="middle" font-size="10" fill="#9ca3af" font-style="italic">Esta é a aplicação direta do Princípio da Camada Dupla ao próprio software</text>
+</svg>

@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Inteligência Aumentada</title>
+</head>
+<body class="chunk-principal">
+<section class="framework-bloco">
+<div class="abertura-framework">
+<div class="selo-framework">
+Framework
+</div>
+<h1 id="f9-rota-dupla-de-adoção">F9 — Rota Dupla de Adoção</h1>
+<h2 id="trilha-de-aprendizado-e-operação-por-camada-padrão-número">Trilha de aprendizado e operação por camada (padrão × número)</h2>
+<h2 id="objetivo">1. OBJETIVO</h2>
+<p>Orientar o estudo e a operação do leitor distinguindo, em cada peça de conhecimento, o que é <strong>padrão (decora)</strong> do que é <strong>número (consulta)</strong>. Garantir que tempo de aprendizado vá para o que envelhece bem, e que tempo de consulta vá para o que muda — com fonte e data.</p>
+<h2 id="funcionamento">2. FUNCIONAMENTO</h2>
+<p>Toda peça de conhecimento sobre IA pertence a <strong>uma de duas trilhas</strong> com cadências distintas de revisitação.</p>
+<h3 id="trilha-padrão-padrão-durável">Trilha Padrão (Padrão durável)</h3>
+<p><strong>O que vai aqui.</strong>
+- Os 9 Invariantes da IA
+- Os 9 Frameworks proprietários (F1-F9)
+- Capítulos conceituais (Cap 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13, 14)
+- Anatomia de eval, LLMOps, Alignment, Governança (Caps 21, 22, 23, 24)
+- Tradeoffs canônicos (Cap 25)
+- Padrões arquiteturais (RAG, agente, MCP, fine-tuning)</p>
+<p><strong>Cadência de revisitação.</strong> Trimestral para revisão completa. Anual para releitura focada.</p>
+<p><strong>Como armazena.</strong> Cabeça do operador. Cartaz dos Invariantes (Apêndice M) na parede. Caderno do Operador como notas pessoais.</p>
+<h3 id="trilha-número-número-volátil">Trilha Número (Número volátil)</h3>
+<p><strong>O que vai aqui.</strong>
+- Versões correntes de modelos (Anthropic, OpenAI, Google, open weights)
+- Preços por milhão de tokens
+- Posições em benchmark da rodada (SWE-bench, GPQA, OSWorld, etc.)
+- Limites correntes de janela de contexto
+- Capacidades novas de produto (Claude Skills X.Y, Connectors, etc.)
+- Lista corrente de repositórios GitHub relevantes
+- Datas de regulação aplicável (versões de LGPD, AI Act, NIST AI RMF)</p>
+<p><strong>Cadência de revisitação.</strong> Consulta sob demanda, antes de cada decisão que use o número como insumo. Revisão pessoal periódica conforme intensidade do uso de IA na operação.</p>
+<p><strong>Como armazena.</strong> Apêndice J — Trilha do Número, datado, com fonte por linha, mantido como instrumento vivo no repositório acompanhante sem cadência fixa anunciada.</p>
+<h3 id="mecânica-de-aplicação">Mecânica de aplicação</h3>
+<ol type="1">
+<li><strong>Diagnóstico.</strong> Listar o que se sabe sobre IA hoje. Para cada item, classificar: padrão ou número?</li>
+<li><strong>Migração.</strong> Item classificado errado vai para a trilha certa.</li>
+<li><strong>Cadência de revisão.</strong> Padrão entra em revisão periódica pessoal, em ritmo que o operador define conforme intensidade de uso. Número fica disponível para consulta sob demanda.</li>
+<li><strong>Antes de cada decisão.</strong> Identificar quais padrões e quais números a decisão precisa. Buscar cada um na trilha certa.</li>
+</ol>
+<h2 id="output">3. OUTPUT</h2>
+<table>
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Campo</th>
+<th>Conteúdo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mapa pessoal de padrões dominados</td>
+<td>Os 9 Invariantes, frameworks F1-F9, conceitos centrais</td>
+</tr>
+<tr class="even">
+<td>Mapa pessoal de gaps de padrão</td>
+<td>O que ainda precisa ser estudado</td>
+</tr>
+<tr class="odd">
+<td>Calendário de revisão de padrão</td>
+<td>Trimestral e anual</td>
+</tr>
+<tr class="even">
+<td>Bookmark do Apêndice J</td>
+<td>Para consulta de número</td>
+</tr>
+<tr class="odd">
+<td>Calendário de checagem do Apêndice J</td>
+<td>Mensal por padrão; antes de cada decisão crítica</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exemplo-de-uso-cto-que-precisa-decidir-modelo">4. EXEMPLO DE USO — CTO QUE PRECISA DECIDIR MODELO</h2>
+<p>Cenário: CTO de SaaS B2B precisa decidir migração de modelo para feature de copiloto in-product.</p>
+<p><strong>Identificação do que a decisão precisa.</strong></p>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Insumo</th>
+<th>Trilha</th>
+<th>Onde buscar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Quais são os eixos relevantes para escolha de modelo?</td>
+<td>Padrão</td>
+<td>Diagnóstico de Encaixe entre Tarefa e Modelo (Trilha Padrão)</td>
+</tr>
+<tr class="even">
+<td>Como pontuar a tarefa nos eixos?</td>
+<td>Padrão</td>
+<td>Cap 15 + F2</td>
+</tr>
+<tr class="odd">
+<td>Qual a liderança corrente em “razão complexa” e “código”?</td>
+<td>Número</td>
+<td>Apêndice J — SWE-bench Verified, GPQA</td>
+</tr>
+<tr class="even">
+<td>Qual o preço por milhão de tokens hoje?</td>
+<td>Número</td>
+<td>Apêndice J — pricing pages</td>
+</tr>
+<tr class="odd">
+<td>Qual a filosofia de alignment do vendor?</td>
+<td>Padrão</td>
+<td>Cap 23 (depende pouco da versão)</td>
+</tr>
+<tr class="even">
+<td>Qual a janela de contexto corrente do modelo X?</td>
+<td>Número</td>
+<td>Apêndice J</td>
+</tr>
+</tbody>
+</table>
+<p>A decisão é informada por padrão (F2 + Cap 23) e número (Apêndice J). O padrão vive na cabeça do CTO; o número é conferido na semana da decisão.</p>
+<p><strong>Em 6 meses,</strong> a fronteira muda. Versões novas saem. Mas o padrão F2 continua válido. O CTO refaz o exercício, busca o novo número no Apêndice J atualizado, e a decisão é consciente em vez de reativa.</p>
+<h2 id="anti-padrões">5. ANTI-PADRÕES</h2>
+<table>
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Anti-padrão</th>
+<th>Por que mata</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Memorizar versão e benchmark “porque é importante”</td>
+<td>Memória vira passivo no próximo release</td>
+</tr>
+<tr class="even">
+<td>Não memorizar o padrão “porque é teórico”</td>
+<td>Sem padrão, decisão fica refém do marketing do vendor</td>
+</tr>
+<tr class="odd">
+<td>Achar que o livro tem tudo</td>
+<td>Livro tem o padrão; Apêndice J tem o número</td>
+</tr>
+<tr class="even">
+<td>Confiar em memória para o número</td>
+<td>Modelo X mudou de versão; preço caiu 40%; benchmark líder é outro</td>
+</tr>
+<tr class="odd">
+<td>Ignorar o padrão porque “é óbvio”</td>
+<td>Operadores que conhecem o óbvio cometem 80% dos erros do mercado</td>
+</tr>
+<tr class="even">
+<td>Atualizar o padrão na mesma cadência do número</td>
+<td>Tempo gasto reescrevendo o que não mudou</td>
+</tr>
+</tbody>
+</table>
+<h2 id="conexões">6. CONEXÕES</h2>
+<ul>
+<li>Manifesto dos Invariantes</li>
+<li>Cap 01 — O que é IA</li>
+<li>Cap 15 — Comparação de modelos</li>
+<li>Apêndice M — Manifesto de bolso</li>
+<li>Apêndice B — Mapa Mental Geral</li>
+<li>Todos os frameworks F1-F8 (cada um opera um padrão)</li>
+</ul>
+<hr />
+<blockquote>
+<p><em>“Decore o padrão, consulte o número. Misturar as duas trilhas é envelhecer junto com o release.”</em></p>
+</blockquote>
+</div>
+</section>
+<section class="apendice-bloco">
+<div class="abertura-apendice">
+<div class="selo-apendice">
+Apêndice
+</div>
+<h1 id="apêndice-a-glossário-completo">Apêndice A — Glossário Completo</h1>
+<h2 id="vocabulário-canônico-da-obra"><em>Vocabulário canônico da obra</em></h2>
+<blockquote>
+<p>Glossário organizado por categoria. Termos próprios da obra marcados com <strong>★</strong> (sistema proprietário) ou <strong>◆</strong> (uso técnico canônico). Termos de mercado em uso recorrente sem marcação.</p>
+</blockquote>
+<hr />
+<h2 id="i.-princípios-e-sistema-da-obra">I. Princípios e sistema da obra (★)</h2>
+<p><strong>Camada Dupla.</strong> ★ Princípio 3: separação entre padrão durável (na cabeça) e número volátil (em apêndice datado).</p>
+<p><strong>Custo Composto.</strong> ★ Princípio 5: a multiplicação tokens × chamadas × tier × redundância que escala em produção, não o preço por token isolado.</p>
+<p><strong>Encaixe.</strong> ★ Princípio 4: escolha de modelo por padrão de tarefa em cinco eixos, não por liderança de benchmark da rodada.</p>
+<p><strong>Extremidades.</strong> ★ Princípio 2: regra de que atenção decai no meio do contexto e densidade de relevância vence volume bruto.</p>
+<p><strong>Operador.</strong> ★ Princípio 9: a IA multiplica competência e incompetência pelo mesmo fator.</p>
+<p><strong>Plausibilidade.</strong> ★ Princípio 1: o modelo entrega o plausível, não o verdadeiro.</p>
+<p><strong>Responsabilidade Indelegável.</strong> ★ Princípio 8: toda decisão de IA em produção tem único nome humano accountable.</p>
+<p><strong>Autonomia Proporcional.</strong> ★ Princípio 6: nível de agência é função da capacidade de medir e desfazer.</p>
+<p><strong>Termômetro.</strong> ★ Princípio 7: IA sem eval é fé, não engenharia.</p>
+<p><strong>Autoavaliação.</strong> ★ Critério objetivo de fechamento de cada capítulo da obra, em cinco dimensões.</p>
+<p><strong>Os Nove Frameworks.</strong> ★ Sistema que opera os princípios na prática: Método de Decisão para Adotar IA (Princípio 9), Diagnóstico de Encaixe entre Tarefa e Modelo (Princípio 4), Escala de Propriedade do Agente (Princípio 6), Engenharia de Prompt Estendida (Princípios 2 e 3), Matriz de Cobertura de Integrações (Princípios 6 e 4), Governança Indelegável (Princípio 8), Custo Composto em Três Tempos (Princípios 5 e 9), Pirâmide da Avaliação (Princípio 7), Rota Dupla de Adoção (Princípio 3).</p>
+<hr />
+<h2 id="ii.-fundamentos-de-ia">II. Fundamentos de IA</h2>
+<p><strong>Agente.</strong> ◆ Sistema de IA que recebe objetivo, decompõe em subtarefas, executa com ciclos de percepção-ação-reflexão, usa tools externas, até cumprir o objetivo. Diferente de chatbot: unidade de operação é a tarefa completa, não a resposta.</p>
+<p><strong>AGI (Artificial General Intelligence).</strong> Sistema de IA com capacidade equivalente a humana em qualquer tarefa cognitiva. Hoje, conceito disputado entre laboratórios.</p>
+<p><strong>ASI (Artificial Superintelligence).</strong> Sistema que excede capacidade humana em todos os domínios cognitivos.</p>
+<p><strong>Atenção (mechanism).</strong> ◆ Operação no transformer que decide quais tokens importam e quanto. Implementada via projeções Query/Key/Value e softmax.</p>
+<p><strong>Benchmark.</strong> Conjunto padronizado para medir capacidade. Exemplos: MMLU, GPQA, SWE-bench, HumanEval, ARC-AGI, OSWorld, Video-MME, HLE.</p>
+<p><strong>Chain of Thought (CoT).</strong> Técnica de prompt que induz o modelo a externalizar raciocínio passo a passo antes da resposta. Sobe acurácia em tarefas multipasso.</p>
+<p><strong>Constitutional AI (CAI).</strong> Técnica de alinhamento em que princípios em linguagem natural (“constituição”) são aplicados por outro modelo IA para gerar feedback de treinamento. Formulada originalmente pela Anthropic e adotada com variações por outros laboratórios.</p>
+<p><strong>Context Engineering.</strong> Disciplina que orquestra hierarquicamente o que entra no contexto do modelo (system prompt, memória, RAG, histórico) com caching e medição.</p>
+<p><strong>Deep Learning.</strong> Subcategoria de Machine Learning com redes neurais profundas.</p>
+<p><strong>DPO (Direct Preference Optimization).</strong> Substituto do PPO em RLHF; otimização direta sobre pares de preferência sem modelo de recompensa dedicado.</p>
+<p><strong>Embedding.</strong> ◆ Vetor numérico que representa significado em espaço contínuo. Permite busca semântica e RAG.</p>
+<p><strong>Few-shot.</strong> Técnica de prompt com poucos exemplos de input/output esperado.</p>
+<p><strong>Fine-tuning.</strong> Continuar treinando modelo pré-existente com dados específicos.</p>
+<p><strong>Fundação (modelo).</strong> Modelo base de larga escala usado como ponto de partida para aplicações.</p>
+<p><strong>Hallucination.</strong> Saída plausível mas factualmente incorreta. Decorre da arquitetura geradora.</p>
+<p><strong>Instruction Tuning (SFT).</strong> Fine-tuning supervisionado com pares (instrução, resposta) para ensinar o modelo a seguir instruções.</p>
+<p><strong>Janela de contexto.</strong> ◆ Limite de tokens que o modelo processa simultaneamente em uma chamada.</p>
+<p><strong>LLM (Large Language Model).</strong> Grande modelo de linguagem baseado em transformer e treinado em corpus massivo.</p>
+<p><strong>Lost in the Middle.</strong> ◆ Fenômeno documentado: atenção decai no meio de contextos longos. Base do Princípio 2.</p>
+<p><strong>Multimodal.</strong> Modelo que processa texto + imagem + áudio + vídeo nativamente.</p>
+<p><strong>One-shot.</strong> Prompt com um único exemplo.</p>
+<p><strong>Open weights.</strong> Modelo com pesos disponíveis para download (não confundir com open source completo, que inclui código e dados).</p>
+<p><strong>Pré-treinamento.</strong> Treinamento inicial do modelo em corpus não-rotulado.</p>
+<p><strong>PPO (Proximal Policy Optimization).</strong> Algoritmo clássico de RL usado no RLHF original; em substituição por DPO.</p>
+<p><strong>Prompt.</strong> Entrada de texto enviada ao modelo.</p>
+<p><strong>Prompt engineering.</strong> Disciplina de construir prompts profissionalmente.</p>
+<p><strong>Prompt injection.</strong> Ataque que insere instruções maliciosas via input ou dado de tool.</p>
+<p><strong>RAG (Retrieval-Augmented Generation).</strong> ◆ Arquitetura que combina recuperação externa de conhecimento com geração. Reduz alucinação, atualiza conhecimento sem retreinar.</p>
+<p><strong>Reward Hacking.</strong> Modelo aprende a soar bom para o RM, não a ser bom.</p>
+<p><strong>RLHF (Reinforcement Learning from Human Feedback).</strong> ◆ Alinhamento via comparação humana → modelo de recompensa → RL contra o RM.</p>
+<p><strong>RLAIF.</strong> Variante em que comparação é feita por outro modelo IA seguindo princípios.</p>
+<p><strong>Sycophancy.</strong> Modelo concorda com usuário porque foi premiado por isso em treinamento.</p>
+<p><strong>System prompt.</strong> Bloco persistente que precede inputs do usuário; define persona, regras, formato.</p>
+<p><strong>Token.</strong> ◆ Unidade fundamental que o modelo processa. Pode ser palavra, sub-palavra ou caractere.</p>
+<p><strong>Tokenizer.</strong> Sistema que converte texto em tokens.</p>
+<p><strong>Transformer.</strong> ◆ Arquitetura introduzida em 2017 (<em>Attention Is All You Need</em>) que mudou a IA moderna.</p>
+<p><strong>Zero-shot.</strong> Prompt sem exemplos; só instrução.</p>
+<hr />
+<h2 id="iii.-avaliação-e-evals">III. Avaliação e evals</h2>
+<p><strong>Adversarial set.</strong> ◆ Conjunto de casos que sabidamente quebram o sistema (jailbreak, injection, sycophancy, viés).</p>
+<p><strong>Calibração de juiz.</strong> Validação de LLM-as-judge contra humano em ≥30 itens; correlação alvo ≥0,7.</p>
+<p><strong>Faithfulness.</strong> Métrica de quão fiel a saída é a uma fonte (especialmente em RAG).</p>
+<p><strong>Golden set.</strong> ◆ Conjunto fixo de casos com gabarito que serve de referência estável para detectar regressão.</p>
+<p><strong>LLM-as-judge.</strong> ◆ Uso de LLM para avaliar saída de outro LLM segundo rubrica.</p>
+<p><strong>Pirâmide de Evals.</strong> ★ Base determinística, meio com golden set e LLM-as-judge, topo humano, com camada adversarial transversal.</p>
+<p><strong>Regressão silenciosa.</strong> Queda de qualidade que não aparece em métrica agregada mas existe em subgrupo.</p>
+<p><strong>Rubrica.</strong> Critério estruturado para julgamento (humano ou LLM-as-judge).</p>
+<p><strong>Scorecard.</strong> Comparação automatizada baseline × candidato em cada release.</p>
+<p><strong>Vibe-eval.</strong> Anti-padrão: rodar 5 casos manuais e decidir.</p>
+<hr />
+<h2 id="iv.-llmops-e-operação">IV. LLMOps e operação</h2>
+<p><strong>Canário.</strong> ◆ Liberação progressiva de versão nova (1% → 10% → 50% → 100%) com gates.</p>
+<p><strong>Circuit breaker.</strong> Limite duro que para chamadas em condições anômalas (loop, custo, latência).</p>
+<p><strong>Kill switch.</strong> ◆ Capacidade de desligar tool/agente/modelo/feature em segundos.</p>
+<p><strong>LLMOps.</strong> ◆ Disciplina de operar IA em produção; difere de MLOps clássico.</p>
+<p><strong>MTTR (Mean Time To Recovery).</strong> Tempo médio entre detecção e retorno ao estado bom.</p>
+<p><strong>OpenTelemetry GenAI.</strong> Convenção semântica de OpenTelemetry para LLMs.</p>
+<p><strong>Promptware como código.</strong> Tratamento de prompt com PR, revisão, eval em CI.</p>
+<p><strong>Rollback.</strong> Reversão a estado conhecido seguro.</p>
+<p><strong>SEV-1 a SEV-4.</strong> Severidades de incidente, adaptadas a IA.</p>
+<p><strong>Shadow mode.</strong> Versão nova roda em paralelo, sem servir, para comparar com atual.</p>
+<p><strong>Span × Trace × Session.</strong> ◆ Modelo mental de observabilidade: span = chamada individual; trace = sequência relacionada; session = uso temporal.</p>
+<p><strong>Tracing.</strong> Instrumentação que registra cada chamada com input, output, latência, tokens, custo, tools.</p>
+<p><strong>Versionamento de prompt.</strong> Cada mudança de prompt vira release versionado com changelog.</p>
+<hr />
+<h2 id="v.-alinhamento">V. Alinhamento</h2>
+<p><strong>Helpful, Harmless, Honest.</strong> ◆ Trilogia que sintetiza alinhamento, formulada inicialmente pela Anthropic e amplamente referenciada na literatura.</p>
+<p><strong>Interpretabilidade mecanicista.</strong> ◆ Mapeamento dos circuitos internos do modelo que produzem comportamentos específicos.</p>
+<p><strong>Mech Interp.</strong> Abreviação de Interpretabilidade Mecanicista.</p>
+<p><strong>Over-refusal.</strong> Modelo recusa pedidos legítimos por excesso de cautela.</p>
+<p><strong>Red-teaming.</strong> Teste adversarial sistemático de comportamento problemático.</p>
+<p><strong>Sandbagging.</strong> Modelo finge ser menos capaz para escapar de avaliação.</p>
+<p><strong>Sparse Autoencoders.</strong> Técnica para identificar <em>features</em> legíveis em ativações.</p>
+<hr />
+<h2 id="vi.-governança">VI. Governança</h2>
+<p><strong>Accountable.</strong> No RACI, quem responde pela decisão. Único nominal.</p>
+<p><strong>AI Council.</strong> Órgão executivo de governança de IA.</p>
+<p><strong>AUP (Acceptable Use Policy).</strong> Política de uso aceitável interna.</p>
+<p><strong>Camadas de governança.</strong> Técnica, Operacional, Executiva.</p>
+<p><strong>Maturidade dos controles.</strong> Escala 0-4 (inexistente, declarado, implementado, auditado, melhoria contínua).</p>
+<p><strong>Política × Processo × Prática.</strong> Três camadas que precisam fechar para governança não ser teatro.</p>
+<p><strong>Postmortem sem culpa.</strong> Investigação de incidente focada em processo, não em pessoa.</p>
+<p><strong>RACI.</strong> Matriz Responsible / Accountable / Consulted / Informed.</p>
+<p><strong>Simulado.</strong> Exercício programado de resposta a incidente, em staging.</p>
+<hr />
+<h2 id="vii.-padrões-de-produto-e-plataformas">VII. Padrões de produto e plataformas</h2>
+<p><strong>Agentes de programação assistida.</strong> Categoria de ferramentas tipo CLI, IDE e ambiente integrado para escrita e revisão de código com IA. Exemplos: Claude Code (Anthropic), Cursor, GitHub Copilot, Codex (OpenAI), Gemini Code Assist (Google).</p>
+<p><strong>Connectors / integrações nativas.</strong> Integrações pré-instaladas que ligam o assistente a fontes corporativas. Disponíveis em diferentes formatos nas principais plataformas comerciais.</p>
+<p><strong>MCP (Model Context Protocol).</strong> Padrão aberto, proposto pela Anthropic, para conectar modelos a ferramentas e dados externos. Tem adoção crescente por outros fornecedores.</p>
+<p><strong>Famílias de modelos por tier.</strong> Padrão de mercado em que cada fornecedor oferece três a quatro tiers de capacidade e custo. Exemplos: Haiku, Sonnet e Opus (Anthropic); GPT-4o-mini, GPT-4o e o-series (OpenAI); Gemini Flash, Pro e Ultra (Google); Llama em diferentes tamanhos (Meta).</p>
+<p><strong>Projects / Workspaces.</strong> Ambiente persistente com instruções, arquivos e histórico. Padrão presente em Claude Projects, ChatGPT Projects, Gemini Gems e similares.</p>
+<p><strong>Skills, Subagents, Routines.</strong> Encapsulamentos versionados de comportamento, delegação para agentes especializados e fluxos nomeados. Conceitos canônicos que aparecem com nomes distintos entre fornecedores.</p>
+<p><strong>Scheduled Tasks.</strong> Execução agendada de tarefas por agente, presente em diferentes plataformas comerciais.</p>
+<hr />
+<h2 id="viii.-casos-brasileiros-da-obra-cenários-ilustrativos">VIII. Casos brasileiros da obra (cenários ilustrativos)</h2>
+<p><strong>Atlas Strategy.</strong> ★ Consultoria estratégica brasileira; caso de eval por incidente de relatórios.</p>
+<p><strong>Banco Solar.</strong> ★ Fintech brasileira; caso de atendimento híbrido por tier.</p>
+<p><strong>Pólice.io.</strong> ★ Marketplace brasileiro de seguros; caso de loop com cartão de crédito.</p>
+<p><strong>Vianna, Castro e Almeida.</strong> ★ Banca de M&amp;A brasileira; caso de DD assistida.</p>
+<hr />
+<h2 id="ix.-regulação-e-normas">IX. Regulação e normas</h2>
+<p><strong>AI Act.</strong> Regulamentação europeia (UE 2024/1689).</p>
+<p><strong>ANPD.</strong> Autoridade Nacional de Proteção de Dados (Brasil).</p>
+<p><strong>ISO/IEC 42001.</strong> Sistema de gestão de IA (2023).</p>
+<p><strong>LGPD.</strong> Lei Geral de Proteção de Dados (Lei 13.709/2018), especialmente art. 20 (decisão automatizada).</p>
+<p><strong>NIST AI RMF.</strong> AI Risk Management Framework (NIST, 2023).</p>
+<p><strong>PL de IA brasileiro.</strong> Projeto de Lei sobre uso de IA, em tramitação.</p>
+</div>
+</section>
+<section class="apendice-bloco">
+<div class="abertura-apendice">
+<div class="selo-apendice">
+Apêndice
+</div>
+<h1 id="apêndice-b-mapa-mental-geral">Apêndice B — Mapa Mental Geral</h1>
+<h2 id="os-nove-princípios-como-esqueleto-cognitivo-da-obra"><em>Os Nove Princípios como esqueleto cognitivo da obra</em></h2>
+<hr />
+<blockquote>
+<p>Este mapa mental tem propósito específico. Não é índice, que é o sumário, nem é resumo, que é por capítulo. É a representação visual de como a obra se organiza a partir dos Nove Princípios, mostrando que cada capítulo, cada método e cada estudo de caso é instância de um ou mais princípios.</p>
+</blockquote>
+<hr />
+<h2 id="estrutura-em-camadas">Estrutura em camadas</h2>
+<pre><code>                    ┌────────────────────────────────┐
+                    │   MODELOS PASSAM. MÉTODO FICA. │
+                    └────────────────┬───────────────┘
+                                     │
+              ┌──────────────────────┴──────────────────────┐
+              │      OS NOVE PRINCÍPIOS PERMANENTES         │
+              │  (princípios duráveis, sistema citável)     │
+              └──────────────────────┬──────────────────────┘
+                                     │
+              ┌──────────────────────┴──────────────────────┐
+              │      OS NOVE FRAMEWORKS                     │
+              │  (decisão prática que opera cada princípio) │
+              └──────────────────────┬──────────────────────┘
+                                     │
+              ┌──────────────────────┴──────────────────────┐
+              │     CAPÍTULOS E ESTUDOS DE CASO             │
+              │  (instâncias técnicas e cenários brasileiros)│
+              └─────────────────────────────────────────────┘</code></pre>
+<hr />
+<h2 id="a-roda-dos-nove-princípios">A roda dos Nove Princípios</h2>
+<pre><code>                              ┌─────────────────────┐
+                              │ 1. PLAUSIBILIDADE   │
+                              │ &quot;Plausível ≠ verdade&quot;│
+                              └──────────┬──────────┘
+                                         │
+       ┌─────────────────────┐           │           ┌─────────────────────┐
+       │ 9. OPERADOR         │◀──────────┼──────────▶│ 2. EXTREMIDADES     │
+       │ &quot;Multiplica os dois&quot;│           │           │ &quot;Meio morre&quot;        │
+       └──────────┬──────────┘           │           └──────────┬──────────┘
+                  │                      │                      │
+                  │              ┌───────┴────────┐             │
+                  │              │    EIXO        │             │
+                  │              │ &quot;Modelos passam│             │
+                  │              │  Método fica&quot;  │             │
+                  │              └───────┬────────┘             │
+                  │                      │                      │
+       ┌──────────┴──────────┐           │           ┌──────────┴──────────┐
+       │ 8. RESPONSABILIDADE │◀──────────┼──────────▶│ 3. CAMADA DUPLA     │
+       │ &quot;Nome humano&quot;        │           │           │ &quot;Padrão × número&quot;   │
+       └──────────┬──────────┘           │           └──────────┬──────────┘
+                  │                      │                      │
+                  │                      │                      │
+       ┌──────────┴──────────┐           │           ┌──────────┴──────────┐
+       │ 7. TERMÔMETRO       │◀──────────┼──────────▶│ 4. ENCAIXE          │
+       │ &quot;Eval ou fé&quot;        │           │           │ &quot;Padrão da tarefa&quot;  │
+       └──────────┬──────────┘           │           └──────────┬──────────┘
+                  │                      │                      │
+                  └──────────────────────┼──────────────────────┘
+                              ┌──────────┴──────────┐
+                              │ 6. AUTONOMIA PROP.  │
+                              └──────────┬──────────┘
+                                         │
+                              ┌──────────┴──────────┐
+                              │ 5. CUSTO COMPOSTO   │
+                              │ &quot;Vezes que paga&quot;    │
+                              └─────────────────────┘</code></pre>
+<hr />
+<h2 id="princípio-framework-capítulo">Princípio × Framework × Capítulo</h2>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 36%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Princípio</th>
+<th>Framework</th>
+<th>Capítulo principal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 — Plausibilidade</td>
+<td>Auditoria de honestidade dentro da Pirâmide da Avaliação</td>
+<td>Como modelos funcionam; Alinhamento</td>
+</tr>
+<tr class="even">
+<td>2 — Extremidades</td>
+<td>Engenharia de Prompt Estendida</td>
+<td>Janela de contexto</td>
+</tr>
+<tr class="odd">
+<td>3 — Camada Dupla</td>
+<td>Rota Dupla de Adoção</td>
+<td>O que é IA</td>
+</tr>
+<tr class="even">
+<td>4 — Encaixe</td>
+<td>Diagnóstico de Encaixe entre Tarefa e Modelo</td>
+<td>Comparação de modelos</td>
+</tr>
+<tr class="odd">
+<td>5 — Custo Composto</td>
+<td>Custo Composto em Três Tempos</td>
+<td>Economia de tokens</td>
+</tr>
+<tr class="even">
+<td>6 — Autonomia Proporcional</td>
+<td>Escala de Propriedade do Agente</td>
+<td>Agentes; LLMOps</td>
+</tr>
+<tr class="odd">
+<td>7 — Termômetro</td>
+<td>Pirâmide da Avaliação</td>
+<td>Evals</td>
+</tr>
+<tr class="even">
+<td>8 — Responsabilidade Indelegável</td>
+<td>Governança Indelegável</td>
+<td>Governança; Segurança e riscos</td>
+</tr>
+<tr class="odd">
+<td>9 — Operador</td>
+<td>Método de Decisão para Adotar IA</td>
+<td>Roadmap pessoal e organizacional</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="trilha-temática-princípio">Trilha temática × Princípio</h2>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 43%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Trilha</th>
+<th>Princípio dominante</th>
+<th>Capítulos sugeridos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Entender LLMs profundamente</td>
+<td>1, 2, 3</td>
+<td>Como modelos funcionam, Tokens, Janela de contexto, Embeddings, Engenharia de prompt, Chain of Thought, Context Engineering</td>
+</tr>
+<tr class="even">
+<td>Decidir arquitetura de IA</td>
+<td>3, 4</td>
+<td>RAG, Fine-tuning, MCP, AI Engineering, Comparação de modelos, Open source, Trade-offs</td>
+</tr>
+<tr class="odd">
+<td>Construir agentes com critério</td>
+<td>6, 7</td>
+<td>Agentes, Evals, LLMOps</td>
+</tr>
+<tr class="even">
+<td>Medir e operar IA em produção</td>
+<td>6, 7, 8</td>
+<td>AI Engineering, Evals, LLMOps</td>
+</tr>
+<tr class="odd">
+<td>Governar IA corporativa</td>
+<td>8, 1</td>
+<td>Segurança e riscos, Alignment, Governança</td>
+</tr>
+<tr class="even">
+<td>Otimizar custo composto</td>
+<td>5</td>
+<td>Tokens, Janela de contexto, Context Engineering, Economia de tokens</td>
+</tr>
+<tr class="odd">
+<td>Liderar adoção executiva</td>
+<td>8, 9</td>
+<td>Comparação de modelos, Open source, Governança, Trade-offs, Roadmap</td>
+</tr>
+<tr class="even">
+<td>Roadmap de longo prazo</td>
+<td>3, 9</td>
+<td>Futuro da IA, Roadmap</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="capítulo-princípio-primário-e-secundário">Capítulo × Princípio primário e secundário</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Capítulo</th>
+<th>Primário</th>
+<th>Secundário</th>
+<th>Função no esqueleto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Introdução — Os Nove Princípios</td>
+<td>Todos</td>
+<td>—</td>
+<td>Capítulo declarativo</td>
+</tr>
+<tr class="even">
+<td>C01. O que é IA</td>
+<td>3</td>
+<td>—</td>
+<td>Plantio da Camada Dupla</td>
+</tr>
+<tr class="odd">
+<td>C02. Como modelos funcionam</td>
+<td>1</td>
+<td>—</td>
+<td>Mecânica da Plausibilidade</td>
+</tr>
+<tr class="even">
+<td>C03. Tokens</td>
+<td>5</td>
+<td>—</td>
+<td>Unidade do Custo Composto</td>
+</tr>
+<tr class="odd">
+<td>C04. Janela de contexto</td>
+<td>2</td>
+<td>—</td>
+<td>Capítulo principal das Extremidades</td>
+</tr>
+<tr class="even">
+<td>C05. Embeddings</td>
+<td>3</td>
+<td>5</td>
+<td>Geometria do significado</td>
+</tr>
+<tr class="odd">
+<td>C06. RAG</td>
+<td>3</td>
+<td>7</td>
+<td>Camada Dupla aplicada</td>
+</tr>
+<tr class="even">
+<td>C07. Memória</td>
+<td>5</td>
+<td>2</td>
+<td>Custo de retenção</td>
+</tr>
+<tr class="odd">
+<td>C08. Fine-tuning</td>
+<td>7</td>
+<td>4</td>
+<td>Decisão sem eval é especulação</td>
+</tr>
+<tr class="even">
+<td>C09. Engenharia de prompt</td>
+<td>2</td>
+<td>7</td>
+<td>Estrutura pelas extremidades</td>
+</tr>
+<tr class="odd">
+<td>C10. Chain of Thought</td>
+<td>1</td>
+<td>2</td>
+<td>Raciocínio aparente, não real</td>
+</tr>
+<tr class="even">
+<td>C11. Context Engineering</td>
+<td>2</td>
+<td>3</td>
+<td>Orquestração das pontas</td>
+</tr>
+<tr class="odd">
+<td>C12. Agentes</td>
+<td>6</td>
+<td>—</td>
+<td>Capítulo conceitual da Autonomia</td>
+</tr>
+<tr class="even">
+<td>C13. MCP</td>
+<td>4</td>
+<td>6</td>
+<td>Padrão de encaixe e autonomia</td>
+</tr>
+<tr class="odd">
+<td>C14. AI Engineering</td>
+<td>7</td>
+<td>6</td>
+<td>Portal para Evals e LLMOps</td>
+</tr>
+<tr class="even">
+<td>C14B. Reasoning models</td>
+<td>1</td>
+<td>2</td>
+<td>Raciocínio explícito sob escrutínio</td>
+</tr>
+<tr class="odd">
+<td>C14C. Spec-driven development</td>
+<td>4</td>
+<td>8</td>
+<td>Especificação antes da execução</td>
+</tr>
+<tr class="even">
+<td>C15. Comparação de modelos</td>
+<td>4</td>
+<td>—</td>
+<td>Capítulo principal do Encaixe</td>
+</tr>
+<tr class="odd">
+<td>C16. Open source</td>
+<td>4</td>
+<td>5</td>
+<td>Decisão estratégica de encaixe</td>
+</tr>
+<tr class="even">
+<td>C17. GitHub repos</td>
+<td>3</td>
+<td>—</td>
+<td>Critérios duráveis, lista volátil</td>
+</tr>
+<tr class="odd">
+<td>C18. Economia de tokens</td>
+<td>5</td>
+<td>—</td>
+<td>Capítulo principal do Custo Composto</td>
+</tr>
+<tr class="even">
+<td>C19. Segurança e riscos</td>
+<td>8</td>
+<td>1</td>
+<td>Mapeamento de risco com dono</td>
+</tr>
+<tr class="odd">
+<td>C20. Futuro da IA</td>
+<td>3</td>
+<td>—</td>
+<td>Vetores de mudança duráveis</td>
+</tr>
+<tr class="even">
+<td>C21. Evals</td>
+<td>7</td>
+<td>1, 3, 8</td>
+<td>Capítulo definitivo do Termômetro</td>
+</tr>
+<tr class="odd">
+<td>C22. LLMOps</td>
+<td>6</td>
+<td>5, 7, 8</td>
+<td>Operação da Autonomia Proporcional</td>
+</tr>
+<tr class="even">
+<td>C23. Alinhamento</td>
+<td>1</td>
+<td>8, 4</td>
+<td>Mecânica do alinhamento</td>
+</tr>
+<tr class="odd">
+<td>C24. Governança</td>
+<td>8</td>
+<td>6</td>
+<td>Aplicação da Responsabilidade</td>
+</tr>
+<tr class="even">
+<td>C25. Trade-offs canônicos</td>
+<td>4</td>
+<td>9</td>
+<td>Cardápio de decisão</td>
+</tr>
+<tr class="odd">
+<td>C26. Roadmap pessoal</td>
+<td>9</td>
+<td>3</td>
+<td>Plano de aplicação</td>
+</tr>
+<tr class="even">
+<td>C27. IA para PME brasileira</td>
+<td>9</td>
+<td>5</td>
+<td>Adoção no contexto nacional</td>
+</tr>
+<tr class="odd">
+<td>C28. Interpretabilidade mecanicista</td>
+<td>1</td>
+<td>7</td>
+<td>Inspeção do interior do modelo</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="relações-críticas-entre-princípios">Relações críticas entre princípios</h2>
+<table>
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Par</th>
+<th>Relação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 ↔︎ 7</td>
+<td>Plausibilidade exige Termômetro: eval comportamental é antídoto à confiança injustificada</td>
+</tr>
+<tr class="even">
+<td>2 ↔︎ 5</td>
+<td>Extremidades e Custo Composto: posição importa, mas volume mal arquitetado paga juros</td>
+</tr>
+<tr class="odd">
+<td>3 ↔︎ 4</td>
+<td>Camada Dupla e Encaixe: o padrão da escolha de modelo dura, o ranking da rodada não</td>
+</tr>
+<tr class="even">
+<td>6 ↔︎ 7</td>
+<td>Autonomia Proporcional só existe com Termômetro: sem eval, autonomia é fé escalada</td>
+</tr>
+<tr class="odd">
+<td>6 ↔︎ 8</td>
+<td>Autonomia delegada precisa de Responsabilidade nominal: a IA executa, alguém assina</td>
+</tr>
+<tr class="even">
+<td>8 ↔︎ 9</td>
+<td>Responsabilidade Indelegável e Operador: governança precisa de operadores competentes</td>
+</tr>
+<tr class="odd">
+<td>1 ↔︎ 8</td>
+<td>Plausibilidade e Responsabilidade: o erro plausível tem dono humano, sempre</td>
+</tr>
+<tr class="even">
+<td>3 ↔︎ 9</td>
+<td>Camada Dupla e Operador: padrão na cabeça do operador, número em apêndice datado</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="como-usar-este-mapa">Como usar este mapa</h2>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Situação</th>
+<th>Como o mapa ajuda</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Estou em decisão de adoção</td>
+<td>Identifique o princípio associado e siga ao método e ao capítulo principal</td>
+</tr>
+<tr class="even">
+<td>Quero estudar por trilha temática</td>
+<td>Use a tabela de trilhas para escolher o caminho</td>
+</tr>
+<tr class="odd">
+<td>Vou apresentar a obra a um time</td>
+<td>Use a roda dos Nove Princípios como abertura</td>
+</tr>
+<tr class="even">
+<td>Estou em incidente</td>
+<td>Identifique qual princípio foi violado e leia o capítulo correspondente</td>
+</tr>
+<tr class="odd">
+<td>Quero ensinar um par sênior</td>
+<td>Comece pela introdução e por este mapa em paralelo</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="apendice-bloco">
+<div class="abertura-apendice">
+<div class="selo-apendice">
+Apêndice
+</div>
+<h1 id="apêndice-c-roadmaps-de-aprendizado-por-persona">Apêndice C — Roadmaps de Aprendizado por Persona</h1>
+<h2 id="caminhos-de-leitura-e-aplicação-por-perfil-de-leitor"><em>Caminhos de leitura e aplicação por perfil de leitor</em></h2>
+<blockquote>
+<p>Este apêndice oferece roadmaps de aprendizado, organizados por persona, em quatro marcos: 30, 90, 180 e 365 dias. Cada marco traz ações práticas, artefatos esperados e critérios de avanço. O propósito é o caminho de quem lê e aplica, não o caminho de quem produz.</p>
+</blockquote>
+<hr />
+<h2 id="roadmap-1-executivo-c-level">Roadmap 1 — Executivo (C-Level)</h2>
+<h3 id="marco-30-dias">Marco 30 dias</h3>
+<p><strong>Tese:</strong> instalar o vocabulário e o nome humano por trás de cada decisão crítica.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 25%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Semana</th>
+<th>Ação</th>
+<th>Artefato</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Apresentar os Nove Princípios ao primeiro escalão</td>
+<td>Deck de abertura</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Listar cinco decisões críticas de IA na organização hoje e identificar o accountable de cada uma</td>
+<td>Tabela RACI mínima</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Definir OKRs de adoção de IA, de três a cinco</td>
+<td>Documento de OKRs</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Produzir o cartaz dos Princípios da empresa</td>
+<td>Cartaz em A3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Critério de avanço:</strong> cartaz publicado, RACI mínimo de cinco decisões assinado, OKRs aprovados.</p>
+<h3 id="marco-90-dias">Marco 90 dias</h3>
+<p><strong>Tese:</strong> instalar governança de IA viva.</p>
+<ul>
+<li>Caderno de Governança v1 aprovado pela diretoria</li>
+<li>AI Council com mandato e primeira reunião realizada</li>
+<li>Cardápio dos seis trade-offs aplicado a três iniciativas atuais</li>
+<li>Caderno de Evals v1 em construção, sob responsabilidade do CTO</li>
+</ul>
+<p><strong>Critério de avanço:</strong> Caderno de Governança aprovado e ata pública do AI Council.</p>
+<h3 id="marco-180-dias">Marco 180 dias</h3>
+<p><strong>Tese:</strong> instalar instrumentação técnica e financeira.</p>
+<ul>
+<li>Tracing implementado em cem por cento das features em produção</li>
+<li>Atribuição de custo de IA por feature em dashboard executivo</li>
+<li>Pirâmide da Avaliação com cobertura igual ou superior a metade da base</li>
+<li>Primeiro simulado de incidente crítico realizado</li>
+</ul>
+<p><strong>Critério de avanço:</strong> dashboard de custo em operação e tracing total.</p>
+<h3 id="marco-365-dias">Marco 365 dias</h3>
+<p><strong>Tese:</strong> virar cultura.</p>
+<ul>
+<li>Maturidade média dos controles de governança em nível três ou superior</li>
+<li>Auditoria externa positiva</li>
+<li>Vocabulário dos Princípios incorporado em reuniões executivas</li>
+<li>Dois simulados de incidente realizados no ano</li>
+</ul>
+<p><strong>Critério de avanço:</strong> auditoria externa concluída.</p>
+<hr />
+<h2 id="roadmap-2-gestor-head">Roadmap 2 — Gestor / Head</h2>
+<h3 id="marco-30-dias-1">Marco 30 dias</h3>
+<ul>
+<li>Selecionar uma feature de IA sob o escopo</li>
+<li>Mapear violações dos Nove Princípios nessa feature</li>
+<li>Iniciar golden set de trinta casos representativos</li>
+</ul>
+<p><strong>Critério de avanço:</strong> feature mapeada e golden set v0.</p>
+<h3 id="marco-90-dias-1">Marco 90 dias</h3>
+<ul>
+<li>Camadas base e meio da Pirâmide da Avaliação implementadas, com eval em CI</li>
+<li>Três pilares de LLMOps operantes</li>
+<li>Cardápio dos seis trade-offs documentado para a feature</li>
+</ul>
+<p><strong>Critério de avanço:</strong> eval em CI bloqueando merge e runbook de incidente publicado.</p>
+<h3 id="marco-180-dias-1">Marco 180 dias</h3>
+<ul>
+<li>Cobertura total de tracing nas features sob responsabilidade</li>
+<li>Rollback testado mensalmente</li>
+<li>Orçamento por feature visível</li>
+</ul>
+<p><strong>Critério de avanço:</strong> maturidade técnica média em nível três ou superior.</p>
+<h3 id="marco-365-dias-1">Marco 365 dias</h3>
+<ul>
+<li>Time aplicando os Princípios como norma de revisão de PR</li>
+<li>Nenhum incidente crítico no último trimestre</li>
+<li>Cultura aplicada e medida</li>
+</ul>
+<p><strong>Critério de avanço:</strong> cultura confirmada por auditoria amostral.</p>
+<hr />
+<h2 id="roadmap-3-desenvolvedor-arquiteto">Roadmap 3 — Desenvolvedor / Arquiteto</h2>
+<h3 id="marco-30-dias-2">Marco 30 dias</h3>
+<ul>
+<li>Aplicar a Engenharia de Prompt Estendida em uma feature</li>
+<li>Instrumentar tracing em uma feature</li>
+<li>Estudar os capítulos de Evals e LLMOps</li>
+</ul>
+<p><strong>Critério de avanço:</strong> uma feature instrumentada.</p>
+<h3 id="marco-90-dias-2">Marco 90 dias</h3>
+<ul>
+<li>PR com eval em CI virou padrão do time</li>
+<li>Tool registry implementado</li>
+<li>Escala de Propriedade do Agente aplicada em um agente</li>
+</ul>
+<p><strong>Critério de avanço:</strong> padrão de PR com eval adotado pelo time.</p>
+<h3 id="marco-180-dias-2">Marco 180 dias</h3>
+<ul>
+<li>Cobertura total de tracing nas features sob responsabilidade</li>
+<li>Participação no Caderno de LLMOps v1</li>
+</ul>
+<p><strong>Critério de avanço:</strong> Caderno de LLMOps publicado.</p>
+<h3 id="marco-365-dias-2">Marco 365 dias</h3>
+<ul>
+<li>Mentor de outros devs no método dos Princípios</li>
+<li>Contribuição ao repositório de prompts da empresa</li>
+<li>Participação em decisão de arquitetura citando os métodos derivados</li>
+</ul>
+<p><strong>Critério de avanço:</strong> reputação interna confirmada por feedback de pares.</p>
+<hr />
+<h2 id="roadmap-4-consultor">Roadmap 4 — Consultor</h2>
+<h3 id="marco-30-dias-3">Marco 30 dias</h3>
+<ul>
+<li>Aplicar o cardápio dos seis trade-offs em um cliente</li>
+<li>Produzir entrega usando os Princípios como vocabulário</li>
+</ul>
+<p><strong>Critério de avanço:</strong> um cliente impactado.</p>
+<h3 id="marco-90-dias-3">Marco 90 dias</h3>
+<ul>
+<li>Três clientes com cardápio aplicado</li>
+<li>Um case publicado em mídia setorial</li>
+</ul>
+<p><strong>Critério de avanço:</strong> três cases internos documentados.</p>
+<h3 id="marco-180-dias-3">Marco 180 dias</h3>
+<ul>
+<li>Workshop dos Nove Princípios para clientes</li>
+<li>Método próprio adaptado ao seu nicho</li>
+</ul>
+<p><strong>Critério de avanço:</strong> workshop em pé.</p>
+<h3 id="marco-365-dias-3">Marco 365 dias</h3>
+<ul>
+<li>Reputação como referência em método, não em vendor</li>
+<li>Dez ou mais clientes operando pelo método</li>
+</ul>
+<p><strong>Critério de avanço:</strong> marca pessoal consolidada.</p>
+<hr />
+<h2 id="roadmap-5-empreendedor-founder">Roadmap 5 — Empreendedor / Founder</h2>
+<h3 id="marco-30-dias-4">Marco 30 dias</h3>
+<ul>
+<li>Aplicar o Método de Decisão para Adotar IA em cada feature de IA do produto</li>
+<li>Aplicar o Custo Composto em Três Tempos para auditar custo atual</li>
+</ul>
+<p><strong>Critério de avanço:</strong> decisão de adoção documentada por feature e baseline de custo estabelecido.</p>
+<h3 id="marco-90-dias-4">Marco 90 dias</h3>
+<ul>
+<li>Golden set inicial para feature-chave</li>
+<li>Canário em produção</li>
+<li>Eval em CI</li>
+<li>Circuit breaker de custo</li>
+</ul>
+<p><strong>Critério de avanço:</strong> Pirâmide da Avaliação operante.</p>
+<h3 id="marco-180-dias-4">Marco 180 dias</h3>
+<ul>
+<li>Diagnóstico de Encaixe entre Tarefa e Modelo aplicado para escolher modelo por feature</li>
+<li>LLMOps maduro</li>
+<li>AUP publicada</li>
+</ul>
+<p><strong>Critério de avanço:</strong> TCO de IA sobre receita dentro do envelope.</p>
+<h3 id="marco-365-dias-4">Marco 365 dias</h3>
+<ul>
+<li>Crescimento sustentado com margem</li>
+<li>Cliente enterprise compra pela arquitetura defendida</li>
+</ul>
+<p><strong>Critério de avanço:</strong> arquitetura virou diferencial competitivo.</p>
+<hr />
+<h2 id="roadmap-6-criador-de-conteúdo-educador">Roadmap 6 — Criador de conteúdo / Educador</h2>
+<h3 id="marco-30-dias-5">Marco 30 dias</h3>
+<ul>
+<li>Quatro posts ou vídeos aplicando um princípio por semana</li>
+<li>Distribuir a síntese de uma página dos Nove Princípios à audiência</li>
+</ul>
+<p><strong>Critério de avanço:</strong> quatro peças publicadas.</p>
+<h3 id="marco-90-dias-5">Marco 90 dias</h3>
+<ul>
+<li>Workshop ou minicurso usando os Princípios</li>
+<li>Biblioteca pessoal de prompts publicada</li>
+</ul>
+<p><strong>Critério de avanço:</strong> um workshop entregue.</p>
+<h3 id="marco-180-dias-5">Marco 180 dias</h3>
+<ul>
+<li>Comunidade de operadores de IA com cem ou mais membros engajados</li>
+</ul>
+<p><strong>Critério de avanço:</strong> comunidade ativa.</p>
+<h3 id="marco-365-dias-5">Marco 365 dias</h3>
+<ul>
+<li>Reconhecimento como referência em IA aplicada em pt-BR</li>
+<li>Convite a falar em eventos setoriais</li>
+</ul>
+<p><strong>Critério de avanço:</strong> marca consolidada.</p>
+<hr />
+<h2 id="instrumentos-comuns-a-todas-as-personas">Instrumentos comuns a todas as personas</h2>
+<h3 id="calendário-recorrente-sugerido">Calendário recorrente sugerido</h3>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Cadência</th>
+<th>Atividade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Diária</td>
+<td>Trinta minutos com o cartaz dos Princípios em vista; autopergunta antes de cada decisão de IA</td>
+</tr>
+<tr class="even">
+<td>Semanal</td>
+<td>Revisão dos artefatos da semana contra os Nove Princípios</td>
+</tr>
+<tr class="odd">
+<td>Mensal</td>
+<td>Atualização de fontes de referência na sua área; revisão de métricas-chave</td>
+</tr>
+<tr class="even">
+<td>Trimestral</td>
+<td>Revisão do roadmap, dos critérios de avanço e ajuste de plano</td>
+</tr>
+<tr class="odd">
+<td>Anual</td>
+<td>Edição completa dos Cadernos de Governança, Evals e LLMOps; auditoria externa</td>
+</tr>
+</tbody>
+</table>
+<h3 id="métricas-universais">Métricas universais</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Métrica</th>
+<th>Cadência</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cobertura de tracing</td>
+<td>Mensal</td>
+</tr>
+<tr class="even">
+<td>MTTR de incidentes críticos</td>
+<td>Mensal</td>
+</tr>
+<tr class="odd">
+<td>Custo de IA sobre receita</td>
+<td>Mensal</td>
+</tr>
+<tr class="even">
+<td>Maturidade média dos controles</td>
+<td>Trimestral</td>
+</tr>
+<tr class="odd">
+<td>Aplicação cultural dos Princípios</td>
+<td>Semestral</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="apendice-bloco">
+<div class="abertura-apendice">
+<div class="selo-apendice">
+Apêndice
+</div>
+<h1 id="apêndice-d-ferramentas-e-stack">Apêndice D — Ferramentas e Stack</h1>
+<h2 id="curadoria-datada-com-critério-quantitativo-de-escolha"><em>Curadoria datada, com critério quantitativo de escolha</em></h2>
+<blockquote>
+<p><em>Estado: junho de 2026. Revisão periódica conforme o ecossistema evolui, sem cadência fixa anunciada. Esta lista envelhece, e o leitor deve consultar a versão atualizada no canal oficial da obra.</em></p>
+</blockquote>
+<hr />
+<h2 id="d.0-por-que-o-apêndice-de-ferramentas-precisa-de-data-e-critério-e-não-apenas-inventário">D.0 — Por que o apêndice de ferramentas precisa de data e critério, e não apenas inventário</h2>
+<p>O profissional brasileiro que abre apêndice de ferramentas em livro técnico costuma encontrar uma de duas armadilhas. Ou recebe lista de marcas sem critério de escolha, em que cabe ao leitor adivinhar por que uma plataforma aparece antes da outra, ou recebe lista datada implicitamente, sem cabeçalho de validação, e descobre seis meses depois que metade das opções mudou de preço, foi adquirida, mudou de licença ou foi descontinuada. Este apêndice opta por critério explícito e data declarada, com revisão programada, para evitar as duas armadilhas.</p>
+<p>A regra estrutural é que cada ferramenta listada vem com nota curta de aplicação, e cada categoria vem com critério recomendado de escolha e sinais de armadilha. O leitor que aplicar o critério antes de adotar a ferramenta toma decisão informada; o leitor que copiar a lista sem critério está fazendo o mesmo erro que este apêndice quer evitar.</p>
+<hr />
+<h2 id="d.1-critério-quantitativo-de-escolha-em-seis-dimensões">D.1 — Critério quantitativo de escolha em seis dimensões</h2>
+<p>Para qualquer ferramenta ou plataforma desta lista, recomenda-se a avaliação nas seis dimensões abaixo antes da adoção. A avaliação não exige planilha sofisticada; vale anotação em folha em branco com nota de zero a dez por dimensão, e a regra prática é: ferramenta abaixo de seis em qualquer dimensão crítica para o caso de uso é candidata duvidosa, e ferramenta com média ponderada abaixo de sete não compensa adoção.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimensão</th>
+<th>O que avaliar</th>
+<th>Sinal de risco</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Maturidade</strong></td>
+<td>Anos desde lançamento, número de versões estáveis, presença de versão LTS, frequência de breaking changes nos últimos doze meses</td>
+<td>Menos de doze meses no mercado, breaking changes a cada release menor, ausência de LTS declarado</td>
+</tr>
+<tr class="even">
+<td><strong>Adoção</strong></td>
+<td>Downloads mensais, estrelas no GitHub, contribuidores ativos nos últimos noventa dias, presença em rankings de mercado (Gartner, Forrester)</td>
+<td>Tração baixa em estrelas e downloads, contribuidor único, sem citação em pesquisa independente</td>
+</tr>
+<tr class="odd">
+<td><strong>Custo</strong></td>
+<td>Camada gratuita real (não trial), preço mensal mínimo em reais ou dólares, modelo de cobrança (assento, uso, throughput), tendência de preços nos últimos vinte e quatro meses</td>
+<td>Camada gratuita inadequada para teste real, preço enterprise opaco, histórico de aumentos súbitos</td>
+</tr>
+<tr class="even">
+<td><strong>Encaixe com stack brasileira</strong></td>
+<td>Suporte explícito a português, integração com gateways nacionais (PIX, boletos), conformidade declarada com LGPD, presença comercial no Brasil</td>
+<td>Sem suporte a português, sem documentação sobre LGPD, sem representação ou parceiro comercial nacional</td>
+</tr>
+<tr class="odd">
+<td><strong>Suporte</strong></td>
+<td>Documentação em inglês ou português, comunidade ativa em fóruns ou Discord, SLA declarado em planos pagos, presença de comunidade BR</td>
+<td>Documentação incompleta, fórum vazio, sem SLA explícito, ausência total de comunidade em português</td>
+</tr>
+<tr class="even">
+<td><strong>Estabilidade</strong></td>
+<td>Cadência de releases, qualidade do changelog público, histórico de breaking changes nos últimos doze meses, política de deprecation</td>
+<td>Releases imprevisíveis, changelog vago, mais de duas breaking changes em doze meses, deprecation sem aviso prévio</td>
+</tr>
+</tbody>
+</table>
+<p>Em casos críticos (produção em escala, conformidade regulatória, dependência estratégica), recomenda-se aplicar a matriz de cobertura do framework F5 em complemento, comparando a ferramenta candidata com pelo menos duas alternativas.</p>
+<hr />
+<h2 id="d.2-plataformas-de-inferência-llm-as-a-service">D.2 — Plataformas de inferência (LLM-as-a-Service)</h2>
+<p>Quando escolher: aplicação em produção, escala variável, sem capacidade ou desejo de operar infraestrutura própria de modelo. <strong>Sinais de armadilha:</strong> lock-in indevido, ausência de SLA financeiro vinculado a uptime, terms of service que permitem uso de dados do cliente para treinamento sem opt-out, ausência de SOC 2 ou ISO 27001 quando a aplicação é corporativa.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Provedor</th>
+<th>Estado em junho/2026</th>
+<th>Aplicação típica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>OpenAI API</strong></td>
+<td>Maduro, ecossistema dominante, presença forte em SaaS BR</td>
+<td>Aplicações genéricas, prototipagem rápida, integração via SDK em produção</td>
+</tr>
+<tr class="even">
+<td><strong>Anthropic Claude API</strong></td>
+<td>Maduro, fronteira em raciocínio, melhor latência percebida em PT-BR conforme medição de comunidade</td>
+<td>Aplicações em produção que valorizam consistência, escrita longa, segurança contextual</td>
+</tr>
+<tr class="odd">
+<td><strong>Google Gemini API</strong></td>
+<td>Maduro, integração com Workspace e Cloud, opção forte para clientes Google</td>
+<td>Empresas com investimento em Google Workspace ou Vertex AI, aplicações multimodais</td>
+</tr>
+<tr class="even">
+<td><strong>AWS Bedrock</strong></td>
+<td>Maduro, agrega múltiplos modelos sob única conta AWS, presença BR via região São Paulo</td>
+<td>Organizações com regime AWS consolidado, conformidade rígida (saúde, financeiro), múltiplos modelos sob uma fatura</td>
+</tr>
+<tr class="odd">
+<td><strong>Azure OpenAI</strong></td>
+<td>Maduro, integração Microsoft 365, presença BR via região Brazil South</td>
+<td>Empresas com regime Microsoft, conformidade regulada, acordos enterprise</td>
+</tr>
+<tr class="even">
+<td><strong>DeepSeek API</strong></td>
+<td>Em consolidação, preço-qualidade agressivo, viés geopolítico para discutir conforme caso</td>
+<td>Aplicações sensíveis a custo unitário, organizações sem restrição quanto à origem do provedor</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Critério recomendado:</strong> decidir primeiro entre regime brasileiro/global (escolha estratégica e jurídica), depois entre soberania de dados (LGPD em território nacional vs. provedor global com contrato standard), depois entre custo unitário e capacidade de modelo. A escolha do provedor é menos sobre qual é “o melhor” e mais sobre qual encaixa no contexto regulatório, comercial e cultural da organização.</p>
+<hr />
+<h2 id="d.3-modelos-open-weights-para-self-host">D.3 — Modelos open weights para self-host</h2>
+<p>Quando escolher: soberania de dados como driver primário (LGPD, dados em território nacional), volume alto com escala previsível, capacidade técnica para operar GPU dedicada, restrição comercial específica. <strong>Sinais de armadilha:</strong> estimativa otimista de TCO sem considerar engenharia operacional, escolha por qualidade em benchmark sem teste no caso de uso real, ausência de plano para upgrade quando próxima geração sair.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Família</th>
+<th>Estado em junho/2026</th>
+<th>Notas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Llama 3.3 / Llama 4</strong></td>
+<td>Maduro, licença com restrição de uso comercial em grande escala, ecossistema forte</td>
+<td>Escolha padrão para self-host com tooling consolidado</td>
+</tr>
+<tr class="even">
+<td><strong>DeepSeek V3 / R1</strong></td>
+<td>Fronteira em qualidade-preço, licença MIT, custo de inferência baixo via MoE</td>
+<td>Escolha padrão quando custo é driver primário e MoE é viável</td>
+</tr>
+<tr class="odd">
+<td><strong>Mistral Large 2 / Codestral</strong></td>
+<td>Maduro, licença Apache, suporte enterprise via Mistral AI</td>
+<td>Escolha padrão quando suporte enterprise europeu é desejável</td>
+</tr>
+<tr class="even">
+<td><strong>Qwen 2.5 / Qwen 3</strong></td>
+<td>Maduro, licença Apache, força em chinês e multilíngue</td>
+<td>Escolha quando multilíngue (incluindo chinês) é requisito</td>
+</tr>
+<tr class="odd">
+<td><strong>Phi 4</strong></td>
+<td>Maduro, modelos pequenos com qualidade-tamanho alta</td>
+<td>Escolha para edge ou inferência local em hardware limitado</td>
+</tr>
+<tr class="even">
+<td><strong>Gemma 3</strong></td>
+<td>Maduro, licença com restrição, integração Google</td>
+<td>Escolha para regime Google quando Vertex AI não é desejado</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Critério recomendado:</strong> definir primeiro a licença aceitável para o caso de uso (MIT/Apache vs. Llama community), depois o tamanho do modelo (a faixa 7B-13B serve a maioria das aplicações de produção; 70B-130B compete diretamente com modelos comerciais médios; modelos maiores exigem infraestrutura especializada), depois o suporte de quantização (INT8 e INT4 viabilizam rodar 70B em uma única H100).</p>
+<hr />
+<h2 id="d.4-frameworks-de-agente-e-orquestração">D.4 — Frameworks de agente e orquestração</h2>
+<p>Quando escolher: aplicação com loop de planejamento-ação-observação, multi-agente, integração com múltiplas ferramentas via tool use ou MCP. <strong>Sinais de armadilha:</strong> framework com curva alta sem ganho proporcional, dependência transitiva grande, abstração excessiva sobre chamadas de modelo (perda de controle fino).</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Framework</th>
+<th>Estado em junho/2026</th>
+<th>Aplicação típica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>LangChain / LangGraph</strong></td>
+<td>Maduro, ecossistema dominante, curva moderada</td>
+<td>Padrão para protótipo rápido e produção quando a integração com ferramentas é central</td>
+</tr>
+<tr class="even">
+<td><strong>LlamaIndex</strong></td>
+<td>Maduro, força em RAG, curva mais simples para retrieval</td>
+<td>Padrão quando o eixo dominante é RAG sobre documentos próprios</td>
+</tr>
+<tr class="odd">
+<td><strong>AutoGen (Microsoft)</strong></td>
+<td>Maduro, força em multi-agente conversacional</td>
+<td>Aplicações com colaboração entre agentes especializados</td>
+</tr>
+<tr class="even">
+<td><strong>CrewAI</strong></td>
+<td>Em consolidação, abstração mais simples para multi-agente</td>
+<td>Aplicações com hierarquia de papéis explícita</td>
+</tr>
+<tr class="odd">
+<td><strong>Pydantic AI</strong></td>
+<td>Em consolidação, força em saída estruturada com tipos Python</td>
+<td>Aplicações Python-first com forte tipagem e validação</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Critério recomendado:</strong> começar pelo framework com menor curva que atende o caso de uso; trocar de framework é custo de migração real, então prototipar com vários antes de comprometer arquitetura. Em produção, considerar trade-off entre framework opinado (LangChain) e abstração leve (Pydantic AI ou chamadas diretas via SDK).</p>
+<hr />
+<h2 id="d.5-bancos-vetoriais-vector-db">D.5 — Bancos vetoriais (Vector DB)</h2>
+<p>Quando escolher: pipeline de RAG em produção, embeddings em escala, busca semântica como funcionalidade central. <strong>Sinais de armadilha:</strong> escolha por moda sem considerar escala real (Pinecone é overkill para 100k vetores; Chroma é insuficiente para 100M); escolha por preço sem considerar performance de filtragem com metadados; ignorar o trade-off entre busca exata e busca aproximada (HNSW, IVF).</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Banco</th>
+<th>Estado em junho/2026</th>
+<th>Aplicação típica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>pgvector (Postgres)</strong></td>
+<td>Maduro, escolha padrão quando PostgreSQL já está na stack</td>
+<td>Aplicações pequenas e médias, simplicidade operacional</td>
+</tr>
+<tr class="even">
+<td><strong>Pinecone</strong></td>
+<td>Maduro, managed, presença BR via AWS US East / São Paulo</td>
+<td>Aplicações em escala com SLA enterprise</td>
+</tr>
+<tr class="odd">
+<td><strong>Qdrant</strong></td>
+<td>Maduro, open source, performance forte com filtros</td>
+<td>Aplicações que precisam de filtragem rica e podem operar self-host</td>
+</tr>
+<tr class="even">
+<td><strong>Weaviate</strong></td>
+<td>Maduro, open source com módulos, presença comunidade forte</td>
+<td>Aplicações híbridas (vetorial + GraphQL), com módulos integrados</td>
+</tr>
+<tr class="odd">
+<td><strong>Chroma</strong></td>
+<td>Maduro, simples, ideal para protótipo e single-node</td>
+<td>Protótipos, aplicações single-node, comunidade Python</td>
+</tr>
+<tr class="even">
+<td><strong>Milvus</strong></td>
+<td>Maduro, escala alta, complexidade operacional alta</td>
+<td>Aplicações com bilhões de vetores</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Critério recomendado:</strong> pgvector como ponto de partida sempre que a escala é compatível (até alguns milhões de vetores); Qdrant ou Weaviate quando self-host é viável e a filtragem por metadados importa; Pinecone quando managed e SLA enterprise são requisitos.</p>
+<hr />
+<h2 id="d.6-observabilidade-e-llmops">D.6 — Observabilidade e LLMOps</h2>
+<p>Quando escolher: aplicação em produção com qualquer volume real, evals automatizados em CI, monitoramento de custo e qualidade ao longo do tempo. <strong>Sinais de armadilha:</strong> confiar em logs de aplicação sem tracing estruturado; subestimar o custo de instrumentação; escolher ferramenta de observabilidade sem considerar integração com OpenTelemetry GenAI.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Ferramenta</th>
+<th>Estado em junho/2026</th>
+<th>Aplicação típica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Langfuse</strong></td>
+<td>Maduro, open source, SaaS opcional, OpenTelemetry compatível</td>
+<td>Escolha padrão para auto-host ou SaaS, comunidade ativa</td>
+</tr>
+<tr class="even">
+<td><strong>LangSmith</strong></td>
+<td>Maduro, gerenciado por LangChain</td>
+<td>Aplicações já em LangChain, integração imediata</td>
+</tr>
+<tr class="odd">
+<td><strong>Arize Phoenix</strong></td>
+<td>Maduro, open source, força em evals e debugging</td>
+<td>Aplicações que valorizam debugging interativo</td>
+</tr>
+<tr class="even">
+<td><strong>Helicone</strong></td>
+<td>Maduro, proxy-based, integração rápida</td>
+<td>Aplicações que querem observabilidade sem instrumentar código</td>
+</tr>
+<tr class="odd">
+<td><strong>OpenLLMetry</strong></td>
+<td>Em consolidação, padrão OpenTelemetry GenAI nativo</td>
+<td>Aplicações que já operam OpenTelemetry e querem integração nativa</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Critério recomendado:</strong> começar com Langfuse self-hosted para projeto interno; migrar para SaaS gerenciado quando o overhead operacional ultrapassa o custo da licença; padronizar em OpenTelemetry GenAI sempre que possível para evitar lock-in.</p>
+<hr />
+<h2 id="d.7-frameworks-de-evals">D.7 — Frameworks de evals</h2>
+<p>Quando escolher: aplicação em produção com golden set definido, regressão automatizada em CI, métrica de qualidade auditável. <strong>Sinais de armadilha:</strong> confiar em métricas tradicionais (BLEU, ROUGE) sem considerar adequação ao caso de uso de LLM; evals subjetivos sem ancoragem em golden set; LLM-as-judge sem validação humana periódica.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Framework</th>
+<th>Estado em junho/2026</th>
+<th>Aplicação típica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>DeepEval</strong></td>
+<td>Maduro, em Python, força em LLM-as-judge configurável</td>
+<td>Projetos Python com testes em pytest</td>
+</tr>
+<tr class="even">
+<td><strong>Promptfoo</strong></td>
+<td>Maduro, foco em comparação de prompts, integração CI fácil</td>
+<td>Otimização de prompt antes da produção</td>
+</tr>
+<tr class="odd">
+<td><strong>Ragas</strong></td>
+<td>Maduro, foco específico em RAG (recall, precision, faithfulness)</td>
+<td>Aplicações de RAG em produção</td>
+</tr>
+<tr class="even">
+<td><strong>Inspect AI</strong></td>
+<td>Maduro, AISI UK, força em avaliações de segurança e capability</td>
+<td>Avaliações de segurança e red teaming sistemático</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Critério recomendado:</strong> Ragas como instrumento padrão quando a aplicação é RAG; DeepEval ou Promptfoo para evals gerais de prompt e qualidade; Inspect AI quando o eixo dominante é segurança ou capability evaluation.</p>
+<hr />
+<h2 id="d.8-mcp-model-context-protocol">D.8 — MCP (Model Context Protocol)</h2>
+<p>Quando escolher: arquitetura com múltiplas ferramentas, descoberta dinâmica, integração plural com sistemas externos, expectativa de mudar de provedor de LLM. <strong>Sinais de armadilha:</strong> adotar MCP por moda quando a integração é one-off; servidor MCP sem governança de versão; cliente MCP sem confirmação humana antes de invocar tools com efeito.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>Estado em junho/2026</th>
+<th>Aplicação típica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>MCP SDK Python e TypeScript</strong></td>
+<td>Maduro, mantido por Anthropic, ecossistema em crescimento</td>
+<td>Construção de servidor MCP customizado</td>
+</tr>
+<tr class="even">
+<td><strong>Servidores oficiais Anthropic</strong> (filesystem, github, postgres, slack etc.)</td>
+<td>Maduros, repositório aberto, referência canônica</td>
+<td>Adoção de servidores prontos para casos comuns</td>
+</tr>
+<tr class="odd">
+<td><strong>modelcontextprotocol/servers</strong></td>
+<td>Maduro, repositório de referência</td>
+<td>Inspiração e cópia parcial para servidores customizados</td>
+</tr>
+<tr class="even">
+<td><strong>punkpeye/awesome-mcp-servers</strong></td>
+<td>Em consolidação, lista da comunidade</td>
+<td>Descoberta de servidores publicados pela comunidade</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Critério recomendado:</strong> começar com servidores oficiais Anthropic para casos comuns; construir servidor MCP customizado quando a integração interna justifica esforço; padronizar autenticação com OAuth para servidores remotos.</p>
+<hr />
+<h2 id="d.9-repositórios-e-gestão-de-prompts">D.9 — Repositórios e gestão de prompts</h2>
+<p>Quando escolher: aplicação em produção com muitos prompts, versionamento crítico, equipe distribuída editando prompts colaborativamente. <strong>Sinais de armadilha:</strong> versionar prompts em código junto com aplicação (acoplamento ruim); editar prompts sem golden set associado; ausência de A/B testing de prompt.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Ferramenta</th>
+<th>Estado em junho/2026</th>
+<th>Aplicação típica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Pezzo</strong></td>
+<td>Maduro, open source, versionamento e A/B</td>
+<td>Projetos que querem self-host com versionamento estruturado</td>
+</tr>
+<tr class="even">
+<td><strong>PromptHub</strong></td>
+<td>Em consolidação, foco em colaboração</td>
+<td>Equipes distribuídas editando prompts</td>
+</tr>
+<tr class="odd">
+<td><strong>PromptLayer</strong></td>
+<td>Maduro, observabilidade + gestão</td>
+<td>Aplicações que combinam gestão e observabilidade de prompt</td>
+</tr>
+<tr class="even">
+<td><strong>Langfuse Prompts</strong></td>
+<td>Maduro, integrado a observabilidade</td>
+<td>Aplicações já em Langfuse</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Critério recomendado:</strong> começar com Langfuse Prompts ou Pezzo quando o eixo é versionamento; considerar repositório próprio (Git + Markdown) quando a equipe é pequena e a complexidade não justifica plataforma dedicada.</p>
+<hr />
+<h2 id="d.10-cadência-de-revisão-deste-apêndice">D.10 — Cadência de revisão deste apêndice</h2>
+<p>Esta lista recebe revisão periódica conforme o ecossistema evolui, sem cadência fixa anunciada, com versão pública divulgada no canal oficial da obra. Leitores que identificarem ferramenta nova relevante, mudança significativa no estado de uma ferramenta listada, ou desaparecimento de qualquer item, são convidados a enviar sugestão de correção via canal oficial.</p>
+<p>As revisões podem trazer reestruturação de categorias conforme a maturidade do ecossistema brasileiro de IA evolua. O critério editorial é honestidade quanto à validade temporal da curadoria, com data declarada no cabeçalho e sem disfarce de eternidade que a indústria de IA não permite.</p>
+<p><strong>Editor desta lista:</strong> Fabio Garcia. Revisão periódica conforme o ecossistema evolui, sem cadência fixa anunciada.</p>
+</div>
+</section>
+<section class="apendice-bloco">
+<div class="abertura-apendice">
+<div class="selo-apendice">
+Apêndice
+</div>
+<h1 id="apêndice-e-leituras-complementares">Apêndice E — Leituras Complementares</h1>
+<h2 id="livros-blogs-e-cursos-comentados-para-aprofundar"><em>Livros, blogs e cursos comentados para aprofundar</em></h2>
+<hr />
+<h2 id="livros-fundamentos-de-ia">Livros — Fundamentos de IA</h2>
+<p><strong>Russell, S. &amp; Norvig, P. — <em>Artificial Intelligence: A Modern Approach</em> (4ª ed., 2020).</strong> Referência canônica do campo. Denso. Para quem quer fundamento acadêmico.</p>
+<p><strong>Bishop, C. &amp; Bishop, H. — <em>Deep Learning: Foundations and Concepts</em> (2024).</strong> Fundamentos matemáticos modernos. Para profissional técnico que quer ir além do uso.</p>
+<p><strong>Goodfellow, I., Bengio, Y. &amp; Courville, A. — <em>Deep Learning</em> (2016).</strong> Clássico. Algumas partes desatualizadas; a estrutura conceitual segue válida.</p>
+<p><strong>Murphy, K. — <em>Probabilistic Machine Learning</em> (2 vols., 2022, 2023).</strong> Fundamentos probabilísticos.</p>
+<hr />
+<h2 id="livros-ia-aplicada">Livros — IA aplicada</h2>
+<p><strong>Karpathy, A. — coleção de palestras públicas e o blog <code>karpathy.ai</code>.</strong> Não é livro formal, mas o conjunto vale como referência de pensamento técnico atual.</p>
+<p><strong>Engelbart, D. — <em>Augmenting Human Intellect</em> (1962).</strong> O conceito original de “inteligência aumentada”. Origem filosófica da obra.</p>
+<p><strong>Christian, B. — <em>The Alignment Problem</em> (2020).</strong> Visão geral acessível.</p>
+<p><strong>Russell, S. — <em>Human Compatible</em> (2019).</strong> Fundamento filosófico do alinhamento.</p>
+<hr />
+<h2 id="livros-governança-e-operação">Livros — Governança e operação</h2>
+<p><strong>Beyer, B. et al. — <em>Site Reliability Engineering</em> (Google, 2016) e <em>The Site Reliability Workbook</em> (2018).</strong> Fundamento de operação madura aplicável a LLMOps.</p>
+<p><strong>Doerr, J. — <em>Measure What Matters</em> (2018).</strong> OKRs como instrumento de adoção.</p>
+<p><strong>Allspaw, J. &amp; Robbins, J. — <em>Web Operations</em> (2010).</strong> Fundamentos de cultura blameless.</p>
+<p><strong>Davenport, T. — <em>The AI Advantage</em> (2018).</strong> Visão executiva de adoção.</p>
+<hr />
+<h2 id="blogs-e-newsletters">Blogs e newsletters</h2>
+<ul>
+<li><strong>OpenAI blog</strong> (<code>openai.com/news</code>)</li>
+<li><strong>Anthropic blog</strong> (<code>anthropic.com/news</code>)</li>
+<li><strong>Google DeepMind blog</strong></li>
+<li><strong>Meta AI blog</strong></li>
+<li><strong>Hugging Face blog</strong></li>
+<li><strong>Karpathy</strong> (<code>karpathy.ai</code>)</li>
+<li><strong>Simon Willison</strong> (<code>simonwillison.net</code>)</li>
+<li><strong>Latent Space</strong> (newsletter sobre IA aplicada)</li>
+<li><strong>The Batch</strong> (deeplearning.ai)</li>
+<li><strong>Import AI</strong> (Jack Clark)</li>
+</ul>
+<hr />
+<h2 id="cursos">Cursos</h2>
+<ul>
+<li><strong>DeepLearning.AI</strong> — curso de Andrew Ng e curadoria de cursos curtos sobre temas específicos como RAG, agentes e LangChain.</li>
+<li><strong>Hugging Face Course</strong> — open source, prático.</li>
+<li><strong>Fast.ai</strong> — Practical Deep Learning for Coders, abordagem aplicada.</li>
+<li><strong>OpenAI cookbook</strong> — exemplos práticos em repositório oficial.</li>
+<li><strong>Anthropic courses</strong> (<code>github.com/anthropics/courses</code>).</li>
+<li><strong>Google ML Crash Course</strong> — introdução estruturada.</li>
+<li><strong>MIT 6.5940 TinyML</strong> — para hardware especializado.</li>
+<li><strong>Stanford CS25 Transformers United</strong> — fundamentos avançados.</li>
+</ul>
+</div>
+</section>
+<section class="apendice-bloco">
+<div class="abertura-apendice">
+<div class="selo-apendice">
+Apêndice
+</div>
+<h1 id="apêndice-f-comunidade-brasileira-de-ia-em-2026">Apêndice F — Comunidade Brasileira de IA em 2026</h1>
+<h2 id="newsletters-podcasts-conferências-pesquisadores-e-empresas-em-português"><em>Newsletters, podcasts, conferências, pesquisadores e empresas em português</em></h2>
+<blockquote>
+<p><strong>Atualizado em:</strong> junho de 2026
+<strong>Próxima revisão:</strong> anual, conforme a comunidade brasileira de IA amadurecer</p>
+</blockquote>
+<hr />
+<h2 id="por-que-este-apêndice-existe">Por que este apêndice existe</h2>
+<p>A profissão de IA no Brasil tem duas vidas paralelas, e quem opera sabe disso desde o primeiro contato sério com o campo. A primeira vida acontece em inglês, no fluxo de papers da arXiv, em conferências como NeurIPS e ICML, em newsletters de fronteira como Latent Space e Import AI, em discussões no Hacker News, e quem quer estar perto da fronteira técnica não tem como evitar esse fluxo. A segunda vida acontece em português, em rodas de conversa em meetups, em comunidades no Discord e Telegram, em conferências como TDC e Campus Party, em grupos de pesquisa de universidades públicas, em times de IA de bancos e fintechs que já operam em escala produtiva, e essa segunda vida é a que sustenta carreira, contratação, mentoria, debate sobre regulação local, e troca real de aprendizado em contexto brasileiro.</p>
+<p>Este apêndice mapeia a segunda vida. Não substitui o Apêndice E, que cuida de leituras de fundamentação técnica, nem o conjunto de canais em inglês listado em revisões anteriores deste mesmo apêndice. Ele cumpre outra função, igualmente necessária para o profissional brasileiro de IA em 2026, que é dar acesso organizado a debate em português, a evento presencial onde se troca cartão, a podcast que se ouve no carro entre reuniões, a grupo no LinkedIn onde aparece vaga, a professor que orienta TCC ou pesquisa, e a empresa que contrata e publica. A cena brasileira é menor do que mereceria, ainda em formação em vários eixos, e parte do papel desta obra é ajudar a fechar o hiato, começando por reconhecer o que existe e por dar palco para o que merece ser conhecido.</p>
+<hr />
+<h2 id="newsletters-em-português">1. Newsletters em português</h2>
+<p>A oferta brasileira de newsletter sobre IA cresceu nos últimos dois ciclos, ainda que esteja distante, em densidade técnica e frequência, do que se encontra em inglês. As cinco fontes abaixo são as mais consistentes em junho de 2026, com a ressalva editorial de que nome, cadência e responsável podem mudar a qualquer momento, e o leitor deve confirmar o estado de cada uma na próxima revisão deste apêndice.</p>
+<p><strong>Tecnologia e IA, com Filipe Deschamps.</strong> Newsletter semanal, com viés de divulgação técnica acessível, foco em explicar conceitos novos para quem programa e para quem decide. Linguagem direta, cobertura ampla do ecossistema, boa porta de entrada para quem ainda não consome em inglês.</p>
+<p><strong>Tech&amp;Co, do Grupo Globo.</strong> Newsletter editorial com cobertura jornalística de IA corporativa no Brasil, com peso para casos de adoção em grandes empresas, regulação local e movimentos do mercado. Útil para profissional que precisa traduzir IA para conversa executiva em português.</p>
+<p><strong>The Shift.</strong> Newsletter de tecnologia com seção dedicada a IA, costuma trazer entrevistas, leituras curadas e bastidores de mercado. Tom mais analítico do que noticioso.</p>
+<p><strong>Olhar Digital.</strong> Boletim diário com cobertura ampla do ecossistema digital, incluindo IA. Não tem profundidade técnica, mas ajuda a manter pulso da agenda pública, da repercussão de releases e do enquadramento midiático que clientes e usuários consomem.</p>
+<p><strong>PEBMED, na vertical de saúde.</strong> Newsletter dedicada a profissional médico no Brasil, com seção crescente sobre IA aplicada à medicina, casos de uso clínicos, regulação da Anvisa e CFM. Referência específica de vertical, citada aqui como exemplo de que o profissional de IA em vertical regulada encontra nicho dedicado em português.</p>
+<p>A lista acima é parcial e dinâmica. O leitor que quiser sugerir nova fonte, ou avisar de fonte descontinuada, pode escrever pelo canal oficial da obra, descrito ao final deste apêndice.</p>
+<hr />
+<h2 id="podcasts-em-português">2. Podcasts em português</h2>
+<p>Podcast em português sobre IA aplicada existe, e a oferta cresceu de forma significativa entre 2024 e 2026, com surgimento de quatro projetos dedicados exclusivamente a IA que mudaram o patamar da conversa em português. As referências abaixo são as mais úteis em junho de 2026 para profissional que quer ouvir conversa qualificada sobre IA na própria língua, no trânsito, no exercício, ou na cozinha.</p>
+<h3 id="dedicados-a-ia-surgidos-entre-2024-e-2026">Dedicados a IA (surgidos entre 2024 e 2026)</h3>
+<p><strong>IA Todo Dia, com Diego Sommer e Helena Ferraz.</strong> O maior podcast brasileiro dedicado exclusivamente a IA em 2026. Cadência alta, foco em explicar como IA muda carreira, negócio e cotidiano. Por que seguir: é a referência em divulgação técnica acessível para audiência ampla, e o ponto natural de entrada para quem quer compromisso semanal com a agenda em português.</p>
+<p><strong>IA Sob Controle, com Marcus Mendes e Fabrício Carraro.</strong> Episódios regulares cobrindo movimentos do universo de IA com profundidade superior à média brasileira, com convidados especialistas e leitura técnica honesta. Por que seguir: é o mais próximo, em português, de podcast técnico de fronteira no estilo Latent Space, com discussão de paper, modelo novo e debate qualificado de fundo.</p>
+<p><strong>SABIÁ — Inteligência Artificial à Brasileira, do BI0S na Unicamp.</strong> Podcast quinzenal acadêmico-aplicado, conectado a grupo de pesquisa real em universidade pública brasileira. Por que seguir: traz a voz da pesquisa brasileira em IA para o consumidor não-acadêmico, e ajuda a romper a percepção de que toda fronteira é internacional. Referência única no recorte universitário brasileiro.</p>
+<p><strong>Papo de IA, da Comunidade Profissionais do Futuro.</strong> Conversas práticas sobre adoção de IA em empresa brasileira, com foco em aprendizado aplicado e construção de carreira. Por que seguir: complementa os dois acima no recorte profissional intermediário, com tom de comunidade.</p>
+<h3 id="tecnologia-ampla-com-ia-recorrente">Tecnologia ampla com IA recorrente</h3>
+<p><strong>Hipsters.tech, da Alura.</strong> Episódios regulares dedicados a IA aplicada, com convidados que operam em produção em empresas brasileiras. Mantém o tom de conversa entre pares, sem cair em divulgação rasa.</p>
+<p><strong>Como Você Fez Isso?, da Caelum.</strong> Conversas com autores, profissionais técnicos e gestores, cobre tópicos de IA quando o convidado opera no campo. Útil pelo formato de entrevista longa, que permite profundidade.</p>
+<p><strong>Tecnocracia, do Manual do Usuário.</strong> Pensamento crítico sobre tecnologia, com cobertura recorrente de IA. Tom adversarial qualificado, que ajuda a fugir do hype e a treinar o senso crítico que o Princípio Um da obra exige.</p>
+<p><strong>Bots Brasil Podcast.</strong> Lançado em 2026 pela comunidade Bots Brasil no YouTube, traz debates temáticos em áudio com profissionais sêniores discutindo verticais específicos. Por que seguir: é o exemplo mais recente de spin-off de comunidade técnica brasileira em formato podcast.</p>
+<p>Vale a regra que já vale para newsletters: cadência e formato mudam, e a verificação anual é responsabilidade do leitor.</p>
+<hr />
+<h2 id="conferências-brasileiras">3. Conferências brasileiras</h2>
+<p>Evento presencial é, por enquanto, o ponto onde a comunidade brasileira de IA mais aparece junta. As conferências abaixo são as que receberam, em 2024, 2025 e o que se vê em 2026, programação relevante para IA aplicada. Nenhuma delas é, ainda, evento dedicado exclusivamente a IA generativa, lacuna comentada no item 7.</p>
+<p><strong>Campus Party Brasil.</strong> Evento anual, com palco aberto para IA, programação ampla, audiência grande, formato que combina palestra, hackathon e feira. Bom para profissional que está começando e quer mapear o ecossistema.</p>
+<p><strong>The Developers Conference, conhecida como TDC.</strong> Circulação nacional, com edições em várias capitais, trilhas dedicadas a IA com profundidade técnica crescente. Padrão de palestra é desigual, mas as trilhas de IA já têm massa crítica.</p>
+<p><strong>FEBRABAN Tech.</strong> Evento de tecnologia do setor financeiro, com peso crescente em IA aplicada a banco, fintech, meios de pagamento. Cobertura de regulação, fraude, atendimento automatizado e cumprimento normativo.</p>
+<p><strong>HSM Expo Management.</strong> IA no contexto executivo, com painéis de adoção em grandes corporações, casos de transformação, debate de estratégia. Audiência majoritariamente C-level e diretoria, útil para profissional que precisa transitar entre engenharia e decisão.</p>
+<p><strong>Latinoware.</strong> Comunidade open source latino-americana, sediada em Foz do Iguaçu, com programação que inclui IA. Espaço importante para profissional alinhado com open weights, com a tradição open source e com a comunidade hispano-falante vizinha.</p>
+<p><strong>Conferência Brasileira de Inteligência Artificial, da SBC.</strong> Evento acadêmico anual da Sociedade Brasileira de Computação, com publicação científica avaliada por pares. Referência para profissional que mantém vínculo com pesquisa, ou que quer publicar trabalho aplicado em fórum brasileiro reconhecido.</p>
+<hr />
+<h2 id="comunidades-online">4. Comunidades online</h2>
+<p>Comunidade online é o tecido conector entre eventos. As referências abaixo são as mais ativas em junho de 2026, com a mesma ressalva de volatilidade.</p>
+<p><strong>Brasil.AI.</strong> Comunidade aberta no Discord, com canais dedicados a NLP, visão, agentes, carreira, vagas. Tom técnico, moderação ativa.</p>
+<p><strong>Data Hackers.</strong> Newsletter combinada com Slack, com profissionais brasileiros de dados e IA. Referência consolidada, com canais de carreira, dúvida técnica e divulgação de evento.</p>
+<p><strong>AI Brasil, grupo no LinkedIn.</strong> Grupo grande, com mistura de profissional, recrutador e divulgação de conteúdo. Útil para acompanhar movimento de mercado e oportunidades.</p>
+<p><strong>Subreddit r/brasil em interseção com r/MachineLearning.</strong> Discussão informal em português, espaço para troca de aprendizado e dúvida, sem moderação técnica densa. Vale como termômetro de cultura geral.</p>
+<p><strong>Grupo de Telegram em torno de MCP em português.</strong> Referência genérica a comunidade em formação ao redor do Model Context Protocol, com profissionais brasileiros experimentando agentes e integrações. Pequena, em formação, mas é tecido vivo onde se faz pergunta técnica e se recebe resposta no mesmo dia.</p>
+<hr />
+<h2 id="professores-e-pesquisadores-brasileiros">5. Professores e pesquisadores brasileiros</h2>
+<p>A pesquisa brasileira em IA é mais antiga e mais densa do que a percepção comum sugere. As referências abaixo são parciais, escolhidas por reconhecimento estabelecido em 2026, e o leitor deve ler a lista como porta de entrada, não como mapa fechado.</p>
+<p><strong>Fabio Cozman, da USP.</strong> Pesquisa em IA explicável, raciocínio probabilístico e ética. Liderança no Centro de Inteligência Artificial da USP, referência em discussão pública sobre regulação e governança no Brasil.</p>
+<p><strong>André Carvalho, da USP São Carlos.</strong> Machine learning fundacional, com longa contribuição em aprendizado de máquina aplicado. Formação de gerações de pesquisadores brasileiros.</p>
+<p><strong>Anna Helena Reali Costa, da USP.</strong> Agentes inteligentes e aprendizado por reforço, com trabalho que dialoga diretamente com o capítulo de agentes desta obra.</p>
+<p><strong>Fernando Osório, da USP São Carlos.</strong> Robótica e IA, com trabalho em sistemas autônomos e percepção computacional.</p>
+<p><strong>Marley Vellasco, da PUC-Rio.</strong> Redes neurais aplicadas a finanças, com produção que conecta pesquisa com o setor financeiro brasileiro.</p>
+<p>A lista é parcial por escolha. Universidades como Unicamp, UFRJ, UFMG, UFRGS, UnB, UFPE, ITA e CEFET têm grupos de pesquisa relevantes em visão computacional, processamento de linguagem natural, sistemas multiagente, IA simbólica e aprendizado profundo, e o leitor que quiser aprofundar pode procurar os programas de pós-graduação dessas instituições e a base Lattes do CNPq para mapear orientadores e linhas de pesquisa.</p>
+<hr />
+<h2 id="empresas-brasileiras-com-prática-pública-em-ia">6. Empresas brasileiras com prática pública em IA</h2>
+<p>Empresa brasileira que opera IA em produção em escala existe, e a lista abaixo recolhe casos com presença pública reconhecível em 2026. A ressalva editorial é honesta, e está descrita no item 7: poucas dessas empresas publicam paper técnico, blog de engenharia detalhado ou material de referência reproduzível, e isso reflete uma característica geral do mercado brasileiro de tecnologia, que prefere proteger know-how a publicá-lo.</p>
+<p><strong>NeuralMind.</strong> Empresa especializada em processamento de linguagem natural em português, com produtos para área jurídica e financeira, referência consolidada em PLN brasileiro.</p>
+<p><strong>Reclame Aqui.</strong> IA aplicada a SAC e atendimento ao consumidor, com modelos treinados em grande volume de interação real em português.</p>
+<p><strong>Petrobras, na área de exploração.</strong> IA aplicada a geofísica, sísmica e otimização de produção, com publicações ocasionais e equipe técnica reconhecida no setor.</p>
+<p><strong>Itaú, na área de tecnologia.</strong> IA bancária em escala, com produtos de crédito, fraude, atendimento e personalização. Casos apresentados em FEBRABAN Tech e eventos correlatos.</p>
+<p><strong>Magazine Luiza, no time Luizalabs.</strong> IA em e-commerce, busca, recomendação e atendimento, com cultura interna de engenharia mais aberta do que a média do setor.</p>
+<p>A lista poderia ser estendida com Nubank, Mercado Livre, Stone, Globo, Hapvida, Banco do Brasil, Bradesco, Embraer, Vale, e o leitor que quiser mapear pode procurar os times de IA das maiores empresas listadas em B3 e os relatórios anuais de tecnologia, ainda que a publicação científica regular continue sendo exceção.</p>
+<hr />
+<h2 id="crítica-honesta-da-cena-brasileira">7. Crítica honesta da cena brasileira</h2>
+<p>A cena brasileira de IA aplicada, em 2026, ainda é pequena para o tamanho do mercado interno, da base instalada de profissional de tecnologia, e da quantidade de empresa que já opera IA em produção, ainda que tenha amadurecido visivelmente entre 2024 e 2026. O quadro abaixo descreve as lacunas que o autor desta obra reconhece, sem floreio, e o que melhorou no período recente.</p>
+<p><strong>O que melhorou (2024–2026).</strong> A cena de podcast saltou de “três episódios ocasionais por ano” para quatro projetos dedicados exclusivamente a IA (IA Todo Dia, IA Sob Controle, SABIÁ Unicamp, Papo de IA), com cadência regular e densidade técnica crescente. Comunidades como Data Hackers e Brasil.AI cresceram em massa crítica. A FEBRABAN Tech consolidou-se como evento de IA aplicada com programação séria. O ecossistema de fintech brasileiro publicou casos reais de adoção em série em 2025 e 2026.</p>
+<p><strong>O que ainda falta.</strong> Falta newsletter técnica semanal de profundidade comparável a Latent Space, escrita em português, dedicada a quem opera IA em produção. Falta conferência anual dedicada exclusivamente a IA generativa, com chamado técnico avaliado, palestras de operadores, e visibilidade nacional. Falta blog de engenharia público de grandes empresas brasileiras, no padrão dos blogs de engenharia de Netflix, Uber, Stripe, em que se conta como o sistema foi construído, com diagrama, métrica e aprendizado de erro. Falta evento brasileiro com chamado de paper aplicado revisto por pares com prêmios e visibilidade ampla, no estilo do Latent Space Live ou da AI Engineer World’s Fair.</p>
+<p>O profissional brasileiro que quer estar na fronteira ainda precisa, em 2026, consumir conteúdo majoritariamente em inglês. Esta obra propõe-se a ajudar a fechar parte do hiato, e o apêndice que você está lendo é parte do esforço, na medida em que organiza o que existe e nomeia o que falta.</p>
+<hr />
+<h2 id="como-contribuir-com-este-apêndice">8. Como contribuir com este apêndice</h2>
+<p>Esta lista será revisada anualmente. O leitor que quiser sugerir nova fonte, corrigir item desatualizado, apontar evento novo, ou indicar empresa ou pesquisador que mereça figurar na próxima revisão, pode escrever pelo canal oficial da obra, divulgado nos materiais de lançamento e nas redes sociais do autor. Atualizações entram no log de revisão anual e ficam disponíveis no repositório acompanhante.</p>
+<p>A construção da cena depende, em parte, da disposição de cada profissional de torná-la pública. Sugerir, corrigir, indicar e apontar é forma concreta de contribuir, e o autor agradece desde já.</p>
+<hr />
+<p><em>Apêndice F — Comunidade Brasileira de IA em 2026. Próxima revisão programada: junho de 2027.</em></p>
+</div>
+</section>
+
+</body>
+</html>

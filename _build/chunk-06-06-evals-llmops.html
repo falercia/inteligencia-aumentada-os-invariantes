@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Inteligência Aumentada</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Inteligência Aumentada</h1>
+</header>
+<div class="page-break">
+
+</div>
+<h1 id="capítulo-39">CAPÍTULO 39</h1>
+<h2 id="evals-a-engenharia-de-medir-ia">EVALS — A ENGENHARIA DE MEDIR IA</h2>
+<hr />
+<blockquote>
+<p><em>“Trocar prompt ‘porque ficou melhor’ sem golden set é torcida, não decisão. Eval é o que separa engenharia de fé.”</em></p>
+</blockquote>
+<hr />
+<blockquote>
+<p>🧭 <strong>Invariante-mãe:</strong> <strong>Invariante 7 — Termômetro</strong> — <em>“IA sem eval é fé, não engenharia.”</em> Invariantes secundários: <strong>Inv. 1</strong> (Plausibilidade — eval comportamental detecta o que o modelo finge saber), <strong>Inv. 3</strong> (Camada Dupla — golden set é padrão durável; ferramenta de eval é número volátil), <strong>Inv. 8</strong> (Responsabilidade Indelegável — eval em CI é o que sustenta accountability técnica). Framework derivado: <strong>F8 — EVAL-PIRÂMIDE</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="o-conceito-intuitivo">39.1 — O CONCEITO INTUITIVO</h2>
+<p>Há uma cena que se repete em times que adotaram IA generativa em produção sem ter passado pela disciplina de medi-la. O Product Manager pergunta “como está a qualidade do nosso copiloto?”, e a resposta vem em três versões. A primeira é “está boa, os usuários têm gostado”, baseada em algumas conversas no Slack e em duas reuniões com clientes. A segunda é “passou na nossa bateria de testes da semana”, baseada em vinte casos rodados manualmente por um engenheiro. A terceira é “o LLM que avalia diz que melhorou”, baseada em um juiz que ninguém calibrou contra humano. Nenhuma das três é eval, e essa confusão custa caro porque mascara regressão até ela virar incidente.</p>
+<p>Eval, em sentido técnico preciso, é a disciplina de medir sistematicamente a qualidade de saídas de IA contra critérios definidos, com dados representativos, em ciclos que rodam tanto em desenvolvimento quanto em produção, com critério de bloqueio explícito e auditoria do que cada release entregou. Não é teste manual, não é vibe, não é demonstração de cliente, não é benchmark público. É a infraestrutura cognitiva que transforma operação de IA em disciplina engenheirável.</p>
+<p>A diferença entre quem tem eval real e quem não tem aparece em dois lugares. No deploy, porque quem tem eval consegue dizer “rodou contra 200 casos do golden set e melhorou em 92% deles, regrediu em 3% que estamos investigando, manteve em 5%”. Quem não tem só consegue dizer “ficou melhor”. No incidente, porque quem tem eval consegue rastrear a regressão até a mudança específica de prompt, modelo ou tool que a causou. Quem não tem entra em pânico, tenta voltar a uma versão “que parecia boa”, e descobre que perdeu o registro do que era.</p>
+<p>A boa notícia é que eval não exige investimento absurdo. A pirâmide canônica desta disciplina, que apresentaremos formalmente como <strong>Framework F8 EVAL-PIRÂMIDE</strong>, tem base barata e topo caro, e a maioria dos times consegue valor real começando pela base. A má notícia é que a maior parte das organizações ainda não começou, e está tomando decisão de modelo, de prompt e de fornecedor sem instrumento para medir o que efetivamente entrega.</p>
+<hr />
+<h2 id="analogia-o-laboratório-clínico-que-nunca-fecha">39.2 — ANALOGIA: O LABORATÓRIO CLÍNICO QUE NUNCA FECHA</h2>
+<p>Pense numa rede hospitalar séria, com cobertura nacional, plantão 24 horas, complexidade real. Imagine que essa rede operasse sem laboratório clínico próprio, sem exame de sangue regular, sem protocolo de checagem cruzada entre diagnósticos. A rede ainda atenderia pacientes — médicos competentes conseguem chegar em boas conclusões com anamnese, exame físico e bom senso. Mas quando algo desse errado, ninguém saberia identificar a causa. Quando um protocolo precisasse ser ajustado, a decisão seria por intuição. Quando o resultado de um departamento começasse a cair, a regressão seria descoberta tarde, quando já tivesse virado óbito.</p>
+<p>Nenhuma rede hospitalar séria opera assim. Existe laboratório, existe protocolo de exame regular para cada classe de paciente, existe controle de qualidade dos próprios exames (sim, o laboratório precisa medir a si mesmo), existe trilha de auditoria por amostra. O laboratório não substitui o médico, e nem entrega o diagnóstico final. O laboratório dá ao médico o termômetro sem o qual a decisão fica no escuro.</p>
+<p>Em IA, eval é o laboratório clínico do sistema. Não substitui o engenheiro, não decide pelo Product Manager, não escolhe o modelo. Dá ao time o termômetro com que se decide, se itera, se governa. E exige a mesma disciplina de qualidade que o laboratório clínico exige — golden set bem construído é o equivalente a amostras de controle calibradas, LLM-as-judge sem calibração é o equivalente a exame sem padrão de referência, regressão por subgrupo é o equivalente a olhar apenas a média sem ver o que aconteceu com a UTI pediátrica. Quem opera IA sem laboratório opera no escuro, e descobre as falhas pelo paciente — quer dizer, pelo cliente — que reclama tarde demais.</p>
+<hr />
+<h2 id="explicação-técnica">39.3 — EXPLICAÇÃO TÉCNICA</h2>
+<h3 id="os-dois-eixos-offline-online">39.3.1 — Os dois eixos: offline × online</h3>
+<p>Eval é organizado em dois grandes eixos.</p>
+<p><strong>Eval offline</strong> acontece antes do deploy, sobre dataset controlado, com gabarito conhecido. É o que roda em pull request, em CI/CD, em release candidate. Sua função é detectar regressão antes que ela chegue ao usuário. Inclui golden set, adversarial set, drift set, testes determinísticos, LLM-as-judge calibrado, rubrica humana.</p>
+<p><strong>Eval online</strong> acontece em produção, sobre tráfego real, sem gabarito predefinido. Sua função é detectar problemas que escaparam ao offline e mapear lacunas do golden set. Inclui sampling de produção para rotulagem contínua, feedback de usuário (thumbs up/down, correção, abandono), monitoramento de drift de distribuição, monitoramento de custo e latência, monitoramento de segurança (jailbreak, prompt injection, conteúdo proibido).</p>
+<p>Os dois se alimentam mutuamente em ciclo. Falha em produção que não foi capturada offline indica buraco no golden set, que entra no próximo ciclo de eval offline. Caso de teste novo que aparece no adversarial set é incluído no monitoramento de produção. Essa retroalimentação é o que mantém o laboratório vivo.</p>
+<h3 id="a-pirâmide-canônica-framework-f8">39.3.2 — A pirâmide canônica (Framework F8)</h3>
+<blockquote>
+<p><strong>F8 — EVAL-PIRÂMIDE.</strong> Hierarquia de evals por criticidade e custo. Três camadas verticais e uma transversal.</p>
+</blockquote>
+<p><strong>Base — testes determinísticos.</strong> Schema validation (a saída obedece ao formato esperado), exact match (campos críticos batem com gabarito), regex (padrões obrigatórios estão presentes), validações estruturais (JSON parseável, citação no formato exigido). Cobertura: 100% das chamadas em CI. Custo: muito baixo. Detecta a maior parte das regressões grosseiras (formato quebrado, campo faltante, alucinação estrutural) antes que cheguem a camadas mais caras.</p>
+<p><strong>Meio — golden set com LLM-as-judge calibrado.</strong> Conjunto fixo de casos com gabarito de qualidade, julgado por LLM seguindo rubrica explícita, com calibração regular contra humano sênior. Cobertura: 30% a 80% das chamadas conforme criticidade. Custo: médio. Detecta regressão de qualidade que escapa da base e cobre casos de geração aberta onde exact match não funciona.</p>
+<p><strong>Topo — rubrica humana especialista.</strong> Revisão de amostra por especialista do domínio em release crítico, em auditoria mensal ou trimestral, em incidente sob investigação. Cobertura: 5% a 15% da carga, por amostra. Custo: alto. Detecta nuances que LLM-as-judge não capta e calibra o juiz LLM contra o critério humano.</p>
+<p><strong>Transversal — adversarial e segurança.</strong> Casos que sabidamente quebram o sistema (jailbreak, prompt injection, conteúdo proibido, sycophancy, viés), mantidos em conjunto separado, rodados a cada release crítico e em cadência mensal. Não substitui a pirâmide vertical; complementa.</p>
+<p>A regra de bolso é construir a base primeiro, depois o meio, depois o topo. Quase todo time tem condição de subir a base em uma semana de trabalho. O meio leva entre uma e quatro semanas para a primeira versão sólida. O topo entra quando o produto cresce e a auditoria humana vira parte do contrato com o usuário ou do regime regulatório.</p>
+<h3 id="os-6-tipos-canônicos-de-eval">39.3.3 — Os 6 tipos canônicos de eval</h3>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 21%" />
+<col style="width: 30%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>O que mede</th>
+<th>Quando funciona</th>
+<th>Armadilha clássica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Determinística</strong></td>
+<td>Estrutura, campo crítico, padrão obrigatório</td>
+<td>Saídas estruturadas (JSON, classificação, extração)</td>
+<td>Saídas abertas; precisa combinar com outros tipos</td>
+</tr>
+<tr class="even">
+<td><strong>Por similaridade</strong></td>
+<td>Embedding, BLEU, ROUGE, BERTScore</td>
+<td>Geração aberta com gabarito de “resposta canônica”</td>
+<td>Mede forma, não semântica; texto certo com paráfrase diferente pode pontuar mal</td>
+</tr>
+<tr class="odd">
+<td><strong>Rubrica humana</strong></td>
+<td>Critério de qualidade definido por especialista</td>
+<td>Domínio específico, casos críticos</td>
+<td>Lento, caro, baixo throughput; serve só no topo</td>
+</tr>
+<tr class="even">
+<td><strong>LLM-as-judge</strong></td>
+<td>Rubrica explícita aplicada por outro LLM</td>
+<td>Cobertura de volume com critério padronizado</td>
+<td>Viés de auto-validação se juiz = gerador; precisa calibração contra humano</td>
+</tr>
+<tr class="odd">
+<td><strong>Comportamental</strong></td>
+<td>Resposta a casos de segurança, viés, jailbreak</td>
+<td>Compliance, alignment, governança</td>
+<td>Conjunto fica desatualizado se não for renovado</td>
+</tr>
+<tr class="even">
+<td><strong>Econômica</strong></td>
+<td>Custo por resolução, latência, retentativa</td>
+<td>Decisão de roteamento, otimização de stack</td>
+<td>Ignorar pode mascarar regressão de qualidade que veio com troca de modelo “mais barato”</td>
+</tr>
+</tbody>
+</table>
+<h3 id="golden-set-o-ativo-central-da-operação-de-eval">39.3.4 — Golden set: o ativo central da operação de eval</h3>
+<p>O golden set é o conjunto fixo de casos com gabarito que serve de referência estável para detectar regressão. É o ativo mais importante de qualquer operação madura de IA, e também o mais negligenciado.</p>
+<p><strong>Construção.</strong> Comece com 30 a 50 casos representativos da carga real (não de casos teóricos), cobrindo as classes principais de uso. Para cada caso, defina o gabarito junto com especialista do domínio — não é trivial decidir o que é “resposta certa” para uma pergunta aberta, e a definição precisa ser explícita. Documente o porquê de cada caso estar no golden, porque sem isso o conjunto vira manutenção opaca em seis meses. Mantenha proporção entre classes alinhada à distribuição real de produção.</p>
+<p><strong>Tamanho mínimo.</strong> Não há número universal. A regra prática é: 30 casos por classe crítica é o mínimo para começar a detectar regressão significativa, 100 a 200 por classe é confortável para a maioria dos times de tamanho médio, 500+ aparece em times maduros com cobertura larga. O golden set cresce com a operação, e o que importa é ser representativo e versionado, não enorme.</p>
+<p><strong>Manutenção.</strong> O golden set precisa ser revisado periodicamente. Casos que perderam relevância são aposentados. Casos novos que aparecem em produção (especialmente os que falharam) são incluídos. Distribuição é recalibrada se a carga de produção mudou. Sem manutenção, o golden vira folclore que não bate com a realidade do sistema.</p>
+<p><strong>Versionamento.</strong> Cada release que muda o golden set documenta a mudança. Cada decisão de eval que usa o golden registra a versão. Sem versionamento, “passou no eval” perde significado porque ninguém sabe contra o que passou.</p>
+<h3 id="llm-as-judge-quando-confiar-quando-duvidar">39.3.5 — LLM-as-judge: quando confiar, quando duvidar</h3>
+<p>Usar um LLM para julgar a saída de outro LLM é técnica poderosa de escala, e é também uma das fontes mais comuns de eval enganoso. Vale entender em que condições funciona e em que condições produz ilusão.</p>
+<p><strong>Funciona</strong> quando: a rubrica é explícita e separa claramente “bom” de “ruim”; o juiz é modelo diferente do gerador (mitiga viés de auto-validação); a rubrica foi calibrada contra avaliadores humanos seniores em pelo menos 30 a 50 casos, com correlação alvo acima de 0,7; o juiz é re-calibrado mensalmente para detectar drift; ensemble de juízes é usado em decisões críticas; a saída do juiz inclui justificativa estruturada para amostragem auditável.</p>
+<p><strong>Não funciona</strong> quando: a rubrica é vaga (algo como “diga se ficou bom”); o juiz é o próprio gerador ou da mesma família (auto-validação inflada); não houve calibração contra humano; o juiz é tratado como verdade absoluta em decisão de produção sem cross-check; o adversarial set não inclui casos em que o juiz sabidamente erra.</p>
+<p><strong>Quadrante de decisão.</strong> Eixo X: especificidade da rubrica (vaga → muito específica). Eixo Y: risco da decisão (baixo → alto). Quadrante de baixo-esquerda (rubrica vaga, baixo risco): aceitar LLM-as-judge com revisão amostral. Baixo-direita (rubrica vaga, alto risco): exigir humano. Alto-esquerda (rubrica específica, baixo risco): LLM-as-judge isolado serve. Alto-direita (rubrica específica, alto risco): LLM-as-judge calibrado, com ensemble e auditoria humana de amostra.</p>
+<h3 id="métricas-por-tipo-de-tarefa">39.3.6 — Métricas por tipo de tarefa</h3>
+<p>Não existe métrica universal. Cada tipo de tarefa tem métricas primária e secundária:</p>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 32%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tipo de tarefa</th>
+<th>Métrica primária</th>
+<th>Métricas secundárias</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Classificação</strong></td>
+<td>F1 ponderada por classe</td>
+<td>Precision/recall por classe, matriz de confusão</td>
+</tr>
+<tr class="even">
+<td><strong>Extração estruturada</strong></td>
+<td>F1 por campo</td>
+<td>Cobertura (% de chamadas com extração válida)</td>
+</tr>
+<tr class="odd">
+<td><strong>Geração aberta</strong></td>
+<td>Rubrica humana ou LLM-as-judge calibrado</td>
+<td>Faithfulness (não inventou), relevância, completude, estilo</td>
+</tr>
+<tr class="even">
+<td><strong>Resposta ancorada (RAG)</strong></td>
+<td>Faithfulness + answer relevance</td>
+<td>Context precision, recall do retriever, citação correta</td>
+</tr>
+<tr class="odd">
+<td><strong>Agente</strong></td>
+<td>Taxa de sucesso de tarefa end-to-end</td>
+<td>Passos, custo, regressão por subtarefa</td>
+</tr>
+<tr class="even">
+<td><strong>Segurança</strong></td>
+<td>Taxa de rejeição correta</td>
+<td>Over-refusal (recusas indevidas), taxa de jailbreak bem-sucedido</td>
+</tr>
+<tr class="odd">
+<td><strong>Robustez</strong></td>
+<td>Variância em N execuções</td>
+<td>Consistência semântica</td>
+</tr>
+<tr class="even">
+<td><strong>Custo/latência</strong></td>
+<td>CPR (cost per resolution)</td>
+<td>CAA (custo agregado por agente), p50/p95 de latência</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Regra dura sobre acurácia agregada.</strong> Acurácia agregada esconde regressão por subgrupo. Toda métrica de qualidade deve ter cortes — por classe, por segmento, por persona, por idioma, por região, por canal. Times que olham só a média perdem regressão silenciosa que aparece em produção como reclamação concentrada de uma classe específica.</p>
+<h3 id="regressão-em-cicd-o-gate-que-separa-engenharia-de-fé">39.3.7 — Regressão em CI/CD: o gate que separa engenharia de fé</h3>
+<p>Toda mudança que afeta o comportamento do sistema — prompt, modelo, tool, system prompt, dataset de RAG, política de classificação — deve passar por eval automatizado antes de chegar à produção. A arquitetura canônica:</p>
+<ol type="1">
+<li><strong>Branch.</strong> Engenheiro abre branch com a mudança proposta.</li>
+<li><strong>Eval offline em CI.</strong> Pipeline roda golden set + adversarial set automaticamente.</li>
+<li><strong>Scorecard gerado.</strong> Comparação automática com baseline da main, com delta por métrica e por subgrupo.</li>
+<li><strong>Gate de bloqueio.</strong> Política explícita do que bloqueia merge. Tipicamente: regressão acima de X% em métrica primária bloqueia automaticamente; regressão entre Y% e X% gera alerta para revisão humana; melhoria ou estabilidade permite merge.</li>
+<li><strong>Code review.</strong> Revisor olha código E scorecard. Mudança que melhora métrica mas piora subgrupo crítico não passa.</li>
+<li><strong>Merge.</strong> Após aprovação, mudança vai para staging.</li>
+<li><strong>Canário em produção.</strong> Deploy progressivo (1% → 10% → 50% → 100%) com eval online medindo qualidade real.</li>
+<li><strong>Promoção ou rollback.</strong> Critério explícito de promoção (scorecard verde em N horas) ou de rollback (regressão detectada).</li>
+</ol>
+<p><strong>Changelog de prompt</strong> é obrigatório a cada release. Documenta o que mudou, o motivo, o delta de scorecard, o subgrupo mais afetado. Sem changelog, troubleshooting de regressão em três meses vira arqueologia.</p>
+<h3 id="eval-em-produção-o-ciclo-que-mantém-o-laboratório-vivo">39.3.8 — Eval em produção: o ciclo que mantém o laboratório vivo</h3>
+<p>O eval offline detecta o que sabe procurar. O eval em produção descobre o que ninguém esperava. A arquitetura mínima:</p>
+<p><strong>Telemetria.</strong> Cada chamada loga input completo (sanitizado de PII conforme política de LGPD), output completo, latência por passo, tokens in/out, custo computado, versão de prompt, versão de tool, modelo usado, ID de sessão, ID de usuário (anonimizado conforme política). Sem telemetria, eval em produção não existe.</p>
+<p><strong>Sampling para rotulagem.</strong> Subconjunto representativo da carga é separado para rotulagem humana contínua. Tipicamente 0,5% a 2% do volume, distribuído por classe. Esses casos viram a próxima geração do golden set.</p>
+<p><strong>Feedback de usuário.</strong> Thumbs up/down, correção explícita, abandono, retentativa, escalonamento para humano. Cada sinal é proxy imperfeito de qualidade, mas a combinação informa onde olhar.</p>
+<p><strong>Loop fechado.</strong> Casos que falharam em produção e foram rotulados entram no próximo ciclo de eval offline. Casos novos no adversarial vêm de produção, não da cabeça do time. Sem esse loop, o golden set congela e o eval vira ritual.</p>
+<h3 id="os-7-anti-padrões-mais-frequentes-com-antídoto">39.3.9 — Os 7 anti-padrões mais frequentes (com antídoto)</h3>
+<table>
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 37%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Anti-padrão</th>
+<th>Por que mata</th>
+<th>Antídoto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Vibe-eval</strong> (“rodei 5 casos e ficou bom”)</td>
+<td>Ruído pessoal vira norma; viés do testador inflado</td>
+<td>Golden set fixo, versionado, mínimo 30 casos/classe</td>
+</tr>
+<tr class="even">
+<td><strong>Métrica única agregada</strong> (“acurácia subiu 2%”)</td>
+<td>Esconde regressão por subgrupo crítico</td>
+<td>Cortes por classe, segmento, persona</td>
+</tr>
+<tr class="odd">
+<td><strong>LLM-as-judge sem calibração</strong> (“o juiz disse que melhorou”)</td>
+<td>Auto-validação enviesa; juiz e gerador da mesma família correlacionam erros</td>
+<td>Juiz ≠ gerador, calibração contra humano em 30+ casos, ensemble em decisões críticas</td>
+</tr>
+<tr class="even">
+<td><strong>“Passou no MMLU”</strong></td>
+<td>Benchmark público não reflete a carga da empresa</td>
+<td>Golden set próprio + adversarial sobre carga real</td>
+</tr>
+<tr class="odd">
+<td><strong>“Vamos medir depois”</strong></td>
+<td>Depois nunca chega; quando precisa, vira incidente</td>
+<td>Gate de CI desde o primeiro deploy, mesmo que mínimo</td>
+</tr>
+<tr class="even">
+<td><strong>“Eval é caro”</strong></td>
+<td>Mas regressão silenciosa é mais cara, e detectada tarde</td>
+<td>Pirâmide com base barata; topo só onde justifica</td>
+</tr>
+<tr class="odd">
+<td><strong>Happy path only</strong></td>
+<td>Adversarial fica fora; sycophancy, jailbreak e viés passam</td>
+<td>Conjunto adversarial separado, renovado por trimestre</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="diagramas">39.4 — DIAGRAMAS</h2>
+<blockquote>
+<p>📊 <strong>Diagrama 39.1 — A Pirâmide de Evals (F8)</strong></p>
+<p><em>(SVG a produzir: <code>imagens/L1-C39-img-01-piramide-evals.svg</code>)</em></p>
+<p>Pirâmide vertical com três camadas. Base larga em creme, rotulada “Determinístico — 100% das chamadas, custo trivial”. Meio em laranja, rotulado “Golden set + LLM-as-judge calibrado — 30-80%, custo médio”. Topo em navy escuro, rotulado “Humano especialista — 5-15%, custo alto”. À direita, faixa transversal cinza com “Adversarial e Segurança”. Frase âncora ao pé: “construa a base, depois o meio, depois o topo”.</p>
+</blockquote>
+<blockquote>
+<p>📊 <strong>Diagrama 39.2 — Fluxo de regressão em CI</strong></p>
+<p><em>(SVG a produzir: <code>imagens/L1-C39-img-02-fluxo-regressao.svg</code>)</em></p>
+<p>Cadeia horizontal: Branch → Eval offline (golden + adversarial) → Scorecard → Gate de bloqueio (decisão sim/não) → Code review → Merge → Canário 1% → Eval online → Promoção 100% ou Rollback. Setas. Caixinhas com regra de bloqueio explícita em cada nó de decisão.</p>
+</blockquote>
+<blockquote>
+<p>📊 <strong>Diagrama 39.3 — Quadrante LLM-as-judge: quando confiar / quando duvidar</strong></p>
+<p><em>(SVG a produzir: <code>imagens/L1-C39-img-03-quadrante-llm-as-judge.svg</code>)</em></p>
+<p>Matriz 2×2. Eixo X horizontal: “especificidade da rubrica” (vaga ↔︎ muito específica). Eixo Y vertical: “risco da decisão” (baixo ↔︎ alto). Quatro quadrantes com decisão clara em cada um.</p>
+</blockquote>
+<hr />
+<h2 id="exemplo-memorável-a-consultoria-que-quase-quebrou-pela-ausência-de-golden-set">39.5 — EXEMPLO MEMORÁVEL: A CONSULTORIA QUE QUASE QUEBROU PELA AUSÊNCIA DE GOLDEN SET</h2>
+<blockquote>
+<p>⚠️ <strong>Cenário ilustrativo</strong> — composto a partir de padrões observados em consultorias estratégicas brasileiras durante adoção de IA generativa; números são realistas mas não identificam empresa específica.</p>
+</blockquote>
+<p>Atlas Strategy, consultoria brasileira de estratégia com cerca de 120 consultores, em 2025. Implementou um agente de redação de relatórios para clientes corporativos, com o objetivo de reduzir o tempo médio de produção de relatório mensal de 18 horas para algo entre 6 e 8 horas por consultor. O sistema integrava Claude Sonnet para a redação, Skills proprietárias com voz autoral da Atlas, Projects por cliente com histórico, e RAG sobre base de cases anteriores.</p>
+<p>Nas primeiras quatro semanas, o entusiasmo foi alto. Consultores entregavam mais relatórios em menos tempo. Sócios viam ganho de margem. A diretoria da Atlas considerou o projeto sucesso e direcionou investimento para expandir. Não havia golden set, não havia LLM-as-judge calibrado, não havia regressão em CI. A validação se resumia a três sócios lendo quatro relatórios na sexta-feira, e dando sinal verde se “tivessem soado certo”.</p>
+<p>Na sétima semana, um cliente do setor industrial recebeu um relatório com três parágrafos que continham números trocados. As fórmulas eram corretas. Os valores de entrada estavam errados, copiados de outro caso do trimestre anterior. O cliente pegou o erro porque era ele quem produzia os números originais. Mandou e-mail. A sócia-fundadora abriu o e-mail, leu, e em quinze minutos sabia que tinha problema sério. Em dois dias, mapearam outros três relatórios entregues no mês com erros numéricos similares. Em uma semana, dois clientes adicionais reportaram inconsistências.</p>
+<p>A investigação revelou o que sempre revela: duas mudanças de prompt feitas em sequência por engenheiros diferentes, ambas com boa intenção. A primeira para “tornar mais conciso”, a segunda para “soar mais executivo”. Cada mudança, isoladamente, melhorou a percepção de qualidade dos sócios na sexta de validação. Combinadas, corromperam o passo de extração numérica em silêncio. Não havia como saber que tinham corrompido, porque ninguém estava medindo <em>faithfulness numérico</em> contra um conjunto fixo de casos.</p>
+<p>A Atlas fez três mudanças permanentes, todas alinhadas ao Invariante 7. Primeira, construiu golden set de 80 relatórios reais com gabarito de números e tese, anotado pelos três sócios em sessões dedicadas. Toda mudança de prompt passa a rodar contra esse conjunto antes de merge. Segunda, implementou LLM-as-judge com rubrica explícita para faithfulness numérico, calibrado contra os três sócios em 30 itens de calibração, com correlação alvo acima de 0,8. Terceira, criou scorecard versionado por release de prompt, com bloqueio automático se faithfulness numérico cair acima de 1 ponto contra o baseline.</p>
+<p>Em seis meses, regressões silenciosas zeraram. O tempo de revisão humana por relatório caiu pela metade, porque o gate filtrava o ruído antes do humano ver. A Atlas perdeu dois clientes durante o incidente, recuperou um, e usa o caso internamente como exemplo do que custa não medir. A lição estrutural não está na escolha do modelo, da Skill ou do RAG. Está na ausência inicial do termômetro. <em>Eval não é luxo de big tech; é a diferença entre engenharia e fé. Quem não tem golden set não tem produto de IA, tem aposta documentada.</em></p>
+<blockquote>
+<p>🎯 <strong>PARA EXECUTIVOS</strong> Se sua organização tem IA em produção tocando cliente, faça uma pergunta direta ao time técnico hoje: “qual o golden set do nosso sistema, e quando foi a última vez que rodamos regressão contra ele?”. Se a resposta envolver hesitação ou referência a “testes manuais”, você está em risco. Eval é decisão de governança técnica, e exige investimento proporcional ao risco. Times maduros tratam golden set como ativo organizacional, com versionamento, dono nominal, e revisão trimestral.</p>
+</blockquote>
+<hr />
+<h2 id="quando-usar-quando-evitar">39.6 — QUANDO USAR / QUANDO EVITAR</h2>
+<p><strong>Implantar eval formal (com golden set + CI + telemetria de produção) sempre que:</strong> - IA toca cliente externo - Saída entra em decisão financeira, jurídica, regulatória, clínica - Equipe muda prompt ou modelo mais de uma vez por mês - Existe SLA explícito ou implícito de qualidade - Caso regulado (LGPD com decisão automatizada, AI Act, ISO 42001) - Múltiplos engenheiros mexem no mesmo prompt</p>
+<p><strong>Subset mínimo viável (sem overhead completo) quando:</strong> - Piloto interno de baixo risco, com 1 usuário, por uma semana - Teste de ideia descartável que não vai à produção - Demo única para conselho ou prospect</p>
+<p>Em todo caso intermediário, comece pela base da pirâmide. Suba camadas conforme o produto crescer.</p>
+<hr />
+<h2 id="vantagens-e-limitações">39.7 — VANTAGENS E LIMITAÇÕES</h2>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Vantagem</th>
+<th>Limitação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Transforma IA de fé em engenharia</td>
+<td>Custo inicial alto: construir golden set é trabalho lento e demanda especialista do domínio</td>
+</tr>
+<tr class="even">
+<td>Permite migração de modelo e troca de prompt sem medo</td>
+<td>Risco de overfit ao golden set, exigindo adversarial e produção rotulada como contrapesos</td>
+</tr>
+<tr class="odd">
+<td>Cria scorecard auditável para governança e compliance</td>
+<td>LLM-as-judge tem viés sistemático sem calibração; manutenção do juiz é trabalho recorrente</td>
+</tr>
+<tr class="even">
+<td>Detecta regressão silenciosa antes do usuário</td>
+<td>Acurácia agregada engana; exige cortes por subgrupo que custam mais para reportar</td>
+</tr>
+<tr class="odd">
+<td>Reduz MTTR (tempo de recuperação de incidente)</td>
+<td>Cultura de eval demanda mudança organizacional; em times resistentes, vira teatro de compliance</td>
+</tr>
+<tr class="even">
+<td>Permite decisão de modelo em sua própria carga</td>
+<td>Versão de modelo desatualizada no golden set distorce comparação; renovação periódica é obrigatória</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="conexões-com-outros-capítulos">39.8 — CONEXÕES COM OUTROS CAPÍTULOS</h2>
+<ul>
+<li>🔗 <strong>Tokens como unidade de eval econômica</strong> → <a href="L1-C03-tokens.md">Cap 03</a></li>
+<li>🔗 <strong>RAG e métricas específicas (faithfulness, context precision)</strong> → <a href="L1-C06-rag.md">Cap 06</a></li>
+<li>🔗 <strong>Fine-tuning como decisão que exige golden set sólido</strong> → <a href="L1-C08-fine-tuning.md">Cap 08</a></li>
+<li>🔗 <strong>Agentes e métricas end-to-end de tarefa</strong> → <a href="L1-C12-agentes.md">Cap 12</a></li>
+<li>🔗 <strong>AI Engineering como disciplina que inclui eval</strong> → <a href="L1-C14-ai-engineering.md">Cap 14</a></li>
+<li>🔗 <strong>Comparação de modelos por encaixe (eval na sua carga, não em benchmark público)</strong> → <a href="L1-C15-comparacao-modelos.md">Cap 15</a></li>
+<li>🔗 <strong>Economia de tokens e métricas de custo composto</strong> → <a href="L1-C36-economia-tokens.md">Cap 36</a></li>
+<li>🔗 <strong>LLMOps: eval em produção como pilar operacional</strong> → <a href="L1-C40-llmops.md">Cap 40</a></li>
+<li>🔗 <strong>Alignment: eval comportamental para safety e sycophancy</strong> → <a href="L1-C41-alignment.md">Cap 41</a></li>
+<li>🔗 <strong>Governança: eval como controle técnico canônico</strong> → <a href="L1-C42-governanca.md">Cap 42</a></li>
+</ul>
+<hr />
+<h2 id="resumo-executivo">39.9 — RESUMO EXECUTIVO</h2>
+<table>
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 47%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Conceito</th>
+<th>Síntese</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Definição</strong></td>
+<td>Disciplina de medir sistematicamente qualidade de IA, com dados representativos, em ciclos automatizados, com critério de bloqueio explícito</td>
+</tr>
+<tr class="even">
+<td><strong>Eixos</strong></td>
+<td>Offline (antes do deploy) × Online (em produção); ciclo de retroalimentação</td>
+</tr>
+<tr class="odd">
+<td><strong>Pirâmide F8</strong></td>
+<td>Base determinística (100%) → Meio com golden + LLM-as-judge (30-80%) → Topo humano (5-15%) + adversarial transversal</td>
+</tr>
+<tr class="even">
+<td><strong>6 tipos</strong></td>
+<td>Determinística, similaridade, rubrica humana, LLM-as-judge, comportamental, econômica</td>
+</tr>
+<tr class="odd">
+<td><strong>Golden set</strong></td>
+<td>30-50 casos para começar; crescimento orgânico; versionamento obrigatório; manutenção trimestral</td>
+</tr>
+<tr class="even">
+<td><strong>LLM-as-judge</strong></td>
+<td>Funciona com rubrica específica + juiz diferente do gerador + calibração contra humano (≥30 casos); duvidoso sem isso</td>
+</tr>
+<tr class="odd">
+<td><strong>Métricas</strong></td>
+<td>Variam por tipo de tarefa; acurácia agregada esconde regressão por subgrupo</td>
+</tr>
+<tr class="even">
+<td><strong>CI</strong></td>
+<td>Gate explícito de bloqueio; scorecard com delta; canário em produção; rollback testado</td>
+</tr>
+<tr class="odd">
+<td><strong>Anti-padrões</strong></td>
+<td>Vibe-eval, métrica única, juiz não calibrado, “passou no MMLU”, “depois”, “caro”, “happy path”</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="checklist-do-capítulo">39.10 — CHECKLIST DO CAPÍTULO</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+Distinguir, em uma frase, eval offline de eval online</li>
+<li><input type="checkbox" disabled="" />
+Descrever as três camadas da pirâmide F8 e a faixa de cobertura típica de cada</li>
+<li><input type="checkbox" disabled="" />
+Citar os 6 tipos canônicos de eval e quando cada um funciona</li>
+<li><input type="checkbox" disabled="" />
+Defender a regra “juiz ≠ gerador” para LLM-as-judge em mesa técnica</li>
+<li><input type="checkbox" disabled="" />
+Construir um golden set inicial de 30-50 casos do seu produto</li>
+<li><input type="checkbox" disabled="" />
+Escrever a rubrica de LLM-as-judge para um caso real, com 4-6 critérios objetivos</li>
+<li><input type="checkbox" disabled="" />
+Definir, no seu time, qual delta de métrica bloqueia merge e qual gera alerta</li>
+<li><input type="checkbox" disabled="" />
+Apresentar a Pirâmide de Evals em reunião executiva em até 5 minutos</li>
+<li><input type="checkbox" disabled="" />
+Identificar três cortes (subgrupos) que sua acurácia agregada está escondendo hoje</li>
+<li><input type="checkbox" disabled="" />
+Mapear, no seu produto, qual tipo de eval cobriria qual classe de falha</li>
+<li><input type="checkbox" disabled="" />
+Reconhecer, em três frases recentes do seu time, qual anti-padrão da seção 39.3.9 elas correspondem</li>
+</ul>
+<hr />
+<h2 id="perguntas-de-revisão">39.11 — PERGUNTAS DE REVISÃO</h2>
+<ol type="1">
+<li>Por que “ficou melhor” não é critério, e o que precisa entrar no lugar?</li>
+<li>Em que situação LLM-as-judge é viés institucionalizado, e como você detecta?</li>
+<li>Por que adversarial set importa mais que golden set no longo prazo?</li>
+<li>O que muda na decisão de migração de modelo quando há golden set, e o que muda quando não há?</li>
+<li>Por que a regra “juiz ≠ gerador” é estrutural, não preferência?</li>
+<li>Como o ciclo offline → online → offline mantém o eval vivo?</li>
+<li>Qual a relação entre o Invariante 7 (Termômetro) e o Invariante 8 (Responsabilidade Indelegável)?</li>
+<li>Por que acurácia agregada esconde regressão silenciosa, e que método combate?</li>
+<li>Em qual classe de produto faz sentido começar pelo topo da pirâmide?</li>
+</ol>
+<hr />
+<h2 id="exercícios-práticos">39.12 — EXERCÍCIOS PRÁTICOS</h2>
+<p><strong>Exercício 1 — Classificação de falhas reais.</strong> Liste 5 falhas reais (próprias ou do mercado) que sua operação enfrentou nos últimos 6 meses. Para cada uma, classifique: teria sido capturada por golden set? Por LLM-as-judge? Por adversarial? Por humano? Mapeie quais camadas da pirâmide faltam hoje na sua operação.</p>
+<p><strong>Exercício 2 — Pirâmide do seu produto.</strong> Desenhe a Pirâmide de Evals para o seu produto/operação. Atribua percentual de cobertura atual em cada camada. Identifique a camada mais frágil e proponha plano de remediação em 30 dias.</p>
+<p><strong>Exercício 3 — Rubrica de LLM-as-judge.</strong> Para um caso real do seu produto, escreva rubrica de LLM-as-judge com 4 a 6 critérios objetivos. Defina o que é resposta “5/5” e o que é “1/5” em cada critério. Calibre contra você mesmo em 10 casos. Em seguida, calibre contra um par. Compare. O que aprendeu?</p>
+<p><strong>Exercício 4 — Adversarial set inicial.</strong> Projete o adversarial set de 20 casos para o seu sistema. Inclua: pedidos potencialmente perigosos, pedidos com indução de sycophancy, casos com viés conhecido, jailbreak via instrução, prompt injection via dado de entrada. Rode contra o sistema atual e documente o resultado.</p>
+<hr />
+<h2 id="projeto-do-capítulo">39.13 — PROJETO DO CAPÍTULO</h2>
+<p><strong>Construir o Caderno de Evals v1 do seu produto/operação.</strong> Entregável em 8-12 páginas + opcional repositório:</p>
+<ol type="1">
+<li>Definição explícita do que é “resposta certa” para a sua classe de tarefa</li>
+<li>Golden set inicial de 30-50 casos com gabarito anotado</li>
+<li>Rubrica de LLM-as-judge calibrada contra humano em pelo menos 30 itens</li>
+<li>Política de bloqueio em CI (qual delta bloqueia, qual alerta, qual passa)</li>
+<li>Adversarial set de pelo menos 20 casos</li>
+<li>Telemetria mínima de produção (o que logar, o que não logar)</li>
+<li>Plano de revisão do golden set (trimestral) e do adversarial (mensal)</li>
+<li>Dono nominal do Caderno de Evals, designado por escrito</li>
+</ol>
+<p><strong>Critério de qualidade do projeto.</strong> Outro engenheiro, sem contexto, consegue ler o caderno e rodar o eval contra uma nova mudança de prompt. Se precisar perguntar mais de três coisas, o caderno está incompleto.</p>
+<hr />
+<h2 id="referências-principais">39.14 — REFERÊNCIAS PRINCIPAIS</h2>
+<p>📚 <strong>Frameworks e padrões</strong> - OpenAI. <em>OpenAI Evals</em> (paper técnico e repositório, 2023-) - Anthropic. <em>inspect-ai</em> (framework de eval, 2024-) - Stanford CRFM. <em>HELM — Holistic Evaluation of Language Models</em> (Liang et al., 2022-) - BIG-bench: <em>Beyond the Imitation Game Benchmark</em> (Srivastava et al., 2022)</p>
+<p>📚 <strong>LLM-as-judge e suas armadilhas</strong> - Zheng, L. et al. <em>Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena</em> (2023) - Liu, Y. et al. <em>G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment</em> (2023)</p>
+<p>📚 <strong>RAG e métricas específicas</strong> - <em>RAGAS: Automated Evaluation of Retrieval Augmented Generation</em> (Es et al., 2023) - <em>Faithfulness in NLG: Evaluation and Methods</em> (vários, 2020-)</p>
+<p>📚 <strong>Adversarial e segurança</strong> - <em>HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal</em> (Mazeika et al., 2024) - <em>JailbreakBench</em> (Chao et al., 2024) - <em>BBQ: A Hand-Built Bias Benchmark for Question Answering</em> (Parrish et al., 2022)</p>
+<p>📚 <strong>Sobre as dificuldades genuínas de avaliar LLMs</strong> - Bowman, S. <em>Evaluating LLMs is a minefield</em> (palestra, 2023) - Karpathy, A. comentários públicos sobre limitações de benchmarks (2023-2024)</p>
+<hr />
+<h2 id="validação-uau">39.15 — VALIDAÇÃO UAU</h2>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 34%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Critério</th>
+<th>Você consegue?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><strong>Clareza</strong> — Explicar para um diretor não-técnico em 90 segundos por que “ficou melhor” não é critério, usando a metáfora do laboratório clínico</td>
+<td>☐</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><strong>Profundidade</strong> — Defender em reunião técnica por que LLM-as-judge sem calibração contra humano é viés institucionalizado, citando o quadrante de decisão e a regra “juiz ≠ gerador”</td>
+<td>☐</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><strong>Aplicação</strong> — Iniciar a primeira versão do golden set do seu produto esta semana, com pelo menos 30 casos representativos</td>
+<td>☐</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><strong>Conexão</strong> — Articular como o Cap 39 amarra Inv. 7 (Termômetro), Cap 06 (RAG), Cap 40 (LLMOps), Cap 41 (Alignment) e Cap 42 (Governança)</td>
+<td>☐</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><strong>Curiosidade UAU</strong> — Está com vontade de entrar no Cap 40 para entender como esse eval roda em produção, com tracing, versionamento e rollback proporcionais</td>
+<td>☐</td>
+</tr>
+</tbody>
+</table>
+<p><strong>5 de 5?</strong> Avance. Você passou a falar a língua que separa “usar IA” de “operar IA”. <strong>3 ou 4?</strong> Releia o Bloco 39.3.4 (Golden set) e 39.3.7 (Regressão em CI). É onde a maioria dos times tropeça por achar que “testar manualmente” basta. <strong>Menos de 3?</strong> Releia o capítulo completo, especialmente se sua operação já tem IA em produção sem golden set. O risco é proporcional ao volume.</p>
+<hr />
+<p>🔗 <strong>Próximo:</strong> <a href="L1-C40-llmops.md">Capítulo 40 — LLMOps: a operação de IA em produção</a></p>
+<hr />
+<blockquote>
+<p><em>“Quem não tem golden set não tem produto de IA. Tem aposta documentada.”</em></p>
+</blockquote>
+<div class="page-break">
+
+</div>
+<h1 id="capítulo-40">CAPÍTULO 40</h1>
+<h2 id="llmops-a-operação-de-ia-em-produção">LLMOPS — A OPERAÇÃO DE IA EM PRODUÇÃO</h2>
+<hr />
+<blockquote>
+<p><em>“Autonomia sem observabilidade é loop com cartão de crédito. O que destrói orçamento de IA não é o preço do token, é a falta de instrumentação que faz cada incidente custar duas semanas para ser visto.”</em></p>
+</blockquote>
+<hr />
+<blockquote>
+<p>🧭 <strong>Invariante-mãe:</strong> <strong>Invariante 6 — Autonomia Proporcional</strong> — <em>“Só dê ao agente a autonomia que você consegue medir e desfazer.”</em> Invariantes secundários: <strong>Inv. 5</strong> (Custo Composto — observabilidade é pré-requisito para controlar o termo composto), <strong>Inv. 7</strong> (Termômetro — eval em produção fecha o ciclo do eval offline), <strong>Inv. 8</strong> (Responsabilidade Indelegável — accountability técnica exige tracing e auditoria). Framework derivado: <strong>F3 — AGENTE-PROP</strong> e, em segundo nível, <strong>F7 — COMPOSTO-3T</strong>.</p>
+</blockquote>
+<hr />
+<h2 id="o-conceito-intuitivo-1">40.1 — O CONCEITO INTUITIVO</h2>
+<p>Há uma classe de equipe que adotou IA generativa em produção entre 2024 e 2026 e descobriu, no susto, que o trabalho mais difícil não estava em escolher o modelo. Estava em <strong>operar</strong>. Operar significa ter resposta para perguntas que aparecem sempre, sempre nas piores horas. <em>Quem está usando agente? Quanto custou o último mês, por feature? Por que aquele cliente recebeu uma resposta errada na quinta-feira? Em quanto tempo conseguimos voltar à versão de prompt de duas semanas atrás? Quem alterou esse system prompt? Quando? Por quê? Há logs?</em> Cada pergunta dessa é resposta a um pilar de LLMOps. Times que têm os pilares, respondem em minutos. Times que não têm, respondem em dias, e às vezes não respondem.</p>
+<p><strong>LLMOps</strong> é a disciplina que cobre essa operação. Não é MLOps clássico com nome novo, e essa distinção merece atenção. MLOps clássico foi construído sobre o ciclo “treinar modelo → versionar modelo → deployar modelo → monitorar drift de dados → retreinar”. O que se versiona é o modelo, o que se monitora é drift estatístico, o que se retreina é o modelo. LLMOps trabalha em outra arena. O modelo, na maioria dos casos, é externo, fornecido por Anthropic, OpenAI, Google. O que se versiona é <strong>prompt, tool, system prompt, dataset de RAG, política de classificação</strong>. O que se monitora inclui drift de distribuição, mas inclui também <strong>alucinação, custo composto, latência variável, prompt injection, dependência de vendor</strong>. O que se “retreina” é o prompt versionado e o golden set, não o modelo.</p>
+<p>A confusão custa caro. Times que assumem “é igual a MLOps” descobrem que o ferramental e a cultura precisam ser adaptados. Times que assumem “não precisamos disso porque o modelo é externo” descobrem que o que opera não é o modelo, é o sistema em volta. Este capítulo é o que precisa ser ensinado para que o leitor pare de aprender LLMOps pelo incidente.</p>
+<p>A boa notícia é que LLMOps tem <strong>sete pilares canônicos</strong>, definidos com clareza suficiente para virar checklist. A regra prática é construir do pilar 1 ao pilar 7 conforme o produto amadurece, e nunca subir nível de autonomia (F3) além do que os pilares conseguem sustentar.</p>
+<hr />
+<h2 id="analogia-a-sala-de-controle-de-uma-usina">40.2 — ANALOGIA: A SALA DE CONTROLE DE UMA USINA</h2>
+<p>Pense numa usina hidrelétrica de porte médio. Operar não é apenas ligar a turbina. Operar é manter, em qualquer instante, <strong>visibilidade completa</strong> do que está acontecendo, <strong>registro inalterável</strong> do que aconteceu, <strong>capacidade de reagir</strong> ao que está acontecendo agora, e <strong>capacidade de reverter</strong> a uma configuração conhecidamente segura quando o operador suspeitar que algo está fora do padrão.</p>
+<p>A sala de controle tem painéis de instrumentação que mostram vazão, pressão, temperatura por turbina, voltagem por gerador, frequência da rede. Tem botões físicos para reduzir produção, para desligar, para desviar fluxo. Tem registros automáticos do que cada operador tocou, com timestamp e identificação. Tem procedimento documentado para cada classe de evento, com gatilho explícito. Tem revezamento de turno com handover formal. Tem auditoria periódica do próprio painel — porque painel que não é auditado vira mentira tranquilizadora.</p>
+<p>LLMOps é a sala de controle da operação de IA. Cada pilar dos sete cumpre função análoga a um sistema na usina. Tracing é a instrumentação. Versionamento é o registro inalterável. Deploy progressivo é a abertura controlada de fluxo. Rollback é o desvio de emergência. Custo é o medidor de combustível. Segurança operacional é o protocolo de incidente. Governança operacional é o handover formal e a auditoria. Quando os sete funcionam, a operação atravessa incidentes com cabeça fria e tempo de recuperação que cabe em horas, não semanas. Quando faltam, cada evento vira investigação arqueológica.</p>
+<hr />
+<h2 id="explicação-técnica-os-7-pilares">40.3 — EXPLICAÇÃO TÉCNICA — OS 7 PILARES</h2>
+<h3 id="pilar-1-tracing-e-observabilidade">40.3.1 — Pilar 1: Tracing e observabilidade</h3>
+<p><strong>O que cobre.</strong> Cada chamada de IA é registrada com input completo, output completo, latência total e por passo, tokens in/out por passo, custo computado, tools chamadas com argumentos e retornos, modelo usado, versão de prompt, versão de tool, ID de sessão e de usuário, status (sucesso/erro/timeout). Sem este pilar, não há LLMOps possível.</p>
+<p><strong>Modelo mental canônico: span × trace × session.</strong> Cada chamada individual ao modelo é um <strong>span</strong>. Uma sequência de spans relacionados (por exemplo, um turno de conversa com múltiplas chamadas ao modelo e a tools) é um <strong>trace</strong>. Uma sequência de traces no mesmo contexto de uso (por exemplo, uma sessão de chat com vários turnos) é uma <strong>session</strong>. A nomenclatura vem de OpenTelemetry, e padroniza a discussão entre times.</p>
+<p><strong>O que logar.</strong> Input completo (sanitizado de PII conforme política de LGPD); output completo; latência por passo; tokens de input e output; custo computado em tempo real; tool chamada com argumentos e retornos; modelo usado; versão de prompt; versão de tool; ID de sessão; ID de usuário (anonimizado conforme política); status. Acrescentar metadados de contexto da operação (feature, ambiente, região).</p>
+<p><strong>O que NÃO logar.</strong> PII desnecessária ao debug. Segredos. Conteúdo sob LGPD sem base legal explícita. Saúde, orientação sexual, dados financeiros íntimos. Times maduros têm classificador automático de PII no pipeline de logging.</p>
+<p><strong>OpenTelemetry para LLMs.</strong> A especificação OpenTelemetry GenAI semantic conventions, em evolução desde 2024, padroniza nomes de atributos para spans de modelo, tool e agente. Adotar o padrão (mesmo que parcial) reduz vendor lock-in de observability. Vale o esforço quando o stack está em mais de um vendor.</p>
+<h3 id="pilar-2-versionamento-do-que-muda">40.3.2 — Pilar 2: Versionamento do que muda</h3>
+<p><strong>O que se versiona em LLMOps.</strong> Prompt do sistema, prompt da feature, definição de tool (schema, descrição, exemplos), dataset de eval, política de classificação. Cada um vira artefato com versão semântica, dono, changelog explícito.</p>
+<p><strong>Promptware como código.</strong> Tratar prompt como código: PR (pull request), revisão obrigatória por pelo menos um par, eval em CI antes do merge, scorecard comparativo gerado automaticamente, merge gatekeeping. Engenheiros experientes em desenvolvimento moderno reconhecem o padrão imediatamente. A diferença é que o “compilador” é o sistema de eval, e o “lint” é o LLM-as-judge contra rubrica.</p>
+<p><strong>Tool registry.</strong> Cada tool em produção tem entrada em registry com schema (input/output), descrição, exemplos, dono operacional, versão, eval específico. Tool que muda sem entrar no registry é o caminho mais rápido para regressão silenciosa em agentes.</p>
+<p><strong>Model registry interno.</strong> Tabela que mapeia “qual modelo, qual versão, qual fallback” por feature. Mudança aqui é decisão de arquitetura, não de engenheiro, e deve passar por governança (Inv. 8).</p>
+<p><strong>System prompt como artefato versionado, não string no código.</strong> Pode estar em banco, em config, em sistema dedicado (LangSmith, Langfuse, Braintrust, sistema próprio). O que importa é não ser concatenação inline no código da feature.</p>
+<p><strong>Changelog obrigatório.</strong> Cada release que mexe em prompt, tool ou modelo registra: o que mudou, motivo, delta de scorecard, subgrupo mais afetado, decisão de revisor. Sem changelog, troubleshooting em três meses vira arqueologia.</p>
+<h3 id="pilar-3-deploy-progressivo">40.3.3 — Pilar 3: Deploy progressivo</h3>
+<p><strong>Shadow mode.</strong> Versão nova roda em paralelo, sem servir resposta ao usuário, com input real de produção. As saídas das duas versões (atual e candidata) são comparadas offline. Útil para validar mudança de modelo ou de prompt em escala, sem risco para o usuário final.</p>
+<p><strong>Canário por percentual de tráfego.</strong> Versão nova recebe 1% do tráfego, depois 10%, 50%, 100% conforme métricas sustentam promoção. Cada gate tem critério explícito: scorecard verde por N horas, latência dentro da banda, custo dentro do envelope, sem incidente SEV-2.</p>
+<p><strong>Canário por segmento.</strong> Estratégia complementar: liberar primeiro para clientes free, depois beta, depois SMB, e por último Enterprise crítico. Nunca o inverso. A regra é “quem reclamaria mais alto recebe por último”.</p>
+<p><strong>Feature flag.</strong> Liberar por persona, conta, região, ambiente. Permite isolar testes A/B e desligar versão problemática em segundos sem mexer em código.</p>
+<p><strong>Critérios de promoção entre gates.</strong> Documentados, automáticos quando possível. Tipicamente: métrica primária dentro de banda esperada, latência p95 dentro da banda, custo dentro do envelope, taxa de erro estável, sem incidente em N horas.</p>
+<h3 id="pilar-4-rollback-que-funciona-em-produção">40.3.4 — Pilar 4: Rollback que funciona em produção</h3>
+<p><strong>Botão único por feature.</strong> Reverter prompt, tool ou versão de modelo deve estar a um clique de distância. Quem precisa de pull request, build e deploy para rollback descobre, no incidente, que rollback assim demora mais que o incidente.</p>
+<p><strong>Estado anterior em hot standby.</strong> A versão anterior sempre está pronta para servir. Não está só “no histórico do Git”. Está provisionada, com cache aquecido, esperando ser ativada.</p>
+<p><strong>Teste mensal em staging.</strong> Rollback que nunca é testado, na hora do incidente, não funciona. Times maduros simulam rollback uma vez por mês em staging, com cronômetro, com runbook seguido. Documentam quanto tempo levou e o que falhou.</p>
+<p><strong>MTTR como métrica institucional.</strong> Mean Time To Recovery — tempo médio entre detecção e retorno ao estado bom — vira métrica de OKR técnico. Times maduros ficam abaixo de 15 minutos para SEV-1; abaixo de 1h para SEV-2.</p>
+<h3 id="pilar-5-custos-quotas-e-circuit-breakers">40.3.5 — Pilar 5: Custos, quotas e circuit breakers</h3>
+<p><strong>Atribuição de custo por feature, cliente, usuário.</strong> Sem atribuição, não há como decidir o que cortar quando o orçamento aperta. Custo agregado mensal é informação inútil para decisão; custo por feature mostra onde está o predador.</p>
+<p><strong>Alertas de orçamento.</strong> Limites diários, semanais e mensais por feature e por cliente. Acionados antes do CFO ver.</p>
+<p><strong>Circuit breaker por usuário e por sessão.</strong> Limite duro de chamadas ao modelo premium por janela de tempo. Protege contra runaway loop em agente e contra abuso de usuário malicioso. Bug que causa loop fica contido em dezena de centavos, não em dezenas de milhares de reais.</p>
+<p><strong>Quota por tier.</strong> Não permitir que feature crítica seja sufocada por feature secundária em surto. Reserva de capacidade no modelo premium.</p>
+<p><strong>Fórmula F7 COMPOSTO-3T como referência.</strong> A ferramenta de redução de custo é o framework de Custo Composto. Sem ele, o pilar 5 fica em “alarmar quando estoura”.</p>
+<h3 id="pilar-6-segurança-operacional">40.3.6 — Pilar 6: Segurança operacional</h3>
+<p><strong>Prompt injection.</strong> Defesa em camadas. Sandbox de tool. Escape de input do usuário. Allowlist de tools por contexto. Classificação prévia de input suspeito. Auditoria de saída antes de retornar ao próximo modelo na cadeia. Em agentes que consomem documentos externos, prompt injection é vetor primário; assumir que existe é mais seguro que esperar que não.</p>
+<p><strong>Tool poisoning.</strong> Validar a saída de tool antes de devolver ao modelo. Tool que retorna conteúdo malicioso pode contaminar o agente. Sandbox por tipo de retorno + validação contra schema.</p>
+<p><strong>Data exfiltration.</strong> Política sobre o que o modelo pode mandar para fora via tool. Whitelist de domínios para chamadas externas. Auditoria periódica de logs de tools externas.</p>
+<p><strong>Kill switch testado.</strong> Capacidade de desligar uma tool, um agente, um modelo, ou uma feature inteira em segundos. Por escopo. Testado em simulado mensal. Dono nominal por escopo.</p>
+<h3 id="pilar-7-governança-operacional">40.3.7 — Pilar 7: Governança operacional</h3>
+<p><strong>Severidades adaptadas a IA.</strong> SEV-1 (impacto crítico em cliente, exposição de PII, perda de dados, erro grave em decisão automatizada). SEV-2 (degradação significativa, custos disparados, regressão de qualidade detectada). SEV-3 (problema isolado, baixo impacto). SEV-4 (irritação, sem perda).</p>
+<p><strong>Comunicação durante incidente.</strong> Canal dedicado. Atualizações em cadência fixa (a cada 15 minutos em SEV-1). Comunicação externa pré-escrita por classe de incidente. Comunicação interna estruturada por status (detectado, contido, investigando, mitigado, resolvido).</p>
+<p><strong>Postmortem sem culpa.</strong> Foco no processo, não na pessoa. Discussão estruturada: o que aconteceu, quando, como foi detectado, quanto tempo levou para conter, o que poderia ter sido feito diferente, quais mudanças vão evitar repetição. Documento publicado, lido por todos.</p>
+<p><strong>Trilha de auditoria.</strong> Retenção mínima 90 dias para casos não-críticos; 5 anos ou mais para decisão regulada (LGPD com decisão automatizada, ANPD, AI Act, ISO 42001).</p>
+<hr />
+<h2 id="diagramas-1">40.4 — DIAGRAMAS</h2>
+<blockquote>
+<p>📊 <strong>Diagrama 40.1 — Stack canônico de LLMOps</strong></p>
+<figure>
+<img src="file:///sessions/festive-eloquent-fermat/mnt/Ebook%20IA/Livro-1-Os-Invariantes/02-capitulos/imagens/L1-C40-img-01-stack-llmops.svg" alt="" /><figcaption>Stack canônico de LLMOps</figcaption>
+</figure>
+<p><em>Os 7 pilares operacionais alinhados por dono e por fluxo de telemetria. A pirâmide funcional vai do que rastrear (base) ao que governar (topo).</em></p>
+</blockquote>
+<blockquote>
+<p>📊 <strong>Diagrama 40.2 — Tracing de agente: sessão → trace → spans</strong></p>
+<figure>
+<img src="file:///sessions/festive-eloquent-fermat/mnt/Ebook%20IA/Livro-1-Os-Invariantes/02-capitulos/imagens/L1-C40-img-02-tracing-agente.svg" alt="" /><figcaption>Tracing de agente</figcaption>
+</figure>
+<p><em>Modelo mental canônico. Cada chamada individual é um span; conjunto relacionado é um trace; conjunto temporal é uma session. Padronização OpenTelemetry GenAI.</em></p>
+</blockquote>
+<blockquote>
+<p>📊 <strong>Diagrama 40.3 — Linha do tempo de incidente</strong></p>
+<figure>
+<img src="file:///sessions/festive-eloquent-fermat/mnt/Ebook%20IA/Livro-1-Os-Invariantes/02-capitulos/imagens/L1-C40-img-03-timeline-incidente.svg" alt="" /><figcaption>Timeline de incidente</figcaption>
+</figure>
+<p><em>Do T0 (detecção) ao D+5 (postmortem publicado). Cada nó com pré-requisito explícito do pilar de LLMOps que o sustenta.</em></p>
+</blockquote>
+<hr />
+<h2 id="recortes-por-persona">40.5 — RECORTES POR PERSONA</h2>
+<p>A pergunta “o que cada papel precisa saber de LLMOps?” tem respostas diferentes. A tabela abaixo separa por persona, com métrica-chave e pergunta certa a fazer ao fornecedor.</p>
+<table>
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 12%" />
+<col style="width: 26%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimensão</th>
+<th>CTO</th>
+<th>Arquiteto</th>
+<th>Desenvolvedor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>O que precisa saber</strong></td>
+<td>7 pilares no nível de decisão e custo; trade-offs build × buy; orçamento operacional; RACI por feature</td>
+<td>Arquitetura do stack; integração com observability existente; padrão de versionamento; modelo de span/trace; pontos de extensão</td>
+<td>Como instrumentar; como adicionar tracing custom; como criar PR de prompt; como rodar canário; como ler scorecard</td>
+</tr>
+<tr class="even">
+<td><strong>O que NÃO precisa saber</strong></td>
+<td>Detalhe de implementação de span; biblioteca específica</td>
+<td>Métricas executivas como CPR agregado por LOB</td>
+<td>Política de incidente nível executivo; trilha regulatória de retenção</td>
+</tr>
+<tr class="odd">
+<td><strong>Métrica-chave</strong></td>
+<td>Custo total de IA / receita; SLA de IA; SEV-1 e SEV-2 por trimestre</td>
+<td>Cobertura de tracing %; MTTR rollback; cobertura de versionamento; cobertura de testes de incidente</td>
+<td>Cobertura de tracing nas próprias features; tempo médio para identificar bug de IA</td>
+</tr>
+<tr class="even">
+<td><strong>Pergunta certa ao fornecedor</strong></td>
+<td>“Como atribui custo de IA por cliente final?”</td>
+<td>“Vocês têm OpenTelemetry GenAI? Que versão?”</td>
+<td>“Como o SDK me dá hook para tracing customizado e propagation de context?”</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="exemplo-memorável-pólice.io-e-o-loop-com-cartão-de-crédito">40.6 — EXEMPLO MEMORÁVEL: PÓLICE.IO E O LOOP COM CARTÃO DE CRÉDITO</h2>
+<blockquote>
+<p>⚠️ <strong>Cenário ilustrativo</strong> — composto a partir de padrões observados em marketplaces e fintechs brasileiras durante a adoção de agentes integrados a múltiplos APIs por MCP em 2025-2026; números são realistas mas não identificam empresa específica.</p>
+</blockquote>
+<p>Pólice.io, marketplace brasileiro de seguros, em 2026, com cerca de oitenta colaboradores. Implementou um agente de cotação assistida via chat, integrado a sete seguradoras por MCP, com objetivo de reduzir o tempo de cotação de quinze minutos (humano) para menos de dois minutos (agente com humano revisando). Nas três primeiras semanas em produção, sucesso aparente. Conversões subiram dezessete por cento. NPS estável. O CFO comentou em reunião que a fatura de IA estava crescendo “como esperado”.</p>
+<p>Na quarta semana, a fatura ultrapassou R$ 142 mil. No mês zero do projeto, antes do agente, a fatura era R$ 18 mil. A diferença foi atribuída pela equipe técnica a “uso maior do que esperado”. O CFO aceitou a explicação, embora inquieto. Na quinta semana, a fatura cruzou R$ 200 mil projetados. O CTO da Pólice.io começou a investigar. Não tinha tracing instrumentado. Não tinha atribuição por feature. Não tinha circuit breaker. Tinha logs do modelo (input/output básico) e a fatura agregada.</p>
+<p>Levou onze dias para a equipe descobrir o que estava acontecendo. Um bug introduzido em PR aparentemente inofensivo na terceira semana — refatoração de um campo do formulário, sem nada que parecesse relevante para o agente — fazia com que, sempre que o usuário trocasse de estado civil no meio do fluxo, o agente reconsultasse as sete seguradoras integradas por MCP. Cada reconfiguração disparava chamadas ao Opus para reavaliar contexto. Em média, <strong>trinta e uma chamadas redundantes ao modelo premium por cotação efetiva</strong>. Multiplicado pelo volume crescente, a fatura escalou exponencialmente.</p>
+<p>Quando finalmente instrumentaram tracing por span — duas semanas no telhado, urgência —, o problema apareceu em uma hora. Correção em duas. Custo do incidente: aproximadamente R$ 96 mil em chamadas desperdiçadas (excedente da fatura no período), mais a credibilidade abalada da diretoria, mais duas semanas de engenharia desviadas para “salvar o orçamento”.</p>
+<p>A Pólice.io reescreveu o stack operacional em quatro semanas. Implementou tracing OpenTelemetry-style desde a primeira chamada de cada turno. Adicionou versionamento de tool com eval específico. Criou canário por percentual antes de qualquer promoção em produção. Estabeleceu circuit breaker por usuário com limite de cinco chamadas ao Opus por sessão. Alertas de custo por feature, por cliente, por usuário. Política de incidente SEV-1 com SLA de 15 minutos para detecção.</p>
+<p>Em três meses, a fatura caiu para R$ 47 mil mensais — com volume maior de cotações servidas que no período do incidente. A explicação não foi “ficamos mais rápidos no roteamento” ou “mudamos de modelo”. Foi: <strong>observabilidade revelou onde o custo estava sendo desperdiçado</strong>, e o time arrumou. O Cap 36 mostrou a fórmula; o Cap 40 mostra que sem o pilar 1 não dá para aplicar a fórmula.</p>
+<p>A lição é dura. <em>Autonomia sem observabilidade é loop com cartão de crédito. O que destrói orçamento de IA não é o preço do token, é a falta de instrumentação que faz cada incidente custar duas semanas para ser visto.</em></p>
+<blockquote>
+<p>🎯 <strong>PARA EXECUTIVOS</strong> Se a fatura mensal de IA da sua organização ultrapassou R$ 30 mil e o time técnico não consegue responder “qual a feature mais cara?” em até 5 minutos, você está em risco. Atribuição de custo por feature é o primeiro item de auditoria de LLMOps em qualquer operação madura. Se faltar, peça plano de remediação em 30 dias.</p>
+</blockquote>
+<hr />
+<h2 id="quando-usar-quando-evitar-1">40.7 — QUANDO USAR / QUANDO EVITAR</h2>
+<p><strong>Implantar stack completo de LLMOps quando:</strong> - Há IA em produção tocando cliente - Há mais de um agente em produção - Há custo recorrente acima de R$ 5 mil/mês em chamadas a LLMs - Há SLA explícito ou implícito de qualidade - Há requisito regulatório (LGPD com decisão automatizada, regulação setorial)</p>
+<p><strong>Subset mínimo viável (sem overhead completo) quando:</strong> - Piloto único interno, fora de produção, com 1 usuário - Demo única para conselho ou prospect - Teste de ideia descartável</p>
+<p>Em todo caso intermediário, comece pelos pilares 1 (tracing), 4 (rollback) e 7 (governança). Os outros entram conforme escalar.</p>
+<hr />
+<h2 id="vantagens-e-limitações-1">40.8 — VANTAGENS E LIMITAÇÕES</h2>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Vantagem</th>
+<th>Limitação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Custo de IA cai 20-50% só com observabilidade bem feita</td>
+<td>Custo inicial de instrumentação e padronização — tipicamente 4-12 semanas para o stack inicial</td>
+</tr>
+<tr class="even">
+<td>MTTR de incidentes cai dramaticamente — de dias para horas</td>
+<td>Risco de over-engineering em produto early-stage</td>
+</tr>
+<tr class="odd">
+<td>Audit trail vira ativo para compliance e disputa judicial</td>
+<td>Requer cultura de versionamento que muitos times de IA não têm; demanda mudança organizacional</td>
+</tr>
+<tr class="even">
+<td>Permite migração de modelo sem terror</td>
+<td>Vendor lock-in se observability vem de um único fornecedor proprietário; OpenTelemetry mitiga</td>
+</tr>
+<tr class="odd">
+<td>Reduz dependência de “engenheiro herói” que conhece o sistema</td>
+<td>Adiciona camada de processo que pode atrasar prototipagem</td>
+</tr>
+<tr class="even">
+<td>Habilita governança técnica (Inv. 8) com base auditável</td>
+<td>Custo de armazenamento e compliance de logs cresce com volume</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="conexões-com-outros-capítulos-1">40.9 — CONEXÕES COM OUTROS CAPÍTULOS</h2>
+<ul>
+<li>🔗 <strong>Tokens como insumo da fórmula de custo</strong> → <a href="L1-C03-tokens.md">Cap 03</a></li>
+<li>🔗 <strong>Memória persistente e custo composto</strong> → <a href="L1-C07-memoria.md">Cap 07</a></li>
+<li>🔗 <strong>Agentes como classe operacional</strong> → <a href="L1-C12-agentes.md">Cap 12</a></li>
+<li>🔗 <strong>MCP como integração governável</strong> → <a href="L1-C13-mcp.md">Cap 13</a></li>
+<li>🔗 <strong>AI Engineering como disciplina inclusiva de LLMOps</strong> → <a href="L1-C14-ai-engineering.md">Cap 14</a></li>
+<li>🔗 <strong>Economia de tokens como aplicação do pilar 5</strong> → <a href="L1-C36-economia-tokens.md">Cap 36</a></li>
+<li>🔗 <strong>Segurança e mapa de risco operacional</strong> → <a href="L1-C37-seguranca.md">Cap 37</a></li>
+<li>🔗 <strong>Evals como insumo do pilar 1, 2 e 3</strong> → <a href="L1-C39-evals.md">Cap 39</a></li>
+<li>🔗 <strong>Alignment como insumo de segurança operacional</strong> → <a href="L1-C41-alignment.md">Cap 41</a></li>
+<li>🔗 <strong>Governança corporativa que sustenta o pilar 7</strong> → <a href="L1-C42-governanca.md">Cap 42</a></li>
+<li>🔗 <strong>Claude Code como caso de agente com Autonomia Proporcional aplicada</strong> → <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C24-claude-code.md">Cap 24 (L2)</a></li>
+<li>🔗 <strong>Enterprise e governança em escala</strong> → <a href="../../Livro-2-Dominando-Claude/02-capitulos/L2-C30-enterprise.md">Cap 30 (L2)</a></li>
+</ul>
+<hr />
+<h2 id="resumo-executivo-1">40.10 — RESUMO EXECUTIVO</h2>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 45%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pilar</th>
+<th>Pergunta executiva</th>
+<th>Indicador-chave</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 Tracing/observability</td>
+<td>“Consigo reconstruir qualquer decisão da IA?”</td>
+<td>% de spans com tracing completo</td>
+</tr>
+<tr class="even">
+<td>2 Versionamento</td>
+<td>“Sei o que estava em produção em qualquer data?”</td>
+<td>% de prompts/tools versionados</td>
+</tr>
+<tr class="odd">
+<td>3 Deploy progressivo</td>
+<td>“Posso testar com 1% antes de 100%?”</td>
+<td>% de releases com canário</td>
+</tr>
+<tr class="even">
+<td>4 Rollback</td>
+<td>“Quanto tempo do ‘algo errado’ ao estado anterior?”</td>
+<td>MTTR de SEV-1</td>
+</tr>
+<tr class="odd">
+<td>5 Custos/quotas</td>
+<td>“Vejo agente loopando antes do CFO ver?”</td>
+<td>Custo por feature, alerta antes de incidente</td>
+</tr>
+<tr class="even">
+<td>6 Segurança operacional</td>
+<td>“Desligo uma tool perigosa em 30s?”</td>
+<td>Tempo de kill switch testado</td>
+</tr>
+<tr class="odd">
+<td>7 Governança operacional</td>
+<td>“Quem responde quando der ruim?”</td>
+<td>Auditoria de SEV-1 com postmortem público</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="checklist-do-capítulo-1">40.11 — CHECKLIST DO CAPÍTULO</h2>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+Distinguir LLMOps de MLOps clássico em uma frase</li>
+<li><input type="checkbox" disabled="" />
+Listar os 7 pilares na ordem de impacto e a pergunta executiva de cada um</li>
+<li><input type="checkbox" disabled="" />
+Descrever o modelo mental span × trace × session</li>
+<li><input type="checkbox" disabled="" />
+Defender adoção de OpenTelemetry GenAI vs. vendor proprietário</li>
+<li><input type="checkbox" disabled="" />
+Identificar, no seu produto, o pilar mais frágil hoje</li>
+<li><input type="checkbox" disabled="" />
+Calcular o MTTR atual da sua operação e propor meta de 30 dias</li>
+<li><input type="checkbox" disabled="" />
+Apresentar a recortes por persona em reunião de tech leadership</li>
+<li><input type="checkbox" disabled="" />
+Reconhecer, em três incidentes recentes, qual pilar teria mitigado cada um</li>
+</ul>
+<hr />
+<h2 id="perguntas-de-revisão-1">40.12 — PERGUNTAS DE REVISÃO</h2>
+<ol type="1">
+<li>Por que LLMOps não é “MLOps com nome novo”, e o que muda na prática?</li>
+<li>Em qual dos 7 pilares está o ROI mais imediato de implementar primeiro, e por quê?</li>
+<li>Por que rollback “no Git” não é rollback de produção?</li>
+<li>Como o pilar 1 sustenta a fórmula do Custo Composto (Cap 36)?</li>
+<li>Que diferença existe entre canário por percentual e canário por segmento, e quando usar cada um?</li>
+<li>Por que kill switch teórico é pior que não ter kill switch?</li>
+<li>Como o pilar 7 (governança operacional) conecta com o Invariante 8 (Responsabilidade Indelegável)?</li>
+<li>Em que situação OpenTelemetry GenAI é over-engineering, e em que situação é proteção contra lock-in?</li>
+<li>Como o pilar 5 (custos) prevê os anti-padrões do framework F7 COMPOSTO-3T?</li>
+</ol>
+<hr />
+<h2 id="exercícios-práticos-1">40.13 — EXERCÍCIOS PRÁTICOS</h2>
+<p><strong>Exercício 1 — Diagnóstico dos 7 pilares.</strong> Mapeie cada um dos 7 pilares no seu stack atual e atribua maturidade em escala 0-4 (0 inexistente, 1 declarado, 2 implementado, 3 auditado, 4 melhoria contínua). Identifique os dois pilares mais frágeis e proponha plano de 60 dias.</p>
+<p><strong>Exercício 2 — Trace ideal de uma sessão real.</strong> Para uma sessão real do seu produto, desenhe o trace ideal span por span. Inclua: chamadas ao modelo principal, chamadas a tools, chamadas a sub-agentes, latência, tokens, custo. Compare com o que seu sistema loga hoje. O que falta?</p>
+<p><strong>Exercício 3 — Playbook de rollback em 1 página.</strong> Escreva o playbook de rollback do seu prompt principal. Quem detecta, quem aciona, quanto tempo de cada passo, onde está o estado anterior, como confirmar que rollback funcionou. Limite: 1 página.</p>
+<p><strong>Exercício 4 — Cálculo do custo real do último mês.</strong> Use a fórmula do F7 COMPOSTO-3T (tokens × chamadas × redundância × tier) para reconstruir o custo do mês anterior. Identifique o componente que mais escalou. Proponha plano de redução de 25% em 60 dias.</p>
+<hr />
+<h2 id="projeto-do-capítulo-1">40.14 — PROJETO DO CAPÍTULO</h2>
+<p><strong>Construir o Caderno de LLMOps v1</strong> do seu produto/operação. Entregável em 8-12 páginas, contendo:</p>
+<ol type="1">
+<li>Descrição dos 7 pilares aplicados ao próprio produto, com maturidade atual e maturidade-meta de 90 dias</li>
+<li>Arquitetura de tracing (modelo span × trace × session aplicado)</li>
+<li>Política de versionamento de prompt e tool</li>
+<li>Runbook de rollback testado mensalmente</li>
+<li>Runbook de incidente SEV-1 (detecção, contenção, comunicação, postmortem)</li>
+<li>Atribuição de custo por feature, cliente, usuário</li>
+<li>Dono nominal de cada pilar</li>
+<li>Plano de revisão trimestral do Caderno</li>
+</ol>
+<p><strong>Critério de qualidade.</strong> Outro engenheiro, sem contexto, consegue ler o caderno e responder, sem perguntar mais, qualquer das 7 perguntas executivas da seção 40.10 sobre o seu sistema.</p>
+<hr />
+<h2 id="referências-principais-1">40.15 — REFERÊNCIAS PRINCIPAIS</h2>
+<p>📚 <strong>OpenTelemetry e padrões</strong> - OpenTelemetry GenAI semantic conventions (2024-, em evolução) - <em>Distributed Tracing in Practice</em> (Parker, Spoonhower, Mace, 2020) — fundamento conceitual</p>
+<p>📚 <strong>Frameworks e stacks LLMOps</strong> - a16z. <em>The Emerging Architectures for LLM Applications</em> (Bornstein &amp; Radovanovic, 2023) - Karpathy, A. <em>Software 3.0</em> (palestra, 2024) — visão de stack</p>
+<p>📚 <strong>SRE e fundamento de operação</strong> - Google. <em>Site Reliability Engineering Book</em> (Beyer et al., 2016) — capítulos sobre postmortem, MTTR, gestão de incidentes - Google. <em>The Site Reliability Workbook</em> (Beyer et al., 2018) — práticas operacionais</p>
+<p>📚 <strong>Observability de LLMs (vendors)</strong> - Documentação LangSmith, Langfuse, Helicone, Arize Phoenix, Datadog APM with LLM observability — padrões de mercado</p>
+<p>📚 <strong>Segurança de LLMs em produção</strong> - Greshake, K. et al. <em>Not what you’ve signed up for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection</em> (2023) - Liu, Y. et al. <em>Prompt Injection attack against LLM-integrated Applications</em> (2023) - Anthropic. <em>Responsible Scaling Policy</em> (2023, 2024)</p>
+<p>📚 <strong>Alignment e operação</strong> - Anthropic. <em>Constitutional AI</em> (Bai et al., 2022) — fundamentos de safety operacional</p>
+<hr />
+<h2 id="validação-uau-1">40.16 — VALIDAÇÃO UAU</h2>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 34%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Critério</th>
+<th>Você consegue?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><strong>Clareza</strong> — Explicar a um sócio o que é tracing em IA usando a analogia da caixa-preta aeronáutica em 2 minutos</td>
+<td>☐</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><strong>Profundidade</strong> — Defender em reunião de arquitetura por que versionamento de prompt é tão crítico quanto versionamento de código</td>
+<td>☐</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><strong>Aplicação</strong> — Apontar, no seu produto, qual dos 7 pilares é o mais frágil hoje e o que faria nos próximos 14 dias</td>
+<td>☐</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><strong>Conexão</strong> — Articular como LLMOps fecha o ciclo aberto por Cap 39 (Evals) e fundamenta Cap 42 (Governança), passando pela fórmula do Cap 36 (Custo Composto)</td>
+<td>☐</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><strong>Curiosidade UAU</strong> — Está com vontade de entrar no Cap 41 para entender como o próprio modelo é moldado antes de chegar à sua operação</td>
+<td>☐</td>
+</tr>
+</tbody>
+</table>
+<p><strong>5 de 5?</strong> Avance. Você passou de “usuário de IA” a “operador de IA”. <strong>3 ou 4?</strong> Releia §40.3.1 (Tracing) e §40.3.5 (Custos). É onde a maior parte do investimento de LLMOps é desperdiçada por falta de prioridade correta. <strong>Menos de 3?</strong> Releitura completa, especialmente se você já tem agente em produção. O risco é proporcional ao tempo sem instrumentação.</p>
+<hr />
+<p>🔗 <strong>Próximo:</strong> <a href="L1-C41-alignment.md">Capítulo 41 — Alignment: como os modelos são moldados antes de chegarem a você</a></p>
+<hr />
+<blockquote>
+<p><em>“O modelo é o motor. LLMOps é a sala de controle. Sem sala de controle, o motor decide o destino. Quem opera IA sem sala de controle não está operando — está sendo operado.”</em></p>
+</blockquote>
+</body>
+</html>

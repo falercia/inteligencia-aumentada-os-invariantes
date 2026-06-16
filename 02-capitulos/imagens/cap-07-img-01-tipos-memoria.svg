@@ -1,0 +1,67 @@
+<svg viewBox="0 0 900 540" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <rect width="900" height="540" fill="#fefce8"/>
+
+  <text x="450" y="40" fill="#0d1b2a" font-size="22" font-weight="700" text-anchor="middle">OS QUATRO TIPOS DE MEMÓRIA EM AGENTES DE IA</text>
+  <text x="450" y="64" fill="#6b7280" font-size="13" text-anchor="middle">Inspirado em modelos cognitivos humanos, adaptado para sistemas de software</text>
+
+  <!-- 2x2 grid -->
+  <g>
+    <rect x="60" y="100" width="380" height="200" rx="12" fill="#fde68a" stroke="#fb923c" stroke-width="2"/>
+    <text x="250" y="130" fill="#0d1b2a" font-size="14" font-weight="700" text-anchor="middle">MEMÓRIA DE CURTO PRAZO</text>
+    <text x="250" y="150" fill="#6b7280" font-size="11" text-anchor="middle" font-style="italic">(working memory)</text>
+
+    <text x="80" y="182" fill="#0d1b2a" font-size="11" font-weight="600">O que é:</text>
+    <text x="80" y="200" fill="#374151" font-size="11">A janela de contexto da conversa atual</text>
+
+    <text x="80" y="226" fill="#0d1b2a" font-size="11" font-weight="600">Onde mora:</text>
+    <text x="80" y="244" fill="#374151" font-size="11">Dentro do prompt enviado ao LLM</text>
+
+    <text x="80" y="270" fill="#0d1b2a" font-size="11" font-weight="600">Limitação:</text>
+    <text x="80" y="288" fill="#dc2626" font-size="11">Some no final da conversa</text>
+  </g>
+
+  <g>
+    <rect x="460" y="100" width="380" height="200" rx="12" fill="#bbf7d0" stroke="#16a34a" stroke-width="2"/>
+    <text x="650" y="130" fill="#0d1b2a" font-size="14" font-weight="700" text-anchor="middle">MEMÓRIA EPISÓDICA</text>
+    <text x="650" y="150" fill="#6b7280" font-size="11" text-anchor="middle" font-style="italic">(episodic memory)</text>
+
+    <text x="480" y="182" fill="#0d1b2a" font-size="11" font-weight="600">O que é:</text>
+    <text x="480" y="200" fill="#374151" font-size="11">Histórico de conversas e eventos passados</text>
+
+    <text x="480" y="226" fill="#0d1b2a" font-size="11" font-weight="600">Onde mora:</text>
+    <text x="480" y="244" fill="#374151" font-size="11">Banco vetorial ou base estruturada</text>
+
+    <text x="480" y="270" fill="#0d1b2a" font-size="11" font-weight="600">Uso:</text>
+    <text x="480" y="288" fill="#16a34a" font-size="11">"Da última vez você preferiu X"</text>
+  </g>
+
+  <g>
+    <rect x="60" y="320" width="380" height="200" rx="12" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+    <text x="250" y="350" fill="#0d1b2a" font-size="14" font-weight="700" text-anchor="middle">MEMÓRIA SEMÂNTICA</text>
+    <text x="250" y="370" fill="#6b7280" font-size="11" text-anchor="middle" font-style="italic">(semantic memory)</text>
+
+    <text x="80" y="402" fill="#0d1b2a" font-size="11" font-weight="600">O que é:</text>
+    <text x="80" y="420" fill="#374151" font-size="11">Fatos consolidados sobre o mundo / usuário</text>
+
+    <text x="80" y="446" fill="#0d1b2a" font-size="11" font-weight="600">Onde mora:</text>
+    <text x="80" y="464" fill="#374151" font-size="11">Knowledge base, perfil de usuário, RAG</text>
+
+    <text x="80" y="490" fill="#0d1b2a" font-size="11" font-weight="600">Uso:</text>
+    <text x="80" y="508" fill="#2563eb" font-size="11">"O usuário é CTO, gosta de tabelas"</text>
+  </g>
+
+  <g>
+    <rect x="460" y="320" width="380" height="200" rx="12" fill="#fecaca" stroke="#dc2626" stroke-width="2"/>
+    <text x="650" y="350" fill="#0d1b2a" font-size="14" font-weight="700" text-anchor="middle">MEMÓRIA PROCEDURAL</text>
+    <text x="650" y="370" fill="#6b7280" font-size="11" text-anchor="middle" font-style="italic">(procedural memory)</text>
+
+    <text x="480" y="402" fill="#0d1b2a" font-size="11" font-weight="600">O que é:</text>
+    <text x="480" y="420" fill="#374151" font-size="11">Como executar tarefas, fluxos, padrões</text>
+
+    <text x="480" y="446" fill="#0d1b2a" font-size="11" font-weight="600">Onde mora:</text>
+    <text x="480" y="464" fill="#374151" font-size="11">Skills, prompts persistentes, workflows</text>
+
+    <text x="480" y="490" fill="#0d1b2a" font-size="11" font-weight="600">Uso:</text>
+    <text x="480" y="508" fill="#dc2626" font-size="11">"Para análise de contrato, faço X, Y, Z"</text>
+  </g>
+</svg>

@@ -1,0 +1,51 @@
+<svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <rect width="900" height="480" fill="#0d1b2a"/>
+
+  <text x="450" y="40" fill="#fef3c7" font-size="22" font-weight="700" text-anchor="middle">O CUSTO ESCONDIDO DOS TOKENS</text>
+  <text x="450" y="64" fill="#9ca3af" font-size="13" text-anchor="middle">Como uma única decisão de prompt pode multiplicar seu custo mensal</text>
+
+  <!-- Scenario comparison -->
+  <g>
+    <rect x="60" y="100" width="380" height="340" rx="12" fill="#1b263b" stroke="#dc2626" stroke-width="2"/>
+    <text x="250" y="130" fill="#fca5a5" font-size="14" font-weight="700" text-anchor="middle">CENÁRIO INGÊNUO</text>
+    <text x="250" y="150" fill="#9ca3af" font-size="11" text-anchor="middle">prompt verboso, sem otimização</text>
+
+    <text x="80" y="190" fill="#fef3c7" font-size="12" font-weight="600">Por consulta:</text>
+    <text x="80" y="212" fill="#e5e7eb" font-size="11">• Input: ~3.000 tokens (contexto longo)</text>
+    <text x="80" y="232" fill="#e5e7eb" font-size="11">• Output: ~800 tokens (resposta solta)</text>
+
+    <text x="80" y="272" fill="#fef3c7" font-size="12" font-weight="600">Volume mensal: 10.000 consultas</text>
+    <text x="80" y="294" fill="#e5e7eb" font-size="11">• 30M tokens de input</text>
+    <text x="80" y="314" fill="#e5e7eb" font-size="11">• 8M tokens de output</text>
+
+    <line x1="80" y1="335" x2="420" y2="335" stroke="#374151"/>
+
+    <text x="80" y="365" fill="#fef3c7" font-size="12" font-weight="600">Custo (Claude Sonnet, valores ilustrativos):</text>
+    <text x="80" y="390" fill="#fca5a5" font-size="20" font-weight="800">US$ 210 / mês</text>
+    <text x="80" y="412" fill="#9ca3af" font-size="11">≈ R$ 1.050 / mês por equipe</text>
+  </g>
+
+  <!-- Optimized -->
+  <g>
+    <rect x="460" y="100" width="380" height="340" rx="12" fill="#1b263b" stroke="#16a34a" stroke-width="2"/>
+    <text x="650" y="130" fill="#86efac" font-size="14" font-weight="700" text-anchor="middle">CENÁRIO OTIMIZADO</text>
+    <text x="650" y="150" fill="#9ca3af" font-size="11" text-anchor="middle">prompt enxuto + prompt caching</text>
+
+    <text x="480" y="190" fill="#fef3c7" font-size="12" font-weight="600">Por consulta:</text>
+    <text x="480" y="212" fill="#e5e7eb" font-size="11">• Input: ~800 tokens (contexto compactado)</text>
+    <text x="480" y="232" fill="#e5e7eb" font-size="11">• Output: ~300 tokens (resposta direta)</text>
+
+    <text x="480" y="272" fill="#fef3c7" font-size="12" font-weight="600">Volume mensal: 10.000 consultas</text>
+    <text x="480" y="294" fill="#e5e7eb" font-size="11">• 8M tokens de input</text>
+    <text x="480" y="314" fill="#e5e7eb" font-size="11">• 3M tokens de output</text>
+
+    <line x1="480" y1="335" x2="820" y2="335" stroke="#374151"/>
+
+    <text x="480" y="365" fill="#fef3c7" font-size="12" font-weight="600">Custo (mesma operação):</text>
+    <text x="480" y="390" fill="#86efac" font-size="20" font-weight="800">US$ 65 / mês</text>
+    <text x="480" y="412" fill="#9ca3af" font-size="11">≈ R$ 325 / mês por equipe</text>
+  </g>
+
+  <!-- Arrow / savings -->
+  <text x="450" y="466" fill="#fbbf24" font-size="14" font-weight="700" text-anchor="middle">Economia de 70% sem perder qualidade da resposta. Em escala corporativa, isso vira sete dígitos por ano.</text>
+</svg>

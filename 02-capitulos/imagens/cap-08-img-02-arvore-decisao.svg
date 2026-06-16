@@ -1,0 +1,71 @@
+<svg viewBox="0 0 1000 580" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <marker id="dec-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#E97451"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="580" fill="#0d1b2a"/>
+
+  <text x="500" y="40" fill="#fef3c7" font-size="22" font-weight="700" text-anchor="middle">ÁRVORE DE DECISÃO — DEVO FAZER FINE-TUNING?</text>
+  <text x="500" y="64" fill="#9ca3af" font-size="13" text-anchor="middle">Comece sempre pelo topo. Só desça quando a resposta for clara.</text>
+
+  <!-- Q1 -->
+  <rect x="350" y="100" width="300" height="50" rx="8" fill="#1b263b" stroke="#fbbf24" stroke-width="2"/>
+  <text x="500" y="123" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">Q1. Prompt engineering resolve?</text>
+  <text x="500" y="140" fill="#9ca3af" font-size="10" text-anchor="middle">tentou few-shot, instruções claras, exemplos?</text>
+
+  <path d="M 380 150 L 230 195" stroke="#86efac" stroke-width="2" marker-end="url(#dec-arrow)"/>
+  <text x="280 " y="180" fill="#86efac" font-size="11" font-weight="700">SIM</text>
+
+  <path d="M 620 150 L 770 195" stroke="#fca5a5" stroke-width="2" marker-end="url(#dec-arrow)"/>
+  <text x="720" y="180" fill="#fca5a5" font-size="11" font-weight="700">NÃO</text>
+
+  <!-- Stop A -->
+  <rect x="80" y="200" width="280" height="50" rx="8" fill="#16a34a"/>
+  <text x="220" y="223" fill="#fef3c7" font-size="12" font-weight="700" text-anchor="middle">PARE — use prompt engineering</text>
+  <text x="220" y="240" fill="#fef3c7" font-size="10" text-anchor="middle">90% dos casos terminam aqui</text>
+
+  <!-- Q2 -->
+  <rect x="620" y="200" width="300" height="50" rx="8" fill="#1b263b" stroke="#fbbf24" stroke-width="2"/>
+  <text x="770" y="223" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">Q2. RAG resolve?</text>
+  <text x="770" y="240" fill="#9ca3af" font-size="10" text-anchor="middle">o problema é falta de conhecimento específico?</text>
+
+  <path d="M 650 250 L 500 295" stroke="#86efac" stroke-width="2" marker-end="url(#dec-arrow)"/>
+  <text x="555" y="280" fill="#86efac" font-size="11" font-weight="700">SIM</text>
+
+  <path d="M 850 250 L 850 295" stroke="#fca5a5" stroke-width="2" marker-end="url(#dec-arrow)"/>
+  <text x="870" y="278" fill="#fca5a5" font-size="11" font-weight="700">NÃO</text>
+
+  <!-- Stop B -->
+  <rect x="350" y="300" width="280" height="50" rx="8" fill="#16a34a"/>
+  <text x="490" y="323" fill="#fef3c7" font-size="12" font-weight="700" text-anchor="middle">PARE — use RAG</text>
+  <text x="490" y="340" fill="#fef3c7" font-size="10" text-anchor="middle">resolve 8 em cada 10 casos restantes</text>
+
+  <!-- Q3 -->
+  <rect x="700" y="300" width="300" height="50" rx="8" fill="#1b263b" stroke="#fbbf24" stroke-width="2"/>
+  <text x="850" y="323" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">Q3. Tem 1.000+ exemplos rotulados?</text>
+  <text x="850" y="340" fill="#9ca3af" font-size="10" text-anchor="middle">dados de qualidade para treinar?</text>
+
+  <path d="M 730 350 L 580 395" stroke="#fca5a5" stroke-width="2" marker-end="url(#dec-arrow)"/>
+  <text x="635" y="380" fill="#fca5a5" font-size="11" font-weight="700">NÃO</text>
+
+  <path d="M 950 350 L 950 395" stroke="#86efac" stroke-width="2" marker-end="url(#dec-arrow)"/>
+  <text x="970" y="378" fill="#86efac" font-size="11" font-weight="700">SIM</text>
+
+  <!-- Stop C -->
+  <rect x="380" y="400" width="320" height="50" rx="8" fill="#dc2626"/>
+  <text x="540" y="423" fill="#fef3c7" font-size="12" font-weight="700" text-anchor="middle">PARE — invista em coleta de dados primeiro</text>
+  <text x="540" y="440" fill="#fef3c7" font-size="10" text-anchor="middle">sem dados, fine-tuning é desperdício</text>
+
+  <!-- Q4 -->
+  <rect x="800" y="400" width="180" height="50" rx="8" fill="#1b263b" stroke="#fbbf24" stroke-width="2"/>
+  <text x="890" y="423" fill="#fef3c7" font-size="12" font-weight="700" text-anchor="middle">Q4. Volume justifica?</text>
+  <text x="890" y="440" fill="#9ca3af" font-size="10" text-anchor="middle">10M+ chamadas/ano?</text>
+
+  <path d="M 890 450 L 890 495" stroke="#86efac" stroke-width="2" marker-end="url(#dec-arrow)"/>
+
+  <!-- Stop D - fine tuning -->
+  <rect x="700" y="500" width="280" height="50" rx="8" fill="#E97451"/>
+  <text x="840" y="523" fill="#fef3c7" font-size="12" font-weight="700" text-anchor="middle">CONSIDERE FINE-TUNING</text>
+  <text x="840" y="540" fill="#fef3c7" font-size="10" text-anchor="middle">ou LoRA/PEFT como variante leve</text>
+</svg>

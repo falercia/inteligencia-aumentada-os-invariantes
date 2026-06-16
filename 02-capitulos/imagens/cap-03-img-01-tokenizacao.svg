@@ -1,0 +1,80 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <rect width="900" height="460" fill="#fefce8"/>
+
+  <text x="450" y="40" fill="#0d1b2a" font-size="22" font-weight="700" text-anchor="middle">COMO O TEXTO VIRA TOKENS</text>
+  <text x="450" y="64" fill="#6b7280" font-size="13" text-anchor="middle">A unidade básica que o modelo realmente vê, e por que ela importa para o seu bolso</text>
+
+  <!-- Original phrase -->
+  <text x="60" y="110" fill="#374151" font-size="12" font-weight="600">FRASE EM PORTUGUÊS:</text>
+  <rect x="60" y="120" width="780" height="40" rx="6" fill="#1f2937"/>
+  <text x="70" y="146" fill="#fef3c7" font-size="14" font-style="italic">A inteligência artificial está transformando empresas brasileiras.</text>
+
+  <!-- Tokens (PT) -->
+  <text x="60" y="190" fill="#374151" font-size="12" font-weight="600">TOKENS GERADOS (tokenizer GPT-4 / Claude — aproximado):</text>
+
+  <g font-size="11" fill="#0d1b2a">
+    <rect x="60" y="200" width="20" height="28" rx="4" fill="#fde68a" stroke="#fb923c"/>
+    <text x="70" y="219" text-anchor="middle">A</text>
+
+    <rect x="84" y="200" width="80" height="28" rx="4" fill="#fde68a" stroke="#fb923c"/>
+    <text x="124" y="219" text-anchor="middle"> inteligência</text>
+
+    <rect x="168" y="200" width="74" height="28" rx="4" fill="#fde68a" stroke="#fb923c"/>
+    <text x="205" y="219" text-anchor="middle"> artificial</text>
+
+    <rect x="246" y="200" width="42" height="28" rx="4" fill="#fde68a" stroke="#fb923c"/>
+    <text x="267" y="219" text-anchor="middle"> está</text>
+
+    <rect x="292" y="200" width="74" height="28" rx="4" fill="#fde68a" stroke="#fb923c"/>
+    <text x="329" y="219" text-anchor="middle"> transform</text>
+
+    <rect x="370" y="200" width="46" height="28" rx="4" fill="#fde68a" stroke="#fb923c"/>
+    <text x="393" y="219" text-anchor="middle">ando</text>
+
+    <rect x="420" y="200" width="78" height="28" rx="4" fill="#fde68a" stroke="#fb923c"/>
+    <text x="459" y="219" text-anchor="middle"> empresas</text>
+
+    <rect x="502" y="200" width="60" height="28" rx="4" fill="#fde68a" stroke="#fb923c"/>
+    <text x="532" y="219" text-anchor="middle"> brasil</text>
+
+    <rect x="566" y="200" width="50" height="28" rx="4" fill="#fde68a" stroke="#fb923c"/>
+    <text x="591" y="219" text-anchor="middle">eiras</text>
+
+    <rect x="620" y="200" width="16" height="28" rx="4" fill="#fde68a" stroke="#fb923c"/>
+    <text x="628" y="219" text-anchor="middle">.</text>
+  </g>
+
+  <text x="60" y="252" fill="#E97451" font-size="13" font-weight="700">→ 10 tokens em português</text>
+
+  <!-- Same in English -->
+  <text x="60" y="292" fill="#374151" font-size="12" font-weight="600">A MESMA FRASE EM INGLÊS:</text>
+  <rect x="60" y="302" width="780" height="40" rx="6" fill="#1f2937"/>
+  <text x="70" y="328" fill="#fef3c7" font-size="14" font-style="italic">Artificial intelligence is transforming Brazilian companies.</text>
+
+  <g font-size="11" fill="#0d1b2a">
+    <rect x="60" y="356" width="76" height="28" rx="4" fill="#bbf7d0" stroke="#16a34a"/>
+    <text x="98" y="375" text-anchor="middle">Artificial</text>
+
+    <rect x="140" y="356" width="100" height="28" rx="4" fill="#bbf7d0" stroke="#16a34a"/>
+    <text x="190" y="375" text-anchor="middle"> intelligence</text>
+
+    <rect x="244" y="356" width="28" height="28" rx="4" fill="#bbf7d0" stroke="#16a34a"/>
+    <text x="258" y="375" text-anchor="middle"> is</text>
+
+    <rect x="276" y="356" width="110" height="28" rx="4" fill="#bbf7d0" stroke="#16a34a"/>
+    <text x="331" y="375" text-anchor="middle"> transforming</text>
+
+    <rect x="390" y="356" width="78" height="28" rx="4" fill="#bbf7d0" stroke="#16a34a"/>
+    <text x="429" y="375" text-anchor="middle"> Brazilian</text>
+
+    <rect x="472" y="356" width="90" height="28" rx="4" fill="#bbf7d0" stroke="#16a34a"/>
+    <text x="517" y="375" text-anchor="middle"> companies</text>
+
+    <rect x="566" y="356" width="16" height="28" rx="4" fill="#bbf7d0" stroke="#16a34a"/>
+    <text x="574" y="375" text-anchor="middle">.</text>
+  </g>
+
+  <text x="60" y="408" fill="#16a34a" font-size="13" font-weight="700">→ 7 tokens em inglês</text>
+
+  <text x="450" y="440" fill="#dc2626" font-size="12" text-anchor="middle" font-weight="600">A mesma frase, em português, custa cerca de 40% mais. Isso é dinheiro real em escala.</text>
+</svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" font-family="Inter, system-ui, sans-serif">
+  <title>C46 — Stack de interpretabilidade em IA</title>
+  <desc>Cinco níveis de interpretabilidade, da observação comportamental à intervenção causal sobre circuits.</desc>
+
+  <defs>
+    <linearGradient id="nivel1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+    <linearGradient id="nivel2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="nivel3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#E97451"/>
+    </linearGradient>
+    <linearGradient id="nivel4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c2410c"/>
+      <stop offset="100%" stop-color="#9a3412"/>
+    </linearGradient>
+    <linearGradient id="nivel5" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1b263b"/>
+      <stop offset="100%" stop-color="#0d1b2a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="600" fill="#0d1b2a"/>
+
+  <text x="500" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#fef3c7">STACK DA INTERPRETABILIDADE</text>
+  <text x="500" y="64" text-anchor="middle" font-size="12" fill="#9ca3af" font-style="italic">Do comportamento observável ao mecanismo causal · custo cresce, evidência cresce</text>
+
+  <!-- Eixo lateral: custo e maturidade -->
+  <text x="40" y="135" font-size="10" fill="#9ca3af" font-style="italic" transform="rotate(-90 40 135)">+ EVIDÊNCIA CAUSAL</text>
+  <text x="40" y="490" font-size="10" fill="#9ca3af" font-style="italic" transform="rotate(-90 40 490)">+ CUSTO E MATURIDADE</text>
+  <line x1="55" y1="120" x2="55" y2="520" stroke="#6b7280" stroke-width="0.5" stroke-dasharray="3,2"/>
+  <polygon points="55,115 50,125 60,125" fill="#9ca3af"/>
+
+  <!-- Nível 5 (topo) - intervenção causal -->
+  <rect x="80" y="120" width="860" height="70" rx="6" fill="url(#nivel5)" stroke="#E97451" stroke-width="2.5"/>
+  <text x="100" y="148" font-size="14" font-weight="700" fill="#fef3c7">5 · INTERVENÇÃO CAUSAL SOBRE CIRCUITS</text>
+  <text x="100" y="168" font-size="11" fill="#fef3c7">Ablação de feature, troca de ativação, intervenção em camada · valida hipótese de mecanismo</text>
+  <text x="100" y="184" font-size="10" font-style="italic" fill="#E97451">Defesa em processo judicial · resposta a perito · debug profundo de jailbreak persistente</text>
+  <text x="920" y="160" text-anchor="end" font-size="11" font-weight="700" fill="#E97451">$$$$</text>
+
+  <!-- Nível 4 -->
+  <rect x="80" y="200" width="860" height="70" rx="6" fill="url(#nivel4)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="100" y="228" font-size="14" font-weight="700" fill="#fef3c7">4 · CIRCUITS E SPARSE AUTOENCODERS</text>
+  <text x="100" y="248" font-size="11" fill="#fef3c7">SAE extrai milhões de features monosemânticas · mapeia caminhos causais entre camadas</text>
+  <text x="100" y="264" font-size="10" font-style="italic" fill="#fde68a">Anthropic · DeepMind · Templeton 2024 (Golden Gate Claude)</text>
+  <text x="920" y="240" text-anchor="end" font-size="11" font-weight="700" fill="#fde68a">$$$</text>
+
+  <!-- Nível 3 -->
+  <rect x="80" y="280" width="860" height="70" rx="6" fill="url(#nivel3)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="100" y="308" font-size="14" font-weight="700" fill="#fef3c7">3 · PROBING DE REPRESENTAÇÕES</text>
+  <text x="100" y="328" font-size="11" fill="#fef3c7">Classificador linear sobre ativações intermediárias · detecta presença de conceito</text>
+  <text x="100" y="344" font-size="10" font-style="italic" fill="#fef3c7">Detecta correlação · não prova mecanismo causal isoladamente</text>
+  <text x="920" y="320" text-anchor="end" font-size="11" font-weight="700" fill="#fef3c7">$$</text>
+
+  <!-- Nível 2 -->
+  <rect x="80" y="360" width="860" height="70" rx="6" fill="url(#nivel2)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="100" y="388" font-size="14" font-weight="700" fill="#0d1b2a">2 · EXPLAINABILITY POR ATRIBUIÇÃO</text>
+  <text x="100" y="408" font-size="11" fill="#0d1b2a">Attention weights, integrated gradients, SHAP, LIME · quais inputs importam para a saída</text>
+  <text x="100" y="424" font-size="10" font-style="italic" fill="#0d1b2a">Útil para reporting · limitado em explicar mecanismo interno do modelo</text>
+  <text x="920" y="400" text-anchor="end" font-size="11" font-weight="700" fill="#0d1b2a">$$</text>
+
+  <!-- Nível 1 (base) -->
+  <rect x="80" y="440" width="860" height="70" rx="6" fill="url(#nivel1)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="100" y="468" font-size="14" font-weight="700" fill="#fef3c7">1 · INTERPRETABILIDADE COMPORTAMENTAL</text>
+  <text x="100" y="488" font-size="11" fill="#fef3c7">Variar inputs, observar outputs · evals, red team, A/B testing comportamental</text>
+  <text x="100" y="504" font-size="10" font-style="italic" fill="#bbf7d0">Baseline obrigatório · primeira camada de auditoria · não abre a caixa</text>
+  <text x="920" y="480" text-anchor="end" font-size="11" font-weight="700" fill="#bbf7d0">$</text>
+
+  <text x="500" y="555" text-anchor="middle" font-size="11" fill="#fef3c7" font-style="italic">O CTO defensável combina níveis 1-3 em rotina · escala para 4-5 conforme risco regulatório do produto.</text>
+  <text x="500" y="578" text-anchor="middle" font-size="11" fill="#E97451" font-weight="700">Caixa-preta absoluta deixou de ser postura aceitável em 2026.</text>
+</svg>

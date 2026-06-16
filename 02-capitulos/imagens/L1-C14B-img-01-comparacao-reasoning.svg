@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" font-family="Inter, system-ui, sans-serif">
+  <title>C14B — Três modos de raciocínio comparados</title>
+  <desc>Zero-shot CoT, Few-shot CoT e Reasoning Model treinado comparados por custo, latência, qualidade, auditabilidade.</desc>
+
+  <defs>
+    <linearGradient id="zeroGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+    <linearGradient id="fewGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#E97451"/>
+    </linearGradient>
+    <linearGradient id="reasoningGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1b263b"/>
+      <stop offset="100%" stop-color="#0d1b2a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="600" fill="#0d1b2a"/>
+
+  <text x="500" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#fef3c7">REASONING MODELS — TRÊS MODOS, USOS DISTINTOS</text>
+  <text x="500" y="64" text-anchor="middle" font-size="12" fill="#9ca3af" font-style="italic">Não é "modelo melhor" · é categoria com perfil próprio de custo, latência e auditabilidade</text>
+
+  <!-- Três colunas -->
+  <!-- Coluna 1: Zero-shot CoT -->
+  <rect x="40" y="100" width="290" height="440" rx="8" fill="url(#zeroGrad)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="185" y="138" text-anchor="middle" font-size="16" font-weight="700" fill="#fef3c7">ZERO-SHOT CoT</text>
+  <text x="185" y="158" text-anchor="middle" font-size="11" fill="#fef3c7" font-style="italic">"Pense passo a passo"</text>
+
+  <line x1="60" y1="178" x2="310" y2="178" stroke="#fef3c7" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <text x="60" y="205" font-size="11" font-weight="700" fill="#fef3c7">Custo</text>
+  <text x="60" y="222" font-size="11" fill="#fef3c7">2-5× tokens de resposta direta</text>
+
+  <text x="60" y="252" font-size="11" font-weight="700" fill="#fef3c7">Latência</text>
+  <text x="60" y="269" font-size="11" fill="#fef3c7">Proporcional aos tokens</text>
+
+  <text x="60" y="299" font-size="11" font-weight="700" fill="#fef3c7">Qualidade</text>
+  <text x="60" y="316" font-size="11" fill="#fef3c7">Boa em complexidade moderada</text>
+
+  <text x="60" y="346" font-size="11" font-weight="700" fill="#fef3c7">Auditabilidade</text>
+  <text x="60" y="363" font-size="11" fill="#fef3c7">100% · cadeia totalmente visível</text>
+
+  <text x="60" y="403" font-size="11" font-weight="700" fill="#fef3c7">Quando usar</text>
+  <text x="60" y="421" font-size="10" fill="#fef3c7">· Tarefa de complexidade média</text>
+  <text x="60" y="437" font-size="10" fill="#fef3c7">· Orçamento de tokens apertado</text>
+  <text x="60" y="453" font-size="10" fill="#fef3c7">· Auditoria completa exigida</text>
+
+  <text x="60" y="495" font-size="11" font-weight="700" fill="#fef3c7">Exemplos</text>
+  <text x="60" y="513" font-size="10" fill="#fef3c7">Claude 4.7 · GPT-5.5 · Gemini 3.1</text>
+  <text x="60" y="528" font-size="10" fill="#fef3c7">(modo padrão · prompt CoT)</text>
+
+  <!-- Coluna 2: Few-shot CoT -->
+  <rect x="355" y="100" width="290" height="440" rx="8" fill="url(#fewGrad)" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="500" y="138" text-anchor="middle" font-size="16" font-weight="700" fill="#fef3c7">FEW-SHOT CoT</text>
+  <text x="500" y="158" text-anchor="middle" font-size="11" fill="#fef3c7" font-style="italic">CoT por imitação de exemplos</text>
+
+  <line x1="375" y1="178" x2="625" y2="178" stroke="#fef3c7" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <text x="375" y="205" font-size="11" font-weight="700" fill="#fef3c7">Custo</text>
+  <text x="375" y="222" font-size="11" fill="#fef3c7">Alto em input (exemplos pesam)</text>
+
+  <text x="375" y="252" font-size="11" font-weight="700" fill="#fef3c7">Latência</text>
+  <text x="375" y="269" font-size="11" fill="#fef3c7">Maior que zero-shot</text>
+
+  <text x="375" y="299" font-size="11" font-weight="700" fill="#fef3c7">Qualidade</text>
+  <text x="375" y="316" font-size="11" fill="#fef3c7">Calibrada para o domínio</text>
+
+  <text x="375" y="346" font-size="11" font-weight="700" fill="#fef3c7">Auditabilidade</text>
+  <text x="375" y="363" font-size="11" fill="#fef3c7">100% · cadeia totalmente visível</text>
+
+  <text x="375" y="403" font-size="11" font-weight="700" fill="#fef3c7">Quando usar</text>
+  <text x="375" y="421" font-size="10" fill="#fef3c7">· Estrutura de raciocínio específica</text>
+  <text x="375" y="437" font-size="10" fill="#fef3c7">· Análise de contrato, parecer</text>
+  <text x="375" y="453" font-size="10" fill="#fef3c7">· Diagnóstico clínico estruturado</text>
+
+  <text x="375" y="495" font-size="11" font-weight="700" fill="#fef3c7">Exemplos</text>
+  <text x="375" y="513" font-size="10" fill="#fef3c7">Qualquer modelo de propósito geral</text>
+  <text x="375" y="528" font-size="10" fill="#fef3c7">com 3-5 exemplos em prompt</text>
+
+  <!-- Coluna 3: Reasoning model treinado -->
+  <rect x="670" y="100" width="290" height="440" rx="8" fill="url(#reasoningGrad)" stroke="#E97451" stroke-width="2.5"/>
+  <text x="815" y="138" text-anchor="middle" font-size="16" font-weight="700" fill="#fef3c7">REASONING MODEL</text>
+  <text x="815" y="158" text-anchor="middle" font-size="11" fill="#fef3c7" font-style="italic">Pensamento treinado por RL</text>
+
+  <line x1="690" y1="178" x2="940" y2="178" stroke="#fef3c7" stroke-width="0.5" stroke-dasharray="3,2"/>
+
+  <text x="690" y="205" font-size="11" font-weight="700" fill="#fef3c7">Custo</text>
+  <text x="690" y="222" font-size="11" fill="#fca5a5">5-20× CoT · tier separado</text>
+
+  <text x="690" y="252" font-size="11" font-weight="700" fill="#fef3c7">Latência</text>
+  <text x="690" y="269" font-size="11" fill="#fca5a5">Dezenas de segundos</text>
+
+  <text x="690" y="299" font-size="11" font-weight="700" fill="#fef3c7">Qualidade</text>
+  <text x="690" y="316" font-size="11" fill="#fef3c7">Superior em mat./código/planejamento</text>
+
+  <text x="690" y="346" font-size="11" font-weight="700" fill="#fef3c7">Auditabilidade</text>
+  <text x="690" y="363" font-size="11" fill="#fca5a5">Parcial · cadeia oculta ou resumida</text>
+
+  <text x="690" y="403" font-size="11" font-weight="700" fill="#fef3c7">Quando usar</text>
+  <text x="690" y="421" font-size="10" fill="#fef3c7">· Matemática avançada, código complexo</text>
+  <text x="690" y="437" font-size="10" fill="#fef3c7">· Planejamento multipasso</text>
+  <text x="690" y="453" font-size="10" fill="#fef3c7">· Tolerância de latência alta</text>
+
+  <text x="690" y="495" font-size="11" font-weight="700" fill="#fef3c7">Exemplos</text>
+  <text x="690" y="513" font-size="10" fill="#fef3c7">o3, o4-mini · Claude Adaptive</text>
+  <text x="690" y="528" font-size="10" fill="#fef3c7">DeepSeek R1 · Gemini extended</text>
+
+  <text x="500" y="575" text-anchor="middle" font-size="11" fill="#9ca3af" font-style="italic">Roteamento maduro escolhe o modo por tarefa, não trata reasoning como "modelo melhor".</text>
+</svg>

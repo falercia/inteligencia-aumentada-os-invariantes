@@ -1,0 +1,83 @@
+<svg viewBox="0 0 1000 540" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <rect width="1000" height="540" fill="#fefce8"/>
+  <text x="500" y="40" fill="#0d1b2a" font-size="22" font-weight="700" text-anchor="middle">REPOSITÓRIOS GITHUB POR CATEGORIA</text>
+  <text x="500" y="64" fill="#6b7280" font-size="13" text-anchor="middle">A constelação de open source que sustenta o ecossistema de IA moderna</text>
+
+  <g>
+    <rect x="60" y="100" width="280" height="200" rx="10" fill="#fde68a" stroke="#fb923c" stroke-width="2"/>
+    <text x="200" y="128" fill="#0d1b2a" font-size="13" font-weight="700" text-anchor="middle">🤖 CLAUDE &amp; ANTHROPIC</text>
+    <text x="80" y="156" fill="#374151" font-size="11">• anthropics/claude-code</text>
+    <text x="80" y="174" fill="#374151" font-size="11">• anthropics/anthropic-sdk-python</text>
+    <text x="80" y="192" fill="#374151" font-size="11">• anthropics/anthropic-cookbook</text>
+    <text x="80" y="210" fill="#374151" font-size="11">• anthropics/courses</text>
+    <text x="80" y="228" fill="#374151" font-size="11">• hesreallyhim/awesome-claude-code</text>
+    <text x="80" y="258" fill="#fb923c" font-size="10" font-weight="700">Por que importam:</text>
+    <text x="80" y="276" fill="#6b7280" font-size="10">SDKs oficiais, exemplos canônicos,</text>
+    <text x="80" y="290" fill="#6b7280" font-size="10">curadoria comunitária de qualidade</text>
+  </g>
+
+  <g>
+    <rect x="360" y="100" width="280" height="200" rx="10" fill="#bbf7d0" stroke="#16a34a" stroke-width="2"/>
+    <text x="500" y="128" fill="#0d1b2a" font-size="13" font-weight="700" text-anchor="middle">🔌 MCP — MODEL CONTEXT PROTOCOL</text>
+    <text x="380" y="156" fill="#374151" font-size="11">• modelcontextprotocol/servers</text>
+    <text x="380" y="174" fill="#374151" font-size="11">• modelcontextprotocol/python-sdk</text>
+    <text x="380" y="192" fill="#374151" font-size="11">• modelcontextprotocol/typescript-sdk</text>
+    <text x="380" y="210" fill="#374151" font-size="11">• punkpeye/awesome-mcp-servers</text>
+    <text x="380" y="228" fill="#374151" font-size="11">• wong2/awesome-mcp-clients</text>
+    <text x="380" y="258" fill="#16a34a" font-size="10" font-weight="700">Por que importam:</text>
+    <text x="380" y="276" fill="#6b7280" font-size="10">A spec aberta + servidores prontos</text>
+    <text x="380" y="290" fill="#6b7280" font-size="10">para dezenas de SaaS comuns</text>
+  </g>
+
+  <g>
+    <rect x="660" y="100" width="280" height="200" rx="10" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+    <text x="800" y="128" fill="#0d1b2a" font-size="13" font-weight="700" text-anchor="middle">🤖 AGENTES &amp; FRAMEWORKS</text>
+    <text x="680" y="156" fill="#374151" font-size="11">• langchain-ai/langgraph</text>
+    <text x="680" y="174" fill="#374151" font-size="11">• crewAIInc/crewAI</text>
+    <text x="680" y="192" fill="#374151" font-size="11">• microsoft/autogen</text>
+    <text x="680" y="210" fill="#374151" font-size="11">• Significant-Gravitas/AutoGPT</text>
+    <text x="680" y="228" fill="#374151" font-size="11">• e2b-dev/awesome-ai-agents</text>
+    <text x="680" y="258" fill="#2563eb" font-size="10" font-weight="700">Por que importam:</text>
+    <text x="680" y="276" fill="#6b7280" font-size="10">Orquestração de agentes em produção,</text>
+    <text x="680" y="290" fill="#6b7280" font-size="10">com padrões e abstrações maduros</text>
+  </g>
+
+  <g>
+    <rect x="60" y="320" width="280" height="200" rx="10" fill="#fecaca" stroke="#dc2626" stroke-width="2"/>
+    <text x="200" y="348" fill="#0d1b2a" font-size="13" font-weight="700" text-anchor="middle">📚 RAG &amp; DADOS</text>
+    <text x="80" y="376" fill="#374151" font-size="11">• run-llama/llama_index</text>
+    <text x="80" y="394" fill="#374151" font-size="11">• langchain-ai/langchain</text>
+    <text x="80" y="412" fill="#374151" font-size="11">• chroma-core/chroma</text>
+    <text x="80" y="430" fill="#374151" font-size="11">• qdrant/qdrant</text>
+    <text x="80" y="448" fill="#374151" font-size="11">• pinecone-io/examples</text>
+    <text x="80" y="478" fill="#dc2626" font-size="10" font-weight="700">Por que importam:</text>
+    <text x="80" y="496" fill="#6b7280" font-size="10">Frameworks RAG e bancos vetoriais</text>
+    <text x="80" y="510" fill="#6b7280" font-size="10">padrão da indústria</text>
+  </g>
+
+  <g>
+    <rect x="360" y="320" width="280" height="200" rx="10" fill="#e9d5ff" stroke="#9333ea" stroke-width="2"/>
+    <text x="500" y="348" fill="#0d1b2a" font-size="13" font-weight="700" text-anchor="middle">⚙️ AI ENGINEERING &amp; OBSERVABILITY</text>
+    <text x="380" y="376" fill="#374151" font-size="11">• langfuse/langfuse</text>
+    <text x="380" y="394" fill="#374151" font-size="11">• Helicone/helicone</text>
+    <text x="380" y="412" fill="#374151" font-size="11">• Arize-ai/phoenix</text>
+    <text x="380" y="430" fill="#374151" font-size="11">• braintrust-ai/braintrust</text>
+    <text x="380" y="448" fill="#374151" font-size="11">• promptfoo/promptfoo</text>
+    <text x="380" y="478" fill="#9333ea" font-size="10" font-weight="700">Por que importam:</text>
+    <text x="380" y="496" fill="#6b7280" font-size="10">Observabilidade, evals e tooling</text>
+    <text x="380" y="510" fill="#6b7280" font-size="10">para operar IA em produção</text>
+  </g>
+
+  <g>
+    <rect x="660" y="320" width="280" height="200" rx="10" fill="#cffafe" stroke="#0891b2" stroke-width="2"/>
+    <text x="800" y="348" fill="#0d1b2a" font-size="13" font-weight="700" text-anchor="middle">🚀 MODELOS OPEN SOURCE</text>
+    <text x="680" y="376" fill="#374151" font-size="11">• meta-llama/llama</text>
+    <text x="680" y="394" fill="#374151" font-size="11">• mistralai/mistral-inference</text>
+    <text x="680" y="412" fill="#374151" font-size="11">• deepseek-ai/DeepSeek-V3</text>
+    <text x="680" y="430" fill="#374151" font-size="11">• QwenLM/Qwen</text>
+    <text x="680" y="448" fill="#374151" font-size="11">• ollama/ollama</text>
+    <text x="680" y="478" fill="#0891b2" font-size="10" font-weight="700">Por que importam:</text>
+    <text x="680" y="496" fill="#6b7280" font-size="10">Modelos open weights + ferramentas</text>
+    <text x="680" y="510" fill="#6b7280" font-size="10">para rodar localmente</text>
+  </g>
+</svg>

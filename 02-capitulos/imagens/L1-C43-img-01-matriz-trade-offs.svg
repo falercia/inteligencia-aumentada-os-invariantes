@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 620" font-family="Inter, system-ui, sans-serif">
+  <title>Os 6 trade-offs canônicos da IA</title>
+  <desc>Matriz dos 6 trade-offs canônicos com pergunta executiva, opção A, opção B e eixo decisor.</desc>
+
+  <rect width="1100" height="620" fill="#0d1b2a"/>
+
+  <text x="550" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#fef3c7">OS 6 TRADE-OFFS CANÔNICOS DA IA</text>
+  <text x="550" y="64" text-anchor="middle" font-size="12" fill="#9ca3af" font-style="italic">Cardápio executivo · consultar antes de qualquer decisão de arquitetura</text>
+
+  <!-- Cabeçalhos: ID (60) + Trade-off (180) + Pergunta (260) + Opção A (180) + Opção B (180) + Eixo decisor (200) -->
+  <g>
+    <rect x="40" y="90" width="60" height="40" fill="#E97451" stroke="#fef3c7" stroke-width="0.5"/>
+    <text x="70" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#0d1b2a">ID</text>
+
+    <rect x="100" y="90" width="180" height="40" fill="#E97451" stroke="#fef3c7" stroke-width="0.5"/>
+    <text x="190" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#0d1b2a">TRADE-OFF</text>
+
+    <rect x="280" y="90" width="260" height="40" fill="#E97451" stroke="#fef3c7" stroke-width="0.5"/>
+    <text x="410" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#0d1b2a">PERGUNTA EXECUTIVA</text>
+
+    <rect x="540" y="90" width="160" height="40" fill="#E97451" stroke="#fef3c7" stroke-width="0.5"/>
+    <text x="620" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#0d1b2a">OPÇÃO A</text>
+
+    <rect x="700" y="90" width="160" height="40" fill="#E97451" stroke="#fef3c7" stroke-width="0.5"/>
+    <text x="780" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#0d1b2a">OPÇÃO B</text>
+
+    <rect x="860" y="90" width="200" height="40" fill="#E97451" stroke="#fef3c7" stroke-width="0.5"/>
+    <text x="960" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#0d1b2a">EIXO DECISOR</text>
+  </g>
+
+  <!-- Linhas: cada uma com 70 de altura -->
+  <g font-size="11" fill="#fef3c7">
+    <!-- T1 -->
+    <rect x="40" y="130" width="60" height="70" fill="#1b263b" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="70" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#fbbf24">T1</text>
+    <rect x="100" y="130" width="180" height="70" fill="#1b263b" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="110" y="158" font-weight="700">RAG ×</text>
+    <text x="110" y="174" font-weight="700">Fine-tuning ×</text>
+    <text x="110" y="190" font-weight="700">Prompt enriquecido</text>
+    <rect x="280" y="130" width="260" height="70" fill="#1b263b" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="290" y="160" font-style="italic">"Conhecimento atualizado</text>
+    <text x="290" y="176" font-style="italic">ou comportamento</text>
+    <text x="290" y="192" font-style="italic">personalizado?"</text>
+    <rect x="540" y="130" width="160" height="70" fill="#1b263b" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="550" y="160">RAG: conhecimento</text>
+    <text x="550" y="176">muda toda semana,</text>
+    <text x="550" y="192">corpus grande</text>
+    <rect x="700" y="130" width="160" height="70" fill="#1b263b" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="710" y="160">Fine-tuning:</text>
+    <text x="710" y="176">comportamento e tom,</text>
+    <text x="710" y="192">domínio estável</text>
+    <rect x="860" y="130" width="200" height="70" fill="#1b263b" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="870" y="160">Frequência × corpus</text>
+    <text x="870" y="176">× custo de atualização</text>
+    <text x="870" y="192" font-size="10" font-style="italic" fill="#9ca3af">→ Cap 06, Cap 08</text>
+
+    <!-- T2 -->
+    <rect x="40" y="200" width="60" height="70" fill="#0d1b2a" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="70" y="240" text-anchor="middle" font-size="14" font-weight="700" fill="#fbbf24">T2</text>
+    <rect x="100" y="200" width="180" height="70" fill="#0d1b2a" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="110" y="228" font-weight="700">Agente autônomo ×</text>
+    <text x="110" y="244" font-weight="700">Workflow</text>
+    <text x="110" y="260" font-weight="700">determinístico</text>
+    <rect x="280" y="200" width="260" height="70" fill="#0d1b2a" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="290" y="230" font-style="italic">"O caminho até a</text>
+    <text x="290" y="246" font-style="italic">resposta é</text>
+    <text x="290" y="262" font-style="italic">conhecido?"</text>
+    <rect x="540" y="200" width="160" height="70" fill="#0d1b2a" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="550" y="230">Agente: variabilidade</text>
+    <text x="550" y="246">alta, descoberta</text>
+    <text x="550" y="262">de caminho</text>
+    <rect x="700" y="200" width="160" height="70" fill="#0d1b2a" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="710" y="230">Workflow:</text>
+    <text x="710" y="246">caminho mapeado,</text>
+    <text x="710" y="262">auditabilidade</text>
+    <rect x="860" y="200" width="200" height="70" fill="#0d1b2a" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="870" y="230">Variabilidade ×</text>
+    <text x="870" y="246">auditabilidade × custo</text>
+    <text x="870" y="262" font-size="10" font-style="italic" fill="#9ca3af">→ Cap 12, F3</text>
+
+    <!-- T3 -->
+    <rect x="40" y="270" width="60" height="70" fill="#1b263b" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="70" y="310" text-anchor="middle" font-size="14" font-weight="700" fill="#fbbf24">T3</text>
+    <rect x="100" y="270" width="180" height="70" fill="#1b263b" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="110" y="298" font-weight="700">Modelo fechado ×</text>
+    <text x="110" y="314" font-weight="700">Open source</text>
+    <text x="110" y="330" font-weight="700">self-hosted</text>
+    <rect x="280" y="270" width="260" height="70" fill="#1b263b" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="290" y="300" font-style="italic">"Preciso de soberania,</text>
+    <text x="290" y="316" font-style="italic">custo ou ponta</text>
+    <text x="290" y="332" font-style="italic">de qualidade?"</text>
+    <rect x="540" y="270" width="160" height="70" fill="#1b263b" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="550" y="300">Fechado: ponta de</text>
+    <text x="550" y="316">qualidade, cadência</text>
+    <text x="550" y="332">de release</text>
+    <rect x="700" y="270" width="160" height="70" fill="#1b263b" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="710" y="300">Open: soberania de</text>
+    <text x="710" y="316">dado, TCO em volume</text>
+    <text x="710" y="332">controle de versão</text>
+    <rect x="860" y="270" width="200" height="70" fill="#1b263b" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="870" y="300">Soberania × TCO real ×</text>
+    <text x="870" y="316">ponta × maturidade ops</text>
+    <text x="870" y="332" font-size="10" font-style="italic" fill="#9ca3af">→ Cap 16</text>
+
+    <!-- T4 -->
+    <rect x="40" y="340" width="60" height="70" fill="#0d1b2a" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="70" y="380" text-anchor="middle" font-size="14" font-weight="700" fill="#fbbf24">T4</text>
+    <rect x="100" y="340" width="180" height="70" fill="#0d1b2a" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="110" y="368" font-weight="700">Latência ×</text>
+    <text x="110" y="384" font-weight="700">Qualidade ×</text>
+    <text x="110" y="400" font-weight="700">Custo (triângulo)</text>
+    <rect x="280" y="340" width="260" height="70" fill="#0d1b2a" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="290" y="370" font-style="italic">"Onde está minha</text>
+    <text x="290" y="386" font-style="italic">restrição</text>
+    <text x="290" y="402" font-style="italic">dominante?"</text>
+    <rect x="540" y="340" width="160" height="70" fill="#0d1b2a" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="550" y="370">Triângulo clássico:</text>
+    <text x="550" y="386">otimizar um canto</text>
+    <text x="550" y="402">custa nos outros dois</text>
+    <rect x="700" y="340" width="160" height="70" fill="#0d1b2a" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="710" y="370">Não existe</text>
+    <text x="710" y="386">"rápido + bom +</text>
+    <text x="710" y="402">barato" combinados</text>
+    <rect x="860" y="340" width="200" height="70" fill="#0d1b2a" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="870" y="370">Identificar restrição</text>
+    <text x="870" y="386">dominante do caso de uso</text>
+    <text x="870" y="402" font-size="10" font-style="italic" fill="#9ca3af">→ Cap 36, F7</text>
+
+    <!-- T5 -->
+    <rect x="40" y="410" width="60" height="70" fill="#1b263b" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="70" y="450" text-anchor="middle" font-size="14" font-weight="700" fill="#fbbf24">T5</text>
+    <rect x="100" y="410" width="180" height="70" fill="#1b263b" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="110" y="438" font-weight="700">Automação plena ×</text>
+    <text x="110" y="454" font-weight="700">Human-in-the-loop</text>
+    <text x="110" y="470" font-weight="700">(HITL)</text>
+    <rect x="280" y="410" width="260" height="70" fill="#1b263b" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="290" y="440" font-style="italic">"Qual o custo de um</text>
+    <text x="290" y="456" font-style="italic">erro silencioso?"</text>
+    <rect x="540" y="410" width="160" height="70" fill="#1b263b" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="550" y="440">Automação: erro</text>
+    <text x="550" y="456">reversível, volume</text>
+    <text x="550" y="472">alto, inviável humano</text>
+    <rect x="700" y="410" width="160" height="70" fill="#1b263b" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="710" y="440">HITL: erro irreversível</text>
+    <text x="710" y="456">ou caro, regulação,</text>
+    <text x="710" y="472">domínio sensível</text>
+    <rect x="860" y="410" width="200" height="70" fill="#1b263b" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="870" y="440">Reversibilidade ×</text>
+    <text x="870" y="456">frequência × consequência</text>
+    <text x="870" y="472" font-size="10" font-style="italic" fill="#9ca3af">→ Cap 41, Cap 42</text>
+
+    <!-- T6 -->
+    <rect x="40" y="480" width="60" height="70" fill="#0d1b2a" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="70" y="520" text-anchor="middle" font-size="14" font-weight="700" fill="#fbbf24">T6</text>
+    <rect x="100" y="480" width="180" height="70" fill="#0d1b2a" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="110" y="508" font-weight="700">Generalismo ×</text>
+    <text x="110" y="524" font-weight="700">Especialização</text>
+    <rect x="280" y="480" width="260" height="70" fill="#0d1b2a" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="290" y="510" font-style="italic">"Modelo geral com</text>
+    <text x="290" y="526" font-style="italic">prompt forte, ou</text>
+    <text x="290" y="542" font-style="italic">modelo especializado?"</text>
+    <rect x="540" y="480" width="160" height="70" fill="#0d1b2a" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="550" y="510">Geral: domínio</text>
+    <text x="550" y="526">estável, mover rápido,</text>
+    <text x="550" y="542">volume moderado</text>
+    <rect x="700" y="480" width="160" height="70" fill="#0d1b2a" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="710" y="510">Especializado:</text>
+    <text x="710" y="526">domínio nicho, volume</text>
+    <text x="710" y="542">justifica treino</text>
+    <rect x="860" y="480" width="200" height="70" fill="#0d1b2a" stroke="#9ca3af" stroke-width="0.5"/>
+    <text x="870" y="510">Volume × estabilidade ×</text>
+    <text x="870" y="526">golden set × custo de treino</text>
+    <text x="870" y="542" font-size="10" font-style="italic" fill="#9ca3af">→ Cap 08, F2</text>
+  </g>
+
+  <text x="550" y="584" text-anchor="middle" font-size="12" font-style="italic" fill="#fef3c7">★ Nenhum dos seis é decisão binária. Cada um é triângulo, raramente dicotomia.</text>
+  <text x="550" y="604" text-anchor="middle" font-size="11" font-style="italic" fill="#9ca3af">"Não existe decisão de IA sem trade-off. Existe decisão sem consciência do trade-off." — Cap 43</text>
+</svg>

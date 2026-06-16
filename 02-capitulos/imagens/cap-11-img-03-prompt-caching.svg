@@ -1,0 +1,64 @@
+<svg viewBox="0 0 900 540" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <rect width="900" height="540" fill="#fefce8"/>
+
+  <text x="450" y="40" fill="#0d1b2a" font-size="22" font-weight="700" text-anchor="middle">PROMPT CACHING — O MULTIPLICADOR DE ECONOMIA</text>
+  <text x="450" y="64" fill="#6b7280" font-size="13" text-anchor="middle">Cobra-se 10% do preço por tokens cacheados, e a maioria das equipes ignora isso</text>
+
+  <!-- Without caching -->
+  <g>
+    <rect x="60" y="100" width="370" height="380" rx="12" fill="#fecaca" stroke="#dc2626" stroke-width="2"/>
+    <text x="245" y="128" fill="#dc2626" font-size="14" font-weight="700" text-anchor="middle">SEM CACHING</text>
+    <text x="245" y="146" fill="#6b7280" font-size="11" text-anchor="middle" font-style="italic">cobrança cheia em toda chamada</text>
+
+    <text x="80" y="184" fill="#0d1b2a" font-size="12" font-weight="600">Composição de cada chamada:</text>
+
+    <rect x="80" y="196" width="330" height="22" rx="3" fill="#fbbf24"/>
+    <text x="90" y="212" fill="#0d1b2a" font-size="10">System prompt (5.000 tokens) — preço cheio</text>
+
+    <rect x="80" y="222" width="330" height="22" rx="3" fill="#fdba74"/>
+    <text x="90" y="238" fill="#0d1b2a" font-size="10">Knowledge base (4.000 tokens) — preço cheio</text>
+
+    <rect x="80" y="248" width="200" height="22" rx="3" fill="#fb923c"/>
+    <text x="90" y="264" fill="#0d1b2a" font-size="10">RAG (3.000 tokens) — preço cheio</text>
+
+    <rect x="80" y="274" width="80" height="22" rx="3" fill="#dc2626"/>
+    <text x="90" y="290" fill="#fef3c7" font-size="10">Query (300)</text>
+
+    <text x="80" y="332" fill="#0d1b2a" font-size="12" font-weight="700">Custo input por chamada:</text>
+    <text x="80" y="356" fill="#dc2626" font-size="22" font-weight="800">$0,037</text>
+
+    <text x="80" y="396" fill="#0d1b2a" font-size="12" font-weight="700">A 100k chamadas/mês:</text>
+    <text x="80" y="420" fill="#dc2626" font-size="20" font-weight="800">$3.700/mês</text>
+    <text x="80" y="442" fill="#6b7280" font-size="10">$44k/ano apenas em input</text>
+  </g>
+
+  <!-- With caching -->
+  <g>
+    <rect x="470" y="100" width="370" height="380" rx="12" fill="#bbf7d0" stroke="#16a34a" stroke-width="2"/>
+    <text x="655" y="128" fill="#16a34a" font-size="14" font-weight="700" text-anchor="middle">COM CACHING ESTRUTURADO</text>
+    <text x="655" y="146" fill="#6b7280" font-size="11" text-anchor="middle" font-style="italic">primeira chamada paga, próximas economizam</text>
+
+    <text x="490" y="184" fill="#0d1b2a" font-size="12" font-weight="600">Composição de cada chamada:</text>
+
+    <rect x="490" y="196" width="330" height="22" rx="3" fill="#86efac"/>
+    <text x="500" y="212" fill="#0d1b2a" font-size="10">System (cache hit) — 10% do preço</text>
+
+    <rect x="490" y="222" width="330" height="22" rx="3" fill="#86efac"/>
+    <text x="500" y="238" fill="#0d1b2a" font-size="10">Knowledge (cache hit) — 10% do preço</text>
+
+    <rect x="490" y="248" width="200" height="22" rx="3" fill="#fb923c"/>
+    <text x="500" y="264" fill="#0d1b2a" font-size="10">RAG (3.000 tokens) — preço cheio</text>
+
+    <rect x="490" y="274" width="80" height="22" rx="3" fill="#dc2626"/>
+    <text x="500" y="290" fill="#fef3c7" font-size="10">Query (300)</text>
+
+    <text x="490" y="332" fill="#0d1b2a" font-size="12" font-weight="700">Custo input por chamada:</text>
+    <text x="490" y="356" fill="#16a34a" font-size="22" font-weight="800">$0,012</text>
+
+    <text x="490" y="396" fill="#0d1b2a" font-size="12" font-weight="700">A 100k chamadas/mês:</text>
+    <text x="490" y="420" fill="#16a34a" font-size="20" font-weight="800">$1.200/mês</text>
+    <text x="490" y="442" fill="#16a34a" font-size="10" font-weight="700">economia de $30k/ano</text>
+  </g>
+
+  <text x="450" y="510" fill="#E97451" font-size="12" text-anchor="middle" font-weight="700">A configuração leva 30 minutos. A maioria das equipes nunca a configura, e queima dinheiro silenciosamente.</text>
+</svg>

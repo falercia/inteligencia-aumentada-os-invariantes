@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" font-family="Inter, system-ui, sans-serif">
+  <title>Funil do alinhamento</title>
+  <desc>Da capacidade ao comportamento: pré-treinamento, SFT, RLHF/RLAIF/CAI, avaliação, refinamento contínuo. Cada etapa com input, output e custo relativo.</desc>
+
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0d1b2a"/>
+      <stop offset="100%" stop-color="#1b263b"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1b263b"/>
+      <stop offset="100%" stop-color="#374151"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#E97451"/>
+    </linearGradient>
+    <linearGradient id="g4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E97451"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="620" fill="#fefce8"/>
+
+  <text x="500" y="42" text-anchor="middle" font-size="22" font-weight="700" fill="#0d1b2a">FUNIL DO ALINHAMENTO</text>
+  <text x="500" y="64" text-anchor="middle" font-size="12" fill="#6b7280" font-style="italic">Pré-treinamento dá capacidade; alinhamento dá comportamento</text>
+
+  <!-- Etapa 1: y 100-180 -->
+  <polygon points="80,180 920,180 820,100 180,100" fill="url(#g1)"/>
+  <text x="500" y="130" text-anchor="middle" font-size="14" font-weight="700" fill="#fef3c7">1 · PRÉ-TREINAMENTO</text>
+  <text x="500" y="150" text-anchor="middle" font-size="11" fill="#9ca3af">trilhões de tokens · texto não-rotulado</text>
+  <text x="500" y="166" text-anchor="middle" font-size="10" fill="#9ca3af">web · livros · código · papers</text>
+
+  <!-- Etapa 2: y 200-280 -->
+  <polygon points="180,280 820,280 740,200 260,200" fill="url(#g2)"/>
+  <text x="500" y="230" text-anchor="middle" font-size="13" font-weight="700" fill="#fef3c7">2 · SFT — Supervised Fine-Tuning</text>
+  <text x="500" y="250" text-anchor="middle" font-size="11" fill="#9ca3af">centenas de milhares de pares (instrução, resposta)</text>
+  <text x="500" y="266" text-anchor="middle" font-size="10" fill="#9ca3af">ensina formato e tom esperados</text>
+
+  <!-- Etapa 3: y 300-380 -->
+  <polygon points="260,380 740,380 660,300 340,300" fill="url(#g3)"/>
+  <text x="500" y="328" text-anchor="middle" font-size="13" font-weight="700" fill="#0d1b2a">3 · ALINHAMENTO POR PREFERÊNCIA</text>
+  <text x="500" y="346" text-anchor="middle" font-size="11" fill="#0d1b2a">RLHF (PPO) · RLAIF · Constitutional AI · DPO · ORPO</text>
+  <text x="500" y="362" text-anchor="middle" font-size="10" font-style="italic" fill="#0d1b2a">helpful · harmless · honest</text>
+
+  <!-- Etapa 4: y 400-480 -->
+  <polygon points="340,480 660,480 590,400 410,400" fill="url(#g4)"/>
+  <text x="500" y="428" text-anchor="middle" font-size="13" font-weight="700" fill="#0d1b2a">4 · AVALIAÇÃO COMPORTAMENTAL</text>
+  <text x="500" y="446" text-anchor="middle" font-size="10" fill="#0d1b2a">Red-teaming · Eval por 8 categorias de safety</text>
+  <text x="500" y="462" text-anchor="middle" font-size="10" fill="#0d1b2a">Calibração de juiz contra humano</text>
+
+  <!-- Etapa 5: y 500-560 -->
+  <polygon points="410,560 590,560 555,500 445,500" fill="#fbbf24"/>
+  <text x="500" y="528" text-anchor="middle" font-size="12" font-weight="700" fill="#0d1b2a">5 · REFINAMENTO CONTÍNUO</text>
+  <text x="500" y="546" text-anchor="middle" font-size="10" fill="#0d1b2a">sinais de produção · adversarial renovado</text>
+
+  <!-- Labels à esquerda -->
+  <text x="60" y="148" text-anchor="end" font-size="10" font-style="italic" fill="#6b7280">capacidade</text>
+  <text x="60" y="240" text-anchor="end" font-size="10" font-style="italic" fill="#6b7280">formato e</text>
+  <text x="60" y="254" text-anchor="end" font-size="10" font-style="italic" fill="#6b7280">tom emergem</text>
+  <text x="60" y="340" text-anchor="end" font-size="10" font-style="italic" fill="#6b7280">comportamento</text>
+  <text x="60" y="354" text-anchor="end" font-size="10" font-style="italic" fill="#6b7280">moldado</text>
+
+  <!-- Custo relativo à direita -->
+  <text x="940" y="148" text-anchor="start" font-size="10" font-style="italic" fill="#dc2626">~100% do custo</text>
+  <text x="940" y="240" text-anchor="start" font-size="10" font-style="italic" fill="#dc2626">~3-5%</text>
+  <text x="940" y="340" text-anchor="start" font-size="10" font-style="italic" fill="#dc2626">~1-3%</text>
+  <text x="940" y="440" text-anchor="start" font-size="10" font-style="italic" fill="#dc2626">contínuo</text>
+  <text x="940" y="530" text-anchor="start" font-size="10" font-style="italic" fill="#dc2626">contínuo</text>
+
+  <text x="500" y="596" text-anchor="middle" font-size="11" fill="#0d1b2a" font-style="italic">★ Em domínios sensíveis, alignment é mais importante que tamanho do modelo. — Invariante 1</text>
+</svg>

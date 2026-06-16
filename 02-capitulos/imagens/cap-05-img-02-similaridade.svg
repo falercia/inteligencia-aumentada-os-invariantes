@@ -1,0 +1,44 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="Inter, system-ui, sans-serif">
+  <rect width="900" height="460" fill="#0d1b2a"/>
+
+  <text x="450" y="40" fill="#fef3c7" font-size="22" font-weight="700" text-anchor="middle">BUSCA SEMÂNTICA vs BUSCA POR PALAVRA-CHAVE</text>
+  <text x="450" y="64" fill="#9ca3af" font-size="13" text-anchor="middle">A diferença entre encontrar a palavra e encontrar o significado</text>
+
+  <!-- Query box -->
+  <rect x="60" y="100" width="780" height="50" rx="8" fill="#1f2937" stroke="#E97451"/>
+  <text x="80" y="125" fill="#9ca3af" font-size="11" font-weight="600">PERGUNTA DO USUÁRIO:</text>
+  <text x="80" y="142" fill="#fef3c7" font-size="13" font-style="italic">"Como reduzir gastos da minha empresa com tecnologia?"</text>
+
+  <!-- Two columns -->
+  <g>
+    <rect x="60" y="180" width="380" height="240" rx="10" fill="#1b263b" stroke="#dc2626" stroke-width="2"/>
+    <text x="250" y="208" fill="#fca5a5" font-size="13" font-weight="700" text-anchor="middle">BUSCA POR PALAVRA-CHAVE</text>
+    <text x="250" y="226" fill="#9ca3af" font-size="11" text-anchor="middle">procura literalmente as palavras "gastos" e "tecnologia"</text>
+
+    <text x="80" y="262" fill="#fef3c7" font-size="11" font-weight="600">Documentos retornados:</text>
+    <text x="80" y="284" fill="#e5e7eb" font-size="11">✓ "Gastos do trimestre" (tem a palavra)</text>
+    <text x="80" y="304" fill="#e5e7eb" font-size="11">✓ "História da tecnologia mundial"</text>
+    <text x="80" y="324" fill="#fca5a5" font-size="11">✗ Perde: "Otimização de custos de TI"</text>
+    <text x="80" y="344" fill="#fca5a5" font-size="11">✗ Perde: "Eficiência em cloud computing"</text>
+    <text x="80" y="364" fill="#fca5a5" font-size="11">✗ Perde: "Como reduzir SaaS na operação"</text>
+
+    <text x="250" y="402" fill="#fca5a5" font-size="11" font-weight="700" text-anchor="middle">Encontra palavras, perde significado</text>
+  </g>
+
+  <g>
+    <rect x="460" y="180" width="380" height="240" rx="10" fill="#1b263b" stroke="#16a34a" stroke-width="2"/>
+    <text x="650" y="208" fill="#86efac" font-size="13" font-weight="700" text-anchor="middle">BUSCA SEMÂNTICA (EMBEDDINGS)</text>
+    <text x="650" y="226" fill="#9ca3af" font-size="11" text-anchor="middle">procura vetores próximos do significado da pergunta</text>
+
+    <text x="480" y="262" fill="#fef3c7" font-size="11" font-weight="600">Documentos retornados:</text>
+    <text x="480" y="284" fill="#86efac" font-size="11">✓ "Otimização de custos de TI"</text>
+    <text x="480" y="304" fill="#86efac" font-size="11">✓ "Eficiência em cloud computing"</text>
+    <text x="480" y="324" fill="#86efac" font-size="11">✓ "Como reduzir SaaS na operação"</text>
+    <text x="480" y="344" fill="#86efac" font-size="11">✓ "Renegociação com fornecedores"</text>
+    <text x="480" y="364" fill="#9ca3af" font-size="11">— sem precisar das palavras exatas</text>
+
+    <text x="650" y="402" fill="#86efac" font-size="11" font-weight="700" text-anchor="middle">Captura significado, supera vocabulário</text>
+  </g>
+
+  <text x="450" y="450" fill="#fbbf24" font-size="12" text-anchor="middle" font-style="italic">É essa diferença que torna RAG possível em escala corporativa.</text>
+</svg>
