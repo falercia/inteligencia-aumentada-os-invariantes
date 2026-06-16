@@ -315,7 +315,7 @@ A lição é estrutural. *Em 80%+ dos casos, workflow determinístico bem desenh
 | 2 | **Profundidade** — Defender em mesa técnica por que agente autônomo vence workflow determinístico só em casos específicos, e quais | ☐ |
 | 3 | **Aplicação** — Classificar, agora, três decisões recentes da sua operação pelos trade-offs e identificar uma onde houve erro | ☐ |
 | 4 | **Conexão** — Articular como o Cap 25 amarra os Caps 06, 08, 12, 15, 16, 18, 21, 22, 23 e 24 em sistema de decisão integrado | ☐ |
-| 5 | **Curiosidade ** — Está com vontade de produzir o Cardápio de Trade-offs do próprio produto na próxima semana | ☐ |
+| 5 | **Curiosidade** — Está com vontade de produzir o Cardápio de Trade-offs do próprio produto na próxima semana | ☐ |
 
 
 ---

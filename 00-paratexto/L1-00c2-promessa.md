@@ -13,7 +13,7 @@ Ao terminar, você sai com:
 - **Nove Princípios Permanentes** memorizáveis, que viram critério de decisão em reunião executiva, em revisão técnica e em conversa com fornecedor
 - **Nove Frameworks operacionais** (F1 a F9): método de decisão para adotar IA, encaixe modelo×tarefa, escala de propriedade de agente, engenharia de prompt estendida, cobertura de integrações, governança indelegável, custo composto, pirâmide de avaliação, rota dupla de adoção — os mais relevantes por perfil estão mapeados na tabela abaixo
 - **Vocabulário técnico profundo** sobre tokens, contexto, embeddings, RAG, memória, fine-tuning, agentes, MCP, reasoning models, evals, LLMOps, alignment, interpretabilidade mecanicista
-- **Trinta exemplos memoráveis brasileiros** — não estudos de caso americanos traduzidos, mas compostos pedagógicos construídos a partir de padrões observados em organizações brasileiras, com cargo, setor e números calibrados ao mercado nacional. O pacto editorial sobre a construção desses casos está declarado em *Sobre os Casos*, logo a seguir.
+- **Mais de trinta exemplos memoráveis brasileiros** — não estudos de caso americanos traduzidos, mas compostos pedagógicos construídos a partir de padrões observados em organizações brasileiras, com cargo, setor e números calibrados ao mercado nacional. O pacto editorial sobre a construção desses casos está declarado em *Sobre os Casos*, logo a seguir.
 - **Trilhas de leitura por perfil** (Iniciante, Intermediário, Avançado, Express Executivo), com guia de quando mudar de trilha se a atual não estiver entregando
 - **Roadmap pessoal por persona** com horas semanais reais e critério de abandono explícito
 

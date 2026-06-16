@@ -100,8 +100,6 @@
 
 ---
 
----
-
 ## Como ler papers de IA
 
 1. Abstract e conclusão primeiro. Em sessenta por cento dos casos, isso basta.

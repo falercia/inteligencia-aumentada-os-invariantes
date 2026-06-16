@@ -39,7 +39,7 @@ Quando você converte a palavra "gato" em embedding usando um modelo moderno de 
 
 ### 5.3.2 Como o Significado Emerge
 
-A intuição que ajuda a entender por que isso funciona vem de uma observação clássica em linguística, associada ao linguista britânico John Rupert Firth: contexto define significado. Em termos práticos para NLP, palavras que aparecem em contextos parecidos tendem a ter significados parecidos. Palavras que aparecem em contextos parecidos tendem a ter significados parecidos. "Médico" e "doutor" aparecem em frases muito similares, então o modelo aprende a posicioná-los próximos. "Médico" e "ferrovia" raramente compartilham contexto, então o modelo os afasta.
+A intuição que ajuda a entender por que isso funciona vem de uma observação clássica em linguística, associada ao linguista britânico John Rupert Firth: contexto define significado. Em termos práticos para NLP, palavras que aparecem em contextos parecidos tendem a ter significados parecidos. "Médico" e "doutor" aparecem em frases muito similares, então o modelo aprende a posicioná-los próximos. "Médico" e "ferrovia" raramente compartilham contexto, então o modelo os afasta.
 
 Estendendo essa intuição para frases e parágrafos inteiros, o que os modelos de embedding modernos fazem é encontrar uma representação numérica em que textos com semântica similar produzam vetores próximos, e textos com semântica diferente produzam vetores distantes. Esses modelos são treinados em pares de textos rotulados como similares ou dissimilares, e ajustam seus pesos até que essa propriedade se estabilize em larga escala.
 

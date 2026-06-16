@@ -1,7 +1,7 @@
 # Sobre os Casos desta Obra
 ## Pacto editorial de transparência
 
-Esta obra usa, ao longo dos 29 capítulos, mais de 30 exemplos memoráveis como instrumento pedagógico, todos eles construídos como **compostos pedagógicos** a partir de padrões observados em organizações brasileiras reais, sem identificar a organização original. Estes casos aparecem em capítulos centrais como a engenharia de contexto da fintech, a stack de AI Engineering da seguradora, a operação de LLMOps da Pólice.io, a governança da seguradora em diálogo com a ANPD, os trade-offs do e-commerce de moda, o roadmap pessoal do CTO de varejo, o caso da indústria de embalagens de Joinville, a auditoria do banco médio em interpretabilidade mecanicista, e diversos outros. Os exemplos têm cargo, setor, números e desfecho calibrados ao mercado nacional, e foram desenhados para virar referência operacional do leitor. Nenhum deles é caso atribuído nominalmente nesta edição, e o quadro a seguir declara a categoria de cada um.
+Esta obra usa, ao longo dos 29 capítulos, mais de trinta exemplos memoráveis como instrumento pedagógico, todos eles construídos como **compostos pedagógicos** a partir de padrões observados em organizações brasileiras reais, sem identificar a organização original. Estes casos aparecem em capítulos centrais como a engenharia de contexto da fintech, a stack de AI Engineering da seguradora, a operação de LLMOps da Pólice.io, a governança da seguradora em diálogo com a ANPD, os trade-offs do e-commerce de moda, o roadmap pessoal do CTO de varejo, o caso da indústria de embalagens de Joinville, a auditoria do banco médio em interpretabilidade mecanicista, e diversos outros. Os exemplos têm cargo, setor, números e desfecho calibrados ao mercado nacional, e foram desenhados para virar referência operacional do leitor. Nenhum deles é caso atribuído nominalmente nesta edição, e o quadro a seguir declara a categoria de cada um.
 
 ---
 
@@ -11,7 +11,7 @@ A obra opera com três tipos de caso, em proporções diferentes nesta primeira 
 
 | Tipo | O que é | Quantidade nesta edição | O que o leitor pode verificar |
 |---|---|---|---|
-| **Composto pedagógico** | Padrão observado em ≥2 organizações reais, com cargos, números e desfecho calibrados ao mercado BR. Não identifica a organização original. | **Mais de 30 compostos pedagógicos · todos os memoráveis desta edição** | Plausibilidade do padrão. Não verifica número específico. |
+| **Composto pedagógico** | Padrão observado em ≥2 organizações reais, com cargos, números e desfecho calibrados ao mercado BR. Não identifica a organização original. | **Mais de trinta compostos pedagógicos · todos os memoráveis desta edição** | Plausibilidade do padrão. Não verifica número específico. |
 | **Caso atribuído público** | Organização nomeada, com permissão explícita, número auditável, selo editorial específico. | **0 nesta edição. Sugestão de evolução: 3-5 em edição futura, conforme contribuições especialistas chegarem.** | Tudo: nome, número, desfecho, contato pós-publicação. |
 | **Estudo ficcional declarado** | Caso explicitamente sintético usado para ilustração de conceito (ex: cenários adversariais). | Pontual, sempre marcado como tal | Apenas a lógica conceitual; não pretende ser real. |
 

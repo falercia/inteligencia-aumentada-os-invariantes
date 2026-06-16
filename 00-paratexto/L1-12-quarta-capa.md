@@ -8,7 +8,7 @@
 
 A primeira geração de profissionais brasileiros que opera IA em escala está chegando ao ponto em que o entusiasmo do começo já não basta, e a inundação de ferramentas, modelos, frameworks e novidades semanais começa a custar caro em decisões mal direcionadas. *Inteligência Aumentada — Os Princípios Permanentes da IA* é a resposta sistemática para essa primeira geração, escrita por quem opera IA em produção no Brasil e construída para durar uma década.
 
-A obra organiza nove Princípios Permanentes, costurados em rede mútua, que formam a espinha intelectual sobre a qual a fronteira muda mas a fundação não. Sobre os Princípios, nove frameworks acionáveis traduzem cada um em instrumento de decisão: como decidir, como diagnosticar, como construir, como engenharar, como cobrir, como governar, como custear, como avaliar, como adotar. Mais de trinta exemplos memoráveis brasileiros, construídos a partir de padrões reais, transformam abstração em prática.
+A obra organiza os Nove Princípios Permanentes, costurados em rede mútua, que formam a espinha intelectual sobre a qual a fronteira muda mas a fundação não. Sobre os Princípios, nove frameworks acionáveis traduzem cada um em instrumento de decisão: como decidir, como diagnosticar, como construir, como engenharar, como cobrir, como governar, como custear, como avaliar, como adotar. Mais de trinta exemplos memoráveis brasileiros, construídos a partir de padrões reais, transformam abstração em prática.
 
 A profundidade técnica vai dos fundamentos da arquitetura até a operação em produção. A profundidade executiva vai do método de decisão ao caderno de governança, do roadmap pessoal ao critério de abandono de projeto.
 

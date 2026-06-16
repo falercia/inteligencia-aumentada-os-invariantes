@@ -264,8 +264,8 @@ Sobre as dificuldades genuínas de avaliar LLMs: Narayanan, A. & Kapoor, S., "Ev
 
 | # | Critério | Você consegue? |
 |---|----------|----------------|
-| 1 | Clareza: explicar para um diretor não-técnico em 90 segundos por que "ficou melhor" não é critério, usando a metáfora do laboratório clínico | ☐ |
-| 2 | Profundidade: defender em reunião técnica por que LLM-as-judge sem calibração contra humano é viés institucionalizado, citando o quadrante de decisão e a regra de juiz diferente do gerador | ☐ |
-| 3 | Aplicação: iniciar a primeira versão do golden set do seu produto esta semana, com pelo menos 30 casos representativos | ☐ |
-| 4 | Conexão: articular como o capítulo amarra o Princípio 7, RAG, LLMOps, alignment e governança | ☐ |
-| 5 | Curiosidade: vontade de entrar no próximo capítulo para entender como esse eval roda em produção, com tracing, versionamento e rollback proporcionais | ☐ |
+| 1 | **Clareza** — Explicar para um diretor não-técnico em 90 segundos por que "ficou melhor" não é critério, usando a metáfora do laboratório clínico | ☐ |
+| 2 | **Profundidade** — Defender em reunião técnica por que LLM-as-judge sem calibração contra humano é viés institucionalizado, citando o quadrante de decisão e a regra de juiz diferente do gerador | ☐ |
+| 3 | **Aplicação** — Iniciar a primeira versão do golden set do seu produto esta semana, com pelo menos 30 casos representativos | ☐ |
+| 4 | **Conexão** — Articular como o capítulo amarra o Princípio 7, RAG, LLMOps, alignment e governança | ☐ |
+| 5 | **Curiosidade** — Está com vontade de entrar no próximo capítulo para entender como esse eval roda em produção, com tracing, versionamento e rollback proporcionais | ☐ |

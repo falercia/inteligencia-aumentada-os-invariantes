@@ -26,7 +26,7 @@
 | Seção | pg |
 |---|---:|
 | Manifesto — Os Nove Princípios Permanentes da Inteligência Artificial | 1 |
-| Por que Padrão Dura e Número Morre — fundação intelectual da Camada Dupla | 22 |
+| Por Que Padrão Dura e Número Morre — fundação intelectual da Camada Dupla | 22 |
 
 ---
 

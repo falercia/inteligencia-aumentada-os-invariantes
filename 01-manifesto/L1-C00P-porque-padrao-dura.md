@@ -6,8 +6,6 @@
 
 ---
 
----
-
 ## ABERTURA
 
 A conta de quem persegue o número e ignora o padrão não chega no mês do release, chega no segundo ano depois dele, quando a versão que parecia consagrada virou plataforma morta, o contrato de fornecedor virou prisão de plataforma, o time inteiro decorou um vocabulário que ninguém mais usa, e a próxima rodada de migração custa três vezes a primeira porque a anterior consumiu a paciência da diretoria. O custo do número confundido com padrão não é caro porque o número é errado, é caro porque o número não foi feito para durar, e quem o tratou como durável pagou o seguro de uma promessa que ninguém assinou.

@@ -320,7 +320,7 @@ Em todo caso intermediário, comece pelos controles 1 (acesso), 2 (auditoria), 7
 | 2 | **Profundidade** — Defender em mesa técnica por que cada decisão de IA tem único Accountable, e por que comitê sem rosto enfraquece governança | ☐ |
 | 3 | **Aplicação** — Apontar, agora, qual dos 10 controles canônicos é o mais frágil na sua organização e propor remediação em 30 dias | ☐ |
 | 4 | **Conexão** — Articular como Cap 24 amarra Cap 21 (Evals), Cap 22 (LLMOps), Cap 23 (Alignment) e Cap 19 (Segurança) em sistema integrado | ☐ |
-| 5 | **Curiosidade ** — Está com vontade de entrar no Cap 25 para entender os trade-offs canônicos que governança ajuda a navegar | ☐ |
+| 5 | **Curiosidade** — Está com vontade de entrar no Cap 25 para entender os trade-offs canônicos que governança ajuda a navegar | ☐ |
 
 
 ---

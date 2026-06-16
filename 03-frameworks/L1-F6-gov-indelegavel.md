@@ -66,7 +66,7 @@ Cada camada tem dono nominal. Sem nome em cada camada, governança não fecha �
 | Campo | Conteúdo |
 |-------|----------|
 | Política em ≤6 páginas | AUP + princípios + categorias de safety |
-| RACI assinado | 8 papéis × 12 decisões mínimas (ver tabela abaixo) |
+| RACI assinado | 8 papéis × 12 decisões mínimas (ver tabela na seção 2 — Funcionamento) |
 | Plano de incidente testado | Severidades, comunicação, postmortem |
 | Matriz de maturidade | 10 controles em escala 0-4, com meta de 90/180/365 dias |
 | Donos nominais por camada | Técnica, Operacional, Executiva |
@@ -98,7 +98,7 @@ Seguradora BR de médio porte, após multa ANPD por negação automatizada de co
 - Controle 2 (Auditoria): retenção 5 anos para decisão automatizada com efeito jurídico
 - Controle 6 (Evals em CI): golden set inicial para classificação de cobertura
 - Controle 9 (Incidente): simulado trimestral com cronômetro
-- Controle 10 (AI Council): mandato escrito, cadência mensal nos primeiros 6 meses
+- Controle 10 (AI Council): mandato escrito, cadência mensal nos primeiros 12 meses
 
 **Após 7 meses:** matriz com 8 de 10 controles em maturidade ≥3. Multa não voltou. Seguradora apresenta caso em comitê setorial como exemplo de remediação.
 
@@ -122,6 +122,7 @@ Seguradora BR de médio porte, após multa ANPD por negação automatizada de co
 - 🔗 Cap 29 (L2) — Team, Cap 30 (L2) — Enterprise
 - 🔗 Método de Decisão para Adotar IA (Pergunta 5 — Responsabilidade — alimenta o RACI)
 - 🔗 Escala de Propriedade do Agente (níveis de autonomia precisam de governança proporcional)
+- 🔗 Pirâmide da Avaliação (controle 6 — evals em CI — é a implementação técnica do F8)
 
 ---
 

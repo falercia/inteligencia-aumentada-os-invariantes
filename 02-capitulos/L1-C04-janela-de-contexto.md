@@ -2,8 +2,6 @@
 
 ---
 
-> *"Contexto não é depósito, é palco. O que você coloca no centro tende a desaparecer no espetáculo."*
->
 > *"Tudo que está fora da janela, no instante da resposta, simplesmente não existe para o modelo. Saber disso muda como você arquiteta soluções."*
 
 ---

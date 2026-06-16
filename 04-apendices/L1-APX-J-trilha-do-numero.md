@@ -167,7 +167,7 @@ Toda alteração registra três campos no log de revisão: data da mudança, ite
 
 O autor não promete cadência fixa de release. O instrumento é vivo, e o ato de manter o número auditável e datado depende de janela de pesquisa que nem sempre se encerra no mês do calendário. A política assumida é simples e dura: publicar quando a revisão estiver pronta para ser cumprida sob crítica pública, jamais antes; sinalizar com clareza no cabeçalho a data da última revisão; e abrir revisões emergenciais a qualquer momento quando movimento relevante do mercado, da regulação ou da segurança justifique correção imediata.
 
-Honestidade temporal é parte da promessa da Rota Dupla, e essa honestidade fica mais bem servida pela ausência de calendário fixo do que pelo descumprimento de um calendário que prometido demais.
+Honestidade temporal é parte da promessa da Rota Dupla, e essa honestidade fica mais bem servida pela ausência de calendário fixo do que pelo descumprimento de um calendário que promete demais.
 
 ---
 

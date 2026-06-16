@@ -281,8 +281,4 @@ Escolha um fluxo em que o ganho de raciocínio profundo é plausível, idealment
 
 ---
 
-🎉 **Você acabou de fechar a Parte 3 — Agentes e IA Moderna.**
-
----
-
 > *"Modelos que pensam por mais tempo erram menos em problemas onde pensar resolve. Em problemas onde pensar não é o gargalo, pensar mais apenas faz a fatura crescer e a latência morder. O operador maduro sabe distinguir os dois casos antes de assinar o contrato."*

@@ -8,9 +8,9 @@
 >
 > **O que envelhece:** o XML executável, os nomes de modelo em campos de recomendação, os números de benchmarks citados, os limites de plataforma, os textos de exemplo. Tudo isso está sujeito a iteração. O repositório acompanhante ([github.com/falercia/inteligencia-aumentada-recursos](https://github.com/falercia/inteligencia-aumentada-recursos)) existe exatamente para absorver essa evolução sem congelar o conhecimento no livro.
 >
-> **O que não envelhece:** a lógica de camada dupla (separar o durável do volátil), os sete padrões de operação, os oito anti-padrões transversais, a anatomia F4 (persona → constituição → contexto → tarefa → formato), e a prática de manter golden set com regressão a cada troca de modelo. Esses são os invariantes. As fichas a seguir são exemplos de como eles se materializam em domínios reais — não o produto final do método, mas sua evidência.
+> **O que não envelhece:** a lógica de camada dupla (separar o durável do volátil), os oito padrões de operação, os oito anti-padrões transversais, a anatomia F4 (persona → constituição → contexto → tarefa → formato), e a prática de manter golden set com regressão a cada troca de modelo. Esses são os invariantes. As fichas a seguir são exemplos de como eles se materializam em domínios reais — não o produto final do método, mas sua evidência.
 >
-> **Como usar:** leia cada ficha perguntando "que princípio de engenharia de contexto está sendo aplicado aqui?" em vez de "posso copiar este prompt?". O leitor que sair do apêndice com os sete padrões internalizados tem mais do que o leitor que decorou os trinta XMLs. Modelos passam. Método fica.
+> **Como usar:** leia cada ficha perguntando "que princípio de engenharia de contexto está sendo aplicado aqui?" em vez de "posso copiar este prompt?". O leitor que sair do apêndice com os oito padrões internalizados tem mais do que o leitor que decorou os trinta XMLs. Modelos passam. Método fica.
 
 ---
 

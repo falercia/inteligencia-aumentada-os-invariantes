@@ -269,11 +269,13 @@ Escolha uma squad com maturidade de engenharia razoável e um módulo com escopo
 | 4 | **Conexão** — Articular como SDD instancia simultaneamente os Invariantes 9 (Operador), 3 (Camada Dupla), 6 (Autonomia Proporcional) e 8 (Responsabilidade Indelegável), e como se conecta com Caps 9, 11, 12, 14, 14B, 21 e 22 | ☐ |
 | 5 | **Curiosidade ativa** — Está com vontade de redesenhar o template de spec da sua engenharia a partir dos sete elementos, ou de propor o piloto controlado para sua liderança técnica nos próximos catorze dias | ☐ |
 
-**5 de 5?** Avance para o Capítulo 14B sobre reasoning models, onde o agente que planeja a implementação da spec ganha modo dedicado.
+**5 de 5?** Avance para o Capítulo 15 sobre comparação de modelos, onde a escolha do modelo certo para cada tarefa ganha critério estruturado.
 **3 ou 4?** Releia a seção 14C.3 inteira. É onde a mecânica do método se ancora.
 **Menos de 3?** O capítulo merece releitura completa, especialmente se sua organização está prestes a adotar agente de codificação em escala sem instalar a disciplina antes.
 
 ---
+
+🎉 **Você acabou de fechar a Parte 3 — Agentes e IA Moderna.**
 
 ---
 

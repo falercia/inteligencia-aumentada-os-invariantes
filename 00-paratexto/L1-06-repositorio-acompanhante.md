@@ -1,7 +1,8 @@
 # Repositório Acompanhante
 
-> **[PENDENTE — VERIFICAÇÃO PRÉ-PUBLICAÇÃO OBRIGATÓRIA]**
-> O repositório `github.com/falercia/inteligencia-aumentada-recursos` deve estar público, funcional e com as sete pastas listadas abaixo **antes do lançamento**. Verificar: (1) repositório existe e está público; (2) cada pasta listada existe com README funcional; (3) ao menos um artefato executável por pasta está disponível. Sem essa verificação, NÃO PUBLICAR — todas as promessas do livro sobre artefatos executáveis dependem deste repositório estar operacional.
+<!-- NOTA INTERNA DE PRODUÇÃO — NÃO INCLUIR NO ARQUIVO ENVIADO AO GRÁFICO OU DISTRIBUIDOR:
+VERIFICAÇÃO PRÉ-PUBLICAÇÃO OBRIGATÓRIA. O repositório github.com/falercia/inteligencia-aumentada-recursos deve estar público, funcional e com as sete pastas listadas abaixo antes do lançamento. Verificar: (1) repositório existe e está público; (2) cada pasta listada existe com README funcional; (3) ao menos um artefato executável por pasta está disponível. Sem essa verificação, NÃO PUBLICAR — todas as promessas do livro sobre artefatos executáveis dependem deste repositório estar operacional.
+-->
 
 > *O padrão dura no livro. O número muda no repositório.*
 
@@ -55,9 +56,7 @@ Três caminhos, conforme a intenção:
 
 ## Política de evolução
 
-O repositório é atualizado quando há entrega de qualidade para fazer — não por calendário, mas por movimento relevante do mercado ou da segurança que justifique revisão. A prioridade é sempre a qualidade da entrega sobre o cumprimento de datas. Releases recebem tag semântica e `CHANGELOG.md` versionado, indicando mudança item por item, motivo da mudança, e impacto observado em golden set ou em produção. A política editorial é simples e dura: nenhuma promessa de release que não esteja pronta para ser cumprida, e nenhum release publicado sem ter passado pela mesma disciplina de revisão que o livro exige de qualquer artefato sério.
-
-A política editorial é simples: nenhum release publicado sem ter passado pela mesma disciplina de revisão que o livro exige de qualquer artefato sério. O leitor que clona o repositório pode ativar *watch* no GitHub para receber notificação de novos releases, e o autor compromete-se apenas com a verdade do que foi entregue, jamais com data futura que não dependa só dele.
+O repositório é atualizado quando há entrega de qualidade para fazer — não por calendário, mas por movimento relevante do mercado ou da segurança que justifique revisão. A prioridade é sempre a qualidade da entrega sobre o cumprimento de datas. Releases recebem tag semântica e `CHANGELOG.md` versionado, indicando mudança item por item, motivo da mudança, e impacto observado em golden set ou em produção. A política editorial é simples e dura: nenhuma promessa de release que não esteja pronta para ser cumprida, e nenhum release publicado sem ter passado pela mesma disciplina de revisão que o livro exige de qualquer artefato sério. O leitor que clona o repositório pode ativar *watch* no GitHub para receber notificação de novos releases, e o autor compromete-se apenas com a verdade do que foi entregue, jamais com data futura que não dependa só dele.
 
 ---
 

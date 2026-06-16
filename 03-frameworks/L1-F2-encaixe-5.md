@@ -82,7 +82,7 @@ Eixos dominantes: **multimodal + contexto longo**. Encaixe: modelo com maior mat
 | Anti-padrão | Por que mata |
 |-------------|--------------|
 | "Lançou novo, vou trocar" | Migração sem teste cego na própria carga troca problema conhecido por desconhecido |
-| Usar tier premium para tudo "porque é o melhor" | Viola o Princípio do Custo Composto; em meses, a fatura mostra o erro |
+| Usar tier premium para tudo "porque é o melhor" | Viola o Princípio 5 (Custo Composto); em meses, a fatura mostra o erro |
 | Não ter fallback | Outage do provedor escolhido vira incidente para o cliente final |
 | Decidir por benchmark agregado | Esconde força em eixo específico que importa para sua carga |
 | Reavaliar só quando "a equipe quiser" | Sem cadência fixa, vira reação ao boato da semana |

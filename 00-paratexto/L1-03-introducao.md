@@ -43,7 +43,7 @@ Existe uma tentação editorial recorrente: cobrir tudo superficialmente, com pr
 
 ### Aposta 4 — Sistema citável próprio
 
-Esta é a aposta mais ambiciosa do livro, e a que mais o distingue da literatura existente. Em vez de simplesmente cobrir os tópicos com excelência, a obra propõe um sistema citável que costura tudo: os **nove princípios permanentes da inteligência artificial**. São os princípios que decidem se a IA funciona, independentemente do modelo da semana. Cada princípio tem regra, mecânica e violação típica. Cada capítulo declara, na primeira página, qual princípio instancia. Cada framework proprietário deriva de um princípio. Cada estudo de caso ilustra um conjunto deles em decisão real.
+Esta é a aposta mais ambiciosa do livro, e a que mais o distingue da literatura existente. Em vez de simplesmente cobrir os tópicos com excelência, a obra propõe um sistema citável que costura tudo: os **Nove Princípios Permanentes da Inteligência Artificial**. São os princípios que decidem se a IA funciona, independentemente do modelo da semana. Cada princípio tem regra, mecânica e violação típica. Cada capítulo declara, na primeira página, qual princípio instancia. Cada framework proprietário deriva de um princípio. Cada estudo de caso ilustra um conjunto deles em decisão real.
 
 Quem termina o livro não sai sabendo apenas o vocabulário técnico. Sai com um sistema de decisão que pode ser invocado em reunião — "estamos violando o princípio do encaixe nessa migração", "essa proposta passa pelo termômetro?", "quem é o nome humano que responde pela indelegabilidade?" — e que continua válido enquanto a função da IA for amplificar trabalho humano.
 

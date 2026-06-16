@@ -59,7 +59,7 @@ Esses riscos têm peso diferente dependendo de onde o modelo roda. Em APIs geren
 
 **Quando importa para o leitor brasileiro.** Empresas brasileiras que estão escolhendo entre rodar open weights em infraestrutura própria (típico em fintechs reguladas e em jurídico com sigilo forte) precisam entender MoE para dimensionar GPU corretamente. Um Mixtral 8x7B cabe em duas GPUs de oitenta gigas; um modelo denso de capacidade comparável exigiria quatro ou cinco. Isso muda a viabilidade econômica de deploy on-prem em ordens de magnitude, e o engenheiro de infra precisa do quadro completo para decidir.
 
-**Onde aprofundar.** Fedus, Zoph, Shazeer. *"Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity"*. JMLR, 2022. → arxiv.org/abs/2101.03961. Mixtral paper: Jiang et al. *"Mixtral of Experts"*. 2024. → arxiv.org/abs/2401.04088. Para os riscos de tiebreak leakage: Hayes et al., 2024 → arxiv.org/abs/2410.10074.
+**Onde aprofundar.** Fedus, Zoph, Shazeer. *"Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity"*. JMLR, 2022. → arxiv.org/abs/2101.03961. Mixtral paper: Jiang et al. *"Mixtral of Experts"*. 2024. → arxiv.org/abs/2401.04088. Para os riscos de tiebreak leakage: Hayes et al., 2024 → arxiv.org/abs/2410.22884.
 
 ---
 

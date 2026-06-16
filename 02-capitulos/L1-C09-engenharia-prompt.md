@@ -272,4 +272,4 @@ Escolha um prompt que você usa em volume e cujo resultado importa para a sua op
 
 ---
 
-> *"Quem trata prompt como conversa casual obtém respostas casuais. Quem trata como interface obtém comportamento profissional."*
+> *"O prompt versionado, testado e governado é o que separa a organização que escala IA da que depende de quem descobriu o truque na sexta-feira."*

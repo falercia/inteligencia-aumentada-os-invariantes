@@ -180,7 +180,7 @@ O primeiro é AGI, sigla em inglês para Artificial General Intelligence, ou Int
 > ⚠️ **ALERTA**
 > "AGI" é hoje um dos termos mais carregados e disputados da indústria, e cada laboratório usa uma definição ligeiramente diferente, geralmente otimizada para acomodar suas próprias capacidades. Use o termo com cautela em discussões profissionais, e sempre pergunte ao interlocutor, "AGI segundo qual definição?", antes de seguir a conversa.
 
-O segundo termo é ASI, sigla para Artificial Superintelligence, ou Superinteligência Artificial. Refere-se a um sistema que excede em muito a capacidade humana em todos os domínios cognitivos relevantes, e que portanto seria qualitativamente diferente, não apenas quantitativamente superior. ASI é hoje território de especulação, mas existe um corpo crescente de pesquisa séria sobre alinhamento, ou seja, como garantir que uma ASI tenha objetivos compatíveis com o bem-estar humano, e sobre segurança, ou seja, como evitar consequências catastróficas se algo der errado nesse processo. O tema é tratado de novo nos Capítulos 20 e 23.
+O segundo termo é ASI, sigla para Artificial Superintelligence, ou Superinteligência Artificial. Refere-se a um sistema que excede em muito a capacidade humana em todos os domínios cognitivos relevantes, e que portanto seria qualitativamente diferente, não apenas quantitativamente superior. ASI é hoje território de especulação, mas existe um corpo crescente de pesquisa séria sobre alinhamento, ou seja, como garantir que uma ASI tenha objetivos compatíveis com o bem-estar humano, e sobre segurança, ou seja, como evitar consequências catastróficas se algo der errado nesse processo. O tema é tratado de novo nos Capítulos 19 e 23.
 
 > 📊 **Diagrama 1.3 — Narrow AI, AGI e ASI**
 >
@@ -205,7 +205,7 @@ Três decisões diferentes, três investimentos diferentes em escala e cronogram
 
 ## 1.8 Conexões
 
-Este capítulo é a fundação sobre a qual o livro inteiro se constrói. Ele conversa especialmente com o Capítulo 2, sobre como modelos funcionam por dentro e o mecanismo de atenção, com os Capítulos 3 e 4, sobre tokens e janela de contexto, e com os Capítulos 12, 20 e 23, sobre agentes, segurança e o horizonte da AGI.
+Este capítulo é a fundação sobre a qual o livro inteiro se constrói. Ele conversa especialmente com o Capítulo 2, sobre como modelos funcionam por dentro e o mecanismo de atenção, com os Capítulos 3 e 4, sobre tokens e janela de contexto, e com os Capítulos 12, 19 e 23, sobre agentes, segurança e alinhamento.
 
 ---
 

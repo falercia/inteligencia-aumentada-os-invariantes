@@ -90,9 +90,9 @@ A matriz acima é o ponto de partida, não a resposta final. O arquiteto maduro 
 
 ---
 
-## 13.3 — EXPLICAÇÃO TÉCNICA
+## 13.4 — EXPLICAÇÃO TÉCNICA
 
-### 13.3.1 — A arquitetura cliente-servidor
+### 13.4.1 — A arquitetura cliente-servidor
 
 O MCP segue uma arquitetura cliente-servidor clássica, com papéis bem definidos para cada lado da comunicação.
 
@@ -108,7 +108,7 @@ A comunicação entre os dois acontece via JSON-RPC, com suporte a múltiplos tr
 >
 > *Cliente e servidor trocam três tipos de primitivas, com transporte flexível.*
 
-### 13.3.2 — As três primitivas
+### 13.4.2 — As três primitivas
 
 A elegância conceitual do MCP está na escolha de três primitivas que cobrem praticamente todas as necessidades de integração entre IA e ferramentas externas. Vou descrever cada uma com cuidado, porque entendê-las é o que separa quem opera MCP de quem só ouve falar.
 
@@ -120,7 +120,7 @@ A terceira primitiva é **Prompts**, que representa templates reutilizáveis de 
 
 Para tornar concreto como as três primitivas se declaram em um servidor MCP real, considere um servidor para um sistema interno de RH. Um **Resource** seria declarado com nome (`lista_cargos`), descrição ("Retorna todos os cargos ativos com nível e faixa salarial") e tipo de resposta (JSON com campos `cargo`, `nivel`, `faixa`). Uma **Tool** seria declarada com nome (`criar_solicitacao_vaga`), descrição ("Abre uma solicitação formal de vaga no sistema de RH"), parâmetros de entrada (`cargo`, `departamento`, `justificativa`) e comportamento em erro (retorna código de status e mensagem legível). A diferença operacional é imediata: Resource não muda estado no sistema; Tool pode. Esse é o critério que determina quando cada uma é usada e, principalmente, quando exigir confirmação humana antes de invocar.
 
-### 13.3.3 — O fluxo típico de uma interação
+### 13.4.3 — O fluxo típico de uma interação
 
 Para tornar tangível o que acontece quando um sistema MCP opera, vou descrever o fluxo típico passo a passo, considerando o cenário em que um usuário pergunta ao Claude algo que exige consultar um sistema externo via MCP.
 
@@ -136,7 +136,7 @@ A parte importante desse fluxo é que, do ponto de vista do usuário, tudo isso 
 
 ---
 
-## 13.4 — EXEMPLO MEMORÁVEL: A INTEGRAÇÃO QUE LEVAVA SEMANAS E PASSOU A LEVAR HORAS
+## 13.5 — EXEMPLO MEMORÁVEL: A INTEGRAÇÃO QUE LEVAVA SEMANAS E PASSOU A LEVAR HORAS
 
 > Cenário ilustrativo, composto a partir de casos recorrentes.
 
@@ -157,7 +157,7 @@ A lição estrutural não foi sobre tempo ou dinheiro economizado em um projeto 
 
 ---
 
-## 13.5 — O ECOSSISTEMA EM 2026
+## 13.6 — O ECOSSISTEMA EM 2026
 
 Vale entender o estado do ecossistema MCP em 2026, porque isso afeta decisões práticas que sua organização pode tomar nos próximos meses.
 
@@ -171,7 +171,7 @@ Para uma organização adotando MCP em 2026, a sequência recomendada é primeir
 
 ---
 
-## 13.6 — RISCOS E CUIDADOS
+## 13.7 — RISCOS E CUIDADOS
 
 MCP é poderoso, mas como toda tecnologia que dá capacidade nova vem com riscos próprios que vale conhecer antes de adotar amplamente.
 
@@ -185,7 +185,7 @@ O quarto é **dependência de qualidade do servidor**. Um servidor MCP mal escri
 
 ---
 
-## 13.7 — CONEXÕES COM OUTROS CAPÍTULOS
+## 13.8 — CONEXÕES COM OUTROS CAPÍTULOS
 - **Function calling como base técnica do tool use**: Capítulo 12
 - **Context Engineering, gestão do que entra no contexto**: Capítulo 11
 - **AI Engineering, operação de sistemas com MCP**: Capítulo 14
@@ -196,7 +196,7 @@ O quarto é **dependência de qualidade do servidor**. Um servidor MCP mal escri
 
 ---
 
-## 13.8 — RESUMO EXECUTIVO
+## 13.9 — RESUMO EXECUTIVO
 
 | Conceito | Síntese |
 |----------|---------|
@@ -212,7 +212,7 @@ O quarto é **dependência de qualidade do servidor**. Um servidor MCP mal escri
 
 ---
 
-## 13.9 — CHECKLIST DO CAPÍTULO
+## 13.10 — CHECKLIST DO CAPÍTULO
 
 - [ ] Explicar o problema M × N e como o MCP transforma em M + N
 - [ ] Diferenciar as três primitivas (Resources, Tools, Prompts) com exemplos próprios
@@ -223,7 +223,7 @@ O quarto é **dependência de qualidade do servidor**. Um servidor MCP mal escri
 
 ---
 
-## 13.10 — PERGUNTAS DE REVISÃO
+## 13.11 — PERGUNTAS DE REVISÃO
 
 1. Por que o MCP usa JSON-RPC e suporta tanto stdio quanto HTTP/SSE como transporte?
 2. Qual a diferença prática entre Resources e Tools, e por que essa separação importa para segurança?
@@ -233,7 +233,7 @@ O quarto é **dependência de qualidade do servidor**. Um servidor MCP mal escri
 
 ---
 
-## 13.11 — EXERCÍCIOS PRÁTICOS
+## 13.12 — EXERCÍCIOS PRÁTICOS
 
 ### Exercício 1 — Mapeamento de oportunidade
 Liste cinco sistemas internos da sua organização que se beneficiariam de servidor MCP. Para cada um, identifique os Resources que faria sentido expor e as Tools que valeria oferecer.
@@ -249,7 +249,7 @@ Para um servidor MCP hipotético que sua organização poderia construir, faça 
 
 ---
 
-## 13.12 — PROJETO DO CAPÍTULO
+## 13.13 — PROJETO DO CAPÍTULO
 
 **Implemente um servidor MCP funcional para um sistema interno.**
 
@@ -257,7 +257,7 @@ Escolha um sistema com API estável da sua organização. Use o SDK oficial em T
 
 ---
 
-## 13.13 — REFERÊNCIAS PRINCIPAIS
+## 13.14 — REFERÊNCIAS PRINCIPAIS
 
 📚 **Documentação oficial**
 
@@ -278,7 +278,7 @@ Escolha um sistema com API estável da sua organização. Use o SDK oficial em T
 
 ---
 
-## 13.14 — Autoavaliação
+## 13.15 — Autoavaliação
 
 | # | Critério | Você consegue? |
 |---|----------|----------------|

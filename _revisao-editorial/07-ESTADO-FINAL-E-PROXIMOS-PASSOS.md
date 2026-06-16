@@ -13,6 +13,9 @@ Partimos de uma banca adversarial sobre **73 arquivos lidos 100%** (~231 mil pal
 | **2** | Durabilidade — migração do perecível para a série | — | ✅ ~14k palavras perecíveis migradas; método + ponteiros |
 | **3** | P1 — clareza, retenção, Teste da Joana | 204 | ✅ ~170 editados; resto já resolvido/obsoleto |
 | **4** | P2 — acabamento | 122 | ✅ ~100 editados; resto resolvido/obsoleto |
+| **5** | Galé — leitura linear (ritmo, transições, repetições, voz) | — | ✅ 45 emendas de fluência em 28 arquivos; 21 pendências autorais consolidadas |
+
+> **Onda 5 (galé) concluída em 2026-06-16.** Detalhe em `08-CHANGELOG-ONDA5-GALE.md`; decisões na sua mão em `09-PENDENTES-ONDA5-DECISAO-AUTOR.md`; backup em `_backup-pre-onda5/`. Achados de maior peso: bug estrutural de numeração em C13 (corrigido), checklist ausente em C18 (adicionado), marcador "Parte 3" no lugar errado (movido), e — pendente de você — **a última frase do livro não ativa a tese "Modelos passam. Método fica."** (D1).
 
 **Cobertura:** dos 378 achados, ~317 foram resolvidos diretamente no manuscrito; ~45 ficaram obsoletos porque ondas anteriores ou a migração já os eliminaram; ~16 são deferidos por dependerem de você (ver §3).
 

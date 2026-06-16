@@ -1,7 +1,7 @@
 # Apêndice H — Bibliografia Completa
 ## *Fontes primárias e secundárias citadas na obra*
 
-> Bibliografia consolidada da obra. Para curadoria comentada, ver os apêndices de Leituras, Newsletters e Papers.
+> Bibliografia consolidada da obra. Para curadoria comentada, ver os apêndices de Leituras (APX-E) e Papers (APX-G).
 
 ---
 

@@ -146,7 +146,18 @@ Otimização de tokens tem retorno decrescente. Vale aprofundar enquanto a fatur
 
 > ⚠️ **Os percentuais não somam.** Cada alavanca é aplicada sobre o custo residual após as anteriores — não são ganhos aditivos sobre a fatura original. Prompt caching de 40–70% reduz a base; roteamento de 30–60% incide sobre o que sobrou; RAG enxuto de 30–50% incide sobre o resíduo seguinte. A economia composta realista com todas as sete alavancas bem executadas é de 60 a 75% da fatura original, não a soma dos intervalos acima. Operações já otimizadas ganharão menos; operações sem qualquer otimização prévia podem ganhar mais.
 
-## 18.8 — Perguntas de revisão
+## 18.8 — Checklist do capítulo
+
+- [ ] Decompor a fatura de IA da organização nos quatro termos da fórmula (tokens×preço, chamadas, redundância, tier) e identificar qual está sangrando
+- [ ] Aplicar as três alavancas (T1 roteamento, T2 topologia, T3 contexto) na ordem correta — tier antes de contexto
+- [ ] Implementar instrumentação básica de tokens por feature antes de qualquer programa de otimização
+- [ ] Identificar a feature de maior volume e avaliar se está no tier correto com golden set que sustente a migração
+- [ ] Aplicar prompt caching em pelo menos um system prompt estável e de alto volume
+- [ ] Estabelecer cadência mensal de revisão de custo por feature (otimização vira disciplina, não projeto)
+
+---
+
+## 18.9 — Perguntas de revisão
 
 1. Por que o "preço por token" é o termo trivial da fórmula de custo composto, e quais são os três multiplicadores que de fato escalam a fatura?
 2. Em que ordem as três alavancas arquiteturais devem ser atacadas, e por que começar pela poda de contexto é o erro mais comum?
@@ -154,7 +165,7 @@ Otimização de tokens tem retorno decrescente. Vale aprofundar enquanto a fatur
 4. Por que output costuma ser o token mais caro, e como isso muda a prioridade de controle de verbosidade?
 5. Como o Capítulo 18 se conecta com o Princípio 5 (Custo Composto) e com o Framework F7?
 
-## 18.9 — Exercícios práticos
+## 18.10 — Exercícios práticos
 
 **Exercício 1 — Decompor a própria fatura.** Pegue a fatura mensal de IA da sua operação e estime, mesmo que grosseiramente, quanto de cada um dos quatro termos da fórmula (tokens×preço, chamadas, redundância, tier) está dentro dela. O entregável é uma decomposição honesta que identifique qual termo está sangrando.
 
@@ -162,11 +173,11 @@ Otimização de tokens tem retorno decrescente. Vale aprofundar enquanto a fatur
 
 **Exercício 3 — Candidato a tier pequeno.** Identifique uma tarefa hoje no premium que pareça classificação, extração de campo ou roteamento (saída curta e estruturada). Defina o golden set mínimo que validaria a migração para o tier pequeno. O entregável é a especificação do golden set e o critério de aprovação.
 
-## 18.10 — Projeto do capítulo
+## 18.11 — Projeto do capítulo
 
 Conduza, em quatro a oito semanas, um piloto de otimização de custo em uma única feature de IA de alto volume da sua operação. Passos: (1) instrumente tokens e custo por chamada para a feature, estabelecendo baseline; (2) monte um golden set representativo que defina o que é "qualidade aceitável"; (3) aplique, nesta ordem, roteamento de tier, prompt caching e poda de contexto, medindo economia e qualidade a cada passo contra o baseline; (4) produza um relatório executivo com economia capturada, qualidade preservada (com evidência do golden set) e o plano de extensão para as demais features. O subproduto durável é o método de otimização da casa, reaplicável a cada nova feature.
 
-## 18.11 — Referências principais
+## 18.12 — Referências principais
 
 - Documentação oficial de prompt caching e tiers de modelo dos principais fornecedores — fonte primária para preços e mecânica de caching, que mudam com frequência; conferir versões pontuais no Apêndice J e no **Apêndice Vivo da série** (github.com/falercia/inteligencia-aumentada-recursos → `apendice-vivo`), onde a tabela de preços por tier e por provedor é atualizada mensalmente.
 - Capítulo 3 — Tokens (base conceitual do que é cobrado).
@@ -174,7 +185,7 @@ Conduza, em quatro a oito semanas, um piloto de otimização de custo em uma ún
 - Framework F7 — Custo Composto em Três Tempos (o plano operável das três alavancas, com metas, riscos e ordem).
 - Capítulo 22 — LLMOps, Pilar 5 (atribuição de custo por feature, que sustenta toda decisão de corte).
 
-## 18.12 — Autoavaliação
+## 18.13 — Autoavaliação
 
 | # | Critério | ☐ |
 |---|----------|---|

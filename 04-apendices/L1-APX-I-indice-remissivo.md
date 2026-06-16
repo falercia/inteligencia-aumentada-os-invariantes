@@ -16,7 +16,7 @@
 - **Autonomia Proporcional ★** — Princípio 6; capítulo sobre Agentes; capítulo sobre LLMOps; Escala de Propriedade do Agente
 
 ## B
-- **Banco Solar (caso)** — Engenharia de Prompt Estendida; Manifesto dos Princípios
+- **Banco Solar (caso)** — Engenharia de Prompt Estendida; Manifesto de Bolso (APX-M)
 - **Benchmark ◆** — capítulo sobre Comparação de modelos
 - **BPE** — capítulo sobre Tokens
 
@@ -72,7 +72,7 @@
 - **Lost in the Middle ◆** — capítulo sobre Janela de contexto; Princípio 2
 
 ## M
-- **Manifesto dos Princípios** — Introdução; Apêndice B (Mapa Mental)
+- **Manifesto de Bolso (APX-M)** — Introdução; Apêndice B (Mapa Mental)
 - **Mapa Mental** — Apêndice B
 - **MCP** — capítulo conceitual sobre MCP; Matriz de Cobertura de Integrações
 - **Matriz de Cobertura de Integrações** — método derivado dos Princípios 4 e 6
@@ -91,10 +91,10 @@
 - **Over-refusal** — capítulo sobre Alinhamento
 
 ## P
-- **Plausibilidade ★** — Princípio 1; capítulo sobre Como modelos funcionam; Manifesto dos Princípios
+- **Plausibilidade ★** — Princípio 1; capítulo sobre Como modelos funcionam; Manifesto de Bolso (APX-M)
 - **Pólice.io (caso)** — capítulo sobre LLMOps
 - **Postmortem sem culpa** — capítulo sobre Governança
-- **Prompt** — capítulo sobre Engenharia de prompt; Apêndice E (leituras de fundamentação); Engenharia de Prompt Estendida
+- **Prompt** — capítulo sobre Engenharia de prompt; Apêndice E (Como montar sua dieta de informação); Engenharia de Prompt Estendida
 - **Engenharia de Prompt Estendida** — método derivado dos Princípios 2 e 3
 - **Prompt injection** — capítulo sobre LLMOps
 
