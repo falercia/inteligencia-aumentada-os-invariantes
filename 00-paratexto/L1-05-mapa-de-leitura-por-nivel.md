@@ -50,7 +50,7 @@ Voltar uma trilha é movimento normal, não custo de orgulho. Avançar acontece 
 | Ordem | Item | Por que vir agora |
 |---|---|---|
 | 1 | Manifesto C00P — Por que padrão dura e número morre | Fundação intelectual; lê em qualquer nível |
-| 2 | Manifesto C00M — Os Nove Princípios Permanentes | Espinha da obra; lê com calma |
+| 2 | Manifesto C00M — Os Nove Invariantes da Inteligência Artificial | Espinha da obra; lê com calma |
 | 3 | C1 — O que é IA | Contexto histórico e conceitual mínimo |
 | 4 | C2 — Como modelos funcionam | Versão intuitiva da arquitetura |
 | 5 | C3 — Tokens | Conceito que abre tudo o resto |

@@ -1,18 +1,9 @@
 # F9 — Rota Dupla de Adoção
 ## Trilha de aprendizado e operação por camada (padrão × número)
 
-## POSICIONAMENTO RELATIVO AO C00P
-
-Este framework é o **protocolo operacional** do argumento que C00P (Por Que Padrão Dura e Número Morre) demonstra historicamente com quatro casos. A divisão de trabalho é precisa:
-
-- **C00P** responde *por que* a distinção existe — evidência histórica com Hadoop, LSTM, fine-tuning, LangChain; argumento para o CTO que resiste à separação.
-- **F9** responde *como operar* essa distinção no dia a dia — duas trilhas, cadências, diagnóstico pessoal, protocolo de pré-decisão.
-
-Se você leu C00P, F9 é o "como fazer" do que C00P demonstrou ser verdadeiro. Se você não leu C00P, F9 funciona como protocolo standalone — mas C00P entrega a evidência histórica que sustenta o argumento quando o interlocutor é cético.
-
----
-
 ## 1. OBJETIVO
+
+Este framework é o **protocolo operacional** do argumento que C00P (Por Que Padrão Dura e Número Morre) demonstra historicamente com quatro casos. A divisão de trabalho é precisa: C00P responde *por que* a distinção existe — evidência histórica com Hadoop, LSTM, fine-tuning, LangChain; argumento para o CTO que resiste à separação. F9 responde *como operar* essa distinção no dia a dia — duas trilhas, cadências, diagnóstico pessoal, protocolo de pré-decisão. Se você leu C00P, F9 é o "como fazer" do que C00P demonstrou ser verdadeiro. Se você não leu C00P, F9 funciona como protocolo standalone — mas C00P entrega a evidência histórica que sustenta o argumento quando o interlocutor é cético.
 
 Orientar o estudo e a operação do leitor distinguindo, em cada peça de conhecimento, o que é **padrão (decora)** do que é **número (consulta)**. Garantir que tempo de aprendizado vá para o que envelhece bem, e que tempo de consulta vá para o que muda — com fonte e data.
 

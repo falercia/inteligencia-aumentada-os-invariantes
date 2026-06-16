@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="Inter, system-ui, sans-serif">
+  <title>As 3 Camadas de Controle de IA — Pirâmide Técnica / Operacional / Executiva</title>
+  <desc>Pirâmide com três faixas horizontais: Executiva (topo), Operacional (meio), Técnica (base). Cada faixa lista os controles canônicos e os donos típicos. Sustenta o Invariante 8 (Responsabilidade Indelegável).</desc>
+
+  <rect width="900" height="620" fill="#fefce8"/>
+
+  <!-- Título -->
+  <text x="450" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#0d1b2a">AS 3 CAMADAS DE CONTROLE DE IA</text>
+  <text x="450" y="58" text-anchor="middle" font-size="12" fill="#6b7280" font-style="italic">Controle de IA é vertical: o que a base instrumenta, o topo responde — Invariante 8 (Responsabilidade Indelegável)</text>
+
+  <!-- =============================================
+       PIRÂMIDE: 3 faixas horizontais
+       Base: y=430..530 (larga) — TÉCNICA
+       Meio: y=300..430 — OPERACIONAL
+       Topo: y=190..300 (estreita) — EXECUTIVA
+       Coluna de donos: x=670..880
+       Pirâmide centralizada: x=60..660
+  ============================================= -->
+
+  <!-- ===== FAIXA TÉCNICA (BASE) ===== -->
+  <!-- Trapézio base: mais larga em baixo -->
+  <polygon points="60,530 840,530 780,430 120,430" fill="#374151"/>
+  <text x="450" y="458" text-anchor="middle" font-size="14" font-weight="700" fill="#fef3c7">CAMADA TÉCNICA</text>
+  <!-- Controles -->
+  <text x="290" y="478" text-anchor="middle" font-size="11" fill="#fef3c7">· Guardrails e controle de acesso</text>
+  <text x="290" y="494" text-anchor="middle" font-size="11" fill="#fef3c7">· Observabilidade / Logging / Tracing</text>
+  <text x="620" y="478" text-anchor="middle" font-size="11" fill="#fef3c7">· Redaction de PII</text>
+  <text x="620" y="494" text-anchor="middle" font-size="11" fill="#fef3c7">· Retenção de evidência</text>
+  <text x="450" y="514" text-anchor="middle" font-size="11" fill="#fef3c7">· Kill switch · Rollback · Evals em CI · Auditoria imutável</text>
+
+  <!-- ===== FAIXA OPERACIONAL (MEIO) ===== -->
+  <polygon points="120,430 780,430 680,300 220,300" fill="#1b263b"/>
+  <text x="450" y="330" text-anchor="middle" font-size="14" font-weight="700" fill="#fef3c7">CAMADA OPERACIONAL</text>
+  <!-- Controles -->
+  <text x="350" y="352" text-anchor="middle" font-size="11" fill="#fef3c7">· Política de incidentes SEV-1 a SEV-4</text>
+  <text x="350" y="370" text-anchor="middle" font-size="11" fill="#fef3c7">· Trilha regulatória por padrão</text>
+  <text x="600" y="352" text-anchor="middle" font-size="11" fill="#fef3c7">· Postmortem sem culpa (D+5)</text>
+  <text x="600" y="370" text-anchor="middle" font-size="11" fill="#fef3c7">· RACI de IA assinado</text>
+  <text x="450" y="395" text-anchor="middle" font-size="11" fill="#fef3c7">· Auditoria e maturidade (escala 0-4) · AUP treinada · Simulado trimestral</text>
+
+  <!-- ===== FAIXA EXECUTIVA (TOPO) ===== -->
+  <polygon points="220,300 680,300 580,190 320,190" fill="#0d1b2a"/>
+  <text x="450" y="218" text-anchor="middle" font-size="14" font-weight="700" fill="#fef3c7">CAMADA EXECUTIVA</text>
+  <!-- Controles -->
+  <text x="450" y="240" text-anchor="middle" font-size="11" fill="#fef3c7">· AI Council · Comitê de Ética · Comitê de Riscos</text>
+  <text x="450" y="258" text-anchor="middle" font-size="11" fill="#fef3c7">· Política / AUP · Accountability unipessoal</text>
+  <text x="450" y="276" text-anchor="middle" font-size="11" fill="#fef3c7">· Mandato executivo e cadência fixa</text>
+
+  <!-- Ponta da pirâmide -->
+  <polygon points="320,190 580,190 450,100" fill="#E97451"/>
+  <text x="450" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="#fef3c7">ESTRATÉGIA</text>
+
+  <!-- ===== COLUNA DE DONOS (lateral direita) ===== -->
+  <!-- Separador vertical -->
+  <line x1="856" y1="95" x2="856" y2="540" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Rótulo coluna -->
+  <text x="860" y="115" font-size="11" font-weight="700" fill="#0d1b2a">DONOS TÍPICOS</text>
+
+  <!-- Executiva -->
+  <rect x="856" y="130" width="8" height="8" fill="#0d1b2a" rx="1"/>
+  <text x="870" y="140" font-size="10" font-weight="700" fill="#0d1b2a">EXECUTIVA</text>
+  <text x="870" y="155" font-size="10" fill="#374151">CEO</text>
+  <text x="870" y="169" font-size="10" fill="#374151">CTO / CIO</text>
+  <text x="870" y="183" font-size="10" fill="#374151">CDO</text>
+  <text x="870" y="197" font-size="10" fill="#374151">DPO</text>
+  <text x="870" y="211" font-size="10" fill="#374151">Jurídico</text>
+
+  <!-- Operacional -->
+  <rect x="856" y="290" width="8" height="8" fill="#1b263b" rx="1"/>
+  <text x="870" y="302" font-size="10" font-weight="700" fill="#0d1b2a">OPERACIONAL</text>
+  <text x="870" y="317" font-size="10" fill="#374151">Head de Produto</text>
+  <text x="870" y="331" font-size="10" fill="#374151">Eng Lead</text>
+  <text x="870" y="345" font-size="10" fill="#374151">Compliance</text>
+
+  <!-- Técnica -->
+  <rect x="856" y="418" width="8" height="8" fill="#374151" rx="1"/>
+  <text x="870" y="430" font-size="10" font-weight="700" fill="#0d1b2a">TÉCNICA</text>
+  <text x="870" y="445" font-size="10" fill="#374151">Engenharia</text>
+  <text x="870" y="459" font-size="10" fill="#374151">SecOps</text>
+  <text x="870" y="473" font-size="10" fill="#374151">Arquiteto</text>
+
+  <!-- Seta bidirecional lateral -->
+  <line x1="48" y1="100" x2="48" y2="530" stroke="#E97451" stroke-width="2"/>
+  <polygon points="42,105 48,95 54,105" fill="#E97451"/>
+  <polygon points="42,525 48,535 54,525" fill="#E97451"/>
+  <text x="38" y="320" text-anchor="middle" font-size="10" fill="#E97451" font-weight="700" transform="rotate(-90,38,320)">INSTRUMENTO ↕ RESPONDE</text>
+
+  <!-- ===== LEGENDA DE CORES ===== -->
+  <rect x="60" y="553" width="16" height="16" fill="#E97451" rx="2"/>
+  <text x="82" y="566" font-size="11" fill="#0d1b2a">Estratégia</text>
+
+  <rect x="170" y="553" width="16" height="16" fill="#0d1b2a" rx="2"/>
+  <text x="192" y="566" font-size="11" fill="#0d1b2a">Executiva — AI Council, Comitês, AUP</text>
+
+  <rect x="460" y="553" width="16" height="16" fill="#1b263b" rx="2"/>
+  <text x="482" y="566" font-size="11" fill="#0d1b2a">Operacional — Incidentes, RACI, Maturidade</text>
+
+  <rect x="60" y="577" width="16" height="16" fill="#374151" rx="2"/>
+  <text x="82" y="590" font-size="11" fill="#0d1b2a">Técnica — Guardrails, Observabilidade, Rollback, Evidência</text>
+
+</svg>

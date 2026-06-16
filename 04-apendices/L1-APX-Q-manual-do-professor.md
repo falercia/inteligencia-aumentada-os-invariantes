@@ -36,7 +36,7 @@ Estrutura recomendada: vinte aulas de três horas cada, distribuídas em um seme
 
 | Aula | Capítulos cobertos | Tema central | Atividade prática sugerida |
 |------|---------------------|---------------|------------------------------|
-| 1 | C00P + C01 | Por que padrão dura, o que é IA | Discussão em grupo sobre Princípios |
+| 1 | C00P + C01 | Por que padrão dura, o que é IA | Discussão em grupo sobre Invariantes |
 | 2 | C02 + C03 | Como modelos funcionam, tokens | Exercício de tokenização em português e inglês |
 | 3 | C04 + C05 | Janela de contexto, embeddings | Pequeno notebook com geração de embeddings |
 | 4 | C06 + C07 | RAG, memória | Construção de RAG simples sobre corpus dado |
@@ -88,7 +88,7 @@ A avaliação combina participação no seminário, qualidade da leitura prévia
 
 | Aula | Capítulos cobertos | Tema central | Formato da aula |
 |------|---------------------|---------------|------------------|
-| 1 | C00P + C01 | Princípios e Camada Dupla | Debate sobre o que dura e o que não dura em IA |
+| 1 | C00P + C01 | Invariantes e Camada Dupla | Debate sobre o que dura e o que não dura em IA |
 | 2 | C02 + C03 | Arquitetura e tokens | Seminário com paper de APX-G à escolha do professor |
 | 3 | C04 + C05 | Janela de contexto e embeddings | Prática com notebook; debater Liu et al. 2023 |
 | 4 | C06 + C07 | RAG e memória | Construção de RAG mínimo; seminário |
@@ -119,7 +119,7 @@ Estrutura: oito sessões de duas horas e meia, presenciais ou híbridas, com foc
 
 | Sessão | Conteúdo central | Objetivo de aprendizagem |
 |--------|--------------------|-----------------------------|
-| 1 | C00P, Princípios e Camada Dupla | Vocabulário comum executivo |
+| 1 | C00P, Invariantes e Camada Dupla | Vocabulário comum executivo |
 | 2 | C01, C02 compactos, intuição de Transformer | Saber o que é o que se compra |
 | 3 | C06, RAG (C07 opcional para turmas com background técnico) | Encomendar projeto de RAG com método |
 | 4 | C24, Governança | Estruturar Comitê de IA com RACI |
@@ -230,7 +230,7 @@ A experiência acumulada do autor em ensino de IA aplicada permite oferecer algu
 
 **Cinco pontos onde estudantes costumam travar.**
 
-1. Confundir Princípio Um, a plausibilidade, com simples ceticismo, sem entender que plausibilidade implica método de verificação, não recusa do uso.
+1. Confundir Invariante Um, a plausibilidade, com simples ceticismo, sem entender que plausibilidade implica método de verificação, não recusa do uso.
 2. Tratar embeddings como mágica, sem entender que são representação numérica densa de significado, com geometria que se pode interrogar.
 3. Achar que RAG é busca, quando RAG é arquitetura completa que combina recuperação, ranking, contexto e geração com observabilidade.
 4. Tratar agente como aplicação tradicional, sem perceber que autonomia é função de observabilidade e reversibilidade, não de confiança subjetiva.

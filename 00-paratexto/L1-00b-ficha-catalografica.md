@@ -2,7 +2,7 @@
 
 ## Inteligência Aumentada
 
-*Os Princípios Permanentes da IA*
+*Os Invariantes da IA*
 
 ---
 
@@ -24,7 +24,7 @@
 
 ```
 Garcia, Fabio.
-   Inteligência aumentada: os princípios permanentes da IA /
+   Inteligência aumentada: os invariantes da IA /
 Fabio Garcia. — 1. ed. —
 São Paulo: Edição do Autor, 2026.
 

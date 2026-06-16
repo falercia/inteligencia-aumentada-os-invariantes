@@ -71,7 +71,7 @@ As categorias duráveis de benchmark e o que medem:
 
 **Fronteira geral de expert** — benchmarks compostos que exigem expertise de ponta em múltiplos domínios. Costumam ser os mais discriminatórios em janelas curtas antes de saturar.
 
-A lição prática: olhar para um único número é miopia. Olhar para a combinação de categorias relevantes ao seu caso de uso é o caminho. Modelos diferentes brilham em categorias diferentes, e essa heterogeneidade é o que justifica roteamento — princípio operacional do **Framework Diagnóstico de Encaixe entre Tarefa e Modelo** (Princípio 4).
+A lição prática: olhar para um único número é miopia. Olhar para a combinação de categorias relevantes ao seu caso de uso é o caminho. Modelos diferentes brilham em categorias diferentes, e essa heterogeneidade é o que justifica roteamento — princípio operacional do **Framework Diagnóstico de Encaixe entre Tarefa e Modelo** (Invariante 4).
 
 > **Camada viva.** Os benchmarks específicos, líderes correntes por categoria e scores numerados vivem no **Apêndice Vivo da série** (github.com/falercia/inteligencia-aumentada-recursos → `apendice-vivo`). Consulte lá antes de citar um número em reunião.
 

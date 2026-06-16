@@ -113,6 +113,10 @@ A quarta é que **dimensionalidade tem custo**. Vetores de 3.072 dimensões dão
 
 A quinta é que **embeddings ficam obsoletos**. Se o modelo de embedding muda, todos os vetores armazenados anteriormente ficam incompatíveis com novas consultas. Trocar de modelo é trabalhoso, e exige reembedding completo da base.
 
+Há ainda uma sexta limitação que raramente aparece nos tutoriais, mas que é onde a maioria dos projetos reais tropeça: **embedding é a ferramenta certa para similaridade semântica, não para exatidão**. Quando o domínio exige recuperação precisa — um código de produto, um número de apólice, uma cláusula contratual com redação específica, um identificador regulatório, uma decisão judicial citada por número — a busca léxica ganha. BM25, match exato ou regex não são tecnologias ultrapassadas; são a resposta correta quando precisão importa mais que recall, quando o vocabulário do domínio é controlado e estreito, quando o custo de um falso "parecido" é alto demais, e quando a explicabilidade da recuperação é exigida por auditoria ou compliance. Ninguém aceita que o sistema de busca de um contrato de seguro retorne uma cláusula "semanticamente próxima" quando o que o perito precisa é da cláusula exata com aquela redação específica.
+
+A confusão entre os dois regimes é erro de arquitetura, não de modelo. O arquiteto que substitui busca léxica por embeddings em domínio de vocabulário controlado não está modernizando o sistema — está trocando um mecanismo de precisão por um mecanismo de aproximação em cenário onde aproximação é o problema, não a solução. O critério durável é simples: use embedding quando o valor está na semântica — quando o usuário não sabe as palavras certas, quando o vocabulário varia, quando você quer capturar intenção além da forma. Use busca léxica quando o valor está no texto exato — quando a string importa, quando a correspondência precisa ser auditável, quando "parecido" é pior que "não encontrado". Muitos sistemas maduros usam os dois em camadas, com léxico filtrando primeiro e semântica ampliando o recall onde a precisão já está garantida.
+
 ---
 
 ## 5.7 Conexões

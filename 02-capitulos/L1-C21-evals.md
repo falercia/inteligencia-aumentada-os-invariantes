@@ -158,7 +158,7 @@ Na sétima semana, um cliente do setor industrial recebeu um relatório com trê
 
 A investigação revelou o que sempre revela: duas mudanças de prompt feitas em sequência por engenheiros diferentes, ambas com boa intenção. A primeira para "tornar mais conciso", a segunda para "soar mais executivo". Cada mudança, isoladamente, melhorou a percepção de qualidade dos sócios na sexta de validação. Combinadas, corromperam o passo de extração numérica em silêncio. Não havia como saber que tinham corrompido, porque ninguém estava medindo faithfulness numérico contra um conjunto fixo de casos.
 
-A Atlas fez três mudanças permanentes, todas alinhadas ao Princípio 7 — o Termômetro: o sistema de IA precisa de instrumentação para ser gerenciável; sem ela, opera como caixa-preta e o incidente aparece pelo cliente, não pelo dashboard. Primeira, construiu golden set de 80 relatórios reais com gabarito de números e tese, anotado pelos três sócios em sessões dedicadas. Toda mudança de prompt passa a rodar contra esse conjunto antes de merge. Segunda, implementou LLM-as-judge com rubrica explícita para faithfulness numérico, calibrado contra os três sócios em 30 itens de calibração, com correlação alvo acima de 0,8. Terceira, criou scorecard versionado por release de prompt, com bloqueio automático se faithfulness numérico cair acima de 1 ponto contra o baseline.
+A Atlas fez três mudanças permanentes, todas alinhadas ao Invariante 7 — o Termômetro: o sistema de IA precisa de instrumentação para ser gerenciável; sem ela, opera como caixa-preta e o incidente aparece pelo cliente, não pelo dashboard. Primeira, construiu golden set de 80 relatórios reais com gabarito de números e tese, anotado pelos três sócios em sessões dedicadas. Toda mudança de prompt passa a rodar contra esse conjunto antes de merge. Segunda, implementou LLM-as-judge com rubrica explícita para faithfulness numérico, calibrado contra os três sócios em 30 itens de calibração, com correlação alvo acima de 0,8. Terceira, criou scorecard versionado por release de prompt, com bloqueio automático se faithfulness numérico cair acima de 1 ponto contra o baseline.
 
 Em seis meses, regressões silenciosas zeraram. O tempo de revisão humana por relatório caiu pela metade, porque o gate filtrava o ruído antes do humano ver. A Atlas perdeu dois clientes durante o incidente, recuperou um, e usa o caso internamente como exemplo do que custa não medir. A lição estrutural não está na escolha do modelo, da skill ou do RAG. Está na ausência inicial do termômetro. Eval não é luxo de big tech, é a diferença entre engenharia e fé. Quem não tem golden set não tem produto de IA, tem aposta documentada.
 
@@ -228,7 +228,7 @@ Este capítulo conversa especialmente com os capítulos sobre tokens, RAG, fine-
 4. O que muda na decisão de migração de modelo quando há golden set, e o que muda quando não há?
 5. Por que a regra de juiz diferente do gerador é estrutural, não preferência?
 6. Como o ciclo offline para online e de volta mantém o eval vivo?
-7. Qual a relação entre o Princípio 7 (Termômetro — o sistema de IA precisa de instrumentação para ser gerenciável) e o Princípio 8 (Responsabilidade Indelegável — a responsabilidade por decisão de IA nunca pode ser delegada à máquina; há sempre um nome humano na cadeira de quem responde)?
+7. Qual a relação entre o Invariante 7 (Termômetro — o sistema de IA precisa de instrumentação para ser gerenciável) e o Invariante 8 (Responsabilidade Indelegável — a responsabilidade por decisão de IA nunca pode ser delegada à máquina; há sempre um nome humano na cadeira de quem responde)?
 8. Por que acurácia agregada esconde regressão silenciosa, e que método combate?
 9. Em qual classe de produto faz sentido começar pelo topo da pirâmide?
 
@@ -267,5 +267,5 @@ Sobre as dificuldades genuínas de avaliar LLMs: Narayanan, A. & Kapoor, S., "Ev
 | 1 | **Clareza** — Explicar para um diretor não-técnico em 90 segundos por que "ficou melhor" não é critério, usando a metáfora do laboratório clínico | ☐ |
 | 2 | **Profundidade** — Defender em reunião técnica por que LLM-as-judge sem calibração contra humano é viés institucionalizado, citando o quadrante de decisão e a regra de juiz diferente do gerador | ☐ |
 | 3 | **Aplicação** — Iniciar a primeira versão do golden set do seu produto esta semana, com pelo menos 30 casos representativos | ☐ |
-| 4 | **Conexão** — Articular como o capítulo amarra o Princípio 7, RAG, LLMOps, alignment e governança | ☐ |
+| 4 | **Conexão** — Articular como o capítulo amarra o Invariante 7, RAG, LLMOps, alignment e governança | ☐ |
 | 5 | **Curiosidade** — Está com vontade de entrar no próximo capítulo para entender como esse eval roda em produção, com tracing, versionamento e rollback proporcionais | ☐ |

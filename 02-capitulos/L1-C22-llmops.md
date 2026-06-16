@@ -42,7 +42,7 @@ Tratar prompt como código significa pull request, revisão obrigatória por pel
 
 Tool registry: cada tool em produção tem entrada em registry com schema, descrição, exemplos, dono operacional, versão, eval específico. Tool que muda sem entrar no registry é o caminho mais rápido para regressão silenciosa em agentes.
 
-Model registry interno: tabela que mapeia qual modelo, qual versão, qual fallback por feature. Mudança aqui é decisão de arquitetura, não de engenheiro, e deve passar por governança alinhada ao Princípio 8.
+Model registry interno: tabela que mapeia qual modelo, qual versão, qual fallback por feature. Mudança aqui é decisão de arquitetura, não de engenheiro, e deve passar por governança alinhada ao Invariante 8.
 
 System prompt como artefato versionado, não string no código. Pode estar em banco, em config, em sistema dedicado. O que importa é não ser concatenação inline no código da feature.
 
@@ -206,7 +206,7 @@ Este capítulo conversa especialmente com os capítulos sobre tokens, memória p
 4. Como o pilar 1 sustenta a fórmula do custo composto?
 5. Que diferença existe entre canário por percentual e canário por segmento, e quando usar cada um?
 6. Por que kill switch teórico é pior que não ter kill switch?
-7. Como o pilar 7 conecta com o Princípio 8 (Responsabilidade Indelegável)?
+7. Como o pilar 7 conecta com o Invariante 8 (Responsabilidade Indelegável)?
 8. Em que situação OpenTelemetry GenAI é over-engineering, e em que situação é proteção contra lock-in?
 9. Como o pilar 5 prevê os erros típicos do método de custo composto em três tempos?
 

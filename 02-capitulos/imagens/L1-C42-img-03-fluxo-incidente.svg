@@ -1,0 +1,225 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 560" font-family="Inter, system-ui, sans-serif">
+  <title>Fluxo de Resposta a Incidente de IA — SEV-1 a SEV-4</title>
+  <desc>Fluxograma horizontal da cadeia de decisão e comunicação de um incidente de IA: Detecção → Triagem → Resposta → Comunicação externa → Postmortem sem culpa → Ações corretivas → Retenção de evidência. Escala de severidade SEV-1 a SEV-4.</desc>
+
+  <rect width="1060" height="560" fill="#fefce8"/>
+
+  <!-- Título -->
+  <text x="530" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#0d1b2a">FLUXO DE RESPOSTA A INCIDENTE DE IA</text>
+  <text x="530" y="55" text-anchor="middle" font-size="12" fill="#6b7280" font-style="italic">Política de incidente que nunca foi simulada não existe — simule a cada trimestre</text>
+
+  <!-- ====================================================
+       ESCALA DE SEVERIDADES — faixa superior
+       y=70..115
+  ==================================================== -->
+  <text x="530" y="77" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">ESCALA DE SEVERIDADE</text>
+
+  <!-- SEV-1 -->
+  <rect x="60" y="82" width="200" height="30" fill="#E97451" rx="4"/>
+  <text x="160" y="102" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">SEV-1 — Crítico (cliente afetado)</text>
+
+  <!-- SEV-2 -->
+  <rect x="270" y="82" width="200" height="30" fill="#b45309" rx="4"/>
+  <text x="370" y="102" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">SEV-2 — Alto (risco imediato)</text>
+
+  <!-- SEV-3 -->
+  <rect x="480" y="82" width="200" height="30" fill="#1b263b" rx="4"/>
+  <text x="580" y="102" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">SEV-3 — Médio (degradação)</text>
+
+  <!-- SEV-4 -->
+  <rect x="690" y="82" width="200" height="30" fill="#374151" rx="4"/>
+  <text x="790" y="102" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">SEV-4 — Baixo (monitorar)</text>
+
+  <!-- Cadência note -->
+  <text x="940" y="97" text-anchor="middle" font-size="10" fill="#6b7280" font-style="italic">SEV-1: update</text>
+  <text x="940" y="110" text-anchor="middle" font-size="10" fill="#6b7280" font-style="italic">a cada 15min</text>
+
+  <!-- ====================================================
+       FLUXOGRAMA HORIZONTAL
+       7 etapas. Cada caixa: w=120 h=140, y=140 a y=400
+       Espaçamento: início x=28, gap=20 entre caixas
+       Caixas: x= 28, 168, 308, 448, 588, 728, 868
+       Setas entre caixas em y=210 (centro)
+  ==================================================== -->
+
+  <!-- ETAPA 1: DETECÇÃO -->
+  <rect x="28" y="140" width="120" height="230" fill="#0d1b2a" rx="4"/>
+  <text x="88" y="163" text-anchor="middle" font-size="11" font-weight="700" fill="#E97451">1</text>
+  <text x="88" y="180" text-anchor="middle" font-size="12" font-weight="700" fill="#fef3c7">DETECÇÃO</text>
+  <line x1="50" y1="190" x2="126" y2="190" stroke="#374151" stroke-width="0.5"/>
+  <text x="88" y="208" text-anchor="middle" font-size="10" fill="#fef3c7">Alerta de</text>
+  <text x="88" y="222" text-anchor="middle" font-size="10" fill="#fef3c7">monitoramento</text>
+  <text x="88" y="240" text-anchor="middle" font-size="10" fill="#fef3c7">ou reporte</text>
+  <text x="88" y="258" text-anchor="middle" font-size="10" fill="#fef3c7">manual</text>
+  <text x="88" y="280" text-anchor="middle" font-size="10" fill="#cbd5e1">Canal: Slack</text>
+  <text x="88" y="294" text-anchor="middle" font-size="10" fill="#cbd5e1">#incidents</text>
+  <text x="88" y="316" text-anchor="middle" font-size="10" fill="#E97451">T=0</text>
+  <text x="88" y="333" text-anchor="middle" font-size="10" fill="#E97451">Responsável:</text>
+  <text x="88" y="347" text-anchor="middle" font-size="10" fill="#E97451">On-call</text>
+
+  <!-- Seta 1→2 -->
+  <line x1="148" y1="255" x2="168" y2="255" stroke="#374151" stroke-width="2"/>
+  <polygon points="164,251 174,255 164,259" fill="#374151"/>
+
+  <!-- ETAPA 2: TRIAGEM -->
+  <rect x="168" y="140" width="120" height="230" fill="#1b263b" rx="4"/>
+  <text x="228" y="163" text-anchor="middle" font-size="11" font-weight="700" fill="#E97451">2</text>
+  <text x="228" y="180" text-anchor="middle" font-size="12" font-weight="700" fill="#fef3c7">TRIAGEM</text>
+  <line x1="190" y1="190" x2="266" y2="190" stroke="#374151" stroke-width="0.5"/>
+  <text x="228" y="208" text-anchor="middle" font-size="10" fill="#fef3c7">Classifica</text>
+  <text x="228" y="222" text-anchor="middle" font-size="10" fill="#fef3c7">SEV-1..SEV-4</text>
+  <text x="228" y="240" text-anchor="middle" font-size="10" fill="#fef3c7">por impacto</text>
+  <text x="228" y="258" text-anchor="middle" font-size="10" fill="#fef3c7">e escopo</text>
+  <text x="228" y="280" text-anchor="middle" font-size="10" fill="#cbd5e1">Critério:</text>
+  <text x="228" y="294" text-anchor="middle" font-size="10" fill="#cbd5e1">quem é afetado</text>
+  <text x="228" y="316" text-anchor="middle" font-size="10" fill="#E97451">T+15min</text>
+  <text x="228" y="333" text-anchor="middle" font-size="10" fill="#E97451">Responsável:</text>
+  <text x="228" y="347" text-anchor="middle" font-size="10" fill="#E97451">Eng Lead</text>
+
+  <!-- Seta 2→3 -->
+  <line x1="288" y1="255" x2="308" y2="255" stroke="#374151" stroke-width="2"/>
+  <polygon points="304,251 314,255 304,259" fill="#374151"/>
+
+  <!-- ETAPA 3: RESPOSTA -->
+  <rect x="308" y="140" width="120" height="230" fill="#1b263b" rx="4"/>
+  <text x="368" y="163" text-anchor="middle" font-size="11" font-weight="700" fill="#E97451">3</text>
+  <text x="368" y="180" text-anchor="middle" font-size="12" font-weight="700" fill="#fef3c7">RESPOSTA</text>
+  <line x1="330" y1="190" x2="406" y2="190" stroke="#374151" stroke-width="0.5"/>
+  <text x="368" y="208" text-anchor="middle" font-size="10" fill="#fef3c7">Contenção</text>
+  <text x="368" y="222" text-anchor="middle" font-size="10" fill="#fef3c7">e mitigação</text>
+  <text x="368" y="240" text-anchor="middle" font-size="10" fill="#fef3c7">Kill switch</text>
+  <text x="368" y="258" text-anchor="middle" font-size="10" fill="#fef3c7">se necessário</text>
+  <text x="368" y="276" text-anchor="middle" font-size="10" fill="#cbd5e1">Update interno</text>
+  <text x="368" y="290" text-anchor="middle" font-size="10" fill="#cbd5e1">SEV-1: 15min</text>
+  <text x="368" y="304" text-anchor="middle" font-size="10" fill="#cbd5e1">SEV-2: 30min</text>
+  <text x="368" y="316" text-anchor="middle" font-size="10" fill="#E97451">Responsável:</text>
+  <text x="368" y="330" text-anchor="middle" font-size="10" fill="#E97451">CTO + On-call</text>
+  <text x="368" y="347" text-anchor="middle" font-size="10" fill="#E97451">Accountable: CEO</text>
+
+  <!-- Seta 3→4 -->
+  <line x1="428" y1="255" x2="448" y2="255" stroke="#374151" stroke-width="2"/>
+  <polygon points="444,251 454,255 444,259" fill="#374151"/>
+
+  <!-- ETAPA 4: COMUNICAÇÃO EXTERNA -->
+  <rect x="448" y="140" width="120" height="230" fill="#374151" rx="4"/>
+  <text x="508" y="163" text-anchor="middle" font-size="11" font-weight="700" fill="#E97451">4</text>
+  <text x="508" y="180" text-anchor="middle" font-size="12" font-weight="700" fill="#fef3c7">COMUNICAÇÃO</text>
+  <text x="508" y="194" text-anchor="middle" font-size="12" font-weight="700" fill="#fef3c7">EXTERNA</text>
+  <line x1="470" y1="202" x2="546" y2="202" stroke="#6b7280" stroke-width="0.5"/>
+  <text x="508" y="218" text-anchor="middle" font-size="10" fill="#fef3c7">Template</text>
+  <text x="508" y="232" text-anchor="middle" font-size="10" fill="#fef3c7">pré-escrito</text>
+  <text x="508" y="246" text-anchor="middle" font-size="10" fill="#fef3c7">por classe</text>
+  <text x="508" y="264" text-anchor="middle" font-size="10" fill="#cbd5e1">Clientes, DPA,</text>
+  <text x="508" y="278" text-anchor="middle" font-size="10" fill="#cbd5e1">ANPD (se LGPD)</text>
+  <text x="508" y="296" text-anchor="middle" font-size="10" fill="#cbd5e1">SEV-1: dentro</text>
+  <text x="508" y="310" text-anchor="middle" font-size="10" fill="#cbd5e1">de 5 dias úteis</text>
+  <text x="508" y="328" text-anchor="middle" font-size="10" fill="#E97451">Responsável:</text>
+  <text x="508" y="342" text-anchor="middle" font-size="10" fill="#E97451">DPO + Jurídico</text>
+
+  <!-- Seta 4→5 -->
+  <line x1="568" y1="255" x2="588" y2="255" stroke="#374151" stroke-width="2"/>
+  <polygon points="584,251 594,255 584,259" fill="#374151"/>
+
+  <!-- ETAPA 5: POSTMORTEM SEM CULPA -->
+  <rect x="588" y="140" width="120" height="230" fill="#1b263b" rx="4"/>
+  <text x="648" y="163" text-anchor="middle" font-size="11" font-weight="700" fill="#E97451">5</text>
+  <text x="648" y="180" text-anchor="middle" font-size="12" font-weight="700" fill="#fef3c7">POSTMORTEM</text>
+  <text x="648" y="194" text-anchor="middle" font-size="12" font-weight="700" fill="#fef3c7">SEM CULPA</text>
+  <line x1="610" y1="202" x2="686" y2="202" stroke="#374151" stroke-width="0.5"/>
+  <text x="648" y="218" text-anchor="middle" font-size="10" fill="#fef3c7">Causa raiz,</text>
+  <text x="648" y="232" text-anchor="middle" font-size="10" fill="#fef3c7">timeline e</text>
+  <text x="648" y="246" text-anchor="middle" font-size="10" fill="#fef3c7">aprendizado</text>
+  <text x="648" y="264" text-anchor="middle" font-size="10" fill="#cbd5e1">Blameless:</text>
+  <text x="648" y="278" text-anchor="middle" font-size="10" fill="#cbd5e1">sistema, não</text>
+  <text x="648" y="292" text-anchor="middle" font-size="10" fill="#cbd5e1">pessoa</text>
+  <text x="648" y="316" text-anchor="middle" font-size="10" fill="#E97451">SEV-1: D+5</text>
+  <text x="648" y="333" text-anchor="middle" font-size="10" fill="#E97451">SEV-2: D+10</text>
+  <text x="648" y="347" text-anchor="middle" font-size="10" fill="#E97451">Dono: Eng Lead</text>
+
+  <!-- Seta 5→6 -->
+  <line x1="708" y1="255" x2="728" y2="255" stroke="#374151" stroke-width="2"/>
+  <polygon points="724,251 734,255 724,259" fill="#374151"/>
+
+  <!-- ETAPA 6: AÇÕES CORRETIVAS -->
+  <rect x="728" y="140" width="120" height="230" fill="#1b263b" rx="4"/>
+  <text x="788" y="163" text-anchor="middle" font-size="11" font-weight="700" fill="#E97451">6</text>
+  <text x="788" y="180" text-anchor="middle" font-size="12" font-weight="700" fill="#fef3c7">AÇÕES</text>
+  <text x="788" y="194" text-anchor="middle" font-size="12" font-weight="700" fill="#fef3c7">CORRETIVAS</text>
+  <line x1="750" y1="202" x2="826" y2="202" stroke="#374151" stroke-width="0.5"/>
+  <text x="788" y="218" text-anchor="middle" font-size="10" fill="#fef3c7">Dono nominal</text>
+  <text x="788" y="232" text-anchor="middle" font-size="10" fill="#fef3c7">+ prazo por</text>
+  <text x="788" y="246" text-anchor="middle" font-size="10" fill="#fef3c7">cada item</text>
+  <text x="788" y="264" text-anchor="middle" font-size="10" fill="#cbd5e1">Rastreado em</text>
+  <text x="788" y="278" text-anchor="middle" font-size="10" fill="#cbd5e1">sistema (Jira,</text>
+  <text x="788" y="292" text-anchor="middle" font-size="10" fill="#cbd5e1">Linear, etc.)</text>
+  <text x="788" y="316" text-anchor="middle" font-size="10" fill="#E97451">Review:</text>
+  <text x="788" y="330" text-anchor="middle" font-size="10" fill="#E97451">AI Council</text>
+  <text x="788" y="347" text-anchor="middle" font-size="10" fill="#E97451">na pauta seguinte</text>
+
+  <!-- Seta 6→7 -->
+  <line x1="848" y1="255" x2="868" y2="255" stroke="#374151" stroke-width="2"/>
+  <polygon points="864,251 874,255 864,259" fill="#374151"/>
+
+  <!-- ETAPA 7: RETENÇÃO DE EVIDÊNCIA -->
+  <rect x="868" y="140" width="120" height="230" fill="#0d1b2a" rx="4"/>
+  <text x="928" y="163" text-anchor="middle" font-size="11" font-weight="700" fill="#E97451">7</text>
+  <text x="928" y="180" text-anchor="middle" font-size="12" font-weight="700" fill="#fef3c7">RETENÇÃO</text>
+  <text x="928" y="194" text-anchor="middle" font-size="12" font-weight="700" fill="#fef3c7">DE EVIDÊNCIA</text>
+  <line x1="890" y1="202" x2="966" y2="202" stroke="#374151" stroke-width="0.5"/>
+  <text x="928" y="218" text-anchor="middle" font-size="10" fill="#fef3c7">Logs, traces,</text>
+  <text x="928" y="232" text-anchor="middle" font-size="10" fill="#fef3c7">comunicações</text>
+  <text x="928" y="246" text-anchor="middle" font-size="10" fill="#fef3c7">e screenshots</text>
+  <text x="928" y="264" text-anchor="middle" font-size="10" fill="#cbd5e1">Imutável:</text>
+  <text x="928" y="278" text-anchor="middle" font-size="10" fill="#cbd5e1">append-only</text>
+  <text x="928" y="292" text-anchor="middle" font-size="10" fill="#cbd5e1">storage</text>
+  <text x="928" y="316" text-anchor="middle" font-size="10" fill="#E97451">Retenção:</text>
+  <text x="928" y="330" text-anchor="middle" font-size="10" fill="#E97451">5 anos (LGPD</text>
+  <text x="928" y="344" text-anchor="middle" font-size="10" fill="#E97451">art. 20)</text>
+
+  <!-- ====================================================
+       CADÊNCIA POR SEV (tabela inferior)
+  ==================================================== -->
+  <rect x="60" y="396" width="920" height="130" fill="#f3f4f6" rx="4" stroke="#cbd5e1" stroke-width="0.8"/>
+  <text x="520" y="416" text-anchor="middle" font-size="12" font-weight="700" fill="#0d1b2a">CADÊNCIA DE COMUNICAÇÃO INTERNA POR SEVERIDADE</text>
+
+  <!-- Headers -->
+  <text x="120" y="436" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">Severidade</text>
+  <text x="290" y="436" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">Update Interno</text>
+  <text x="460" y="436" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">Comunicação Externa</text>
+  <text x="650" y="436" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">Postmortem</text>
+  <text x="830" y="436" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">Accountable</text>
+  <line x1="70" y1="441" x2="970" y2="441" stroke="#cbd5e1" stroke-width="0.8"/>
+
+  <!-- SEV-1 row -->
+  <rect x="65" y="445" width="110" height="20" fill="#E97451" rx="2"/>
+  <text x="120" y="460" text-anchor="middle" font-size="10" font-weight="700" fill="#fef3c7">SEV-1 — Crítico</text>
+  <text x="290" y="460" text-anchor="middle" font-size="10" fill="#0d1b2a">A cada 15 minutos</text>
+  <text x="460" y="460" text-anchor="middle" font-size="10" fill="#0d1b2a">Dentro de 5 dias úteis (template pré-escrito)</text>
+  <text x="650" y="460" text-anchor="middle" font-size="10" fill="#0d1b2a">D+5</text>
+  <text x="830" y="460" text-anchor="middle" font-size="10" fill="#0d1b2a">CEO</text>
+
+  <!-- SEV-2 row -->
+  <rect x="65" y="468" width="110" height="20" fill="#b45309" rx="2"/>
+  <text x="120" y="483" text-anchor="middle" font-size="10" font-weight="700" fill="#fef3c7">SEV-2 — Alto</text>
+  <text x="290" y="483" text-anchor="middle" font-size="10" fill="#0d1b2a">A cada 30 minutos</text>
+  <text x="460" y="483" text-anchor="middle" font-size="10" fill="#0d1b2a">Avaliação caso a caso (DPO decide)</text>
+  <text x="650" y="483" text-anchor="middle" font-size="10" fill="#0d1b2a">D+10</text>
+  <text x="830" y="483" text-anchor="middle" font-size="10" fill="#0d1b2a">CTO</text>
+
+  <!-- SEV-3 row -->
+  <rect x="65" y="491" width="110" height="20" fill="#1b263b" rx="2"/>
+  <text x="120" y="506" text-anchor="middle" font-size="10" font-weight="700" fill="#fef3c7">SEV-3 — Médio</text>
+  <text x="290" y="506" text-anchor="middle" font-size="10" fill="#0d1b2a">A cada 2 horas</text>
+  <text x="460" y="506" text-anchor="middle" font-size="10" fill="#0d1b2a">Geralmente não requerida</text>
+  <text x="650" y="506" text-anchor="middle" font-size="10" fill="#0d1b2a">D+30</text>
+  <text x="830" y="506" text-anchor="middle" font-size="10" fill="#0d1b2a">Eng Lead</text>
+
+  <!-- SEV-4 row -->
+  <rect x="65" y="514" width="110" height="20" fill="#374151" rx="2"/>
+  <text x="120" y="529" text-anchor="middle" font-size="10" font-weight="700" fill="#fef3c7">SEV-4 — Baixo</text>
+  <text x="290" y="529" text-anchor="middle" font-size="10" fill="#0d1b2a">Daily standup</text>
+  <text x="460" y="529" text-anchor="middle" font-size="10" fill="#0d1b2a">Não requerida</text>
+  <text x="650" y="529" text-anchor="middle" font-size="10" fill="#0d1b2a">Sprint review</text>
+  <text x="830" y="529" text-anchor="middle" font-size="10" fill="#0d1b2a">Dev Lead</text>
+
+</svg>

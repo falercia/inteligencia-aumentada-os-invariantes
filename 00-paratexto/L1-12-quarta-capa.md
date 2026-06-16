@@ -6,9 +6,9 @@
 
 ---
 
-A primeira geração de profissionais brasileiros que opera IA em escala está chegando ao ponto em que o entusiasmo do começo já não basta, e a inundação de ferramentas, modelos, frameworks e novidades semanais começa a custar caro em decisões mal direcionadas. *Inteligência Aumentada — Os Princípios Permanentes da IA* é a resposta sistemática para essa primeira geração, escrita por quem opera IA em produção no Brasil e construída para durar uma década.
+A primeira geração de profissionais brasileiros que opera IA em escala está chegando ao ponto em que o entusiasmo do começo já não basta, e a inundação de ferramentas, modelos, frameworks e novidades semanais começa a custar caro em decisões mal direcionadas. *Inteligência Aumentada — Os Invariantes da IA* é a resposta sistemática para essa primeira geração, escrita por quem opera IA em produção no Brasil e construída para durar uma década.
 
-A obra organiza os Nove Princípios Permanentes, costurados em rede mútua, que formam a espinha intelectual sobre a qual a fronteira muda mas a fundação não. Sobre os Princípios, nove frameworks acionáveis traduzem cada um em instrumento de decisão: como decidir, como diagnosticar, como construir, como engenharar, como cobrir, como governar, como custear, como avaliar, como adotar. Mais de trinta exemplos memoráveis brasileiros, construídos a partir de padrões reais, transformam abstração em prática.
+A obra organiza os Nove Invariantes, costurados em rede mútua, que formam a espinha intelectual sobre a qual a fronteira muda mas a fundação não. Sobre os Invariantes, nove frameworks acionáveis traduzem cada um em instrumento de decisão: como decidir, como diagnosticar, como construir, como engenharar, como cobrir, como governar, como custear, como avaliar, como adotar. Mais de trinta exemplos memoráveis brasileiros, construídos a partir de padrões reais, transformam abstração em prática.
 
 A profundidade técnica vai dos fundamentos da arquitetura até a operação em produção. A profundidade executiva vai do método de decisão ao caderno de governança, do roadmap pessoal ao critério de abandono de projeto.
 
@@ -21,12 +21,12 @@ O livro tem repositório acompanhante público — sete pastas de artefatos exec
 ---
 
 ## *Inteligência Aumentada*
-### *Os Princípios Permanentes da IA*
+### *Os Invariantes da IA*
 
 ---
 
 **Categoria:** Tecnologia · Inteligência Artificial · Gestão Executiva
-**Páginas:** [PENDENTE — aguardando diagramação final — NÃO ENVIAR AO GRÁFICO]
+**Páginas:** <!-- PENDENTE — aguardando diagramação final — NÃO ENVIAR AO GRÁFICO -->
 **Formato:** 16 × 24 cm
-**ISBN:** [PENDENTE — em processo de atribuição — NÃO ENVIAR AO GRÁFICO]
-**Preço sugerido:** [PENDENTE — a ser definido pela editora — NÃO ENVIAR AO GRÁFICO]
+**ISBN:** <!-- PENDENTE — em processo de atribuição — NÃO ENVIAR AO GRÁFICO -->
+**Preço sugerido:** <!-- PENDENTE — a ser definido pela editora — NÃO ENVIAR AO GRÁFICO -->

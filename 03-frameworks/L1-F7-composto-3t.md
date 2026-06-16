@@ -34,7 +34,7 @@ O framework opera em **três alavancas arquiteturais** (os "3T"), em ordem fixa 
 
 **Economia típica observada.** 30% a 60% do gasto total na primeira virada de roteamento, em operações que usavam premium para tudo. *(Faixa baseada em análise de casos corporativos documentados e tabelas de pricing públicas dos principais fornecedores — consultar Apêndice J. Economia real depende da arquitetura atual, do volume e do mix de tarefas. Validar contra atribuição de custo própria antes de usar como projeção em relatório executivo.)*
 
-**Risco.** Médio. Exige golden set para mostrar que tier pequeno entrega qualidade equivalente (Princípio 7 sustenta a decisão).
+**Risco.** Médio. Exige golden set para mostrar que tier pequeno entrega qualidade equivalente (Invariante 7 sustenta a decisão).
 
 ### T2 — Topologia de chamada
 
@@ -87,7 +87,7 @@ Mexer em T3 antes de T1 é o erro mais comum, porque T3 é o mais visível ("vam
 | T2 plan | Onde implementar caching, batching, circuit breaker |
 | T3 plan | RAG enxuto, compressão de histórico, expiração de memória |
 | Meta de economia | % por T, por feature, por trimestre |
-| Eval que sustenta cada mudança | Princípio 7 — sem eval, não muda |
+| Eval que sustenta cada mudança | Invariante 7 — sem eval, não muda |
 
 ## 4. EXEMPLO DE USO — PÓLICE.IO PÓS-INCIDENTE
 

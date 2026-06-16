@@ -5,47 +5,47 @@
 
 ---
 
-## I. Princípios e sistema da obra (★)
+## I. Invariantes e sistema da obra (★)
 
-**Camada Dupla.** ★ Princípio 3: separação entre padrão durável (na cabeça) e número volátil (em apêndice datado).
+**Camada Dupla.** ★ Invariante 3: separação entre padrão durável (na cabeça) e número volátil (em apêndice datado).
 
-**Custo Composto.** ★ Princípio 5: a multiplicação tokens × chamadas × tier × redundância que escala em produção, não o preço por token isolado.
+**Custo Composto.** ★ Invariante 5: a multiplicação tokens × chamadas × tier × redundância que escala em produção, não o preço por token isolado.
 
-**Encaixe.** ★ Princípio 4: escolha de modelo por padrão de tarefa em cinco eixos, não por liderança de benchmark da rodada.
+**Encaixe.** ★ Invariante 4: escolha de modelo por padrão de tarefa em cinco eixos, não por liderança de benchmark da rodada.
 
-**Extremidades.** ★ Princípio 2: regra de que atenção decai no meio do contexto e densidade de relevância vence volume bruto.
+**Extremidades.** ★ Invariante 2: regra de que atenção decai no meio do contexto e densidade de relevância vence volume bruto.
 
-**Operador.** ★ Princípio 9: a IA multiplica competência e incompetência pelo mesmo fator.
+**Operador.** ★ Invariante 9: a IA multiplica competência e incompetência pelo mesmo fator.
 
-**Plausibilidade.** ★ Princípio 1: o modelo entrega o plausível, não o verdadeiro.
+**Plausibilidade.** ★ Invariante 1: o modelo entrega o plausível, não o verdadeiro.
 
-**Responsabilidade Indelegável.** ★ Princípio 8: toda decisão de IA em produção tem único nome humano accountable.
+**Responsabilidade Indelegável.** ★ Invariante 8: toda decisão de IA em produção tem único nome humano accountable.
 
-**Autonomia Proporcional.** ★ Princípio 6: nível de agência é função da capacidade de medir e desfazer.
+**Autonomia Proporcional.** ★ Invariante 6: nível de agência é função da capacidade de medir e desfazer.
 
-**Termômetro.** ★ Princípio 7: IA sem eval é fé, não engenharia.
+**Termômetro.** ★ Invariante 7: IA sem eval é fé, não engenharia.
 
 **Autoavaliação.** ★ Critério objetivo de fechamento de cada capítulo da obra, em cinco dimensões.
 
-**Os Nove Frameworks.** ★ Sistema que opera os princípios na prática. Índice: Método de Decisão para Adotar IA · Diagnóstico de Encaixe entre Tarefa e Modelo · Escala de Propriedade do Agente · Engenharia de Prompt Estendida · Matriz de Cobertura de Integrações · Governança Indelegável · Custo Composto em Três Tempos · Pirâmide da Avaliação · Rota Dupla de Adoção. Ver entradas individuais abaixo.
+**Os Nove Frameworks.** ★ Sistema que opera os invariantes na prática. Índice: Método de Decisão para Adotar IA · Diagnóstico de Encaixe entre Tarefa e Modelo · Escala de Propriedade do Agente · Engenharia de Prompt Estendida · Matriz de Cobertura de Integrações · Governança Indelegável · Custo Composto em Três Tempos · Pirâmide da Avaliação · Rota Dupla de Adoção. Ver entradas individuais abaixo.
 
-**Método de Decisão para Adotar IA.** ★ Framework do Princípio 9: sequência de perguntas que separa o problema que a IA resolve do problema que o operador precisa resolver — evita adoção por moda e ancora a decisão em impacto mensurável.
+**Método de Decisão para Adotar IA.** ★ Framework do Invariante 9: sequência de perguntas que separa o problema que a IA resolve do problema que o operador precisa resolver — evita adoção por moda e ancora a decisão em impacto mensurável.
 
-**Diagnóstico de Encaixe entre Tarefa e Modelo.** ★ Framework do Princípio 4: avalia qual modelo serve melhor a uma tarefa específica em cinco eixos (latência, custo, qualidade, contexto, capacidade modal), independente do ranking de benchmark vigente.
+**Diagnóstico de Encaixe entre Tarefa e Modelo.** ★ Framework do Invariante 4: avalia qual modelo serve melhor a uma tarefa específica em cinco eixos (latência, custo, qualidade, contexto, capacidade modal), independente do ranking de benchmark vigente.
 
-**Escala de Propriedade do Agente.** ★ Framework do Princípio 6: gradua o nível de autonomia de um agente em função da capacidade de medir e desfazer cada ação — de execução totalmente supervisionada a agente com aprovação apenas em exceções.
+**Escala de Propriedade do Agente.** ★ Framework do Invariante 6: gradua o nível de autonomia de um agente em função da capacidade de medir e desfazer cada ação — de execução totalmente supervisionada a agente com aprovação apenas em exceções.
 
-**Engenharia de Prompt Estendida.** ★ Framework dos Princípios 2 e 3: estrutura que organiza o conteúdo do contexto usando densidade nas extremidades, camada de padrão no system prompt e número volátil em variável — separa o que dura do que muda.
+**Engenharia de Prompt Estendida.** ★ Framework dos Invariantes 2 e 3: estrutura que organiza o conteúdo do contexto usando densidade nas extremidades, camada de padrão no system prompt e número volátil em variável — separa o que dura do que muda.
 
-**Matriz de Cobertura de Integrações.** ★ Framework dos Princípios 6 e 4: mapeia quais ferramentas e fontes de dados um agente ou sistema de IA acessa, com grau de confiança e cobertura por caso de uso — identifica lacunas antes de ir a produção.
+**Matriz de Cobertura de Integrações.** ★ Framework dos Invariantes 6 e 4: mapeia quais ferramentas e fontes de dados um agente ou sistema de IA acessa, com grau de confiança e cobertura por caso de uso — identifica lacunas antes de ir a produção.
 
-**Governança Indelegável.** ★ Framework do Princípio 8: define para cada decisão de IA o nome humano accountable, o mecanismo de rollback e o critério de escalação — torna a responsabilidade auditável, não apenas declarada.
+**Governança Indelegável.** ★ Framework do Invariante 8: define para cada decisão de IA o nome humano accountable, o mecanismo de rollback e o critério de escalação — torna a responsabilidade auditável, não apenas declarada.
 
-**Custo Composto em Três Tempos.** ★ Framework dos Princípios 5 e 9: calcula o custo real de uma feature de IA em três horizontes (chamada, mês, produto), multiplicando tokens × chamadas × tier × redundância — evita surpresas de fatura em escala.
+**Custo Composto em Três Tempos.** ★ Framework dos Invariantes 5 e 9: calcula o custo real de uma feature de IA em três horizontes (chamada, mês, produto), multiplicando tokens × chamadas × tier × redundância — evita surpresas de fatura em escala.
 
-**Pirâmide da Avaliação.** ★ Framework do Princípio 7: estrutura de evals em camadas — base determinística, meio com golden set e LLM-as-judge, topo humano, com adversarial transversal. Cada camada detecta o que a anterior não detecta.
+**Pirâmide da Avaliação.** ★ Framework do Invariante 7: estrutura de evals em camadas — base determinística, meio com golden set e LLM-as-judge, topo humano, com adversarial transversal. Cada camada detecta o que a anterior não detecta.
 
-**Rota Dupla de Adoção.** ★ Framework do Princípio 3: separa a adoção de IA em duas rotas paralelas — rota de padrão (o que muda lentamente, vai na cabeça ou no CLAUDE.md) e rota de número (o que muda rápido, vai em apêndice datado ou variável de ambiente).
+**Rota Dupla de Adoção.** ★ Framework do Invariante 3: separa a adoção de IA em duas rotas paralelas — rota de padrão (o que muda lentamente, vai na cabeça ou no CLAUDE.md) e rota de número (o que muda rápido, vai em apêndice datado ou variável de ambiente).
 
 ---
 
@@ -87,7 +87,7 @@
 
 **LLM (Large Language Model).** Grande modelo de linguagem baseado em transformer e treinado em corpus massivo.
 
-**Lost in the Middle.** ◆ Fenômeno documentado: atenção decai no meio de contextos longos. Base do Princípio 2.
+**Lost in the Middle.** ◆ Fenômeno documentado: atenção decai no meio de contextos longos. Base do Invariante 2.
 
 **Multimodal.** Modelo que processa texto + imagem + áudio + vídeo nativamente.
 

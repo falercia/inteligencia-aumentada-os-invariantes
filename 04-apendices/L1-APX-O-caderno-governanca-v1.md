@@ -4,11 +4,11 @@
 
 O Caderno de Governança de IA é o artefato prometido pelo Framework Seis, e foi pensado desde a primeira versão como instrumento vivo, no sentido estrito de que deve ser preenchido com nomes humanos, assinado pela diretoria, revisado em cadência trimestral, atualizado a cada incidente material, e auditado contra evidência de execução, jamais contra a sua própria existência publicada. Um caderno que dorme em PDF assinado e não volta à mesa por seis trimestres seguidos não é governança ativa, é teatro de compliance, e a obra trata teatro como pior do que ausência declarada de governança, porque teatro mente para o conselho.
 
-Construir um caderno desse tipo exige duas peças que vivem em andares diferentes, e a obra trata cada uma delas no andar certo. A primeira peça é o padrão durável, e ela vive aqui no livro, na forma de uma ficha conceitual única que entrega a anatomia do caderno, os princípios que o sustentam, os critérios de quando o modelo se aplica e quando exige adendo setorial, os padrões de adaptação ao contexto da organização, os anti-padrões observados em prática e a métrica que separa caderno vivo de caderno morto. A ficha é o que o executivo precisa entender para customizar o modelo ao próprio contexto, para defender a estrutura diante de auditoria externa e para reconhecer quando o caderno da sua casa começou a degradar.
+Construir um caderno desse tipo exige duas peças que vivem em andares diferentes, e a obra trata cada uma delas no andar certo. A primeira peça é o padrão durável, e ela vive aqui no livro, na forma de uma ficha conceitual única que entrega a anatomia do caderno, os invariantes que o sustentam, os critérios de quando o modelo se aplica e quando exige adendo setorial, os padrões de adaptação ao contexto da organização, os anti-padrões observados em prática e a métrica que separa caderno vivo de caderno morto. A ficha é o que o executivo precisa entender para customizar o modelo ao próprio contexto, para defender a estrutura diante de auditoria externa e para reconhecer quando o caderno da sua casa começou a degradar.
 
 A segunda peça é o caderno operacional executável, e ela vive no repositório acompanhante público em [github.com/falercia/inteligencia-aumentada-recursos/tree/main/governance/v1](https://github.com/falercia/inteligencia-aumentada-recursos/tree/main/governance/v1), em pasta dedicada, com o caderno inteiro em um arquivo único pronto para imprimir e assinar, as seis seções fatiadas em arquivos separados para edição independente por área, a lista dos seis anexos referenciados com modelos clonáveis, e o changelog editorial datado a cada revisão. Quem chega à ficha do livro com clareza conceitual encontra no repositório o artefato pronto para clonar, customizar, assinar e colocar em revisão trimestral, sem ter que reescrever cada seção do zero, e sem ter que decidir quais campos um caderno mínimo precisa ter.
 
-Essa separação é deliberada e materializa o Princípio Três, a Camada Dupla. O padrão dura porque a estrutura conceitual de governança de IA sobrevive à próxima geração de modelo, ao próximo provedor, à próxima moda de framework, e à próxima onda regulatória, ainda que cada onda exija adendo específico sobre o que a versão atual do caderno carrega. O número muda porque o conteúdo dos dez controles vai sofrer iteração mensal conforme novos vetores de incidente apareçam em produção, conforme reguladores publiquem novas exigências, e conforme a comunidade de operadores brasileiros de IA contribua com calibração de RACI por setor. Manter as duas peças no mesmo arquivo, como faziam as primeiras versões deste apêndice, congelava o caderno em mídia impressa e impedia a evolução contínua do ativo. O leitor que entendeu o método vai ao repositório quando precisa do executável, e fica com a ficha quando precisa do método.
+Essa separação é deliberada e materializa o Invariante Três, a Camada Dupla. O padrão dura porque a estrutura conceitual de governança de IA sobrevive à próxima geração de modelo, ao próximo provedor, à próxima moda de framework, e à próxima onda regulatória, ainda que cada onda exija adendo específico sobre o que a versão atual do caderno carrega. O número muda porque o conteúdo dos dez controles vai sofrer iteração mensal conforme novos vetores de incidente apareçam em produção, conforme reguladores publiquem novas exigências, e conforme a comunidade de operadores brasileiros de IA contribua com calibração de RACI por setor. Manter as duas peças no mesmo arquivo, como faziam as primeiras versões deste apêndice, congelava o caderno em mídia impressa e impedia a evolução contínua do ativo. O leitor que entendeu o método vai ao repositório quando precisa do executável, e fica com a ficha quando precisa do método.
 
 ### Quadro de orientação — onde vive o quê
 
@@ -40,7 +40,7 @@ Antes da ficha em si, vale percorrer uma única vez a anatomia do caderno, em se
 | Bloco | Função | Por que está nesta posição |
 |---|---|---|
 | 1. Identificação, escopo e princípios | Define quem assina, o que está dentro e o que está fora, e quais princípios condutores a organização adota | Primeiro porque sem nome do patrocinador executivo e do responsável operacional, o caderno é documento órfão; sem escopo declarado, controles aplicáveis ficam ambíguos |
-| 2. RACI e Comitê de IA | Atribui Accountable único por classe de decisão recorrente e define o órgão executivo permanente | Cedo no caderno porque o Princípio Oito, Responsabilidade Indelegável, exige que toda decisão tenha nome humano antes de qualquer controle técnico ser cobrado |
+| 2. RACI e Comitê de IA | Atribui Accountable único por classe de decisão recorrente e define o órgão executivo permanente | Cedo no caderno porque o Invariante Oito, Responsabilidade Indelegável, exige que toda decisão tenha nome humano antes de qualquer controle técnico ser cobrado |
 | 3. Política de uso aceitável (AUP) | Declara o que é permitido, o que é proibido e as sanções pelo descumprimento, para todo colaborador e prestador | No meio porque depende do escopo declarado no bloco 1 e do Accountable definido no bloco 2, e antecede os controles operacionais que vão fiscalizar a aderência |
 | 4. Dez controles canônicos com nível de maturidade | Estabelece os controles técnicos, operacionais e executivos auditáveis, com maturidade autodeclarada e meta no horizonte de doze meses | Depois da AUP porque os controles fiscalizam a aderência à AUP e ao RACI; antes do plano de incidente porque incidente é falha de controle, e sem controle declarado a classificação de falha fica subjetiva |
 | 5. Plano de incidente e severidades | Calibra detecção, resposta, comunicação e postmortem por nível de severidade | Penúltimo porque incidente é o estresse-teste de tudo que veio antes, e sem o que veio antes não há base de comparação para julgar a resposta |
@@ -73,18 +73,18 @@ Cada controle pertence a uma das três camadas: técnica, operacional ou executi
 
 ---
 
-## Os nove princípios que sustentam o caderno
+## Os nove invariantes que sustentam o caderno
 
-O caderno opera sobre os Nove Princípios da obra, com ênfase em quatro deles que carregam a maior parte do peso operacional do instrumento. O leitor que precise revisitar os princípios em sua versão completa encontra a discussão no Framework Seis, e a síntese de bolso no Apêndice M.
+O caderno opera sobre os Nove Invariantes da obra, com ênfase em quatro deles que carregam a maior parte do peso operacional do instrumento. O leitor que precise revisitar os invariantes em sua versão completa encontra a discussão no Framework Seis, e a síntese de bolso no Apêndice M.
 
-| Princípio | Como o caderno materializa |
+| Invariante | Como o caderno materializa |
 |---|---|
-| Princípio 1 · Plausibilidade não verdade | A AUP veda atribuir autoria humana a conteúdo gerado integralmente por IA quando a atribuição importa ao destinatário, e exige revisão humana proporcional ao risco em decisão crítica |
-| Princípio 3 · Camada dupla | O próprio caderno é Camada Dupla aplicada, com o método aqui no livro e o número datado no repositório acompanhante |
-| Princípio 6 · Propriedade do agente | A matriz RACI exige Accountable nomeado para promoção de agente entre níveis de autonomia, e o controle número três exige kill switch testado em simulado |
-| Princípio 8 · Responsabilidade indelegável | A regra fundamental do caderno é que toda decisão de IA tem nome humano único, e quando alguém disser "foi a IA que decidiu", a organização precisa saber em até cinco minutos de quem é a cadeira |
+| Invariante 1 · Plausibilidade não verdade | A AUP veda atribuir autoria humana a conteúdo gerado integralmente por IA quando a atribuição importa ao destinatário, e exige revisão humana proporcional ao risco em decisão crítica |
+| Invariante 3 · Camada dupla | O próprio caderno é Camada Dupla aplicada, com o método aqui no livro e o número datado no repositório acompanhante |
+| Invariante 6 · Propriedade do agente | A matriz RACI exige Accountable nomeado para promoção de agente entre níveis de autonomia, e o controle número três exige kill switch testado em simulado |
+| Invariante 8 · Responsabilidade indelegável | A regra fundamental do caderno é que toda decisão de IA tem nome humano único, e quando alguém disser "foi a IA que decidiu", a organização precisa saber em até cinco minutos de quem é a cadeira |
 
-Os outros cinco princípios aparecem de forma distribuída no caderno, e estão listados na íntegra na seção 1.3 do caderno operacional executável em `governance/v1/01-identificacao-escopo-principios.md`.
+Os outros cinco invariantes aparecem de forma distribuída no caderno, e estão listados na íntegra na seção 1.3 do caderno operacional executável em `governance/v1/01-identificacao-escopo-principios.md`.
 
 ---
 
@@ -110,7 +110,7 @@ A customização do caderno segue sete padrões transversais, independentemente 
 
 1. **Patrocinador executivo nomeado, não apenas o cargo.** O caderno exige nome próprio na linha de patrocinador, não apenas "CTO" ou "CEO". Sem nome, a responsabilidade vira institucional, e institucional é eufemismo para ninguém.
 
-2. **Princípios condutores customizados ao vocabulário da organização**, sem renomear os Nove Princípios da obra, e sem suprimir nenhum deles. Customização que apaga o Princípio Oito viola o pacto editorial do caderno.
+2. **Princípios condutores customizados ao vocabulário da organização**, sem renomear os Nove Invariantes da obra, e sem suprimir nenhum deles. Customização que apaga o Invariante Oito viola o pacto editorial do caderno.
 
 3. **Matriz RACI estendida com as classes de decisão específicas do negócio.** As sete classes de decisão recorrentes do modelo são piso, jamais teto. Empresa que opera com agente autônomo em produção precisa adicionar classe específica para promoção de tier de autonomia, com gates de observabilidade explícitos.
 
@@ -129,7 +129,7 @@ A customização do caderno segue sete padrões transversais, independentemente 
 | Anti-padrão | Por que falha |
 |---|---|
 | Caderno publicado em PDF assinado sem revisão programada | Governança morre no momento da assinatura; o documento vira álibi quando o incidente vier, não defesa |
-| RACI implícito com expressão como "o time X cuida" | Sem nome, ninguém responde; viola o Princípio Oito por omissão estrutural |
+| RACI implícito com expressão como "o time X cuida" | Sem nome, ninguém responde; viola o Invariante Oito por omissão estrutural |
 | Comitê de IA sem mandato escrito e sem quórum mínimo | Reuniões viram fórum de opinião, decisões empacam, incidentes escalam à diretoria sem filtro técnico |
 | AUP genérica sem exemplo concreto da ferramenta adotada | Colaborador não sabe se a ferramenta nova do dia está permitida ou proibida, e o resultado é shadow AI |
 | Maturidade autodeclarada sem evidência anexada | Conselho recebe quadro verde otimista que não resiste ao primeiro incidente |
@@ -169,7 +169,7 @@ O caminho recomendado de adoção é clonar a pasta, customizar a identificaçã
 
 ## Compromisso final do caderno
 
-A diretoria, ao assinar o caderno, compromete-se com a regra fundamental do Princípio Oito, em que toda decisão de IA tem nome humano responsável. A IA executa, a responsabilidade tem dono. Quando alguém disser "foi a IA que decidiu", a organização precisa saber, em até cinco minutos, de quem é a cadeira.
+A diretoria, ao assinar o caderno, compromete-se com a regra fundamental do Invariante Oito, em que toda decisão de IA tem nome humano responsável. A IA executa, a responsabilidade tem dono. Quando alguém disser "foi a IA que decidiu", a organização precisa saber, em até cinco minutos, de quem é a cadeira.
 
 Este é o pacto que o caderno materializa, e é a métrica final pela qual ele será julgado, ainda que muito antes disso o conselho já tenha julgado os sete indicadores de caderno vivo.
 

@@ -3,7 +3,7 @@
 
 ## 1. OBJETIVO
 
-Escrever prompts de produção que respeitam a física de atenção (Princípio 2) e que separam, dentro do prompt, o que é padrão estável do que é número volátil (Princípio 3). Garantir que a regra crítica nunca fique no centro do prompt, e que cada bloco esteja na posição em que será efetivamente seguido.
+Escrever prompts de produção que respeitam a física de atenção (Invariante 2) e que separam, dentro do prompt, o que é padrão estável do que é número volátil (Invariante 3). Garantir que a regra crítica nunca fique no centro do prompt, e que cada bloco esteja na posição em que será efetivamente seguido.
 
 ## 2. FUNCIONAMENTO
 
@@ -111,7 +111,7 @@ modelo termina pelo bloco 4** — daí a redundância deliberada.
 
 | Anti-padrão | Por que mata |
 |-------------|--------------|
-| Enterrar regra crítica no parágrafo 40 de prompt longo | Princípio 2: atenção decai no meio; regra ignorada silenciosamente |
+| Enterrar regra crítica no parágrafo 40 de prompt longo | Invariante 2: atenção decai no meio; regra ignorada silenciosamente |
 | Colocar a pergunta no início, antes do contexto | Modelo responde ao input sem ter visto o contexto |
 | Constituição não versionada (string no código) | Sem rastreabilidade de mudança; vira buraco de governança |
 | Misturar regra inviolável com sugestão estilística | Modelo perde hierarquia; quebra ambas com a mesma facilidade |

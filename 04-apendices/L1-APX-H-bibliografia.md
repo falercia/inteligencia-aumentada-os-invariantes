@@ -87,7 +87,7 @@
 - Goodfellow, I., Bengio, Y., Courville, A. *Deep Learning* (2016)
 - Murphy, K. *Probabilistic Machine Learning* (2 vols., 2022 e 2023)
 - Engelbart, D. *Augmenting Human Intellect* (1962)
-- Drucker, P. *The Effective Executive* (1966). (Fundamento de tomada de decisão sistemática sob incerteza; base conceitual do Princípio 9 — Operador.)
+- Drucker, P. *The Effective Executive* (1966). (Fundamento de tomada de decisão sistemática sob incerteza; base conceitual do Invariante 9 — Operador.)
 - Brooks, F. *The Mythical Man-Month* (1975/1995). (Lei de Brooks aplicada a sistemas de IA: adicionar agentes não reduz complexidade proporcionalmente.)
 - Beyer, B. et al. *Site Reliability Engineering* (Google, 2016) e *The Site Reliability Workbook* (2018)
 - Allspaw, J. & Robbins, J. *Web Operations* (2010)
@@ -129,6 +129,6 @@
 
 ## V. Sobre esta obra
 
-**Inteligência Aumentada — Os Nove Princípios Permanentes** (Livro 1). Autor: Fabio Garcia. Edição: 1ª. Ano: 2026.
+**Inteligência Aumentada — Os Nove Invariantes** (Livro 1). Autor: Fabio Garcia. Edição: 1ª. Ano: 2026.
 
-Os Nove Princípios sintetizam padrões observáveis em literatura técnica, em práticas operacionais e em incidentes documentados. As referências secundárias que mais influenciaram a formulação estão listadas na introdução da obra.
+Os Nove Invariantes sintetizam padrões observáveis em literatura técnica, em práticas operacionais e em incidentes documentados. As referências secundárias que mais influenciaram a formulação estão listadas na introdução da obra.

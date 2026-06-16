@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 620" font-family="Inter, system-ui, sans-serif">
+  <title>Triângulo Latência × Qualidade × Custo</title>
+  <desc>Triângulo equilátero clássico de engenharia aplicado a IA. Vértices: Latência (topo), Qualidade (baixo direito), Custo (baixo esquerdo). Texto central: "Otimize dois, pague no terceiro." Micro-legendas em cada aresta. Sustenta o Invariante 5 (Custo Composto).</desc>
+
+  <rect width="700" height="620" fill="#fefce8"/>
+
+  <!-- Título -->
+  <text x="350" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#0d1b2a">TRIÂNGULO LATÊNCIA × QUALIDADE × CUSTO</text>
+  <text x="350" y="56" text-anchor="middle" font-size="12" fill="#6b7280" font-style="italic">A restrição dominante decide o vértice que você sacrifica — Invariante 5 (Custo Composto)</text>
+
+  <!-- ====================================================
+       TRIÂNGULO EQUILÁTERO
+       Centro: (350, 310)
+       Raio circunscrito: 200
+       Vértice TOPO (Latência):   (350, 110)
+       Vértice BAIXO ESQ (Custo): (350 - 200*sin(60°), 310 + 200*cos(60°)) = (176, 410)
+       Vértice BAIXO DIR (Qual):  (350 + 200*sin(60°), 310 + 200*cos(60°)) = (524, 410)
+       sin(60°)=0.866, cos(60°)=0.5
+  ==================================================== -->
+
+  <!-- Triângulo externo (sombra/borda) -->
+  <polygon points="350,110 176,410 524,410" fill="none" stroke="#E97451" stroke-width="3.5"/>
+
+  <!-- Triângulo preenchido interno (mais leve para não cobrir texto) -->
+  <polygon points="350,120 184,405 516,405" fill="#E97451" opacity="0.08"/>
+
+  <!-- Linhas de cada aresta separadas para controle fino -->
+
+  <!-- ===== VÉRTICE TOPO — LATÊNCIA ===== -->
+  <circle cx="350" cy="110" r="38" fill="#E97451"/>
+  <text x="350" y="104" text-anchor="middle" font-size="13" font-weight="700" fill="#fef3c7">LATÊNCIA</text>
+  <text x="350" y="122" text-anchor="middle" font-size="11" fill="#fef3c7">rápido</text>
+
+  <!-- Caixas descritoras do vértice Latência -->
+  <rect x="210" y="60" width="140" height="36" fill="#0d1b2a" rx="4"/>
+  <text x="280" y="77" text-anchor="middle" font-size="10" fill="#fef3c7">Conversação síncrona,</text>
+  <text x="280" y="91" text-anchor="middle" font-size="10" fill="#fef3c7">chatbot, assistente real-time</text>
+  <line x1="280" y1="96" x2="320" y2="115" stroke="#0d1b2a" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <rect x="350" y="60" width="140" height="36" fill="#0d1b2a" rx="4"/>
+  <text x="420" y="77" text-anchor="middle" font-size="10" fill="#fef3c7">Sacrifica qualidade</text>
+  <text x="420" y="91" text-anchor="middle" font-size="10" fill="#fef3c7">(modelo menor / menos passos)</text>
+  <line x1="388" y1="96" x2="370" y2="115" stroke="#0d1b2a" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- ===== VÉRTICE BAIXO ESQ — CUSTO ===== -->
+  <circle cx="176" cy="410" r="38" fill="#0d1b2a"/>
+  <text x="176" y="404" text-anchor="middle" font-size="13" font-weight="700" fill="#fef3c7">CUSTO</text>
+  <text x="176" y="422" text-anchor="middle" font-size="10" fill="#fef3c7">R$/token + infra</text>
+
+  <!-- Caixas descritoras Custo -->
+  <rect x="20" y="450" width="155" height="36" fill="#0d1b2a" rx="4"/>
+  <text x="97" y="467" text-anchor="middle" font-size="10" fill="#fef3c7">Classificação em volume,</text>
+  <text x="97" y="481" text-anchor="middle" font-size="10" fill="#fef3c7">batch, margem apertada</text>
+  <line x1="130" y1="450" x2="155" y2="430" stroke="#0d1b2a" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <rect x="20" y="380" width="155" height="36" fill="#374151" rx="4"/>
+  <text x="97" y="397" text-anchor="middle" font-size="10" fill="#fef3c7">Sacrifica latência</text>
+  <text x="97" y="411" text-anchor="middle" font-size="10" fill="#fef3c7">(cache agressivo, pré-compute)</text>
+  <line x1="130" y1="380" x2="155" y2="400" stroke="#374151" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- ===== VÉRTICE BAIXO DIR — QUALIDADE ===== -->
+  <circle cx="524" cy="410" r="38" fill="#1b263b"/>
+  <text x="524" y="404" text-anchor="middle" font-size="13" font-weight="700" fill="#fef3c7">QUALIDADE</text>
+  <text x="524" y="422" text-anchor="middle" font-size="10" fill="#fef3c7">acurácia / profundidade</text>
+
+  <!-- Caixas descritoras Qualidade -->
+  <rect x="525" y="450" width="155" height="36" fill="#1b263b" rx="4"/>
+  <text x="602" y="467" text-anchor="middle" font-size="10" fill="#fef3c7">Relatório regulatório,</text>
+  <text x="602" y="481" text-anchor="middle" font-size="10" fill="#fef3c7">jurídico, clínico, auditoria</text>
+  <line x1="570" y1="450" x2="545" y2="430" stroke="#1b263b" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <rect x="525" y="380" width="155" height="36" fill="#374151" rx="4"/>
+  <text x="602" y="397" text-anchor="middle" font-size="10" fill="#fef3c7">Sacrifica latência</text>
+  <text x="602" y="411" text-anchor="middle" font-size="10" fill="#fef3c7">(modelo maior, mais passos)</text>
+  <line x1="565" y1="380" x2="545" y2="400" stroke="#374151" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- ===== MICRO-LEGENDAS NAS ARESTAS ===== -->
+
+  <!-- Aresta Latência—Qualidade (direita) -->
+  <!-- Ponto médio: ((350+524)/2, (110+410)/2) = (437, 260) -->
+  <rect x="450" y="240" width="130" height="40" fill="#fefce8" stroke="#E97451" stroke-width="1.2" rx="3"/>
+  <text x="515" y="257" text-anchor="middle" font-size="10" fill="#0d1b2a" font-weight="700">Rápido + Bom</text>
+  <text x="515" y="273" text-anchor="middle" font-size="10" fill="#374151">→ custa mais (modelo premium)</text>
+  <line x1="450" y1="260" x2="437" y2="260" stroke="#E97451" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Aresta Latência—Custo (esquerda) -->
+  <!-- Ponto médio: ((350+176)/2, (110+410)/2) = (263, 260) -->
+  <rect x="120" y="240" width="130" height="40" fill="#fefce8" stroke="#E97451" stroke-width="1.2" rx="3"/>
+  <text x="185" y="257" text-anchor="middle" font-size="10" fill="#0d1b2a" font-weight="700">Rápido + Barato</text>
+  <text x="185" y="273" text-anchor="middle" font-size="10" fill="#374151">→ modelo menor / pior qualidade</text>
+  <line x1="250" y1="260" x2="263" y2="260" stroke="#E97451" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Aresta Custo—Qualidade (base) -->
+  <!-- Ponto médio: ((176+524)/2, 410) = (350, 410) -->
+  <rect x="265" y="430" width="170" height="40" fill="#fefce8" stroke="#E97451" stroke-width="1.2" rx="3"/>
+  <text x="350" y="447" text-anchor="middle" font-size="10" fill="#0d1b2a" font-weight="700">Bom + Barato</text>
+  <text x="350" y="463" text-anchor="middle" font-size="10" fill="#374151">→ latência alta (batch / cache)</text>
+
+  <!-- ===== TEXTO CENTRAL ===== -->
+  <text x="350" y="290" text-anchor="middle" font-size="16" font-weight="700" fill="#0d1b2a">"Otimize dois,</text>
+  <text x="350" y="312" text-anchor="middle" font-size="16" font-weight="700" fill="#0d1b2a">pague no terceiro."</text>
+  <text x="350" y="334" text-anchor="middle" font-size="11" fill="#6b7280" font-style="italic">Princípio clássico de engenharia de sistemas</text>
+
+  <!-- ===== TABELA DE DECISÃO INFERIOR ===== -->
+  <rect x="60" y="508" width="580" height="98" fill="#f3f4f6" rx="4" stroke="#cbd5e1" stroke-width="0.8"/>
+  <text x="350" y="526" text-anchor="middle" font-size="12" font-weight="700" fill="#0d1b2a">COMO IDENTIFICAR SUA RESTRIÇÃO DOMINANTE</text>
+
+  <!-- Linha divisória -->
+  <line x1="70" y1="532" x2="630" y2="532" stroke="#cbd5e1" stroke-width="0.8"/>
+
+  <!-- Headers -->
+  <text x="175" y="546" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">Caso de uso</text>
+  <text x="380" y="546" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">Restrição dominante</text>
+  <text x="570" y="546" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">Sacrifica</text>
+
+  <line x1="70" y1="550" x2="630" y2="550" stroke="#cbd5e1" stroke-width="0.5"/>
+
+  <!-- Row 1 -->
+  <text x="175" y="565" text-anchor="middle" font-size="10" fill="#0d1b2a">Chatbot / assistente real-time</text>
+  <text x="380" y="565" text-anchor="middle" font-size="10" fill="#E97451" font-weight="700">Latência</text>
+  <text x="570" y="565" text-anchor="middle" font-size="10" fill="#374151">Qualidade (modelo menor)</text>
+
+  <!-- Row 2 -->
+  <text x="175" y="581" text-anchor="middle" font-size="10" fill="#0d1b2a">Relatório jurídico / regulatório</text>
+  <text x="380" y="581" text-anchor="middle" font-size="10" fill="#1b263b" font-weight="700">Qualidade</text>
+  <text x="570" y="581" text-anchor="middle" font-size="10" fill="#374151">Latência (modelo premium)</text>
+
+  <!-- Row 3 -->
+  <text x="175" y="597" text-anchor="middle" font-size="10" fill="#0d1b2a">Classificação em volume / batch</text>
+  <text x="380" y="597" text-anchor="middle" font-size="10" fill="#0d1b2a" font-weight="700">Custo</text>
+  <text x="570" y="597" text-anchor="middle" font-size="10" fill="#374151">Latência (cache + batch)</text>
+
+</svg>

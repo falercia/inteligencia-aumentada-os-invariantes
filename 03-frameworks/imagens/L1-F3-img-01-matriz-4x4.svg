@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" font-family="Inter, system-ui, sans-serif">
+  <title>Matriz 4×4 de Propriedade do Agente — Observabilidade × Reversibilidade</title>
+  <desc>Matriz 4×4 cruzando Observabilidade (eixo Y, de Cega a Total) com Reversibilidade (eixo X, de Irreversível a Alta). O quadrante de encontro define o nível máximo de autonomia permitido — Invariante 6 (Autonomia Proporcional).</desc>
+
+  <rect width="900" height="680" fill="#fefce8"/>
+
+  <!-- Título -->
+  <text x="450" y="38" text-anchor="middle" font-size="22" font-weight="700" fill="#0d1b2a">MATRIZ DE AUTONOMIA DO AGENTE</text>
+  <text x="450" y="60" text-anchor="middle" font-size="12" fill="#6b7280" font-style="italic">O quadrante de encontro define o teto de autonomia — Invariante 6 (Autonomia Proporcional)</text>
+
+  <!-- ===== LAYOUT =====
+       Área da matriz: x=130 a x=810, y=80 a y=500
+       4 colunas (reversibilidade): largura 170 cada = 680 total
+       4 linhas (observabilidade): altura 105 cada = 420 total
+       Cabeçalho colunas: y=80 a y=140 (60px)
+       Rótulo eixo Y: x=20 a x=130 -->
+
+  <!-- Rótulo eixo X -->
+  <text x="470" y="560" text-anchor="middle" font-size="14" font-weight="700" fill="#0d1b2a">REVERSIBILIDADE DA AÇÃO →</text>
+
+  <!-- Rótulo eixo Y (rotacionado) -->
+  <text x="18" y="320" text-anchor="middle" font-size="14" font-weight="700" fill="#0d1b2a" transform="rotate(-90,18,320)">OBSERVABILIDADE →</text>
+
+  <!-- ===== CABEÇALHO COLUNAS (Reversibilidade) ===== -->
+  <!-- Col 1: Irreversível -->
+  <rect x="130" y="80" width="170" height="60" fill="#0d1b2a" rx="2"/>
+  <text x="215" y="107" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">IRREVERSÍVEL</text>
+  <text x="215" y="126" text-anchor="middle" font-size="10" fill="#fef3c7" font-style="italic">envio, transação</text>
+
+  <!-- Col 2: Baixa -->
+  <rect x="300" y="80" width="170" height="60" fill="#1b263b" rx="2"/>
+  <text x="385" y="107" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">BAIXA</text>
+  <text x="385" y="126" text-anchor="middle" font-size="10" fill="#fef3c7" font-style="italic">compensável c/ custo</text>
+
+  <!-- Col 3: Média -->
+  <rect x="470" y="80" width="170" height="60" fill="#1b263b" rx="2"/>
+  <text x="555" y="107" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">MÉDIA</text>
+  <text x="555" y="126" text-anchor="middle" font-size="10" fill="#fef3c7" font-style="italic">rollback automático</text>
+
+  <!-- Col 4: Alta -->
+  <rect x="640" y="80" width="170" height="60" fill="#E97451" rx="2"/>
+  <text x="725" y="107" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">ALTA</text>
+  <text x="725" y="126" text-anchor="middle" font-size="10" fill="#fef3c7" font-style="italic">só leitura / simulação</text>
+
+  <!-- ===== CABEÇALHO LINHAS (Observabilidade) — de baixo para cima ===== -->
+  <!-- Row 4 (topo, y=140): Total -->
+  <rect x="20" y="140" width="110" height="105" fill="#0d1b2a" rx="2"/>
+  <text x="75" y="182" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">TOTAL</text>
+  <text x="75" y="198" text-anchor="middle" font-size="10" fill="#fef3c7" font-style="italic">tracing + replay</text>
+
+  <!-- Row 3 (y=245): Média -->
+  <rect x="20" y="245" width="110" height="105" fill="#1b263b" rx="2"/>
+  <text x="75" y="287" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">MÉDIA</text>
+  <text x="75" y="303" text-anchor="middle" font-size="10" fill="#fef3c7" font-style="italic">tracing por span</text>
+
+  <!-- Row 2 (y=350): Baixa -->
+  <rect x="20" y="350" width="110" height="105" fill="#374151" rx="2"/>
+  <text x="75" y="392" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">BAIXA</text>
+  <text x="75" y="408" text-anchor="middle" font-size="10" fill="#fef3c7" font-style="italic">logs input/output</text>
+
+  <!-- Row 1 (base, y=455): Cega -->
+  <rect x="20" y="455" width="110" height="105" fill="#6b7280" rx="2"/>
+  <text x="75" y="497" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">CEGA</text>
+  <text x="75" y="513" text-anchor="middle" font-size="10" fill="#fef3c7" font-style="italic">só log de erro</text>
+
+  <!-- ===== CÉLULAS DA MATRIZ =====
+       4 linhas × 4 colunas
+       Escala de autonomia (células):
+       Assistente:            fill=#f3f4f6  texto=#0d1b2a  (mais claro)
+       Co-piloto:             fill=#d1d5db  texto=#0d1b2a
+       Agente Supervisionado: fill=#E97451  texto=#fef3c7  (laranja)
+       Autônomo Regulado:     fill=#0d1b2a  texto=#fef3c7  (navy)
+  -->
+
+  <!-- LINHA 4 — Observabilidade TOTAL (y=140..245) -->
+  <!-- (Total, Irreversível) = Co-piloto -->
+  <rect x="130" y="140" width="170" height="105" fill="#e5e7eb" stroke="#cbd5e1" stroke-width="0.8" rx="2"/>
+  <text x="215" y="184" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">CO-PILOTO</text>
+  <text x="215" y="200" text-anchor="middle" font-size="10" fill="#374151">confirma cada passo</text>
+
+  <!-- (Total, Baixa) = Agente Supervisionado -->
+  <rect x="300" y="140" width="170" height="105" fill="#E97451" stroke="#cbd5e1" stroke-width="0.8" rx="2"/>
+  <text x="385" y="184" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">AGENTE</text>
+  <text x="385" y="200" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">SUPERVISIONADO</text>
+  <text x="385" y="220" text-anchor="middle" font-size="10" fill="#fef3c7">monitora trace</text>
+
+  <!-- (Total, Média) = Agente Supervisionado -->
+  <rect x="470" y="140" width="170" height="105" fill="#E97451" stroke="#cbd5e1" stroke-width="0.8" rx="2"/>
+  <text x="555" y="184" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">AGENTE</text>
+  <text x="555" y="200" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">SUPERVISIONADO</text>
+  <text x="555" y="220" text-anchor="middle" font-size="10" fill="#fef3c7">audita amostra</text>
+
+  <!-- (Total, Alta) = Autônomo Regulado -->
+  <rect x="640" y="140" width="170" height="105" fill="#0d1b2a" stroke="#cbd5e1" stroke-width="0.8" rx="2"/>
+  <text x="725" y="181" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">AUTÔNOMO</text>
+  <text x="725" y="197" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">REGULADO</text>
+  <text x="725" y="216" text-anchor="middle" font-size="10" fill="#fef3c7">executa c/ kill switch</text>
+
+  <!-- LINHA 3 — Observabilidade MÉDIA (y=245..350) -->
+  <!-- (Média obs, Irreversível) = Assistente -->
+  <rect x="130" y="245" width="170" height="105" fill="#f9fafb" stroke="#cbd5e1" stroke-width="0.8" rx="2"/>
+  <text x="215" y="289" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">ASSISTENTE</text>
+  <text x="215" y="305" text-anchor="middle" font-size="10" fill="#374151">sugere, humano executa</text>
+
+  <!-- (Média obs, Baixa) = Co-piloto -->
+  <rect x="300" y="245" width="170" height="105" fill="#e5e7eb" stroke="#cbd5e1" stroke-width="0.8" rx="2"/>
+  <text x="385" y="289" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">CO-PILOTO</text>
+  <text x="385" y="305" text-anchor="middle" font-size="10" fill="#374151">confirma cada passo</text>
+
+  <!-- (Média obs, Média) = Agente Supervisionado -->
+  <rect x="470" y="245" width="170" height="105" fill="#E97451" stroke="#cbd5e1" stroke-width="0.8" rx="2"/>
+  <text x="555" y="289" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">AGENTE</text>
+  <text x="555" y="305" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">SUPERVISIONADO</text>
+  <text x="555" y="322" text-anchor="middle" font-size="10" fill="#fef3c7">executa, audita amostra</text>
+
+  <!-- (Média obs, Alta) = Agente Supervisionado -->
+  <rect x="640" y="245" width="170" height="105" fill="#E97451" stroke="#cbd5e1" stroke-width="0.8" rx="2"/>
+  <text x="725" y="289" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">AGENTE</text>
+  <text x="725" y="305" text-anchor="middle" font-size="11" font-weight="700" fill="#fef3c7">SUPERVISIONADO</text>
+  <text x="725" y="322" text-anchor="middle" font-size="10" fill="#fef3c7">executa c/ monitor</text>
+
+  <!-- LINHA 2 — Observabilidade BAIXA (y=350..455) -->
+  <!-- (Baixa obs, Irreversível) = Assistente -->
+  <rect x="130" y="350" width="170" height="105" fill="#f9fafb" stroke="#cbd5e1" stroke-width="0.8" rx="2"/>
+  <text x="215" y="394" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">ASSISTENTE</text>
+  <text x="215" y="410" text-anchor="middle" font-size="10" fill="#374151">sugere, humano executa</text>
+
+  <!-- (Baixa obs, Baixa) = Assistente -->
+  <rect x="300" y="350" width="170" height="105" fill="#f9fafb" stroke="#cbd5e1" stroke-width="0.8" rx="2"/>
+  <text x="385" y="394" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">ASSISTENTE</text>
+  <text x="385" y="410" text-anchor="middle" font-size="10" fill="#374151">sugere, humano executa</text>
+
+  <!-- (Baixa obs, Média) = Co-piloto -->
+  <rect x="470" y="350" width="170" height="105" fill="#e5e7eb" stroke="#cbd5e1" stroke-width="0.8" rx="2"/>
+  <text x="555" y="394" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">CO-PILOTO</text>
+  <text x="555" y="410" text-anchor="middle" font-size="10" fill="#374151">confirma cada passo</text>
+
+  <!-- (Baixa obs, Alta) = Co-piloto -->
+  <rect x="640" y="350" width="170" height="105" fill="#e5e7eb" stroke="#cbd5e1" stroke-width="0.8" rx="2"/>
+  <text x="725" y="394" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">CO-PILOTO</text>
+  <text x="725" y="410" text-anchor="middle" font-size="10" fill="#374151">confirma cada passo</text>
+
+  <!-- LINHA 1 — Observabilidade CEGA (y=455..560) -->
+  <!-- (Cega, Irreversível) = Assistente -->
+  <rect x="130" y="455" width="170" height="105" fill="#f9fafb" stroke="#cbd5e1" stroke-width="0.8" rx="2"/>
+  <text x="215" y="499" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">ASSISTENTE</text>
+  <text x="215" y="515" text-anchor="middle" font-size="10" fill="#374151">sugere, humano executa</text>
+
+  <!-- (Cega, Baixa) = Assistente -->
+  <rect x="300" y="455" width="170" height="105" fill="#f9fafb" stroke="#cbd5e1" stroke-width="0.8" rx="2"/>
+  <text x="385" y="499" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">ASSISTENTE</text>
+  <text x="385" y="515" text-anchor="middle" font-size="10" fill="#374151">sugere, humano executa</text>
+
+  <!-- (Cega, Média) = Assistente -->
+  <rect x="470" y="455" width="170" height="105" fill="#f9fafb" stroke="#cbd5e1" stroke-width="0.8" rx="2"/>
+  <text x="555" y="499" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">ASSISTENTE</text>
+  <text x="555" y="515" text-anchor="middle" font-size="10" fill="#374151">sugere, humano executa</text>
+
+  <!-- (Cega, Alta) = Co-piloto -->
+  <rect x="640" y="455" width="170" height="105" fill="#e5e7eb" stroke="#cbd5e1" stroke-width="0.8" rx="2"/>
+  <text x="725" y="499" text-anchor="middle" font-size="11" font-weight="700" fill="#0d1b2a">CO-PILOTO</text>
+  <text x="725" y="515" text-anchor="middle" font-size="10" fill="#374151">confirma cada passo</text>
+
+  <!-- Seta diagonal indicando crescimento de autonomia -->
+  <line x1="145" y1="545" x2="795" y2="155" stroke="#E97451" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.5"/>
+  <text x="480" y="354" text-anchor="middle" font-size="10" fill="#E97451" font-style="italic" transform="rotate(-28,480,354)">autonomia crescente →</text>
+
+  <!-- ===== LEGENDA DOS 4 NÍVEIS ===== -->
+  <text x="450" y="586" text-anchor="middle" font-size="12" font-weight="700" fill="#0d1b2a">NÍVEIS DE AUTONOMIA</text>
+
+  <!-- Assistente -->
+  <rect x="40" y="598" width="14" height="14" fill="#f9fafb" stroke="#374151" stroke-width="1"/>
+  <text x="60" y="611" font-size="11" fill="#0d1b2a" font-weight="700">Assistente</text>
+  <text x="60" y="628" font-size="10" fill="#374151">sugere; humano executa</text>
+
+  <!-- Co-piloto -->
+  <rect x="220" y="598" width="14" height="14" fill="#e5e7eb" stroke="#374151" stroke-width="1"/>
+  <text x="240" y="611" font-size="11" fill="#0d1b2a" font-weight="700">Co-piloto</text>
+  <text x="240" y="628" font-size="10" fill="#374151">executa sob aprovação</text>
+
+  <!-- Agente Supervisionado -->
+  <rect x="420" y="598" width="14" height="14" fill="#E97451" stroke="#374151" stroke-width="1"/>
+  <text x="440" y="611" font-size="11" fill="#0d1b2a" font-weight="700">Agente Supervisionado</text>
+  <text x="440" y="628" font-size="10" fill="#374151">executa; humano audita amostra</text>
+
+  <!-- Autônomo Regulado -->
+  <rect x="680" y="598" width="14" height="14" fill="#0d1b2a" stroke="#374151" stroke-width="1"/>
+  <text x="700" y="611" font-size="11" fill="#0d1b2a" font-weight="700">Autônomo Regulado</text>
+  <text x="700" y="628" font-size="10" fill="#374151">executa com kill switch</text>
+
+</svg>

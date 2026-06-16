@@ -1,10 +1,10 @@
-# Apêndice M — Manifesto de Bolso: Os Nove Princípios em Uma Página
+# Apêndice M — Manifesto de Bolso: Os Nove Invariantes em Uma Página
 
 > *Imprima. Cole na parede. Distribua ao time. Leve para a próxima decisão de IA.*
 
 ---
 
-## Os Nove Princípios
+## Os Nove Invariantes
 
 ### 1 — Plausibilidade
 **"O modelo entrega o plausível, não o verdadeiro — e os dois coincidem, até a hora em que não."**
@@ -65,21 +65,21 @@
 
 | Situação | Pergunte-se |
 |----------|-------------|
-| Vou escolher um modelo | Princípio 4: qual o encaixe por eixo de tarefa? |
-| Vou subir um agente | Princípio 6: tenho tracing e rollback proporcionais? |
-| Vou trocar um prompt em produção | Princípio 7: rodou contra o golden set? |
-| Vou apresentar a iniciativa à diretoria | Princípios 8 e 9: há dono e há decisão estruturada? |
-| Vou cortar custo de IA | Princípio 5: mexi nas três alavancas arquiteturais? |
-| Vou citar um benchmark | Princípio 3: conferi a data e a fonte? |
+| Vou escolher um modelo | Invariante 4: qual o encaixe por eixo de tarefa? |
+| Vou subir um agente | Invariante 6: tenho tracing e rollback proporcionais? |
+| Vou trocar um prompt em produção | Invariante 7: rodou contra o golden set? |
+| Vou apresentar a iniciativa à diretoria | Invariantes 8 e 9: há dono e há decisão estruturada? |
+| Vou cortar custo de IA | Invariante 5: mexi nas três alavancas arquiteturais? |
+| Vou citar um benchmark | Invariante 3: conferi a data e a fonte? |
 
 ---
 
 ## Ressalva
 
-Os Princípios 1 (Plausibilidade) e 2 (Extremidades) dependem da arquitetura generativa atual. Arquiteturas futuras podem mudar a mecânica. Os outros sete são princípios de prática e julgamento, independentes de arquitetura.
+Os Invariantes 1 (Plausibilidade) e 2 (Extremidades) dependem da arquitetura generativa atual. Arquiteturas futuras podem mudar a mecânica. Os outros sete são invariantes de prática e julgamento, independentes de arquitetura.
 
 ---
 
 ## Atribuição
 
-Os Nove Princípios Permanentes da Inteligência Artificial — sistema da obra *Inteligência Aumentada* (Fabio Garcia, 2026). Distribuição livre com atribuição.
+Os Nove Invariantes da Inteligência Artificial — sistema da obra *Inteligência Aumentada* (Fabio Garcia, 2026). Distribuição livre com atribuição.

@@ -1,44 +1,21 @@
 # F5 — Matriz de Cobertura de Integrações
 ## *Decisão de mecanismo de integração entre agente de IA e mundo externo*
 
-
-> *"O agente vale o que ele alcança. Sistema sem integração é demonstração de salão; sistema com integração mal escolhida é demonstração de falha cara."*
-
----
-
-## ESCOPO DESTE FRAMEWORK
-
-Este framework decide **o mecanismo de integração** — como o agente se conecta ao mundo externo. Três conceitos aparecem aqui em acepção específica e delimitada:
-
-- **Observabilidade de integração** (dimensão 4 da Matriz de Cobertura): visibilidade sobre a chamada de integração em si — latência, erro e custo da chamada. Não cobre observabilidade do agente como um todo, que é matéria de F3 (eixo X da matriz de autonomia) e do Cap 22 (LLMOps).
-- **Conformidade de integração** (dimensão 5 da Matriz de Cobertura): requisitos regulatórios sobre o dado trafegado na chamada — LGPD, AI Act, DPIA. Não cobre governança de IA como prática institucional, que é matéria de F6.
-- **Cap 22 — LLMOps** é a âncora autoritativa de observabilidade de IA em produção; F3, F5, F6 e F7 a aplicam cada um em seu escopo específico.
-
----
-
 ## 1. OBJETIVO
 
-Decidir, por *capability* (capacidade), qual é o mecanismo correto de integração entre o agente de IA e cada fonte externa de dado ou de ação. O universo de escolha em 2026 inclui pelo menos seis mecanismos distintos, e a escolha madura combina vários por contexto, em vez de adotar um e ignorar os demais.
+O agente vale o que ele alcança — sistema sem integração é demonstração de salão; sistema com integração mal escolhida é demonstração de falha cara. Este framework decide, por *capability* (capacidade), qual é o mecanismo correto de integração entre o agente de IA e cada fonte externa de dado ou de ação.
 
-A decisão é função composta de cinco variáveis estruturais:
+Três conceitos aparecem aqui em acepção específica e delimitada: **observabilidade de integração** (dimensão 4 da Matriz de Cobertura) cobre visibilidade sobre a chamada de integração em si — latência, erro e custo da chamada — e não a observabilidade do agente como um todo, que é matéria de F3 e do Cap 22 (LLMOps). **Conformidade de integração** (dimensão 5) cobre requisitos regulatórios sobre o dado trafegado na chamada — LGPD, AI Act, DPIA — e não governança de IA como prática institucional, que é matéria de F6. **Cap 22 — LLMOps** é a âncora autoritativa de observabilidade de IA em produção; F3, F5, F6 e F7 a aplicam cada um em seu escopo específico.
 
-- maturidade do padrão dentro da organização;
-- sensibilidade dos dados envolvidos;
-- exigência de latência;
-- necessidade de descoberta dinâmica de capabilities;
-- compatibilidade com conformidade regulatória.
+O universo de escolha em 2026 inclui pelo menos seis mecanismos distintos, e a escolha madura combina vários por contexto, em vez de adotar um e ignorar os demais. A decisão é função composta de cinco variáveis estruturais: maturidade do padrão dentro da organização; sensibilidade dos dados envolvidos; exigência de latência; necessidade de descoberta dinâmica de capabilities; compatibilidade com conformidade regulatória.
 
----
+## 2. FUNCIONAMENTO
 
-## 2. NOTA EDITORIAL DE NEUTRALIDADE
+### Neutralidade analítica
 
-Cada um dos seis mecanismos cobertos por este framework tem um patrocinador, uma comunidade, uma trajetória de origem. REST nasceu como tese acadêmica e virou padrão de fato da web; gRPC saiu do Google e virou padrão de microsserviços; Kafka saiu do LinkedIn e definiu mensageria moderna; MCP é projeto da Anthropic publicado em novembro de 2024; webhooks são convenção que emergiu da prática. Reconhecer a origem de cada padrão é honestidade intelectual, e *não* é argumento de adoção. A escolha do mecanismo correto não é definida por quem o publicou; é definida pelo encaixe da capability na arquitetura, na cultura e na regulação da organização.
+Cada um dos seis mecanismos cobertos por este framework tem um patrocinador, uma comunidade, uma trajetória de origem. REST nasceu como tese acadêmica e virou padrão de fato da web; gRPC saiu do Google e virou padrão de microsserviços; Kafka saiu do LinkedIn e definiu mensageria moderna; MCP é projeto da Anthropic publicado em novembro de 2024; webhooks são convenção que emergiu da prática. Reconhecer a origem de cada padrão é honestidade intelectual, e *não* é argumento de adoção. A escolha do mecanismo correto não é definida por quem o publicou; é definida pelo encaixe da capability na arquitetura, na cultura e na regulação da organização. A regra editorial é tratar os seis mecanismos com igualdade analítica, mesmo onde a moda recente do mercado de IA sugere preferência por um deles.
 
-A regra editorial deste framework é tratar os seis mecanismos com igualdade analítica, mesmo onde a moda recente do mercado de IA sugere preferência por um deles. O operador profissional escolhe a ferramenta certa para o problema certo, e não a ferramenta da moda para qualquer problema.
-
----
-
-## 3. OS SEIS MECANISMOS DE INTEGRAÇÃO
+### Os seis mecanismos de integração
 
 | Mecanismo | Origem e estado em 2026 | Quando é a escolha certa |
 |---|---|---|
@@ -49,11 +26,9 @@ A regra editorial deste framework é tratar os seis mecanismos com igualdade ana
 | **MCP** (Model Context Protocol) | Padrão recente; Anthropic 2024; ecossistema em consolidação rápida | Integração nova com agente de IA, descoberta dinâmica de capabilities, expectativa de portabilidade entre provedores de LLM |
 | **Tool ad-hoc com schema interno** (function calling de provedor) | Padrão por provedor; OpenAI 2023, Anthropic 2024, Google 2024 | Protótipo rápido, integração one-off, time já consolidado em um provedor único sem expectativa de migração |
 
-A síntese da tabela é editorial e direta: cada mecanismo serve a um tipo de problema, e nenhum é tecnicamente superior a outro em abstrato. O operador profissional aprende a reconhecer rapidamente qual problema está diante de si, e escolhe o mecanismo correspondente. Misturar os seis em arquitetura madura é regra, não exceção.
+A síntese é direta: cada mecanismo serve a um tipo de problema, e nenhum é tecnicamente superior a outro em abstrato. O operador profissional aprende a reconhecer rapidamente qual problema está diante de si, e escolhe o mecanismo correspondente. Misturar os seis em arquitetura madura é regra, não exceção.
 
----
-
-## 4. AS CINCO DIMENSÕES DA MATRIZ DE COBERTURA
+### As cinco dimensões da Matriz de Cobertura
 
 Para qualquer integração concreta, o framework avalia em cinco dimensões. Cada dimensão recebe nota de cobertura em quatro níveis (insuficiente, parcial, adequada, completa), e a leitura é horizontal — a cobertura geral é tão forte quanto a dimensão mais fraca.
 
@@ -65,13 +40,11 @@ Para qualquer integração concreta, o framework avalia em cinco dimensões. Cad
 | **Observabilidade** | Visibilidade do que aconteceu na integração ao longo do tempo | Tracing distribuído com OpenTelemetry; log estruturado; dashboard com latência, erro e custo |
 | **Conformidade** | Aderência ao requisito regulatório aplicável (LGPD, AI Act, ISO 42001, regulação setorial) | DPIA documentado quando aplicável; retenção definida; trilha de auditoria preservada |
 
-A regra prática do framework é: nenhuma integração vai para produção com qualquer dimensão classificada como "insuficiente". Dimensões "parciais" são aceitáveis em piloto interno; dimensões "adequadas" são piso para produção; dimensões "completas" são necessárias para integração crítica em setor regulado.
+Regra prática: nenhuma integração vai para produção com qualquer dimensão classificada como "insuficiente". Dimensões "parciais" são aceitáveis em piloto interno; dimensões "adequadas" são piso para produção; dimensões "completas" são necessárias para integração crítica em setor regulado.
 
----
+### Matriz de decisão por capability
 
-## 5. MATRIZ DE DECISÃO POR CAPABILITY
-
-O framework recomenda decidir uma capability de cada vez, com matriz cruzando *natureza da capability* × *contexto da organização*. A escolha de mecanismo segue dessa matriz, não de preferência doutrinária.
+O framework recomenda decidir uma capability de cada vez, cruzando *natureza da capability* × *contexto da organização*. A escolha de mecanismo segue dessa matriz, não de preferência doutrinária.
 
 | Natureza da capability | Contexto da organização | Mecanismo sugerido |
 |---|---|---|
@@ -83,11 +56,9 @@ O framework recomenda decidir uma capability de cada vez, com matriz cruzando *n
 | Integração nova com agente de IA, descoberta dinâmica relevante, portabilidade futura entre provedores | Time com bandwidth para internalizar protocolo emergente | **MCP** com servidor próprio ou público maduro |
 | Protótipo rápido de uma feature de IA, integração one-off, sem expectativa de reuso | Time consolidado em um provedor de LLM | **Tool ad-hoc** com schema interno do provedor |
 
-O leitor que aplicar a matriz com honestidade descobre que a arquitetura madura tipicamente usa quatro a cinco mecanismos em paralelo, cada um onde encaixa, e não um mecanismo único para tudo.
+O leitor que aplicar a matriz com honestidade descobre que a arquitetura madura tipicamente usa quatro a cinco mecanismos em paralelo, cada um onde encaixa.
 
----
-
-## 6. QUANDO CADA MECANISMO É A ESCOLHA ERRADA
+### Quando cada mecanismo é a escolha errada
 
 A simetria do framework exige que cada mecanismo receba a mesma firmeza ao identificar quando é a escolha errada. A regra é evitar adoção doutrinária em todas as direções.
 
@@ -103,27 +74,33 @@ A simetria do framework exige que cada mecanismo receba a mesma firmeza ao ident
 
 **Tool ad-hoc é errado quando** a organização precisa de portabilidade entre provedores de LLM no futuro, quando a integração será compartilhada entre múltiplas equipes, ou quando a descoberta dinâmica de capabilities é parte do design da aplicação.
 
----
-
-## 7. QUANDO MIGRAR DE MECANISMO EXISTENTE
+### Quando migrar de mecanismo existente
 
 A maioria dos leitores não está escolhendo mecanismo do zero — está avaliando se deve migrar de REST consolidado para MCP, ou de tool ad-hoc para padrão estável. Critérios que justificam migração: (1) o mecanismo atual impõe custo de manutenção recorrente maior do que o custo estimado de migração; (2) um novo requisito — descoberta dinâmica, portabilidade entre provedores, redução de acoplamento — não é atendível com o mecanismo atual sem adaptação significativa; (3) incidente recorrente rastreável ao mecanismo (latência, falha de autenticação, observabilidade insuficiente). Critérios que **não** justificam migração: moda de mercado, conferência recente, fornecedor lançou SDK novo, concorrente adotou o protocolo.
 
-## 8. ANTI-PADRÕES DE ADOÇÃO
+### Protocolo de aplicação em 30 minutos
 
-Quatro anti-padrões aparecem com frequência em organizações brasileiras que iniciam adoção de IA em escala.
+O framework é desenhado para ser aplicado em sessão única de trinta minutos por capability nova, com folha em branco:
 
-**Anti-padrão A — Adoção doutrinária de um mecanismo único.** Time que escolhe MCP, REST ou gRPC como resposta universal e força todas as integrações no mesmo padrão, ignorando o encaixe da capability. Custo: integrações forçadas em mecanismo errado custam latência, complexidade e bugs invisíveis no início e dolorosos depois.
+1. **Cinco minutos** — descreva a capability em duas linhas (o que o agente precisa fazer, em qual fonte, com que frequência, com qual SLA).
+2. **Cinco minutos** — classifique a natureza da capability (leitura, ação síncrona, ação assíncrona, notificação, mensageria, descoberta).
+3. **Dez minutos** — aplique a matriz de decisão por capability e identifique o mecanismo sugerido.
+4. **Cinco minutos** — avalie nas cinco dimensões da matriz de cobertura, e identifique a dimensão mais fraca.
+5. **Cinco minutos** — decida o plano de remediação para a dimensão mais fraca antes da entrada em produção.
 
-**Anti-padrão B — Migração ampla por moda.** Organização que opera REST consolidado decide migrar todas as integrações para o protocolo novo do ano apenas porque ele entrou em conferência, sem benefício composto claro. Custo: tempo de engenharia desviado de feature para refatoração de baixo retorno, regressões em SLAs firmados.
+A regra inegociável: nenhuma integração entra em produção com a aplicação do framework incompleta. O custo de aplicar o framework é uma sessão de trinta minutos; o custo de não aplicar é incidente em produção com causa raiz nominalmente diagnosticada como falha de cobertura.
 
-**Anti-padrão C — Adoção sem capacidade operacional.** Time que adota mecanismo novo sem internalizar tooling, debugging e observabilidade correspondente, e descobre o custo composto na primeira incidência em produção. Custo: incidentes de longa duração, decisão de revogar a adoção sob estresse.
+## 3. OUTPUT
 
-**Anti-padrão D — Ignorar a matriz de cobertura.** Time que entra em produção com integração que cobre apenas leitura, sem tratamento de ação, sem autenticação adequada, sem observabilidade, e depois descobre que precisa de tudo isso ao mesmo tempo durante incidente. Custo: corte em SLA, exposição regulatória, retrabalho composto.
+| Campo | Conteúdo |
+|-------|----------|
+| Mecanismo escolhido por capability | Um dos seis mecanismos com justificativa em uma frase |
+| Matriz de cobertura preenchida | Cinco dimensões com nível (insuficiente / parcial / adequada / completa) |
+| Dimensão mais fraca identificada | A dimensão que bloqueia ou condiciona a entrada em produção |
+| Plano de remediação da dimensão mais fraca | Ação, responsável e prazo antes da entrada em produção |
+| Decisão de migração (se aplicável) | Justificativa por critério (1), (2) ou (3); ou negação explícita por critério de não-migração |
 
----
-
-## 9. EXEMPLO MEMORÁVEL — A TELECOM QUE USOU CINCO MECANISMOS DE CADA VEZ
+## 4. EXEMPLO DE USO
 
 Uma operadora de telecomunicações brasileira, com cerca de cinco mil funcionários e mais de quarenta sistemas internos legados acumulados ao longo de quinze anos, decidiu em 2025 instituir copiloto de atendimento ao cliente baseado em IA. O escopo inicial parecia simples — durante a conversa com o cliente, o atendente deveria conseguir consultar histórico de chamados, verificar status de pagamentos, validar plano contratado, abrir tickets internos quando necessário, e disparar workflow de retenção em casos específicos.
 
@@ -137,9 +114,16 @@ A lição estrutural é direta: *o operador maduro decide o mecanismo de integra
 
 > **Rigor estatístico do caso.** Medições da operadora realizadas em janela de seis meses pós-implantação, com aproximadamente 32.000 atendimentos amostrados estatisticamente por canal (call center, WhatsApp, app), tempo médio e NPS validados contra base histórica de doze meses anteriores, intervalo de confiança 95% sobre as métricas reportadas, validação cruzada com auditoria de qualidade interna. Caso composto a partir de padrões observados em mais de uma operadora de telecom do mercado brasileiro — atribuição nominal sugerida para edições futuras, conforme pacto editorial descrito no paratexto "Sobre os casos desta obra".
 
----
+## 5. ANTI-PADRÕES
 
-## 10. CONEXÕES COM OUTROS CAPÍTULOS
+| Anti-padrão | Por que mata |
+|-------------|--------------|
+| Adoção doutrinária de um mecanismo único | Integrações forçadas em mecanismo errado custam latência, complexidade e bugs invisíveis no início e dolorosos depois |
+| Migração ampla por moda | Tempo de engenharia desviado de feature para refatoração de baixo retorno, regressões em SLAs firmados |
+| Adoção sem capacidade operacional | Incidentes de longa duração; decisão de revogar a adoção sob estresse |
+| Ignorar a matriz de cobertura | Corte em SLA, exposição regulatória, retrabalho composto quando as cinco dimensões são exigidas ao mesmo tempo durante incidente |
+
+## 6. CONEXÕES
 
 - 🔗 **Capítulo 12 — Agentes de IA**: a integração é o que separa agente útil de agente decorativo
 - 🔗 **Capítulo 13 — MCP**: aprofunda o protocolo MCP especificamente, como um dos mecanismos cobertos por este framework
@@ -148,20 +132,6 @@ A lição estrutural é direta: *o operador maduro decide o mecanismo de integra
 - 🔗 **Capítulo 24 — Governança**: integração é tema de governança quando toca dado sensível ou decisão automatizada
 - 🔗 **Apêndice D — Ferramentas**: lista datada de SDKs e ferramentas para cada mecanismo
 - 🔗 **Apêndice O — Caderno de Governança v1**: controles de integração no caderno operacional
-
----
-
-## 11. APLICAÇÃO PRÁTICA EM 30 MINUTOS
-
-O framework é desenhado para ser aplicado em sessão única de trinta minutos por capability nova, com folha em branco. O protocolo é:
-
-1. **Cinco minutos** — descreva a capability em duas linhas (o que o agente precisa fazer, em qual fonte, com que frequência, com qual SLA).
-2. **Cinco minutos** — classifique a natureza da capability (leitura, ação síncrona, ação assíncrona, notificação, mensageria, descoberta).
-3. **Dez minutos** — aplique a matriz de decisão por capability e identifique o mecanismo sugerido.
-4. **Cinco minutos** — avalie nas cinco dimensões da matriz de cobertura, e identifique a dimensão mais fraca.
-5. **Cinco minutos** — decida o plano de remediação para a dimensão mais fraca antes da entrada em produção.
-
-A regra inegociável é: nenhuma integração entra em produção com a aplicação do framework incompleta. O custo de aplicar o framework é uma sessão de trinta minutos; o custo de não aplicar é incidente em produção com causa raiz nominalmente diagnosticada como falha de cobertura.
 
 ---
 

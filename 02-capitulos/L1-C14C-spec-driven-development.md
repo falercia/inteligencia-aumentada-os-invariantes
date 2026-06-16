@@ -68,7 +68,7 @@ Equipes que tentam saltar etapas — pular para implementação a partir de desc
 
 ### 14C.3.3 — Por que a spec sobrevive ao modelo
 
-Uma spec bem escrita é instrumento durável precisamente porque o que ela codifica — intenção, invariante, critério, restrição, teste — não depende de qual modelo a implementa. Quando o agente que hoje é a geração atual da família Claude (versão pontual no Apêndice J) for substituído pelo agente que dois anos adiante será uma família diferente de fornecedor diferente, a spec continua válida e a implementação pode ser regenerada com o novo agente. O esforço cognitivo investido na spec é amortizado por toda a vida útil do sistema, não apenas pela versão do modelo do trimestre. Esta é a aplicação direta do princípio da Camada Dupla: spec é padrão durável; código gerado é número volátil.
+Uma spec bem escrita é instrumento durável precisamente porque o que ela codifica — intenção, invariante, critério, restrição, teste — não depende de qual modelo a implementa. Quando o agente que hoje é a geração atual da família Claude (versão pontual no Apêndice J) for substituído pelo agente que dois anos adiante será uma família diferente de fornecedor diferente, a spec continua válida e a implementação pode ser regenerada com o novo agente. O esforço cognitivo investido na spec é amortizado por toda a vida útil do sistema, não apenas pela versão do modelo do trimestre. Esta é a aplicação direta do Invariante da Camada Dupla: spec é padrão durável; código gerado é número volátil.
 
 A consequência operacional é importante. Times que tratam o código gerado como ativo e a spec como acessório descartável estão otimizando o item errado, e vão pagar a próxima migração de modelo com retrabalho proporcional ao volume de código sob manutenção. Times que tratam a spec como ativo e o código como saída descartável têm caminho de migração razoável: trocar o modelo, regenerar a implementação contra a mesma spec, validar pelo mesmo critério de aceitação. A primeira disciplina escala; a segunda é prisão.
 
@@ -86,7 +86,7 @@ O primeiro é **spec ambígua com aparência de completa**, em que o documento p
 
 O segundo é **ausência de critério de aceitação verificável**, em que a spec descreve comportamento mas não fornece teste que permita ao agente saber quando parou. O agente entrega algo, o humano revisa em modo ad hoc, e o ciclo de retrabalho começa porque cada revisor tem critério implícito diferente. A correção é construir, dentro da spec, os testes que ela exige. SDD sem teste de aceitação na spec é prompt prolixo, não engenharia.
 
-O terceiro é **promoção do agente para autonomia maior do que a observabilidade permite**, em que o operador, animado com o ritmo de entrega, abre permissão de escrita, execução e deploy sem instalar tracing por tarefa, sem versionamento de spec, sem rollback testado. Quando algo falha, ninguém consegue reconstruir o que aconteceu. Esta falha é exatamente a violação do princípio da Autonomia Proporcional aplicada ao novo contexto: o agente SDD funciona com a autonomia que o operador consegue medir e desfazer.
+O terceiro é **promoção do agente para autonomia maior do que a observabilidade permite**, em que o operador, animado com o ritmo de entrega, abre permissão de escrita, execução e deploy sem instalar tracing por tarefa, sem versionamento de spec, sem rollback testado. Quando algo falha, ninguém consegue reconstruir o que aconteceu. Esta falha é exatamente a violação do Invariante da Autonomia Proporcional aplicada ao novo contexto: o agente SDD funciona com a autonomia que o operador consegue medir e desfazer.
 
 ### 14C.3.6 — Onde SDD não cabe
 
@@ -120,7 +120,7 @@ O eval mostrou três coisas. Primeiro, dos sete fluxos críticos do módulo, doi
 
 O CTO interrompeu o piloto, e fez três coisas em sequência. Primeiro, instituiu revisão obrigatória da spec por engenheiro sênior fora da squad antes de qualquer geração de código, com critério explícito para os sete elementos da anatomia. Segundo, definiu que a granularidade de iteração seria por tarefa decomposta, nunca por regeneração inteira, e estabeleceu orçamento de tokens por unidade. Terceiro, instituiu que o plano gerado pelo agente teria que ser defendido oralmente pelo engenheiro responsável antes de aprovação, em sessão curta de cinco minutos por plano. As três medidas reduziram o ritmo de entrega para cerca de duas vezes o baseline anterior, em vez das quatro vezes iniciais, mas eliminaram a regressão silenciosa, derrubaram o custo de token pela metade, e devolveram a competência arquitetural ao time.
 
-A lição estrutural não está em "SDD não funciona" nem em "SDD é o futuro". A lição é que **SDD multiplica a competência operacional pelo mesmo fator que multiplica a incompetência**, e a única alavanca durável é a disciplina do operador na escrita da spec, na revisão do plano e na instalação dos gates de observabilidade. O time da fintech havia caído na ilusão clássica do operador que confunde velocidade com produtividade, e quase pagou em incidente o que estava ganhando em ritmo. A intervenção do CTO foi, em essência, a aplicação simultânea do princípio do Operador, da Autonomia Proporcional e do Termômetro a uma prática nova que os três princípios já cobriam.
+A lição estrutural não está em "SDD não funciona" nem em "SDD é o futuro". A lição é que **SDD multiplica a competência operacional pelo mesmo fator que multiplica a incompetência**, e a única alavanca durável é a disciplina do operador na escrita da spec, na revisão do plano e na instalação dos gates de observabilidade. O time da fintech havia caído na ilusão clássica do operador que confunde velocidade com produtividade, e quase pagou em incidente o que estava ganhando em ritmo. A intervenção do CTO foi, em essência, a aplicação simultânea do Invariante do Operador, da Autonomia Proporcional e do Termômetro a uma prática nova que os três Invariantes já cobriam.
 
 > 🎯 **PARA EXECUTIVOS**
 > A pergunta "estamos adotando SDD?" é menos importante do que "instalamos a disciplina de spec antes de soltar o agente?". Líderes técnicos que confundem velocidade de entrega com produtividade institucional vão repetir o piloto desta fintech em escala maior. O retorno real do método aparece quando a spec passa a ser ativo versionado e revisado, e o código gerado passa a ser saída descartável regenerável a cada modelo novo.
@@ -264,10 +264,10 @@ Escolha uma squad com maturidade de engenharia razoável e um módulo com escopo
 | # | Critério | Você consegue? |
 |---|----------|----------------|
 | 1 | **Clareza** — Explicar Spec-Driven Development para um CTO em três minutos, usando a analogia do projeto paramétrico em construção civil, e diferenciando do uso ad hoc de agente de codificação | ☐ |
-| 2 | **Profundidade** — Defender, em discussão técnica, por que a spec é o ativo durável e o código é a saída descartável, e como essa inversão se ancora no princípio da Camada Dupla | ☐ |
+| 2 | **Profundidade** — Defender, em discussão técnica, por que a spec é o ativo durável e o código é a saída descartável, e como essa inversão se ancora no Invariante da Camada Dupla | ☐ |
 | 3 | **Aplicação** — Identificar, na sua organização, uma squad e um módulo onde um piloto de SDD de quatro a oito semanas teria condição realista de sucesso, com critério explícito antes de começar | ☐ |
 | 4 | **Conexão** — Articular como SDD instancia simultaneamente os Invariantes 9 (Operador), 3 (Camada Dupla), 6 (Autonomia Proporcional) e 8 (Responsabilidade Indelegável), e como se conecta com Caps 9, 11, 12, 14, 14B, 21 e 22 | ☐ |
-| 5 | **Curiosidade ativa** — Está com vontade de redesenhar o template de spec da sua engenharia a partir dos sete elementos, ou de propor o piloto controlado para sua liderança técnica nos próximos catorze dias | ☐ |
+| 5 | **Curiosidade** — Está com vontade de redesenhar o template de spec da sua engenharia a partir dos sete elementos, ou de propor o piloto controlado para sua liderança técnica nos próximos catorze dias | ☐ |
 
 **5 de 5?** Avance para o Capítulo 15 sobre comparação de modelos, onde a escolha do modelo certo para cada tarefa ganha critério estruturado.
 **3 ou 4?** Releia a seção 14C.3 inteira. É onde a mecânica do método se ancora.
@@ -276,6 +276,10 @@ Escolha uma squad com maturidade de engenharia razoável e um módulo com escopo
 ---
 
 🎉 **Você acabou de fechar a Parte 3 — Agentes e IA Moderna.**
+
+---
+
+> **Próximo capítulo:** SDD definiu *como* especificar e controlar o que o agente constrói. Mas a spec não existe no vácuo — ela precisa nomear um modelo, calibrar para um provedor, e sobreviver à próxima geração de lançamentos. O Capítulo 15 entrega o critério estruturado para comparar modelos: não por benchmark de marketing, mas pelos eixos que a spec e a operação realmente exigem.
 
 ---
 

@@ -3,7 +3,7 @@
 
 > Este apêndice oferece estruturas de resposta para os exercícios práticos e projetos dos capítulos. Não são respostas únicas. São gabaritos que mostram o método de pensar que cada exercício pretende ativar. Use como referência para autoavaliação, nunca como atalho para pular o esforço.
 
-> **Nota editorial — cobertura e escopo (junho de 2026):** este apêndice cobre, na edição atual, os gabaritos dos exercícios e projetos dos seguintes capítulos: Introdução (Os Nove Princípios), Como Modelos Funcionam, Tokens, RAG, Engenharia de Prompt, Evals, LLMOps, Alignment, Governança, Trade-offs e Roadmap Pessoal. Os capítulos C08 (Fine-tuning), C10 (Reasoning), C12-C13 (Agentes), C14 (AI Engineering) e C15-C16 (Posicionamento de Mercado) não têm gabarito nesta edição. Os gabaritos pendentes serão publicados no repositório acompanhante à medida que forem finalizados — ative *watch* no repositório em [github.com/falercia/inteligencia-aumentada-recursos](https://github.com/falercia/inteligencia-aumentada-recursos) para receber notificação de novas publicações.
+> **Nota editorial — cobertura e escopo (junho de 2026):** este apêndice cobre, na edição atual, os gabaritos dos exercícios e projetos dos seguintes capítulos: Introdução (Os Nove Invariantes), Como Modelos Funcionam, Tokens, RAG, Engenharia de Prompt, Evals, LLMOps, Alignment, Governança, Trade-offs e Roadmap Pessoal. Os capítulos C08 (Fine-tuning), C10 (Reasoning), C12-C13 (Agentes), C14 (AI Engineering) e C15-C16 (Posicionamento de Mercado) não têm gabarito nesta edição. Os gabaritos pendentes serão publicados no repositório acompanhante à medida que forem finalizados — ative *watch* no repositório em [github.com/falercia/inteligencia-aumentada-recursos](https://github.com/falercia/inteligencia-aumentada-recursos) para receber notificação de novas publicações.
 
 ---
 
@@ -16,17 +16,17 @@
 
 ---
 
-## Introdução — Os Nove Princípios (C00P + C01)
+## Introdução — Os Nove Invariantes (C00P + C01)
 
 ### Exercício 1 — Diagnóstico do time
-**Estrutura esperada:** lista de nove violações típicas, uma por princípio, com exemplo específico do time. Identificar os três mais críticos com sinal concreto, por exemplo, "regressão silenciosa não detectada nos últimos seis meses" para o Princípio 7.
+**Estrutura esperada:** lista de nove violações típicas, uma por invariante, com exemplo específico do time. Identificar os três mais críticos com sinal concreto, por exemplo, "regressão silenciosa não detectada nos últimos seis meses" para o Invariante 7.
 
 ### Exercício 2 — Auditoria de decisões
-**Estrutura esperada:** tabela com três decisões cruzadas com os nove princípios. Marcar respeitado ou violado e descrever o que mudaria.
+**Estrutura esperada:** tabela com três decisões cruzadas com os nove invariantes. Marcar respeitado ou violado e descrever o que mudaria.
 
-### Projeto — Cartaz dos Princípios da empresa
-**Critério de qualidade:** uma página A3, com violação típica adaptada à linguagem do seu setor. Outro executivo lê e reconhece os nove princípios pela sua versão, sem ambiguidade.
-**Rubrica de proficiência:** *Insuficiente* — princípios copiados sem adaptação ao setor ou com menos de seis dos nove presentes. *Proficiente* — todos os nove princípios presentes com violação típica adaptada ao vocabulário real da organização. *Excelente* — cartaz é adotado pelo time, com exemplos de incidentes reais da casa que ilustram cada violação.
+### Projeto — Cartaz dos Invariantes da empresa
+**Critério de qualidade:** uma página A3, com violação típica adaptada à linguagem do seu setor. Outro executivo lê e reconhece os nove invariantes pela sua versão, sem ambiguidade.
+**Rubrica de proficiência:** *Insuficiente* — invariantes copiados sem adaptação ao setor ou com menos de seis dos nove presentes. *Proficiente* — todos os nove invariantes presentes com violação típica adaptada ao vocabulário real da organização. *Excelente* — cartaz é adotado pelo time, com exemplos de incidentes reais da casa que ilustram cada violação.
 
 ---
 
@@ -90,11 +90,11 @@
 ## Alignment — Capítulo 23
 
 ### Exercício 3 — Mini-constituição corporativa
-**Estrutura:** sete princípios em português, cada um em uma frase, sem jargão. Submetido a par sênior para revisão.
+**Estrutura:** sete invariantes em português, cada um em uma frase, sem jargão. Submetido a par sênior para revisão.
 
 ### Projeto — Caderno de Alignment Operacional
 **Critério de qualidade:** outro engenheiro sênior responde "como nosso sistema lida com pedido de conselho médico não-supervisionado?" sem precisar perguntar.
-**Rubrica de proficiência:** *Insuficiente* — caderno sem política explícita para classe de pedido de alto risco ou sem exemplo concreto da ferramenta adotada. *Proficiente* — mini-constituição com sete princípios em português, exemplo de pedido de alto risco tratado, e critério de revisão por par sênior. *Excelente* — caderno em uso em onboarding de novos engenheiros, com evidência de pelo menos um caso de pedido fora do escopo tratado conforme a política.
+**Rubrica de proficiência:** *Insuficiente* — caderno sem política explícita para classe de pedido de alto risco ou sem exemplo concreto da ferramenta adotada. *Proficiente* — mini-constituição com sete invariantes em português, exemplo de pedido de alto risco tratado, e critério de revisão por par sênior. *Excelente* — caderno em uso em onboarding de novos engenheiros, com evidência de pelo menos um caso de pedido fora do escopo tratado conforme a política.
 
 ---
 

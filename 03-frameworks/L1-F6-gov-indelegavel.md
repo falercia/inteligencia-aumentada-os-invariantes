@@ -107,7 +107,7 @@ Seguradora BR de médio porte, após multa ANPD por negação automatizada de co
 | Anti-padrão | Por que mata |
 |-------------|--------------|
 | Política publicada, processo inexistente, prática divergente | Governança morta no PDF; quando o incidente vier, o documento será exposto como teatro |
-| RACI implícito ("o time X cuida") | Sem nome, ninguém responde. Princípio 8 viola por omissão |
+| RACI implícito ("o time X cuida") | Sem nome, ninguém responde. Invariante 8 viola por omissão |
 | AI Council sem mandato | Vira reunião de tom sem decisão; conselho fica simbólico |
 | Política de incidente nunca testada em simulado | Na hora do incidente, descobre-se que não funciona |
 | Auditoria interna sem auditoria externa periódica | Auto-auditoria tende a falsa segurança |

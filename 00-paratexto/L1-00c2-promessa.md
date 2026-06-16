@@ -6,11 +6,11 @@
 
 ## O que você vai dominar até a última página
 
-Este não é um livro de "como usar IA". É um livro de **como pensar em IA**, com método transferível para o próximo modelo, para o próximo provedor, para a próxima onda regulatória. Os **Nove Princípios Permanentes** que sustentam toda a obra sobrevivem à troca de Claude, GPT, Gemini ou qualquer fronteira que ainda não foi lançada.
+Este não é um livro de "como usar IA". É um livro de **como pensar em IA**, com método transferível para o próximo modelo, para o próximo provedor, para a próxima onda regulatória. Os **Nove Invariantes** que sustentam toda a obra sobrevivem à troca de Claude, GPT, Gemini ou qualquer fronteira que ainda não foi lançada.
 
 Ao terminar, você sai com:
 
-- **Nove Princípios Permanentes** memorizáveis, que viram critério de decisão em reunião executiva, em revisão técnica e em conversa com fornecedor
+- **Nove Invariantes** memorizáveis, que viram critério de decisão em reunião executiva, em revisão técnica e em conversa com fornecedor
 - **Nove Frameworks operacionais** (F1 a F9): método de decisão para adotar IA, encaixe modelo×tarefa, escala de propriedade de agente, engenharia de prompt estendida, cobertura de integrações, governança indelegável, custo composto, pirâmide de avaliação, rota dupla de adoção — os mais relevantes por perfil estão mapeados na tabela abaixo
 - **Vocabulário técnico profundo** sobre tokens, contexto, embeddings, RAG, memória, fine-tuning, agentes, MCP, reasoning models, evals, LLMOps, alignment, interpretabilidade mecanicista
 - **Mais de trinta exemplos memoráveis brasileiros** — não estudos de caso americanos traduzidos, mas compostos pedagógicos construídos a partir de padrões observados em organizações brasileiras, com cargo, setor e números calibrados ao mercado nacional. O pacto editorial sobre a construção desses casos está declarado em *Sobre os Casos*, logo a seguir.

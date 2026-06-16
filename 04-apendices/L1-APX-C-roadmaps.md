@@ -14,10 +14,10 @@
 
 | Semana | Ação | Artefato |
 |--------|------|----------|
-| 1 | Apresentar os Nove Princípios ao primeiro escalão | Deck de abertura |
+| 1 | Apresentar os Nove Invariantes ao primeiro escalão | Deck de abertura |
 | 2 | Listar cinco decisões críticas de IA na organização hoje e identificar o accountable de cada uma | Tabela RACI mínima |
 | 3 | Definir OKRs de adoção de IA, de três a cinco | Documento de OKRs |
-| 4 | Produzir o cartaz dos Princípios da empresa | Cartaz em A3 |
+| 4 | Produzir o cartaz dos Invariantes da empresa | Cartaz em A3 |
 
 **Critério de avanço:** cartaz publicado, RACI mínimo de cinco decisões assinado, OKRs aprovados.
 
@@ -46,7 +46,7 @@
 
 - Maturidade média dos controles de governança em nível três ou superior
 - Auditoria externa positiva
-- Em pelo menos duas decisões de IA documentadas no período, o princípio aplicado ou violado foi nominalmente identificado em ata ou documento de decisão
+- Em pelo menos duas decisões de IA documentadas no período, o invariante aplicado ou violado foi nominalmente identificado em ata ou documento de decisão
 - Dois simulados de incidente realizados no ano
 
 **Critério de avanço:** auditoria externa concluída.
@@ -57,7 +57,7 @@
 
 ### Marco 30 dias
 - Selecionar uma feature de IA sob o escopo
-- Mapear violações dos Nove Princípios nessa feature
+- Mapear violações dos Nove Invariantes nessa feature
 - Iniciar golden set de trinta casos representativos
 
 **Critério de avanço:** feature mapeada e golden set v0.
@@ -77,7 +77,7 @@
 **Critério de avanço:** maturidade técnica média em nível três ou superior.
 
 ### Marco 365 dias
-- Time aplicando os Princípios como norma de revisão de PR
+- Time aplicando os Invariantes como norma de revisão de PR
 - Nenhum incidente crítico no último trimestre
 - Cultura aplicada e medida
 
@@ -108,8 +108,8 @@
 **Critério de avanço:** Caderno de LLMOps publicado.
 
 ### Marco 365 dias
-- Mentor de outros devs no método dos Princípios
-- Contribuição ao repositório de prompts da empresa
+- Mentor de outros devs no método dos Invariantes
+- Contribuição ao repositório de casos de uso com framework de eval documentado por caso — o que sobrevive é a estrutura de avaliação, não o prompt específico
 - Participação em decisão de arquitetura citando os métodos derivados
 
 **Critério de avanço:** reputação interna confirmada por feedback de pares.
@@ -120,7 +120,7 @@
 
 ### Marco 30 dias
 - Aplicar o cardápio dos seis trade-offs em um cliente
-- Produzir entrega usando os Princípios como vocabulário
+- Produzir entrega usando os Invariantes como vocabulário
 
 **Critério de avanço:** um cliente impactado.
 
@@ -131,7 +131,7 @@
 **Critério de avanço:** três cases internos documentados.
 
 ### Marco 180 dias
-- Workshop dos Nove Princípios para clientes
+- Workshop dos Nove Invariantes para clientes
 - Método próprio adaptado ao seu nicho
 
 **Critério de avanço:** workshop em pé.
@@ -178,14 +178,14 @@
 ## Roadmap 6 — Criador de conteúdo / Educador
 
 ### Marco 30 dias
-- Quatro posts ou vídeos aplicando um princípio por semana
-- Distribuir a síntese de uma página dos Nove Princípios à audiência
+- Quatro posts ou vídeos aplicando um invariante por semana
+- Distribuir a síntese de uma página dos Nove Invariantes à audiência
 
 **Critério de avanço:** quatro peças publicadas.
 
 ### Marco 90 dias
-- Workshop ou minicurso usando os Princípios
-- Biblioteca de frameworks de decisão publicada (ex.: como aplicar o Diagnóstico de Encaixe por vertical, com princípio associado — não lista de prompts isolados)
+- Workshop ou minicurso usando os Invariantes
+- Biblioteca de frameworks de decisão publicada (ex.: como aplicar o Diagnóstico de Encaixe por vertical, com invariante associado — não lista de prompts isolados)
 
 **Critério de avanço:** um workshop entregue.
 
@@ -219,7 +219,7 @@
 **Tese:** construir competência verificável e compartilhável.
 
 - Aplicar o Diagnóstico de Encaixe entre Tarefa e Modelo ao escolher ferramenta para nova tarefa
-- Documentar em nota interna ou post pessoal: o que funcionou, o que não funcionou, qual princípio explicou o resultado
+- Documentar em nota interna ou post pessoal: o que funcionou, o que não funcionou, qual invariante explicou o resultado
 - Apresentar a um colega ou gestor um caso com antes/depois mensurável
 
 **Critério de avanço:** um case interno documentado com métrica de resultado.
@@ -229,15 +229,15 @@
 
 - Três ou mais colegas vieram pedir orientação sobre IA aplicada ao trabalho
 - Aplicar o Custo Composto em Três Tempos para justificar ou questionar uma decisão de ferramenta da equipe
-- Participar de decisão técnica citando explicitamente ao menos um dos Nove Princípios
+- Participar de decisão técnica citando explicitamente ao menos um dos Nove Invariantes
 
-**Critério de avanço:** reconhecimento informal como referência; citação dos Princípios documentada em pelo menos uma decisão.
+**Critério de avanço:** reconhecimento informal como referência; citação dos Invariantes documentada em pelo menos uma decisão.
 
 ### Marco 365 dias
 **Tese:** construir reputação transferível.
 
 - Competência em IA aplicada reconhecida em avaliação de desempenho ou em indicação para novo projeto
-- Portfólio de casos pessoais documentados: ao menos três, com métrica, princípio associado e lição aprendida
+- Portfólio de casos pessoais documentados: ao menos três, com métrica, invariante associado e lição aprendida
 - Capacidade de conduzir a análise de trade-offs canônicos para qualquer nova proposta de uso de IA no escopo
 
 **Critério de avanço:** portfólio de três cases e reconhecimento verificável por avaliação ou indicação.
@@ -252,8 +252,8 @@
 
 | Cadência | Atividade |
 |----------|-----------|
-| Diária | Trinta minutos com o cartaz dos Princípios em vista; autopergunta antes de cada decisão de IA |
-| Semanal | Revisão dos artefatos da semana contra os Nove Princípios |
+| Diária | Trinta minutos com o cartaz dos Invariantes em vista; autopergunta antes de cada decisão de IA |
+| Semanal | Revisão dos artefatos da semana contra os Nove Invariantes |
 | Mensal | Atualização de fontes de referência na sua área; revisão de métricas-chave |
 | Trimestral | Revisão do roadmap, dos critérios de avanço e ajuste de plano |
 | Anual | Edição completa dos Cadernos de Governança, Evals e LLMOps; auditoria externa |
@@ -266,4 +266,4 @@
 | MTTR de incidentes críticos | Mensal |
 | Custo de IA sobre receita | Mensal |
 | Maturidade média dos controles | Trimestral |
-| Aplicação cultural dos Princípios | Semestral |
+| Aplicação cultural dos Invariantes | Semestral |

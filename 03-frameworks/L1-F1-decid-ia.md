@@ -27,12 +27,12 @@ Se a resposta for "ninguém define" ou "o usuário decide", a iniciativa não pa
 ### Pergunta 4 — Linha de medição
 *"Como saberemos que está funcionando?"* Métrica primária + golden set inicial + frequência de revisão.
 
-Sem golden set planejado, a iniciativa pode passar para piloto interno mas não para produção. Princípio 7 manda.
+Sem golden set planejado, a iniciativa pode passar para piloto interno mas não para produção. Invariante 7 manda.
 
 ### Pergunta 5 — Responsabilidade
 *"Quem assina?"* Nome próprio, com cadeira específica, com competência para responder pela decisão.
 
-Sem nome, não passa. Princípio 8 manda.
+Sem nome, não passa. Invariante 8 manda.
 
 ## 3. OUTPUT
 

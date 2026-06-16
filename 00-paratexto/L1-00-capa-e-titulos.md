@@ -1,12 +1,12 @@
 # CAPA, TÍTULOS E CONCEITO EDITORIAL
-## *Inteligência Aumentada — Os Princípios Permanentes da IA*
+## *Inteligência Aumentada — Os Invariantes da IA*
 
 ---
 
 ## SUBTÍTULO CANÔNICO (capa, ISBN, distribuidores)
 
 > **Inteligência Aumentada**
-> *Os Princípios Permanentes da IA*
+> *Os Invariantes da IA*
 
 ## TAGLINE DE MARKETING (sinopse, e-mail, redes)
 
@@ -24,7 +24,7 @@
 | **Promessa central** | Entender o que **não** muda em IA, e por isso parar de envelhecer junto com cada lançamento. |
 | **Tom** | Profundo, direto, profissional sem academicismo |
 | **Voz** | Autoral, confiante, brasileira |
-| **Diferencial central** | Sistema próprio dos nove princípios permanentes da IA, compostos pedagógicos calibrados ao mercado brasileiro a partir de padrões observados em organizações reais, frameworks de decisão imediata |
+| **Diferencial central** | Sistema próprio dos nove invariantes da IA, compostos pedagógicos calibrados ao mercado brasileiro a partir de padrões observados em organizações reais, frameworks de decisão imediata |
 
 ---
 
@@ -38,9 +38,9 @@
 
 | Conceito | Direção |
 |----------|---------|
-| **A — Minimalista executivo (recomendado)** | Fundo navy profundo, tipografia serifada moderna branca, elemento gráfico único: a roda dos nove princípios em traço fino, dourado ou laranja, no canto inferior direito |
+| **A — Minimalista executivo (recomendado)** | Fundo navy profundo, tipografia serifada moderna branca, elemento gráfico único: a roda dos nove invariantes em traço fino, dourado ou laranja, no canto inferior direito |
 | **B — Manifesto** | Fundo creme; título grande, serifa; nove ícones discretos no rodapé como assinatura |
-| **C — Selo de método** | Fundo preto; título centralizado; selo dos nove princípios em alto-relevo simulado |
+| **C — Selo de método** | Fundo preto; título centralizado; selo dos nove invariantes em alto-relevo simulado |
 
 **Cor primária:** Navy profundo (#0d1b2a) com laranja (#E97451) como segundo plano.
 
@@ -48,7 +48,7 @@
 
 ## LOMBADA
 
-> **Inteligência Aumentada · Os Princípios Permanentes da IA · Fabio Garcia**
+> **Inteligência Aumentada · Os Invariantes da IA · Fabio Garcia**
 
 ---
 
@@ -62,7 +62,7 @@
 
 | Campo | Conteúdo |
 |-------|----------|
-| Título | Inteligência Aumentada — Os Princípios Permanentes da IA |
+| Título | Inteligência Aumentada — Os Invariantes da IA |
 | Autor | Fabio Garcia |
 | Edição | 1ª |
 | Ano | 2026 |

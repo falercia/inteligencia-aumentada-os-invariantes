@@ -250,7 +250,7 @@ A combinação dos três usos transforma a função do CTO. Em vez de adivinhar 
 | 1 | **Clareza** — Explicar a um membro do Conselho, em cinco minutos, a diferença entre previsão pontual e cenário estruturado, com analogia do piloto | ☐ |
 | 2 | **Profundidade** — Defender em discussão técnica por que probabilidade subjetiva qualitativa é mais responsável que probabilidade numérica em campo de alta turbulência | ☐ |
 | 3 | **Aplicação** — Construir, nas próximas duas semanas, os três planos (orçamento, produto, talento) para os três cenários a trinta e seis meses na sua organização | ☐ |
-| 4 | **Conexão** — Articular como o método de cenários se conecta com o Método de Decisão para Adotar IA (F1), com a Escala de Propriedade do Agente (F3), com o Custo Composto em Três Tempos (F7) e com a Camada Dupla (Princípio 3) | ☐ |
+| 4 | **Conexão** — Articular como o método de cenários se conecta com o Método de Decisão para Adotar IA (F1), com a Escala de Propriedade do Agente (F3), com o Custo Composto em Três Tempos (F7) e com a Camada Dupla (Invariante 3) | ☐ |
 | 5 | **Curiosidade ativa** — Está com vontade de instituir o rito trimestral do AI Council para revisão da leitura de cenário, ainda nesta semana | ☐ |
 
 ---

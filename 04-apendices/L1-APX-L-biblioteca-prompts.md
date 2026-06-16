@@ -22,7 +22,7 @@ A primeira peça é o padrão durável, e ela vive aqui no livro, na forma de tr
 
 A segunda peça é o número volátil, e ela vive no repositório acompanhante público em [github.com/falercia/inteligencia-aumentada-recursos](https://github.com/falercia/inteligencia-aumentada-recursos), em pasta dedicada por prompt, com o XML completo do ativo, o golden set de vinte casos calibrados pelo autor, o changelog público datado, os anti-padrões em detalhe e o script de regressão executável. Quem chega à ficha do livro com clareza conceitual encontra no repositório o artefato pronto para clonar, adaptar e colocar em CI, sem ter que reescrever cada estrutura do zero.
 
-Essa separação é deliberada e materializa o Princípio Três, a Camada Dupla (definido no capítulo de abertura "Os Nove Invariantes"). O padrão dura porque a estrutura conceitual sobrevive à próxima geração de modelo, ao próximo provedor, à próxima moda de framework. O número muda porque o XML específico vai sofrer iteração mensal, o golden set vai crescer com calibração de especialistas externos, e a métrica de qualidade vai ser refinada a cada release. Manter as duas no mesmo arquivo, como faziam as primeiras versões deste apêndice, congelava o XML em mídia impressa e impedia a evolução contínua do ativo. O leitor que entendeu o método vai ao repositório quando precisa do executável, e fica com a ficha quando precisa do método.
+Essa separação é deliberada e materializa o Invariante Três, a Camada Dupla (definido no capítulo de abertura "Os Nove Invariantes"). O padrão dura porque a estrutura conceitual sobrevive à próxima geração de modelo, ao próximo provedor, à próxima moda de framework. O número muda porque o XML específico vai sofrer iteração mensal, o golden set vai crescer com calibração de especialistas externos, e a métrica de qualidade vai ser refinada a cada release. Manter as duas no mesmo arquivo, como faziam as primeiras versões deste apêndice, congelava o XML em mídia impressa e impedia a evolução contínua do ativo. O leitor que entendeu o método vai ao repositório quando precisa do executável, e fica com a ficha quando precisa do método.
 
 ### Quadro de orientação — onde vive o quê
 
@@ -174,9 +174,9 @@ O leitor que quiser ir além e abrir o XML completo, o golden set de vinte casos
 
 ## Índice dos 30 prompts
 
-A tabela a seguir é a entrada do apêndice para cada prompt. O princípio que cada ficha ilustra é o invariante que vale ler aqui; a ficha executável completa — XML, golden set, changelog, script de regressão — vive no repositório.
+A tabela a seguir é a entrada do apêndice para cada prompt. O invariante que cada ficha ilustra é o que vale ler aqui; a ficha executável completa — XML, golden set, changelog, script de regressão — vive no repositório.
 
-| ID | Nome | Setor | Princípio ilustrado | Repositório |
+| ID | Nome | Setor | Invariante ilustrado | Repositório |
 |---|---|---|---|---|
 | P-LEG-01 | Revisão de Cláusula de Não-Concorrência CLT | Jurídico | Constituição estrita + citação literal obrigatória | [/prompts/P-LEG-01](https://github.com/falercia/inteligencia-aumentada-recursos/tree/main/prompts/P-LEG-01-clausula-nao-concorrencia-clt) |
 | P-LEG-02 | Análise de NDA Brasileiro LGPD-Compliant | Jurídico | Escopo fechado + sinalização de lacuna | [/prompts/P-LEG-02](https://github.com/falercia/inteligencia-aumentada-recursos/tree/main/prompts/P-LEG-02-nda-lgpd-compliant) |

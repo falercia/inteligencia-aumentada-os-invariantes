@@ -22,7 +22,7 @@
 
 ## II. Contexto e atenção
 
-11. **Liu et al. — *Lost in the Middle* (Stanford, 2023).** Base empírica do princípio das extremidades.
+11. **Liu et al. — *Lost in the Middle* (Stanford, 2023).** Base empírica do invariante das extremidades.
 12. **Press et al. — *ALiBi: Train Short, Test Long* (Meta, 2022).** Encoding posicional alternativo.
 13. **Su et al. — *RoFormer* (RoPE, 2023).** Rotary position embeddings.
 14. **Dao et al. — *FlashAttention* e *FlashAttention-2* (Stanford, 2022-2023).** Eficiência de atenção em GPUs.

@@ -11,6 +11,8 @@ Decidir o nível de autonomia que um agente pode receber, em função direta de 
 
 Matriz 4×4 cruzando observabilidade × reversibilidade. O quadrante de encontro determina o nível máximo de autonomia permitido na iniciativa.
 
+![Matriz 4×4 de propriedade do agente — observabilidade × reversibilidade](imagens/L1-F3-img-01-matriz-4x4.svg)
+
 ### Eixos da matriz
 
 **Eixo X — Observabilidade disponível:**
@@ -40,7 +42,7 @@ Promoção entre níveis exige:
 1. **Métrica de qualidade** estável por N dias. **Calibração de N:** 14 dias para ação reversível com impacto interno; 30 dias para ação com efeito externo (e-mail, mensagem, transação); 60 dias ou mais para ação irreversível de alto impacto (financeiro, jurídico, clínico). Justificar explicitamente qualquer N abaixo do padrão para o nível de risco.
 2. **Zero incidentes** SEV-1 ou SEV-2 no período
 3. **Custo composto** dentro do envelope acordado
-4. **Aprovação nominal** do dono operacional (Princípio 8)
+4. **Aprovação nominal** do dono operacional (Invariante 8)
 5. **Plano de rollback** testado no nível em questão
 
 Rebaixamento é automático: incidente SEV-1 ou SEV-2 desativa promoção até nova análise.
@@ -93,7 +95,7 @@ Rebaixamento é automático: incidente SEV-1 ou SEV-2 desativa promoção até n
 - 🔗 Cap 32 — Subagents (L2)
 - 🔗 Método de Decisão para Adotar IA (passo 3 do F1: define o risco; F3 decide o nível)
 - 🔗 Pirâmide da Avaliação (eval suporta promoção entre níveis)
-- 🔗 Governança Indelegável (Princípio 8 sustenta o "dono" de cada nível)
+- 🔗 Governança Indelegável (Invariante 8 sustenta o "dono" de cada nível)
 
 ---
 

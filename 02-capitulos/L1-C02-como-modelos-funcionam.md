@@ -98,7 +98,7 @@ Falta um ingrediente para que tudo isso funcione, que é como o modelo sabe que 
 
 A combinação de Q, K, V mais encoding posicional, repetida em múltiplas cabeças paralelas (multi-head attention), empilhada em dezenas de camadas, com normalização e residual em cada uma, é a essência arquitetural do transformer. Cabeças diferentes aprendem a se especializar em padrões diferentes, como concordância sintática, correferência, tópico, estilo. A literatura de interpretabilidade mecanicista tem identificado circuitos específicos por cabeça e por camada, alguns deles legíveis em termos linguísticos.
 
-O ponto que importa para a obra é que **o Princípio 2 (Extremidades)** não é folclore: a forma como o softmax distribui peso pelos tokens, combinada com encoding posicional, produz atenção que decai no centro de janelas longas em modelos atuais. O fenômeno foi documentado em *Lost in the Middle* (Liu et al., 2023) e influencia diretamente como prompts devem ser estruturados (Cap 4).
+O ponto que importa para a obra é que **o Invariante 2 (Extremidades)** não é folclore: a forma como o softmax distribui peso pelos tokens, combinada com encoding posicional, produz atenção que decai no centro de janelas longas em modelos atuais. O fenômeno foi documentado em *Lost in the Middle* (Liu et al., 2023) e influencia diretamente como prompts devem ser estruturados (Cap 4).
 
 ---
 

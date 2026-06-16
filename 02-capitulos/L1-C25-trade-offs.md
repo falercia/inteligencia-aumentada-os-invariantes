@@ -153,11 +153,13 @@ Aprofundamento: Cap 08 Fine-tuning, Cap 16 Open Source, Diagnóstico de Encaixe 
 
 > 📊 **Diagrama 25.2 — Árvore de decisão integrada**
 >
+> ![Árvore de decisão integrada dos seis trade-offs](imagens/L1-C43-img-02-arvore-decisao.svg)
 >
 > Fluxograma único que percorre os 6 trade-offs em sequência sugerida (T4 triângulo → T1 → T5 → T2 → T6 → T3), com cada nó conectando ao próximo conforme decisão tomada.
 
 > 📊 **Diagrama 25.3 — Triângulo Latência × Qualidade × Custo**
 >
+> ![Triângulo Latência × Qualidade × Custo](imagens/L1-C43-img-03-triangulo-lqc.svg)
 >
 > Visualização clássica do triângulo de engenharia aplicada a IA.
 
@@ -196,7 +198,7 @@ A lição é estrutural. *Em 80%+ dos casos, workflow determinístico bem desenh
 - Decisão de cliente Enterprise depende de defender a arquitetura
 - Auditoria interna ou externa está sendo preparada
 
-**Evitar usar como receita rígida** quando o contexto exigir nuance específica. Os trade-offs são bússola, não mapa exato; a decisão final ainda demanda julgamento do operador (Princípio 9).
+**Evitar usar como receita rígida** quando o contexto exigir nuance específica. Os trade-offs são bússola, não mapa exato; a decisão final ainda demanda julgamento do operador (Invariante 9).
 
 ---
 
@@ -258,7 +260,7 @@ A lição é estrutural. *Em 80%+ dos casos, workflow determinístico bem desenh
 5. Por que começar com HITL e migrar para automação é melhor que o inverso?
 6. Em que situação modelo especializado vence o geral, mesmo com custo maior?
 7. Como os trade-offs T1, T3 e T6 se entrelaçam?
-8. Por que "ignorou o trade-off T5" é violação direta do Princípio 8?
+8. Por que "ignorou o trade-off T5" é violação direta do Invariante 8?
 
 ---
 

@@ -8,9 +8,9 @@ VERIFICAÇÃO PRÉ-PUBLICAÇÃO OBRIGATÓRIA. O repositório github.com/falercia
 
 ---
 
-Este livro tem um companheiro executável público que carrega o que muda mais rápido do que a tinta no papel. Enquanto o livro entrega o método que sobrevive à próxima geração de modelo — os princípios, os frameworks, a anatomia das decisões, os anti-padrões observáveis — o repositório carrega o número datado: prompts em XML versionado, golden sets executáveis, scripts de regressão, caderno operacional de governança em arquivos editáveis, changelog público versionado.
+Este livro tem um companheiro executável público que carrega o que muda mais rápido do que a tinta no papel. Enquanto o livro entrega o método que sobrevive à próxima geração de modelo — os invariantes, os frameworks, a anatomia das decisões, os anti-padrões observáveis — o repositório carrega o número datado: prompts em XML versionado, golden sets executáveis, scripts de regressão, caderno operacional de governança em arquivos editáveis, changelog público versionado.
 
-A combinação dos dois materializa o Princípio Três da obra, **Camada Dupla**. Quem só lê o livro sai com método e precisa montar os artefatos do zero. Quem opera só com o repositório sem ler o livro opera no escuro, porque não vai entender por que cada peça está naquela posição. Quem usa os dois sai com modelo mental sólido e ativos prontos para entrar em pipeline.
+A combinação dos dois materializa o Invariante Três da obra, **Camada Dupla**. Quem só lê o livro sai com método e precisa montar os artefatos do zero. Quem opera só com o repositório sem ler o livro opera no escuro, porque não vai entender por que cada peça está naquela posição. Quem usa os dois sai com modelo mental sólido e ativos prontos para entrar em pipeline.
 
 ---
 

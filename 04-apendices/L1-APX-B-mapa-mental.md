@@ -1,9 +1,9 @@
 # Apêndice B — Mapa Mental Geral
-## *Os Nove Princípios como esqueleto cognitivo da obra*
+## *Os Nove Invariantes como esqueleto cognitivo da obra*
 
 ---
 
-> Este mapa mental tem propósito específico. Não é índice, que é o sumário, nem é resumo, que é por capítulo. É a representação visual de como a obra se organiza a partir dos Nove Princípios, mostrando que cada capítulo, cada método e cada estudo de caso é instância de um ou mais princípios.
+> Este mapa mental tem propósito específico. Não é índice, que é o sumário, nem é resumo, que é por capítulo. É a representação visual de como a obra se organiza a partir dos Nove Invariantes, mostrando que cada capítulo, cada método e cada estudo de caso é instância de um ou mais invariantes.
 
 ---
 
@@ -15,13 +15,13 @@
                     └────────────────┬───────────────┘
                                      │
               ┌──────────────────────┴──────────────────────┐
-              │      OS NOVE PRINCÍPIOS PERMANENTES         │
-              │  (princípios duráveis, sistema citável)     │
+              │      OS NOVE INVARIANTES                    │
+              │  (invariantes duráveis, sistema citável)    │
               └──────────────────────┬──────────────────────┘
                                      │
               ┌──────────────────────┴──────────────────────┐
               │      OS NOVE FRAMEWORKS                     │
-              │  (decisão prática que opera cada princípio) │
+              │  (decisão prática que opera cada invariante)│
               └──────────────────────┬──────────────────────┘
                                      │
               ┌──────────────────────┴──────────────────────┐
@@ -32,7 +32,7 @@
 
 ---
 
-## A roda dos Nove Princípios
+## A roda dos Nove Invariantes
 
 ```
                               ┌─────────────────────┐
@@ -73,13 +73,13 @@
                               └─────────────────────┘
 ```
 
-> Nota: o diagrama acima é representação funcional, não hierárquica. Os nove princípios têm peso equivalente na obra; a posição reflete apenas restrições do diagrama em texto.
+> Nota: o diagrama acima é representação funcional, não hierárquica. Os nove invariantes têm peso equivalente na obra; a posição reflete apenas restrições do diagrama em texto.
 
 ---
 
-## Princípio × Framework × Capítulo
+## Invariante × Framework × Capítulo
 
-| Princípio | Framework | Capítulo principal |
+| Invariante | Framework | Capítulo principal |
 |-----------|------------------|---------------------|
 | 1 — Plausibilidade | Pressuposto transversal da Pirâmide da Avaliação (P7) — opera como premissa dos demais frameworks, não tem framework dedicado próprio | Como modelos funcionam; Alinhamento |
 | 2 — Extremidades | Engenharia de Prompt Estendida | Janela de contexto |
@@ -93,9 +93,9 @@
 
 ---
 
-## Trilha temática × Princípio
+## Trilha temática × Invariante
 
-| Trilha | Princípio dominante | Capítulos sugeridos |
+| Trilha | Invariante dominante | Capítulos sugeridos |
 |--------|----------------------|---------------------|
 | Entender LLMs profundamente | 1, 2, 3 | Como modelos funcionam, Tokens, Janela de contexto, Embeddings, Engenharia de prompt, Chain of Thought, Context Engineering |
 | Decidir arquitetura de IA | 3, 4 | RAG, Fine-tuning, MCP, AI Engineering, Comparação de modelos, Open source, Trade-offs |
@@ -108,11 +108,11 @@
 
 ---
 
-## Capítulo × Princípio primário e secundário
+## Capítulo × Invariante primário e secundário
 
 | Capítulo | Primário | Secundário | Função no esqueleto |
 |----------|----------|------------|---------------------|
-| Introdução — Os Nove Princípios | Todos | — | Capítulo declarativo |
+| Introdução — Os Nove Invariantes | Todos | — | Capítulo declarativo |
 | C01. O que é IA | 3 | — | Plantio da Camada Dupla |
 | C02. Como modelos funcionam | 1 | — | Mecânica da Plausibilidade |
 | C03. Tokens | 5 | — | Unidade do Custo Composto |
@@ -146,7 +146,7 @@
 
 ---
 
-## Relações críticas entre princípios
+## Relações críticas entre invariantes
 
 | Par | Relação |
 |-----|---------|
@@ -165,8 +165,8 @@
 
 | Situação | Como o mapa ajuda |
 |----------|---------------------|
-| Estou em decisão de adoção | Identifique o princípio associado e siga ao método e ao capítulo principal |
+| Estou em decisão de adoção | Identifique o invariante associado e siga ao método e ao capítulo principal |
 | Quero estudar por trilha temática | Use a tabela de trilhas para escolher o caminho |
-| Vou apresentar a obra a um time | Use a roda dos Nove Princípios como abertura |
-| Estou em incidente | Identifique qual princípio foi violado e leia o capítulo correspondente |
+| Vou apresentar a obra a um time | Use a roda dos Nove Invariantes como abertura |
+| Estou em incidente | Identifique qual invariante foi violado e leia o capítulo correspondente |
 | Quero ensinar um par sênior | Comece pela introdução e por este mapa em paralelo |

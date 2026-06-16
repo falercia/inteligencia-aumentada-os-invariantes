@@ -2,8 +2,8 @@
 
 ---
 
-> *"A pergunta não é se as máquinas pensam. A pergunta é se nós entendemos o que significa pensar."*
-> — adaptado de Edsger Dijkstra
+> *"A questão de saber se uma máquina pode pensar é tão relevante quanto a questão de saber se um submarino pode nadar."*
+> — Edsger W. Dijkstra, "The Threats to Computing Science" (EWD898), 1984
 
 ---
 ## 1.1 O Conceito Intuitivo

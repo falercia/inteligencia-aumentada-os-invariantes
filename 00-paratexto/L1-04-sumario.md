@@ -1,5 +1,5 @@
 # SUMÁRIO
-## *Inteligência Aumentada · Os Princípios Permanentes da IA*
+## *Inteligência Aumentada · Os Invariantes da IA*
 
 ---
 
@@ -21,11 +21,11 @@
 
 ---
 
-## OS NOVE PRINCÍPIOS PERMANENTES
+## OS NOVE INVARIANTES
 
 | Seção | pg |
 |---|---:|
-| Manifesto — Os Nove Princípios Permanentes da Inteligência Artificial | 1 |
+| Manifesto — Os Nove Invariantes da Inteligência Artificial | 1 |
 | Por Que Padrão Dura e Número Morre — fundação intelectual da Camada Dupla | 22 |
 
 ---
@@ -34,7 +34,7 @@
 
 > *Numeração de página por capítulo: a definir após diagramação final. As páginas das Partes são estimativas de produção.*
 
-| # | Capítulo | Princípio central |
+| # | Capítulo | Invariante central |
 |---|----------|-------------------|
 | 1 | O Que É Inteligência Artificial | Camada Dupla |
 | 2 | Como os Modelos de IA Funcionam | Plausibilidade |
@@ -49,7 +49,7 @@
 
 ## PARTE 2 — ENGENHARIA DE PROMPT E RACIOCÍNIO · pg 146
 
-| # | Capítulo | Princípio central |
+| # | Capítulo | Invariante central |
 |---|----------|-------------------|
 | 9 | Engenharia de Prompt | Extremidades, Termômetro |
 | 10 | Chain of Thought e Raciocínio | Plausibilidade, Extremidades |
@@ -59,7 +59,7 @@
 
 ## PARTE 3 — AGENTES E IA MODERNA · pg 187
 
-| # | Capítulo | Princípio central |
+| # | Capítulo | Invariante central |
 |---|----------|-------------------|
 | 12 | Agentes de IA | Autonomia Proporcional |
 | 13 | MCP — Model Context Protocol | Encaixe, Autonomia Proporcional |
@@ -71,7 +71,7 @@
 
 ## PARTE 4 — MODELOS DE IA · pg 259
 
-| # | Capítulo | Princípio central |
+| # | Capítulo | Invariante central |
 |---|----------|-------------------|
 | 15 | Comparação dos Principais Modelos | Encaixe |
 | 16 | Modelos Open Source | Encaixe, Custo Composto |
@@ -80,7 +80,7 @@
 
 ## PARTE 5 — TÓPICOS AVANÇADOS · pg 298
 
-| # | Capítulo | Princípio central |
+| # | Capítulo | Invariante central |
 |---|----------|-------------------|
 | 17 | Repositórios GitHub — método de auditoria em 30 minutos | Termômetro, Operador |
 | 18 | Economia de Tokens em Profundidade | Custo Composto |
@@ -99,7 +99,7 @@
 
 ## FRAMEWORKS DA OBRA
 
-| Framework | Princípio central | pg |
+| Framework | Invariante central | pg |
 |-----------|-------------------|---:|
 | F1 — Método de Decisão para Adotar IA | Operador | 630 |
 | F2 — Diagnóstico de Encaixe entre Tarefa e Modelo | Encaixe | 634 |
@@ -129,7 +129,7 @@
 | J | Trilha do Número — versões, preços, benchmarks, papers, regulação datados | 746 |
 | K | Gabaritos Comentados | 762 |
 | L | Biblioteca de Prompts Profissionais — 30 fichas | 767 |
-| M | Manifesto de Bolso — Os Nove Princípios em Uma Página | 825 |
+| M | Manifesto de Bolso — Os Nove Invariantes em Uma Página | 825 |
 | N | Postura Metodológica sobre os Números desta Obra | 829 |
 | O | Caderno de Governança v1 | 837 |
 | P | Boxes Técnicos — 11 boxes técnicos | 849 |

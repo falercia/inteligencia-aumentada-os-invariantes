@@ -34,9 +34,9 @@ Recusei essa opção desde o primeiro rascunho — não porque o mercado não pr
 
 A tese central deste livro cabe em quatro palavras. **Modelos passam, método fica.**
 
-A obra estrutura essa tese em torno de **Nove Princípios Permanentes da Inteligência Artificial**. Nada na tecnologia é permanente no sentido absoluto, mas há padrões de pensamento que sobreviveram a múltiplas ondas e que provavelmente vão sobreviver a esta. São o que chamo de invariantes. O conjunto de critérios que permite ao profissional manter capacidade de julgamento mesmo quando o cenário muda completamente.
+A obra estrutura essa tese em torno dos **Nove Invariantes da Inteligência Artificial**. Nada na tecnologia é permanente no sentido absoluto, mas há padrões de pensamento que sobreviveram a múltiplas ondas e que provavelmente vão sobreviver a esta. São o que chamo de invariantes. O conjunto de critérios que permite ao profissional manter capacidade de julgamento mesmo quando o cenário muda completamente.
 
-Os nove princípios — Camada Dupla, Plausibilidade, Custo Composto, Extremidades, Encaixe, Termômetro, Autonomia Proporcional, Responsabilidade Indelegável, Operador — formam o vocabulário que costura toda a obra. Cada um tem nome porque nome cria memória, e memória cria critério.
+Os nove invariantes — Camada Dupla, Plausibilidade, Custo Composto, Extremidades, Encaixe, Termômetro, Autonomia Proporcional, Responsabilidade Indelegável, Operador — formam o vocabulário que costura toda a obra (a ordem aqui é a da história, não a da numeração; os nove estão numerados no manifesto). Cada um tem nome porque nome cria memória, e memória cria critério.
 
 Construir um livro sobre invariantes, em uma época em que o mercado paga por novidade, é uma declaração editorial. Este livro decidiu não competir no eixo da velocidade, porque quem quer notícia tem newsletter, podcast, post, vídeo. Decidiu competir no eixo da profundidade. Tudo que envelhece em três meses não merece ser livro. Livro deve ser aquilo que ainda vai estar de pé dez anos depois.
 

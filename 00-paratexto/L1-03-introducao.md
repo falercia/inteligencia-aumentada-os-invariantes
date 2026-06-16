@@ -43,9 +43,9 @@ Existe uma tentação editorial recorrente: cobrir tudo superficialmente, com pr
 
 ### Aposta 4 — Sistema citável próprio
 
-Esta é a aposta mais ambiciosa do livro, e a que mais o distingue da literatura existente. Em vez de simplesmente cobrir os tópicos com excelência, a obra propõe um sistema citável que costura tudo: os **Nove Princípios Permanentes da Inteligência Artificial**. São os princípios que decidem se a IA funciona, independentemente do modelo da semana. Cada princípio tem regra, mecânica e violação típica. Cada capítulo declara, na primeira página, qual princípio instancia. Cada framework proprietário deriva de um princípio. Cada estudo de caso ilustra um conjunto deles em decisão real.
+Esta é a aposta mais ambiciosa do livro, e a que mais o distingue da literatura existente. Em vez de simplesmente cobrir os tópicos com excelência, a obra propõe um sistema citável que costura tudo: os **Nove Invariantes da Inteligência Artificial**. São os invariantes que decidem se a IA funciona, independentemente do modelo da semana. Cada invariante tem regra, mecânica e violação típica. Cada capítulo declara, na primeira página, qual invariante instancia. Cada framework proprietário deriva de um invariante. Cada estudo de caso ilustra um conjunto deles em decisão real.
 
-Quem termina o livro não sai sabendo apenas o vocabulário técnico. Sai com um sistema de decisão que pode ser invocado em reunião — "estamos violando o princípio do encaixe nessa migração", "essa proposta passa pelo termômetro?", "quem é o nome humano que responde pela indelegabilidade?" — e que continua válido enquanto a função da IA for amplificar trabalho humano.
+Quem termina o livro não sai sabendo apenas o vocabulário técnico. Sai com um sistema de decisão que pode ser invocado em reunião — "estamos violando o invariante do encaixe nessa migração", "essa proposta passa pelo termômetro?", "quem é o nome humano que responde pela indelegabilidade?" — e que continua válido enquanto a função da IA for amplificar trabalho humano.
 
 ---
 
@@ -61,7 +61,7 @@ Cada parte é uma camada de competência. Pular para o que parece imediatamente 
 
 Ao terminar este livro, o leitor deve ser capaz de fazer dez coisas específicas que separam quem entende de quem só usa. Vale registrar de forma direta para que a obra possa ser cobrada ao final.
 
-1. Recitar os nove princípios, descrever a mecânica de cada um, e identificar a violação típica em sua própria operação.
+1. Recitar os nove invariantes, descrever a mecânica de cada um, e identificar a violação típica em sua própria operação.
 2. Explicar IA moderna em três níveis de profundidade — leigo, gestor, técnico —, usando analogias e exemplos.
 3. Avaliar criticamente uma proposta de arquitetura de IA, saber quais perguntas fazer, e reconhecer quando algo não bate.
 4. Decidir com critério entre RAG, fine-tuning, engenharia de prompt ou nenhuma das anteriores, para um problema concreto.
@@ -80,4 +80,4 @@ A IA não vai esperar ninguém se atualizar. Essa é uma realidade dura que vale
 
 Há duas opções. A primeira é continuar usando IA como ferramenta de consulta esporádica, aceitando que outras pessoas vão entender mais do que você sobre algo que vai redefinir profundamente sua carreira nos próximos anos. A segunda é investir entre trinta e cinco e cinquenta horas de leitura ativa com os exercícios — ou vinte a trinta horas para a trilha de leitura seletiva descrita no Mapa de Leitura por Nível —, e sair com base sólida que vai diferenciar pelos próximos dez anos. Se a escolha é a segunda, vire a página.
 
-Os nove princípios começam na próxima.
+Os nove invariantes começam na próxima.

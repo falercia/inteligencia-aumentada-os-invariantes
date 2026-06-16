@@ -47,11 +47,11 @@ Cada controle pertence a uma das três camadas operacionais, técnica, operacion
 | 9 | Política de incidentes testada em simulado trimestral | Operacional | Que funciona na hora |
 | 10 | AI Council com mandato e cadência fixa | Executiva | Governança no nível decisório |
 
-## RACI de IA: o coração do Princípio 8
+## RACI de IA: o coração do Invariante 8
 
-O Princípio 8 da obra é a Responsabilidade Indelegável: a responsabilidade por decisão de IA nunca pode ser delegada à máquina. Há sempre um nome humano na cadeira de quem responde — por escolha do modelo, por alteração de prompt em produção, por decisão automatizada que afetou um cliente. Quando a cadeira está vazia, o incidente vira crise sem interlocutor.
+O Invariante 8 da obra é a Responsabilidade Indelegável: a responsabilidade por decisão de IA nunca pode ser delegada à máquina. Há sempre um nome humano na cadeira de quem responde — por escolha do modelo, por alteração de prompt em produção, por decisão automatizada que afetou um cliente. Quando a cadeira está vazia, o incidente vira crise sem interlocutor.
 
-RACI é a matriz que distribui, por decisão, quem é **R**esponsible (executa), **A**ccountable (responde), **C**onsulted (é ouvido), **I**nformed (é avisado). Para IA corporativa, é o instrumento que materializa o Princípio 8 na prática.
+RACI é a matriz que distribui, por decisão, quem é **R**esponsible (executa), **A**ccountable (responde), **C**onsulted (é ouvido), **I**nformed (é avisado). Para IA corporativa, é o instrumento que materializa o Invariante 8 na prática.
 
 A regra inegociável: **toda decisão de IA tem um único Accountable**. Não dois. Não comitê sem rosto. Um único nome humano na cadeira. Pode haver vários Responsible (que executam), vários Consulted (que opinam), vários Informed (que ficam sabendo). Mas Accountable é unipessoal.
 
@@ -80,12 +80,12 @@ Treinamento obrigatório. Renovação anual. Versionamento explícito.
 
 ### 24.3.3 — Trilha regulatória — por padrão, não pelo texto
 
-A regulação de IA está em evolução acelerada e o texto específico muda. A obra ensina por **padrões duráveis** (Camada Dupla, Princípio 3):
+A regulação de IA está em evolução acelerada e o texto específico muda. A obra ensina por **padrões duráveis** (Camada Dupla, Invariante 3):
 
 | Regulação | Padrão durável |
 |-----------|----------------|
 | **LGPD** (BR) | Decisão automatizada que afeta direitos exige revisão humana significativa e direito a explicação |
-| **PL de IA brasileiro** (em tramitação) | Classificação por risco (proibido, alto risco, médio, baixo); obrigações proporcionais |
+| **PL de IA brasileiro** (aprovado no Senado dez/2024; em análise na Câmara; verificar status — Apêndice J) | Classificação por risco (proibido, alto risco, médio, baixo); obrigações proporcionais |
 | **AI Act** (UE) | Mesmo princípio de classificação por risco; obrigações graduadas; aplicação fora da UE em produtos exportados |
 | **NIST AI RMF** (US, voluntário) | Quatro funções: Govern, Map, Measure, Manage |
 | **ISO/IEC 42001** | Sistema de gestão de IA com auditoria certificada |
@@ -123,14 +123,12 @@ Auto-auditoria interna periódica + auditoria externa anual (ou trimestral em or
 
 > 📊 **Diagrama 24.2 — As 3 camadas de controle**
 >
-> <!-- [REQUER ASSET] Arquivo pendente de produção: imagens/L1-C42-img-02-camadas-controle.svg -->
 > ![As 3 camadas de controle — pirâmide técnica/operacional/executiva](imagens/L1-C42-img-02-camadas-controle.svg)
 >
 > *Pirâmide com três níveis verticais — técnica (base), operacional (meio), executiva (topo) — com os controles canônicos por nível e os donos típicos. Arquivo SVG pendente de produção de arte.*
 
 > 📊 **Diagrama 24.3 — Fluxo de resposta a incidente**
 >
-> <!-- [REQUER ASSET] Arquivo pendente de produção: imagens/L1-C42-img-03-fluxo-incidente.svg -->
 > ![Fluxo de resposta a incidente — cadeia de decisão e comunicação SEV-1 a SEV-4](imagens/L1-C42-img-03-fluxo-incidente.svg)
 >
 > *Cadeia de decisão e comunicação de SEV-1 a SEV-4. Arquivo SVG pendente de produção de arte.*
@@ -195,7 +193,7 @@ Em todo caso intermediário, comece pelos controles 1 (acesso), 2 (auditoria), 7
 | Permite escalar IA com segurança regulatória | Risco de virar teatro de compliance se camadas não fecharem |
 | Reduz risco de multa, processo, queda reputacional | Demanda mudança cultural que pode atrasar entrega |
 | Habilita confiança de cliente enterprise (vendedor B2B) | Necessita treinamento contínuo |
-| Sustenta o Princípio 8 com prática efetiva | Auditoria externa periódica adiciona custo |
+| Sustenta o Invariante 8 com prática efetiva | Auditoria externa periódica adiciona custo |
 | Cria ativo institucional para crescimento (compliance virou diferencial competitivo) | Em casos limítrofes, regulação ambígua exige interpretação |
 
 ---
@@ -248,7 +246,7 @@ Em todo caso intermediário, comece pelos controles 1 (acesso), 2 (auditoria), 7
 1. Por que "foi a IA que decidiu" não funciona como desculpa institucional?
 2. Em que situação política sem prática é pior que ausência de política?
 3. Por que cada decisão de IA tem **um único** Accountable, e nunca dois?
-4. Como o RACI de IA conecta com o Princípio 8?
+4. Como o RACI de IA conecta com o Invariante 8?
 5. Quando criar AI Council, Comitê de Ética e Comitê de Riscos como órgãos separados?
 6. Por que política de incidente nunca simulada não funciona na hora?
 7. Que diferença existe entre AUP e política de privacidade externa?
@@ -294,8 +292,8 @@ Em todo caso intermediário, comece pelos controles 1 (acesso), 2 (auditoria), 7
 - ISO/IEC 42001 — *Information technology — Artificial intelligence — Management system* (2023)
 - OECD AI Principles (2019, revisão 2024)
 - EU AI Act (Regulation 2024/1689)
-- Brasil — PL 2338/2023 (em tramitação no Senado Federal)
-- ANPD — *Guia Orientativo de Proteção de Dados no uso de IA Generativa* (2024) e demais notas técnicas sobre IA (verificar lista atualizada em www.gov.br/anpd — conforme Apêndice J — Trilha do Número)
+- Brasil — PL 2338/2023 (aprovado no Senado em dez/2024; em análise na Câmara dos Deputados; votação final prevista para 2026; verificar status atual — Apêndice J)
+- ANPD — *Radar Tecnológico: Inteligência Artificial Generativa* (nov/2024); Agenda Regulatória 2025–2026 (IA como tema prioritário); Resoluções CD/ANPD 30/2025 e 31/2025 (Mapa de Temas Prioritários de fiscalização 2026–2027) — verificar versão corrente em www.gov.br/anpd conforme Apêndice J — Trilha do Número
 
 📚 **Governança e accountability**
 - Mitchell, M. et al. *Model Cards for Model Reporting* (2019)

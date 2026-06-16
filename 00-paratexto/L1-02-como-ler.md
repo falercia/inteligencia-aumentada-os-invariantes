@@ -10,7 +10,7 @@ Esta obra foi projetada para servir leitores em estágios e contextos diferentes
 
 **Caminho 2 — Por interesse** *(~8–30h, conforme capítulos selecionados)*. Cada capítulo é autocontido o suficiente para ser lido isoladamente, e o leitor que aterrissa no meio do livro vai encontrar as referências de que precisa. As trilhas temáticas estão organizadas no Mapa de Leitura por Nível, a seguir.
 
-**Caminho 3 — Pelos princípios** *(~2–4h por princípio)*. Este é o caminho que mais diferencia o uso profissional do livro. Em vez de ler em ordem de página, leia pela camada-mãe. Parta de um dos nove princípios, percorra o capítulo onde ele é tratado em profundidade, depois os capítulos que o instanciam em outros temas, depois o framework derivado, depois o exemplo correspondente. É a forma mais rápida de internalizar o vocabulário que dá nome ao livro. Por exemplo: para internalizar o Princípio da Responsabilidade Indelegável, leia C19 (segurança), depois C24 (governança), depois F6, depois o exemplo do banco médio no C19. Em vinte e quatro horas de leitura focada, você terá o princípio operacionalizado.
+**Caminho 3 — Pelos invariantes** *(~2–4h por invariante)*. Este é o caminho que mais diferencia o uso profissional do livro. Em vez de ler em ordem de página, leia pela camada-mãe. Parta de um dos nove invariantes, percorra o capítulo onde ele é tratado em profundidade, depois os capítulos que o instanciam em outros temas, depois o framework derivado, depois o exemplo correspondente. É a forma mais rápida de internalizar o vocabulário que dá nome ao livro. Por exemplo: para internalizar o Invariante da Responsabilidade Indelegável, leia C19 (segurança), depois C24 (governança), depois F6, depois o exemplo do banco médio no C19. Em vinte e quatro horas de leitura focada, você terá o invariante operacionalizado.
 
 > **A escolha por nível de experiência, as horas estimadas, os roteiros por orçamento de tempo e o critério de recalibração estão no Mapa de Leitura por Nível, logo após o Sumário.**
 
@@ -67,4 +67,4 @@ Terminar o livro não é o fim do aprendizado, é o início da operação. A lis
 
 ---
 
-> *A leitura não termina o aprendizado. Ela começa.* A diferença real entre quem leu e quem domina está na aplicação dos princípios na próxima decisão.
+> *A leitura não termina o aprendizado. Ela começa.* A diferença real entre quem leu e quem domina está na aplicação dos invariantes na próxima decisão.

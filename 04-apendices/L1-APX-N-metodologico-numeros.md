@@ -15,7 +15,7 @@ Este apêndice cumpre três funções. Primeira, declara a postura epistemológi
 
 ## 2. Postura epistemológica
 
-A obra trabalha em três camadas de conhecimento, conforme o Princípio Três e o Framework Nove. A camada do padrão, que é frameworks, princípios operacionais e arquiteturas duráveis, vive no corpo dos capítulos. A camada do número, que é preço, benchmark, versão de modelo, posição regulatória, vive no Apêndice J, com data e fonte. A camada do exemplo, que é caso ilustrativo composto a partir de padrões observados, vive nos boxes memoráveis dos capítulos, com rótulo explícito.
+A obra trabalha em três camadas de conhecimento, conforme o Invariante Três e o Framework Nove. A camada do padrão, que é frameworks, princípios operacionais e arquiteturas duráveis, vive no corpo dos capítulos. A camada do número, que é preço, benchmark, versão de modelo, posição regulatória, vive no Apêndice J, com data e fonte. A camada do exemplo, que é caso ilustrativo composto a partir de padrões observados, vive nos boxes memoráveis dos capítulos, com rótulo explícito.
 
 Números são usados em três modos. Modo definicional, quando o número é parte do desenho do framework e não pretende descrever o mundo, por exemplo "cobertura de cem por cento na camada base da Pirâmide de Avaliação". Modo observacional, quando o número descreve faixa colhida de auditorias operacionais, com qualificador adequado, por exemplo "tipicamente entre quarenta e setenta por cento de economia em operações que migram para roteamento por tier". Modo ilustrativo, quando o número aparece em cenário composto que serve para ensinar padrão, por exemplo "fatura de cento e quarenta e dois mil reais caiu para quarenta e sete mil em três meses".
 
@@ -68,7 +68,7 @@ A tabela abaixo lista os números que mais envelhecem rápido na obra, organizad
 | Moderada | Taxa de tokens por palavra em português versus inglês | C03 | Acompanhar versionamento de tokenizers principais; nota de rodapé com link para experimento público |
 | Moderada | Ranges típicos de economia por alavanca do F7 | C18, F7 | Manter qualificador "típica observada", revisão anual com auditorias adicionadas |
 | Moderada | Distribuição entre as três zonas de Lost in the Middle | C04 | Acompanhar papers que aprofundem Liu et al. 2023 e variantes |
-| Estável | Os nove Princípios e as suas mecânicas | Manifesto | Reescrita só sob mudança de arquitetura dominante (saída de Transformers) |
+| Estável | Os nove Invariantes e as suas mecânicas | Manifesto | Reescrita só sob mudança de arquitetura dominante (saída de Transformers) |
 | Estável | Arquitetura básica de tokenizer BPE | C03 | Reescrita só sob substituição da família BPE no mercado |
 | Estável | Mecanismo de atenção em transformers | C02 | Reescrita só sob substituição da arquitetura |
 

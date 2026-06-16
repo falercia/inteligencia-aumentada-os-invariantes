@@ -15,7 +15,7 @@ Uma distinção que importa antes de tudo: pedir ao modelo que explique o própr
 
 A maior parte do CTO brasileiro encontra esta disciplina em 2025 e 2026 em três momentos operacionais que importam, e a sua absorção do vocabulário é determinante em cada um deles. Primeiro momento, auditoria regulatória. A ANPD, em fiscalização sobre uso de IA em decisão automatizada, pergunta como a organização sabe que o modelo não está usando atributo protegido (CPF, gênero, cor, religião declarada em cadastro) como feature de risco, e a resposta que sustenta a postura defensável combina probing, intervenção causal e, quando o risco do produto justifica, mapeamento de circuit. Segundo momento, debugging de jailbreak. O time de segurança descobre vetor de jailbreak persistente em produção, e a remediação que apenas patcha o prompt de sistema ou estende o guardrail de saída deixa a causa raiz no modelo intocada, com o vetor reaparecendo em variantes; a interpretabilidade mecanicista permite identificar o circuit que o jailbreak ativa, e intervenções mais profundas (fine-tuning direcionado, sparse autoencoder feature ablation, em alguns casos) atacam a raiz. Terceiro momento, defesa em processo judicial. Em ações de discriminação algorítmica que começaram a aparecer no Judiciário brasileiro a partir de 2024, a defesa que se sustenta exige evidência técnica sobre o que o modelo usa e não usa para decidir, com perito do juiz validando a evidência, e a organização que tem instrumentação de interpretabilidade chega à perícia em postura defensável que a organização que opera com caixa-preta absoluta não consegue sustentar.
 
-Este capítulo entrega o mapa conceitual que o CTO brasileiro precisa ter na cabeça para conversar com o time técnico, para entender as decisões de arquitetura, para defender o investimento (e os limites do investimento) em comitê executivo. Não é, e nem deveria ser, manual técnico exaustivo, com o leitor que precisa dessa profundidade encontrando as fontes primárias nas referências. O que o capítulo entrega, em troca, é o vocabulário durável (Princípio 3, Camada Dupla) que sobrevive à evolução técnica acelerada do campo, e que permite conversar com auditor, com perito judicial, com diretor de risco e com analista de cliente Enterprise em vocabulário compartilhado.
+Este capítulo entrega o mapa conceitual que o CTO brasileiro precisa ter na cabeça para conversar com o time técnico, para entender as decisões de arquitetura, para defender o investimento (e os limites do investimento) em comitê executivo. Não é, e nem deveria ser, manual técnico exaustivo, com o leitor que precisa dessa profundidade encontrando as fontes primárias nas referências. O que o capítulo entrega, em troca, é o vocabulário durável (Invariante 3, Camada Dupla) que sobrevive à evolução técnica acelerada do campo, e que permite conversar com auditor, com perito judicial, com diretor de risco e com analista de cliente Enterprise em vocabulário compartilhado.
 
 ---
 
@@ -111,7 +111,7 @@ A conexão com o Cap. 19 é operacional. O red teaming de circuits, descrito em 
 
 A conexão com o Cap. 23 é a peça central. A discussão de faithfulness de chain-of-thought (Cap. 23, seção 23.3.4) levanta o problema de que a cadeia apresentada pelo modelo pode mentir sobre o porquê interno, e a interpretabilidade é o instrumento que permite auditar o porquê de forma que a cadeia não permite. A combinação dos dois capítulos é o que sustenta postura defensável diante de auditor regulatório em modelos de raciocínio explícito.
 
-A conexão com o Cap. 24 é institucional. A interpretabilidade entra no Caderno de Governança como instrumento operacional do controle aplicado, com a decisão sobre quando investir em interpretabilidade, quanto investir, qual produto cobrir, sendo decisão de AI Council com Accountable nomeado. A Princípio 8 lembra que a responsabilidade tem nome, e o nome aparece em ata aprovada, em política publicada, em runbook de auditoria.
+A conexão com o Cap. 24 é institucional. A interpretabilidade entra no Caderno de Governança como instrumento operacional do controle aplicado, com a decisão sobre quando investir em interpretabilidade, quanto investir, qual produto cobrir, sendo decisão de AI Council com Accountable nomeado. O Invariante 8 lembra que a responsabilidade tem nome, e o nome aparece em ata aprovada, em política publicada, em runbook de auditoria.
 
 ---
 
@@ -278,3 +278,29 @@ A versão corrente de cada documento, especialmente as Notas Técnicas da ANPD e
 ---
 
 > *"A pergunta do auditor deslocou-se de 'o modelo funciona bem' para 'como você sabe que o modelo decidiu como decidiu', e a resposta defensável exige instrumento que precisa estar pronto antes do ofício chegar."*
+
+---
+
+## Epílogo — O que fica
+
+Você chegou até aqui por dois caminhos possíveis.
+
+O primeiro é o da dona de empresa em Blumenau que quer entender se a IA serve para o balcão dela antes de assinar contrato com o próximo consultor. O segundo é o do CTO de banco médio que precisa responder à ANPD em noventa e cinco dias com evidência técnica de que o modelo não usa atributo protegido como feature de risco. Caminhos diferentes, leituras diferentes, urgências diferentes.
+
+O livro foi escrito para os dois ao mesmo tempo, e isso parece impossível até você perceber que não é. Porque o que separa o CTO defensável do CTO que chega à perícia sem instrumento não é a ferramenta que ele usou — é o método com que ele decidiu quando usar e como medir. E o que separa a dona de empresa que ganha margem com IA da dona de empresa que queima caixa tentando acompanhar o lançamento da semana não é o modelo que ela escolheu — é o critério com que ela avaliou antes de contratar.
+
+O modelo da semana passada já mudou. O que você precisava entender para decidir se ele servia, se ele custava o que custava, se o agente poderia operar sem supervisão humana, se a saída era auditável — isso não mudou. E não vai mudar na semana que vem, nem no ano que vem.
+
+É esse o argumento do livro. Não é um argumento sobre ferramentas. É um argumento sobre onde mora a vantagem competitiva durável em campo que muda toda semana. Mora no método. Sempre morou.
+
+O profissional que saiu daqui sabendo citar o Invariante 7 — IA sem eval é fé, não engenharia — vai conseguir auditar qualquer sistema de qualquer fornecedor em qualquer benchmark futuro. O profissional que saiu daqui com uma lista de prompts vai ter que refazer a lista no próximo release.
+
+O executivo que saiu daqui com um Caderno de Governança vivo, um AI Council com mandato e um processo de simulado de incidente vai conseguir defender a operação diante de qualquer regulador que apareça. O executivo que saiu daqui com o modelo mais cotado da semana vai ter que recomeçar quando o benchmark mudar.
+
+A dona de empresa que saiu daqui sabendo fazer as oito perguntas antes de contratar IA vai economizar o caixa que a concorrente vai queimar em projeto mal dimensionado. O arquiteto que saiu daqui sabendo o que os evals precisam cobrir vai pegar regressão silenciosa antes que ela chegue ao cliente.
+
+O barco muda. A navegação fica.
+
+Você tem o método. O que faz com ele, a partir daqui, é sua decisão — e responsabilidade sua, não da IA que vai ajudar a executar.
+
+**Modelos passam. Método fica.**

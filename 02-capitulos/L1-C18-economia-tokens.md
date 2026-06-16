@@ -6,7 +6,7 @@
 
 As reduções percentuais apresentadas adiante, de 40 a 70%, 30 a 60% e assim por diante, são ordens de grandeza observadas em operações típicas de IA generativa corporativa, não médias estatísticas de pesquisa peer-reviewed. Vêm de auditorias operacionais conduzidas em organizações brasileiras de médio porte e da documentação pública de práticas de otimização dos principais fornecedores. Resultado real depende fortemente da arquitetura de partida: operações maduras ganham menos; operações que nunca otimizaram ganham mais.
 
-Vimos no Capítulo 3 o conceito básico de tokens e no Capítulo 11 a evolução para Context Engineering. Este capítulo consolida o que aprendemos em um método operacional de redução de custos para organizações com volume significativo de uso de IA. Ele é, em termos de princípio, a aplicação direta do **Princípio 5 (Custo Composto)**, e em termos de framework, a leitura executiva que precede o **F7 — Custo Composto em Três Tempos**, onde as três alavancas viram plano operável com metas, riscos e ordem de execução.
+Vimos no Capítulo 3 o conceito básico de tokens e no Capítulo 11 a evolução para Context Engineering. Este capítulo consolida o que aprendemos em um método operacional de redução de custos para organizações com volume significativo de uso de IA. Ele é, em termos de princípio, a aplicação direta do **Invariante 5 (Custo Composto)**, e em termos de framework, a leitura executiva que precede o **F7 — Custo Composto em Três Tempos**, onde as três alavancas viram plano operável com metas, riscos e ordem de execução.
 
 A realidade econômica observável é que organizações brasileiras de médio e grande porte gastam tipicamente entre US$ 5 mil e US$ 200 mil mensais em chamadas a LLMs, dependendo do volume e da maturidade da operação. Em quase todos esses casos, otimização sistemática de tokens reduz custo entre 40% e 70% sem perda de qualidade percebida. A economia anualizada vira recurso que pode financiar outras iniciativas de IA, expansão de uso ou retorno direto ao caixa.
 
@@ -68,7 +68,7 @@ A regra prática é atacar a primeira alavanca primeiro, por entregar maior efei
 
 Otimizar o tamanho do prompt enquanto um loop de agente dispara 40 chamadas redundantes ao modelo premium. O esforço se concentra no termo trivial. A fatura continua subindo porque o termo composto não foi tocado. É a forma mais comum de esforço de otimização desperdiçado.
 
-Outro erro frequente é usar o modelo premium para tarefas que o modelo pequeno cobre, por princípio de "qualidade não pode arriscar". Sem golden set para mostrar que o pequeno entrega a mesma qualidade, a decisão fica em fé, exatamente o que o Princípio 7 combate. Sem o termômetro, o roteamento por tier não acontece.
+Outro erro frequente é usar o modelo premium para tarefas que o modelo pequeno cobre, por princípio de "qualidade não pode arriscar". Sem golden set para mostrar que o pequeno entrega a mesma qualidade, a decisão fica em fé, exatamente o que o Invariante 7 combate. Sem o termômetro, o roteamento por tier não acontece.
 
 Um terceiro erro é começar pela poda de contexto, por ser o mais visível. Visível e marginal. Em operações desafinadas, a poda entrega 5 a 10% enquanto o roteamento por tier entrega 50%. Ordem importa.
 
@@ -126,7 +126,7 @@ A virada veio quando alguém instrumentou tokens por feature, coisa que não exi
 
 Em seguida, prompt caching no system prompt da sugestão de resposta (estável, longo, repetido em toda chamada) cortou o input recorrente. Por fim, o resumo de fechamento, que reinjetava a conversa inteira a cada turno, foi reescrito para sumarização hierárquica. Em pouco mais de dois meses, a fatura de R$ 180 mil projetada para R$ 250 mil caiu para cerca de R$ 60 mil, com volume maior servido e sem queda de qualidade percebida pelos clientes.
 
-A lição não é "use modelo barato". É que o esforço inicial atacou o termo trivial (texto do prompt) enquanto a sangria estava no termo composto (tier errado, multiplicado por volume). Sem instrumentação, o time otimizou no escuro por semanas. Com instrumentação, o diagnóstico levou uma tarde. O Princípio 7 (o termômetro antes do remédio) e o Princípio 5 (custo composto) estão os dois inteiros nesta história.
+A lição não é "use modelo barato". É que o esforço inicial atacou o termo trivial (texto do prompt) enquanto a sangria estava no termo composto (tier errado, multiplicado por volume). Sem instrumentação, o time otimizou no escuro por semanas. Com instrumentação, o diagnóstico levou uma tarde. O Invariante 7 (o termômetro antes do remédio) e o Invariante 5 (custo composto) estão os dois inteiros nesta história.
 
 ## 18.6 — Quando aprofundar e quando parar
 
@@ -161,9 +161,9 @@ Otimização de tokens tem retorno decrescente. Vale aprofundar enquanto a fatur
 
 1. Por que o "preço por token" é o termo trivial da fórmula de custo composto, e quais são os três multiplicadores que de fato escalam a fatura?
 2. Em que ordem as três alavancas arquiteturais devem ser atacadas, e por que começar pela poda de contexto é o erro mais comum?
-3. Por que roteamento por tier exige golden set, e o que o Princípio 7 tem a ver com isso?
+3. Por que roteamento por tier exige golden set, e o que o Invariante 7 tem a ver com isso?
 4. Por que output costuma ser o token mais caro, e como isso muda a prioridade de controle de verbosidade?
-5. Como o Capítulo 18 se conecta com o Princípio 5 (Custo Composto) e com o Framework F7?
+5. Como o Capítulo 18 se conecta com o Invariante 5 (Custo Composto) e com o Framework F7?
 
 ## 18.10 — Exercícios práticos
 

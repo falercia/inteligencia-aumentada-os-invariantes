@@ -21,7 +21,7 @@ O pré-requisito de leitura recomendado é ter passado pelos Capítulos 1, 2 e 3
 
 ## Mapa de boxes
 
-| Box | Tema | Capítulo onde aparece referência | Princípio relacionado |
+| Box | Tema | Capítulo onde aparece referência | Invariante relacionado |
 |---|---|---|---|
 | 1 | Mixture of Experts (MoE) | C02, C15 | P5 — Custo Composto |
 | 2 | Speculative Decoding | C02, C18 | P5 — Custo Composto |
@@ -33,9 +33,9 @@ O pré-requisito de leitura recomendado é ter passado pelos Capítulos 1, 2 e 3
 | 8 | Faithfulness de Chain of Thought | C10, C23 | P1 — Plausibilidade |
 | 9 | Interpretabilidade Mecanicista | C28 | P7 — Termômetro |
 | 10 | Scaling Laws | C02, C15 | P5 — Custo Composto |
-| 11 | Matriz de Interações entre os Conceitos | Transversal, referencia todos os anteriores | Transversal aos nove Princípios |
+| 11 | Matriz de Interações entre os Conceitos | Transversal, referencia todos os anteriores | Transversal aos nove Invariantes |
 
-> *Nota: os Princípios (P1 a P9) são definidos no capítulo de abertura "Os Nove Invariantes da Inteligência Artificial". Verbetes rápidos em ordem alfabética estão no Apêndice A — Glossário.*
+> *Nota: os Invariantes (P1 a P9) são definidos no capítulo de abertura "Os Nove Invariantes da Inteligência Artificial". Verbetes rápidos em ordem alfabética estão no Apêndice A — Glossário.*
 
 ---
 

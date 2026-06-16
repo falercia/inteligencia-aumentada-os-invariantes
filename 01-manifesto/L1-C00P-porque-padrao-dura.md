@@ -20,7 +20,7 @@ O ritmo de release no campo de IA generativa tem uma característica que diferen
 
 A consequência operacional para o executivo é menos óbvia do que parece. O CTO que tenta acompanhar a fronteira por consumo direto de notícias técnicas, em vez de por consumo estruturado de padrão, gasta um terço da semana lendo material que envelhece em três meses, e perde a capacidade de distinguir entre o que precisa ser lembrado para a próxima decisão e o que pode ser esquecido sem custo. A tomada de decisão executiva degrada porque o filtro mental do decisor está saturado de informação que não serve mais, e o sinal de longo prazo, ou seja, o padrão que ajuda a decidir corretamente em mais de uma geração de modelo, é abafado pelo ruído de release.
 
-A Camada Dupla, terceiro dos Nove Princípios, é a resposta institucional a esse problema. Em vez de tratar todo conteúdo técnico como se tivesse a mesma meia-vida, o operador separa explicitamente o que dura — princípio, padrão arquitetural, mecânica de trade-off, fundação conceitual — do que muda — versão, preço, benchmark, janela de contexto, capacidade nova de produto. O padrão entra na cabeça do operador para revisão pessoal periódica, com cadência longa medida em meses ou trimestres. O número entra no Apêndice J para consulta sob demanda, antes de cada decisão executiva relevante. O resultado é que a decisão executiva passa a ser informada pelas duas camadas separadamente, com cada uma puxada da fonte certa, e a memória profissional para de envelhecer junto com o release.
+A Camada Dupla, terceiro dos Nove Invariantes, é a resposta institucional a esse problema. Em vez de tratar todo conteúdo técnico como se tivesse a mesma meia-vida, o operador separa explicitamente o que dura — princípio, padrão arquitetural, mecânica de trade-off, fundação conceitual — do que muda — versão, preço, benchmark, janela de contexto, capacidade nova de produto. O padrão entra na cabeça do operador para revisão pessoal periódica, com cadência longa medida em meses ou trimestres. O número entra no Apêndice J para consulta sob demanda, antes de cada decisão executiva relevante. O resultado é que a decisão executiva passa a ser informada pelas duas camadas separadamente, com cada uma puxada da fonte certa, e a memória profissional para de envelhecer junto com o release.
 
 A escolha por essa arquitetura cognitiva não é estética. É consequência direta de uma observação empírica robusta, repetida em ciclos diferentes da história recente da tecnologia de dados, que está documentada nos próximos casos. Em cada um deles, uma geração inteira de operadores confundiu número com padrão e pagou a conta da confusão em projeto cancelado, time desmotivado e dois anos de atraso competitivo. Os exemplos são selecionados porque envolvem empresas de capital aberto ou laboratórios com produção pública verificável, e porque a janela de obsolescência foi curta o bastante para ainda ser memória viva de quem trabalha com IA hoje.
 
@@ -90,7 +90,7 @@ A lição estrutural é direta. **Framework de agente é número, com meia-vida 
 
 O padrão é, por definição, uma abstração sobre a operação. Ele descreve a forma da decisão, do trade-off, da estrutura, independentemente do detalhe de implementação que materializa essa forma em um produto específico. A separação entre storage e compute é padrão porque descreve uma propriedade arquitetural — onde os dados moram em relação a onde a computação acontece — que existe em MapReduce de forma rudimentar, em Spark de forma mais clara, e em arquiteturas lakehouse de forma plena, e continuará existindo na próxima geração de plataforma de dados qualquer que seja seu nome comercial. A atenção é padrão porque descreve um mecanismo cognitivo do modelo — alocar peso de processamento para partes do contexto em função de relevância — que sobrevive a qualquer ajuste de implementação porque resolve um problema estrutural que qualquer arquitetura generativa precisa resolver.
 
-Padrões sobrevivem a mudança de fornecedor, de framework e de geração de modelo porque operam no nível da decisão e do trade-off, não no nível do produto. Eles não competem com release, eles emolduram o release. A escolha por princípio em vez de por moda, princípio quatro dos Nove, é exatamente essa decisão metodológica de operar no nível durável em vez de no nível volátil. Quando o operador internaliza a propriedade abstrata, ele consegue avaliar o produto novo no momento em que aparece, classificá-lo em relação aos trade-offs que conhece, e decidir com critério estável, em vez de reagir ao número da semana.
+Padrões sobrevivem a mudança de fornecedor, de framework e de geração de modelo porque operam no nível da decisão e do trade-off, não no nível do produto. Eles não competem com release, eles emolduram o release. A escolha por princípio em vez de por moda, invariante quatro dos Nove, é exatamente essa decisão metodológica de operar no nível durável em vez de no nível volátil. Quando o operador internaliza a propriedade abstrata, ele consegue avaliar o produto novo no momento em que aparece, classificá-lo em relação aos trade-offs que conhece, e decidir com critério estável, em vez de reagir ao número da semana.
 
 O padrão também dura porque sua taxa de inovação é diferente. A literatura científica de fundação técnica, em campos como sistemas distribuídos, teoria da informação, otimização, álgebra linear aplicada, evolui em escala de décadas, e os princípios derivados dessa literatura mudam pouco em janelas que parecem longas no calendário de release de fornecedor mas são curtas na história da disciplina. O operador que ancora seu vocabulário conceitual nessas fundações herda parte da estabilidade delas, em vez de surfar a turbulência da camada de produto.
 
@@ -114,21 +114,21 @@ O executivo que decora padrão e consulta número paga juros simples em tempo de
 
 A vantagem da Rota Dupla escala com o nível de senioridade. Para o engenheiro júnior, decorar número é tentador porque dá sensação de domínio técnico rápido. Para o gerente intermediário, o número entra em apresentação executiva e parece justificar a decisão. Para o CTO, o número decorado vira passivo institucional, e o padrão internalizado vira o ativo mais durável da carreira, porque é o que continua relevante quando o CTO troca de empresa, quando a empresa troca de fornecedor, quando o fornecedor troca de roadmap. O capital intelectual de um executivo que opera com camada dupla é portável; o de um executivo que opera sem ela é específico ao release.
 
-Há uma consequência secundária menos óbvia. O CTO que decorou padrão consegue formar time. Quando ele explica uma decisão de stack a um engenheiro júnior, ele explica o padrão que sustenta a decisão, e o engenheiro herda capacidade de raciocínio aplicável a próximas decisões. Quando ele explica um número, ele transmite informação com data de validade, e o engenheiro precisa atualizar o conhecimento na próxima rodada de release. A multiplicação de competência através de equipe, princípio nove dos Nove, depende crucialmente de o que está sendo multiplicado ser padrão durável, porque número volátil não multiplica, ele se dissipa.
+Há uma consequência secundária menos óbvia. O CTO que decorou padrão consegue formar time. Quando ele explica uma decisão de stack a um engenheiro júnior, ele explica o padrão que sustenta a decisão, e o engenheiro herda capacidade de raciocínio aplicável a próximas decisões. Quando ele explica um número, ele transmite informação com data de validade, e o engenheiro precisa atualizar o conhecimento na próxima rodada de release. A multiplicação de competência através de equipe, invariante nove dos Nove, depende crucialmente de o que está sendo multiplicado ser padrão durável, porque número volátil não multiplica, ele se dissipa.
 
 ---
 
-## P.8.5 — NOTA EDITORIAL AO LEITOR ANTES DOS PRINCÍPIOS
+## P.8.5 — NOTA EDITORIAL AO LEITOR ANTES DOS INVARIANTES
 
-Os Nove Princípios que vêm a seguir não são confirmação do que você acabou de ler, são o sistema operacional que sustenta esta intuição em casos onde a história ainda não terminou. Este capítulo manifesto entrega vocabulário convincente para almoço, conselho técnico e conversa entre pares, e isso já é mais do que a maioria dos operadores carrega quando enfrenta uma decisão de IA. Os Princípios, em contraste, entregam método para a próxima decisão, com mecânica, exemplo memorável, framework operacional, anti-padrão e exercício. Quem fica só neste capítulo sai armado de tese; quem segue para os princípios sai armado de prática. A obra foi desenhada para que as duas trilhas se reforcem, jamais para que a primeira substitua a segunda.
+Os Nove Invariantes que vêm a seguir não são confirmação do que você acabou de ler, são o sistema operacional que sustenta esta intuição em casos onde a história ainda não terminou. Este capítulo manifesto entrega vocabulário convincente para almoço, conselho técnico e conversa entre pares, e isso já é mais do que a maioria dos operadores carrega quando enfrenta uma decisão de IA. Os Invariantes, em contraste, entregam método para a próxima decisão, com mecânica, exemplo memorável, framework operacional, anti-padrão e exercício. Quem fica só neste capítulo sai armado de tese; quem segue para os invariantes sai armado de prática. A obra foi desenhada para que as duas trilhas se reforcem, jamais para que a primeira substitua a segunda.
 
-A leitura linear é a recomendada para o primeiro contato com a obra, e cada princípio adiante carrega a intuição construída aqui sob forma operacionalizada. O método de revisão sugerido é o inverso: voltar a este capítulo a cada doze meses como termômetro de internalização, e voltar aos princípios sempre que uma decisão concreta exigir o framework correspondente. Quem usar o livro dessa forma extrai juros compostos sobre o conhecimento; quem ler apenas o manifesto e deixar os princípios na estante recebe a intuição sem a alavanca que ela merece.
+A leitura linear é a recomendada para o primeiro contato com a obra, e cada invariante adiante carrega a intuição construída aqui sob forma operacionalizada. O método de revisão sugerido é o inverso: voltar a este capítulo a cada doze meses como termômetro de internalização, e voltar aos invariantes sempre que uma decisão concreta exigir o framework correspondente. Quem usar o livro dessa forma extrai juros compostos sobre o conhecimento; quem ler apenas o manifesto e deixar os invariantes na estante recebe a intuição sem a alavanca que ela merece.
 
 ---
 
 ## P.9 — CONVITE AO LIVRO
 
-A partir daqui, o leitor entra na sequência dos Nove Princípios em forma de capítulos com profundidade técnica, exemplos memoráveis, frameworks proprietários derivados, exercícios de aplicação e conexões cruzadas. O Capítulo 1 abre com a fundação sobre o que é IA na arquitetura generativa atual. O Apêndice J permanece como portal vivo do número — versões, preços, benchmarks, atualizados sem cadência fixa mas com fonte e data por linha.
+A partir daqui, o leitor entra na sequência dos Nove Invariantes em forma de capítulos com profundidade técnica, exemplos memoráveis, frameworks proprietários derivados, exercícios de aplicação e conexões cruzadas. O Capítulo 1 abre com a fundação sobre o que é IA na arquitetura generativa atual. O Apêndice J permanece como portal vivo do número — versões, preços, benchmarks, atualizados sem cadência fixa mas com fonte e data por linha.
 
 A recomendação é simples: padrão no corpo do livro, número no Apêndice J. Quem opera com essa separação ganha proteção contra a obsolescência que destruiu carreiras no ciclo do Hadoop, do LSTM, do fine-tuning e do LangChain — e vai ganhar no próximo ciclo, qualquer que seja seu nome.
 
@@ -152,12 +152,12 @@ A recomendação é simples: padrão no corpo do livro, número no Apêndice J. 
 
 ## P.10 — CONEXÕES
 
-- 🔗 **Manifesto dos Nove Princípios** → L1-C00M-manifesto-invariantes.md
+- 🔗 **Manifesto dos Nove Invariantes** → L1-C00M-manifesto-invariantes.md
 - 🔗 **Capítulo 1 — O que é IA na arquitetura generativa atual** → próximo capítulo
 - 🔗 **F9 — Rota Dupla de Adoção** → L1-F9-rota-dupla.md
 - 🔗 **Apêndice J — Trilha do Número** → portal vivo do número
-- 🔗 **Princípio 3 — Camada Dupla** → seção do Manifesto
-- 🔗 **Princípio 4 — Encaixe** → seção do Manifesto
+- 🔗 **Invariante 3 — Camada Dupla** → seção do Manifesto
+- 🔗 **Invariante 4 — Encaixe** → seção do Manifesto
 
 ---
 
@@ -168,8 +168,8 @@ A recomendação é simples: padrão no corpo do livro, número no Apêndice J. 
 | 1 | **Clareza** — Explicar a um par de diretoria, em até três minutos, por que padrão dura e número morre, usando pelo menos um dos quatro casos históricos como evidência | ☐ |
 | 2 | **Profundidade** — Defender, em discussão técnica com um arquiteto sênior, por que a separação entre storage e compute, a noção de atenção, a hierarquia prompt→RAG→fine-tuning e o loop perceber-planejar-agir-observar-refletir são padrões duráveis e não modas | ☐ |
 | 3 | **Aplicação** — Listar, em uma página, o que você mantém na cabeça e o que delega ao Apêndice J para cada decisão de IA aberta na sua organização hoje | ☐ |
-| 4 | **Conexão** — Articular como este capítulo se conecta ao Manifesto, ao F9 e ao princípio 3, e por que ele é pré-requisito para o Capítulo 1 | ☐ |
-| 5 | **Curiosidade ativa** — Está com vontade de entrar no Capítulo 1 já operando com a moldura padrão × número instalada na cabeça | ☐ |
+| 4 | **Conexão** — Articular como este capítulo se conecta ao Manifesto, ao F9 e ao invariante 3, e por que ele é pré-requisito para o Capítulo 1 | ☐ |
+| 5 | **Curiosidade** — Está com vontade de entrar no Capítulo 1 já operando com a moldura padrão × número instalada na cabeça | ☐ |
 
 ---
 
