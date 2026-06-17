@@ -97,7 +97,7 @@ Primeiro, os números mais voláteis foram movidos para o Apêndice J. Isso libe
 
 Segundo, os números mais usados na obra são qualificados como faixa observada, com palavra como "tipicamente", "observado em", "cerca de", o que evita pretensão de precisão que não se sustenta. Faixa qualificada não exige fonte pontual, exige metodologia da auditoria, que está descrita neste apêndice.
 
-Terceiro, as afirmações categóricas que sustentam tese estrutural recebem nota de rodapé com link na primeira aparição. São aproximadamente quinze a vinte casos no livro inteiro, e a contenção é deliberada, para que a nota seja sinal de que o número importa, em vez de virar ruído onipresente. A lista completa desses casos está no arquivo `auditoria-quantitativa-l1.md` do repositório, coluna "Tipo A com nota de rodapé", atualizada a cada revisão do manuscrito.
+Terceiro, as afirmações categóricas que sustentam tese estrutural recebem nota de rodapé com link na primeira aparição. São aproximadamente quinze a vinte casos no livro inteiro, e a contenção é deliberada, para que a nota seja sinal de que o número importa, em vez de virar ruído onipresente. Esses casos aparecem marcados no próprio texto, na primeira aparição de cada número categórico, e podem ser auditados linha a linha pelo método descrito neste apêndice.
 
 A combinação dessas três regras mantém o livro legível, deixa o número auditável quando necessário, e protege o autor contra o envelhecimento que afetaria qualquer obra que prometesse precisão que o campo não permite.
 
