@@ -37,5 +37,36 @@ O livro (Apêndice N) afirma: *"A lista completa desses casos está no arquivo `
 
 ---
 
-## Ressalva
-Auditoria de conteúdo e estrutura, não de execução: não rodei os scripts (`extract-prompts.py`, evals, agents) nem validei os golden sets. Se quiser garantia de que os exemplos rodáveis de fato rodam, é uma segunda passada (montar ambiente e executar a suíte).
+## Auditoria de execução (2026-06-17)
+
+Rodei o harness em modo offline (deps `pyyaml`/`anthropic` instalam limpo; sem chamar API). Achados:
+
+### 🔴 EXEC-1 — Pipeline de evals quebrado por deriva de esquema (alto)
+O **gerador** `extract-prompts.py` escreve o golden set como **`golden-set.yaml`** (com hífen), nas 30 pastas de prompt de nome longo (`P-LEG-01-clausula-nao-concorrencia-clt/`). Mas os **consumidores** `compile_golden_sets.py` (linha 78) e `eval_runner.py` (linha 302) leem **`golden.yaml`** (sem hífen), por ID curto (`P-LEG-01`). Resultado: **`compile_golden_sets.py` falha para os 30 prompts** — o "motor de regressão executável", carro-chefe do repo, não roda como está. Há ainda **3 pastas-stub** (`P-LEG-01`, `P-MED-01`, `P-SUP-01`) com o esquema antigo (`golden.yaml` + `eval.config.yaml`), duplicando as completas.
+**Correção:** reconciliar o esquema — alinhar o nome do arquivo (gerador é a fonte: `golden-set.yaml`) e o ID de pasta (curto vs longo) entre gerador e runner, e remover as 3 stubs. É decisão de design (qual nomenclatura é canônica).
+
+### 🟡 EXEC-2 — Caminho local fixo no `extract-prompts.py` (médio)
+O script aponta para o APX-L num caminho absoluto da máquina do autor (`/Users/fabiogarcia/.../L1-APX-L-...md`). Roda só no computador do Fabio; falha em qualquer clone (e o livro é privado). Aceitável como ferramenta de autor, mas frágil.
+**Correção:** ler o caminho de variável de ambiente ou argumento, com o atual como default.
+
+### ✅ O que roda
+Dependências instalam limpo; os 30 prompts têm conteúdo rico e versionado (`prompt.xml`, `golden-set.yaml`, `README`, `anti-padroes`, `changelog`); a lógica dos scripts é sólida. O bloqueio é a fiação (nomes/IDs), não o conteúdo.
+
+> Não rodei o modo *live* (precisa de `ANTHROPIC_API_KEY` — não usei sua cota). A validação live dos golden sets contra a API fica para quando você quiser, na sua máquina.
+
+---
+
+## Reparos aplicados (commits locais — falta `git push` da sua máquina)
+
+| Repo | Commit | O quê |
+|---|---|---|
+| livro | `b9e17d3` | APX-N: remove referência ao arquivo inexistente (reparo 2); relatórios de posicionamento e auditoria |
+| recursos | `31be39e` | Reparo 1: terminologia Princípios→Invariantes (27 trocas) |
+| recursos | `4bcb475` | EXEC-1/EXEC-2: harness de evals alinhado ao gerador |
+
+**O que o fix do harness destravou:** `compile_golden_sets.py` e `eval_runner.py` agora leem `golden-set.yaml`, resolvem ID curto→pasta longa e localizam `prompt.xml`/golden em pastas irmãs. O **dry-run roda fim-a-fim** nos 3 exemplares executáveis (`P-LEG-01`, `P-MED-01`, `P-SUP-01` — 20 casos cada). O compile passou a **distinguir honestamente** golden set executável de descritivo.
+
+### ⚠️ Backlog do AUTOR (não automatizável — é calibração/PI sua)
+1. **27 dos 30 golden sets são DESCRITIVOS** (`casos:` em prosa), não executáveis (`cases:` com `input`/`expected`). Só 3 estão no formato que o motor roda. Para o repo cumprir a promessa de "motor de regressão executável" em todos, é preciso **calibrar as asserções dos outros 27** — trabalho de domínio, não de wiring. Não fabriquei essas asserções de propósito (seriam números sem lastro).
+2. **Consolidar a estrutura:** hoje, num prompt executável, o `prompt.xml` está na pasta longa e o golden executável na pasta curta (stub). Unificar um prompt = uma pasta com `prompt.xml` + `golden-set.yaml` executável + `eval.config.yaml`.
+3. **Limpeza:** após (1)/(2), os 3 stubs curtos deixam de ser necessários; `datasets/*.jsonl` já estão no `.gitignore` como artefato.
