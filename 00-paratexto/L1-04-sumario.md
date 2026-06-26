@@ -5,34 +5,26 @@
 
 ## PARATEXTO INICIAL
 
-*(Paginação romana no paratexto; paginação arábica a partir de p. 1 no corpo da obra.)*
-
-| Seção | pg |
-|---|---:|
-| Dedicatória | ii |
-| Por que este livro — proposta de valor e ganhos por perfil | iii |
-| Sobre os Casos desta Obra — pacto editorial | vi |
-| Prefácio | xi |
-| Como Ler Este Livro | xv |
-| Introdução | xxi |
-| Sumário (este) | xxvii |
-| Mapa de Leitura por Nível | xxxiii |
-| Repositório Acompanhante | xlii |
+- Dedicatória
+- Por que este livro — proposta de valor e ganhos por perfil
+- Sobre os Casos desta Obra — pacto editorial
+- Prefácio
+- Como Ler Este Livro
+- Introdução
+- Sumário (este)
+- Mapa de Leitura por Nível
+- Repositório Acompanhante
 
 ---
 
 ## OS NOVE INVARIANTES
 
-| Seção | pg |
-|---|---:|
-| Manifesto — Os Nove Invariantes da Inteligência Artificial | 1 |
-| Por Que Padrão Dura e Número Morre — fundação intelectual da Camada Dupla | 22 |
+- Manifesto — Os Nove Invariantes da Inteligência Artificial
+- Por Que Padrão Dura e Número Morre — fundação intelectual da Camada Dupla
 
 ---
 
-## PARTE 1 — FUNDAMENTOS DA INTELIGÊNCIA ARTIFICIAL · pg 34
-
-> *Numeração de página por capítulo: a definir após diagramação final. As páginas das Partes são estimativas de produção.*
+## PARTE 1 — FUNDAMENTOS DA INTELIGÊNCIA ARTIFICIAL
 
 | # | Capítulo | Invariante central |
 |---|----------|-------------------|
@@ -47,7 +39,7 @@
 
 ---
 
-## PARTE 2 — ENGENHARIA DE PROMPT E RACIOCÍNIO · pg 146
+## PARTE 2 — ENGENHARIA DE PROMPT E RACIOCÍNIO
 
 | # | Capítulo | Invariante central |
 |---|----------|-------------------|
@@ -57,7 +49,7 @@
 
 ---
 
-## PARTE 3 — AGENTES E IA MODERNA · pg 187
+## PARTE 3 — AGENTES E IA MODERNA
 
 | # | Capítulo | Invariante central |
 |---|----------|-------------------|
@@ -69,7 +61,7 @@
 
 ---
 
-## PARTE 4 — MODELOS DE IA · pg 259
+## PARTE 4 — MODELOS DE IA
 
 | # | Capítulo | Invariante central |
 |---|----------|-------------------|
@@ -78,7 +70,7 @@
 
 ---
 
-## PARTE 5 — TÓPICOS AVANÇADOS · pg 298
+## PARTE 5 — TÓPICOS AVANÇADOS
 
 | # | Capítulo | Invariante central |
 |---|----------|-------------------|
@@ -99,41 +91,41 @@
 
 ## FRAMEWORKS DA OBRA
 
-| Framework | Invariante central | pg |
-|-----------|-------------------|---:|
-| F1 — Método de Decisão para Adotar IA | Operador | 630 |
-| F2 — Diagnóstico de Encaixe entre Tarefa e Modelo | Encaixe | 634 |
-| F3 — Escala de Propriedade do Agente | Autonomia Proporcional | 639 |
-| F4 — Engenharia de Prompt Estendida | Extremidades, Camada Dupla | 644 |
-| F5 — Matriz de Cobertura de Integrações | Autonomia Proporcional, Encaixe | 649 |
-| F6 — Governança Indelegável | Responsabilidade Indelegável | 660 |
-| F7 — Custo Composto em Três Tempos | Custo Composto, Operador | 665 |
-| F8 — Pirâmide da Avaliação | Termômetro | 670 |
-| F9 — Rota Dupla de Adoção | Camada Dupla | 676 |
+| Framework | Invariante central |
+|-----------|-------------------|
+| F1 — Método de Decisão para Adotar IA | Operador |
+| F2 — Diagnóstico de Encaixe entre Tarefa e Modelo | Encaixe |
+| F3 — Escala de Propriedade do Agente | Autonomia Proporcional |
+| F4 — Engenharia de Prompt Estendida | Extremidades, Camada Dupla |
+| F5 — Matriz de Cobertura de Integrações | Autonomia Proporcional, Encaixe |
+| F6 — Governança Indelegável | Responsabilidade Indelegável |
+| F7 — Custo Composto em Três Tempos | Custo Composto, Operador |
+| F8 — Pirâmide da Avaliação | Termômetro |
+| F9 — Rota Dupla de Adoção | Camada Dupla |
 
 ---
 
 ## APÊNDICES
 
-| ID | Apêndice | pg |
-|----|----------|---:|
-| A | Glossário Completo | 681 |
-| B | Mapa Mental Geral | 689 |
-| C | Roadmaps Detalhados por Persona | 698 |
-| D | Ferramentas e Stack — curadoria datada | 706 |
-| E | Leituras Complementares | 718 |
-| F | Comunidade Brasileira de IA em 2026 | 721 |
-| G | Papers Fundamentais | 730 |
-| H | Bibliografia Completa | 735 |
-| I | Índice Remissivo | 741 |
-| J | Trilha do Número — versões, preços, benchmarks, papers, regulação datados | 746 |
-| K | Gabaritos Comentados | 762 |
-| L | Biblioteca de Prompts Profissionais — 30 fichas | 767 |
-| M | Manifesto de Bolso — Os Nove Invariantes em Uma Página | 825 |
-| N | Postura Metodológica sobre os Números desta Obra | 829 |
-| O | Caderno de Governança v1 | 837 |
-| P | Boxes Técnicos — 11 boxes técnicos | 849 |
-| Q | Manual do Professor — planos de curso, projeto final, rubrica | 882 |
+| ID | Apêndice |
+|----|----------|
+| A | Glossário Completo |
+| B | Mapa Mental Geral |
+| C | Roadmaps Detalhados por Persona |
+| D | Ferramentas e Stack — curadoria datada |
+| E | Leituras Complementares |
+| F | Comunidade Brasileira de IA em 2026 |
+| G | Papers Fundamentais |
+| H | Bibliografia Completa |
+| I | Índice Remissivo |
+| J | Trilha do Número — versões, preços, benchmarks, papers, regulação datados |
+| K | Gabaritos Comentados |
+| L | Biblioteca de Prompts Profissionais — 30 fichas |
+| M | Manifesto de Bolso — Os Nove Invariantes em Uma Página |
+| N | Postura Metodológica sobre os Números desta Obra |
+| O | Caderno de Governança v1 |
+| P | Boxes Técnicos — 11 boxes técnicos |
+| Q | Manual do Professor — planos de curso, projeto final, rubrica |
 
 ---
 
